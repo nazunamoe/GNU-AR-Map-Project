@@ -92,6 +92,12 @@ public class MixareDataProcessor extends DataHandler implements DataProcessor{
 				// 기본적으로 mixare에서 사용하는 마커의 데이터 형식은 위와 같음
 				// 각각 id, 이름 (아무래도 하이퍼링크?), 위도 경도, 높이, 링크, taskId, 색을 나타내는데 
 				// 이것을 이용해서 우리가 새로 데이터 프로세서를 만들어야할듯 
+				// taskid는 아무리봐도 쓸데가 없움, 그냥 0으로 세팅하면 될듯
+				// 색상은 나중에 조건문으로 적당히 세팅.
+				// 색상을 int형으로 받는 부분은 https://stackoverflow.com/questions/18022364/how-to-convert-rgb-color-to-int-in-java 를 참조하면 될듯함
+				
+				// 결론 : ID, 이름 (이곳에서는 JSON 데이터 처리 때문에 복잡해보이지만 결론은 이름이다), 위도, 경도, 높이, URL, taskID(0으로 일단 세팅), 컬러(위 링크 참조)
+				// 로 데이터 형을 구성해서 목록을 넘겨줄수 있으면 OK, 데이터베이스 없이 구현한다.
 				markers.add(ma);
 			}
 		}
