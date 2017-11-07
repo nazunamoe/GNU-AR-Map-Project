@@ -96,6 +96,8 @@ public class MixListView extends ListActivity {
 			selectedItemURL.add("search");
 		}
 		/*add all marker items to a title and a URL Vector*/
+		// 마커 리스트에 마커를 기록하는 부분, 이 곳을 후킹하여 우리가 쓸 새로운 메소드에서 공유 데이터로부터 받아온 데이터를 재구성하여 마커의 형태로 만든 뒤 이 메소드에서 리스트 형태로 만들어낸다!
+
 		for (int i = 0; i < jLayer.getMarkerCount(); i++) {
 			Marker ma = jLayer.getMarker(i);
 			if(ma.isActive()) {

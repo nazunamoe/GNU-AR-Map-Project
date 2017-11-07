@@ -27,6 +27,8 @@ import android.content.SharedPreferences;
  * Singleton slass that manages the storage of datasources
  * You can add, edit or delete a datasource through this class.
  */
+ 
+ // 데이터 소스 저장소. 데이터 소스 리스트에 있는 URL 정보를 관리한다,
 public class DataSourceStorage {
 
 	private SharedPreferences settings;

@@ -38,11 +38,11 @@ import android.util.Log;
  */
 public class DataHandler {
 	
-	// complete marker list
+	// 완성된 마커 리스트
 	private List<Marker> markerList = new ArrayList<Marker>();
 	
 	public void addMarkers(List<Marker> markers) {
-
+	// 마커 추가
 		Log.v(MixView.TAG, "Marker before: "+markerList.size());
 		for(Marker ma:markers) {
 			if(!markerList.contains(ma))
@@ -52,10 +52,12 @@ public class DataHandler {
 		Log.d(MixView.TAG, "Marker count: "+markerList.size());
 	}
 	
+	// 마커 리스트 정렬
 	public void sortMarkerList() {
 		Collections.sort(markerList); 
 	}
 	
+	// 위치를 이용해서 현재 위치와의 거리 측정
 	public void updateDistances(Location location) {
 		for(Marker ma: markerList) {
 			float[] dist=new float[3];
@@ -64,6 +66,7 @@ public class DataHandler {
 		}
 	}
 	
+	// 활성화 상태 업데이트...??
 	public void updateActivationStatus(MixContext mixContext) {
 		
 		Hashtable<Class, Integer> map = new Hashtable<Class, Integer>();
@@ -80,6 +83,7 @@ public class DataHandler {
 		}
 	}
 		
+	// 장소가 변함에 따라서 마커 리스트를 정렬함
 	public void onLocationChanged(Location location) {
 		updateDistances(location);
 		sortMarkerList();

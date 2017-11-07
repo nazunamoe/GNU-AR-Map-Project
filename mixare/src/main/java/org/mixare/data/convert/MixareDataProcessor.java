@@ -89,6 +89,9 @@ public class MixareDataProcessor extends DataHandler implements DataProcessor{
 						jo.getDouble("elevation"), 
 						link, 
 						taskId, colour);
+				// 기본적으로 mixare에서 사용하는 마커의 데이터 형식은 위와 같음
+				// 각각 id, 이름 (아무래도 하이퍼링크?), 위도 경도, 높이, 링크, taskId, 색을 나타내는데 
+				// 이것을 이용해서 우리가 새로 데이터 프로세서를 만들어야할듯 
 				markers.add(ma);
 			}
 		}

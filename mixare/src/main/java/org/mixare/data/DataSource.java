@@ -40,6 +40,8 @@ import android.widget.TextView;
  * @author hannes
  * 
  */
+ 
+ // 이건 마커 정보에 따라서 URL을 생성하는 부분이므로 우리 프로젝트엔 그다지 유용성이 없는 것으로 판단됨.
 public class DataSource extends Activity {
 
 	private String name;

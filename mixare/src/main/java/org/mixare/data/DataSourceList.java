@@ -44,6 +44,8 @@ import android.widget.ListView;
 import android.widget.TextView;
 import android.widget.Toast;
 
+// 데이터 소스 목록을 구현하는 소스, 역시 프로젝트엔 그렇게 유용한것 같지는 않다.
+
 public class DataSourceList extends ListActivity {
 	
 	public static final String SHARED_PREFS = "DataSourcesPrefs";
