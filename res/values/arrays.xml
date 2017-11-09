@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+	<string-array name="datasourcetypelist">
+	    <item>@string/WIKIPEDIA</item>
+	    <item>@string/TWITTER</item>
+		<item>@string/OSM</item>
+	    <item>@string/MIXARE</item>
+		<item>@string/ARENA</item>
+		<item>@string/PANORAMIO</item>
+	</string-array>
+	<string-array name="displaytypelist">
+		<item>@string/CIRCLE_MARKER</item>
+		<item>@string/NAVIGATION_MARKER</item>
+		<item>@string/IMAGE_MARKER</item>
+		<item>@string/OPENGL_MARKER</item>
+	</string-array>
+	<string-array name="blurgps">
+	    <item>@string/none</item>
+	    <item>@string/add_random</item>
+	    <item>@string/truncate</item>
+	</string-array>
+</resources>
