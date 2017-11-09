@@ -62,7 +62,6 @@ public class PluginLoaderActivity extends Activity {
 	}
 
 	private void exitSplash() {
-		loadPlugins();
 		startMixare();
 	}
 
