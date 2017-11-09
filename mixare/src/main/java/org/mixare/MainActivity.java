@@ -5,6 +5,8 @@ import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 
+import junit.framework.Test;
+
 /**
  * This is the main activity of mixare, that will be opened if mixare is
  * launched through the android.intent.action.MAIN the main tasks of this

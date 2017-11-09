@@ -894,6 +894,7 @@ public class MixView extends Activity implements SensorEventListener, OnTouchLis
 		}
 
 		ArrayList<Marker> searchResults = new ArrayList<Marker>();
+
 		if (jLayer.getMarkerCount() > 0) {
 			for (int i = 0; i < jLayer.getMarkerCount(); i++) {
 				Marker ma = jLayer.getMarker(i);
