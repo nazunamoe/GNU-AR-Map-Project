@@ -11,6 +11,7 @@ import org.mixare.data.DataHandler;
 import org.mixare.lib.HtmlUnescape;
 import org.mixare.lib.marker.Marker;
 
+
 import java.util.ArrayList;
 import java.util.List;
 
@@ -40,7 +41,28 @@ public class GNUDataProcessor extends DataHandler implements DataProcessor {
     @Override
     public List<Marker> load(String rawData, int taskId, int colour) throws JSONException {
         List<Marker> markers = new ArrayList<Marker>();
+        int max = 1;
+        for (int i = 0; i < max; i++) {
+
+            Marker ma = null;
+                String id = "0";
+                String link="http://anse.gnu.ac.kr/anse/main.do";
+
+
+                ma = new POIMarker(
+                        id,
+                        HtmlUnescape.unescapeHTML(("디버그"), 0),
+                        35.262898,
+                        128.639501,
+                        21,
+                        link,
+                        0, android.R.color.black);
+
+                markers.add(ma);
+        }
         return markers;
     }
+
+
 
 }
