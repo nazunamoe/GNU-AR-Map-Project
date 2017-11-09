@@ -2,8 +2,6 @@ package org.mixare;
 
 import java.util.List;
 
-import org.mixare.plugin.PluginType;
-
 import android.app.Activity;
 import android.app.AlertDialog;
 import android.content.Context;
@@ -35,9 +33,6 @@ public class MainActivity extends Activity {
 	public void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		ctx = this;
-		if(arePluginsAvailable() && isDecisionRemembered()){
-			showDialog();
-		}else{
 			if(getRememberedDecision()){ 		//yes button
 				startActivity(new Intent(ctx, PluginLoaderActivity.class));
 				finish();
@@ -45,7 +40,6 @@ public class MainActivity extends Activity {
 				startActivity(new Intent(ctx, MixView.class));
 				finish();
 			}
-		}
 	}	
 
 	/**
@@ -84,22 +78,7 @@ public class MainActivity extends Activity {
 		SharedPreferences sharedPreferences = getSharedPreferences(usePluginsPrefs, MODE_PRIVATE);
 		return !sharedPreferences.contains(usePluginsKey);
 	}
-	
-	private boolean arePluginsAvailable(){
-		PluginType[] allPluginTypes = PluginType.values();
-		for(PluginType pluginType : allPluginTypes){
-			PackageManager packageManager = getPackageManager();
-			Intent baseIntent = new Intent(pluginType.getActionName());
-			List<ResolveInfo> list = packageManager.queryIntentServices(baseIntent,
-					PackageManager.GET_RESOLVED_FILTER);
-			
-			if(list.size() > 0){
-				return true;
-			}
-		}
-		return false;
-	}
-	
+
 	private void processCheckbox(boolean loadplugin, CheckBox checkBox){
 		if(checkBox.isChecked()){
 			SharedPreferences sharedPreferences = getSharedPreferences(usePluginsPrefs, MODE_PRIVATE);

@@ -1,8 +1,6 @@
 package org.mixare;
 
 import org.mixare.data.DataSourceStorage;
-import org.mixare.plugin.PluginLoader;
-import org.mixare.plugin.PluginType;
 
 import android.app.Activity;
 import android.content.Intent;
@@ -30,13 +28,9 @@ public class PluginLoaderActivity extends Activity {
 	@Override
 	public void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
-		PluginLoader.getInstance().setActivity(this);
-		PluginLoader.getInstance().loadPlugin(PluginType.BOOTSTRAP_PHASE_1);
 		DataSourceStorage.init(this);
 
-		if (arePendingActivitiesFinished()) {
-			startDefaultSplashScreen();
-		}
+		startDefaultSplashScreen();
 	}
 
 	private void startDefaultSplashScreen() {
@@ -79,20 +73,15 @@ public class PluginLoaderActivity extends Activity {
 		processDataSourceFromPlugin(data);
 		procesCustomSplashScreen(data);
 
-		PluginLoader.getInstance().decreasePendingActivitiesOnResult();
 		startMixare();
 	}
 
 	private void startMixare() {
-		if (arePendingActivitiesFinished()) {
-			startActivity(new Intent(this, MixView.class));
-			finish();
-		}
+		startActivity(new Intent(this, MixView.class));
+		finish();
+
 	}
 
-	private boolean arePendingActivitiesFinished() {
-		return (PluginLoader.getInstance().getPendingActivitiesOnResult() == 0);
-	}
 
 	private void processDataSourceFromPlugin(Intent data) {
 		if (data != null
@@ -112,8 +101,6 @@ public class PluginLoaderActivity extends Activity {
 
 	@Override
 	protected void onDestroy() {
-		PluginLoader.getInstance().unBindServices();
-		PluginLoader.getInstance().setActivity(null);
 		super.onDestroy();
 	}
 
@@ -126,9 +113,5 @@ public class PluginLoaderActivity extends Activity {
 	}
 
 	private void loadPlugins() {
-		PluginLoader.getInstance().setActivity(this);
-		PluginLoader.getInstance().loadPlugin(PluginType.MARKER);
-		PluginLoader.getInstance().loadPlugin(PluginType.BOOTSTRAP_PHASE_2);
-		PluginLoader.getInstance().loadPlugin(PluginType.DATAHANDLER);
 	}
 }

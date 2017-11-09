@@ -61,20 +61,10 @@ public class DataConvertor {
 	
 	public List<Marker> load(String url, String rawResult, DataSource ds){
 		DataProcessor dataProcessor = searchForMatchingDataProcessors(url, rawResult, ds.getType());
-		//if(dataProcessor == null){
-			dataProcessor = new GNUDataProcessor(); //using this as default if nothing is found.
-		//}
+		dataProcessor = new GNUDataProcessor(); //using this as default if nothing is found.
 		try {
 			return dataProcessor.load(rawResult, ds.getTaskId(), ds.getColor());
 		} catch (JSONException e) {
-			/* Find Other Away to notify Error, for now Hide this error
-			 MixView.CONTEXT.runOnUiThread(new Runnable() {
-				@Override
-				public void run() {
-					Toast.makeText(MixView.CONTEXT, "Could not process the url data", Toast.LENGTH_LONG).show();
-				}
-			});
-			*/
 		}
 		return null;
 	}
