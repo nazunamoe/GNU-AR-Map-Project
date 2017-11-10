@@ -103,7 +103,8 @@
         <activity
             android:name=".MenuActivity"
             android:label="@string/navigation_drawer_header"
-            android:theme="@style/AppTheme.NoActionBar">
+            android:theme="@style/AppTheme.NoActionBar"
+            android:hardwareAccelerated="false">
             <intent-filter>
                 <action android:name="android.intent.action.BROWSEABLE" />
             </intent-filter>
