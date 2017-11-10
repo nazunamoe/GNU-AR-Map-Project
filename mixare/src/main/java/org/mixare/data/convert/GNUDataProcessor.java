@@ -51,10 +51,10 @@ public class GNUDataProcessor extends DataHandler implements DataProcessor {
 
                 ma = new POIMarker(
                         id,
-                        HtmlUnescape.unescapeHTML(("디버그"), 0),
-                        35.262898,
-                        128.639501,
-                        21,
+                        HtmlUnescape.unescapeHTML(("개척교"), 0),
+                        35.152505,
+                        128.104325,
+                        56,
                         link,
                         0, android.R.color.black);
 
