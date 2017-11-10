@@ -113,6 +113,10 @@
         </activity>
         <activity android:name=".data.DataSource" />
         <activity android:name=".data.DataSourceList" />
+        <activity
+            android:name=".MenuActivity"
+            android:label="@string/title_activity_main2"
+            android:theme="@style/AppTheme.NoActionBar"></activity>
     </application>
 
 </manifest>

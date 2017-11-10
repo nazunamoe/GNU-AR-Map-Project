@@ -14,11 +14,9 @@ import android.hardware.camera2.params.StreamConfigurationMap;
 import android.os.Build;
 import android.support.annotation.NonNull;
 import android.support.v4.app.ActivityCompat;
-import android.util.Log;
 import android.util.Size;
 import android.view.Surface;
 import android.view.SurfaceHolder;
-import android.view.SurfaceView;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -49,6 +47,7 @@ class Camera2Surface extends CameraSurface {
 
             cameraManager = (CameraManager) mixViewActivity.getSystemService(Context.CAMERA_SERVICE);
         } catch (Exception ex) {
+
         }
 
         cameraId = null;
@@ -128,11 +127,11 @@ class Camera2Surface extends CameraSurface {
         // size.
         // In this case, we use the default values: 480x320
         if ((bestw == 0) || (besth == 0)) {
-            bestw = DEFAULT_CAM_WIDTH;
-            besth = DEFAULT_CAM_HEIGHT;
+            bestw = 1080;
+            besth = 1920;
         }
 
-        holder.setFixedSize(bestw,besth);
+        holder.setFixedSize(1080,1920);
     }
 
     private void openCamera() {

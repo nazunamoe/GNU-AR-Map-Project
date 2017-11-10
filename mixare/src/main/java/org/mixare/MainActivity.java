@@ -24,7 +24,7 @@ public class MainActivity extends Activity {
 	public void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		ctx = this;
-		startActivity(new Intent(ctx, MixView.class));
+		startActivity(new Intent(ctx, MenuActivity.class));
 		finish();
 	}	
 

@@ -106,5 +106,11 @@
     <string name="location_not_found">Location not found, make sure you enabled Wifi location or GPS in the settings.</string>
     <string name="refreshing">Refreshing</string>
     <string name="title_activity_test">TestActivity</string>
+    <string name="title_activity_main2">경상대학교 AR지도</string>
+
+    <string name="navigation_drawer_open">Open navigation drawer</string>
+    <string name="navigation_drawer_close">Close navigation drawer</string>
+
+    <string name="action_settings">Settings</string>
 
 </resources>
