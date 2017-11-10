@@ -5,7 +5,9 @@ import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.net.Uri;
 import android.os.Bundle;
+import android.provider.ContactsContract;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
 import android.view.View;
@@ -18,6 +20,8 @@ import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
 
+import org.mixare.MixListView;
+
 public class MenuActivity extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
     private Context ctx;
@@ -28,14 +32,7 @@ public class MenuActivity extends AppCompatActivity
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
-        FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
-        fab.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
-                        .setAction("Action", null).show();
-            }
-        });
+
 
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
         ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(
@@ -85,30 +82,42 @@ public class MenuActivity extends AppCompatActivity
         // Handle navigation view item clicks here.
         int id = item.getItemId();
 
-        if (id == R.id.nav_camera) {
-            ctx = this;
-            startActivity(new Intent(ctx, MixView.class));
-            finish();
-            // Handle the camera action
-
-        } else if (id == R.id.nav_manage) {
-
-        } else if (id == R.id.nav_share) {
-
-        } else if (id == R.id.nav_send) {
-
-        }else if (id == R.id.nav_license) {
-            AlertDialog.Builder builder1 = new AlertDialog.Builder(this);
-            builder1.setMessage(getString(R.string.license));
-            builder1.setNegativeButton(getString(R.string.close_button),
-                    new DialogInterface.OnClickListener() {
-                        public void onClick(DialogInterface dialog, int id) {
-                            dialog.dismiss();
-                        }
-                    });
-            AlertDialog alert1 = builder1.create();
-            alert1.setTitle(getString(R.string.license_title));
-            alert1.show();
+        switch(id){
+            case R.id.nav_camera:{
+                ctx = this;
+                startActivity(new Intent(ctx, MixView.class));
+                finish();
+                // Handle the camera action
+                break;
+            }
+            case R.id.design_navigation_view:{
+                break;
+            }
+            case R.id.nav_settings:{
+                ctx = this;
+                startActivity(new Intent(ctx, SettingsActivity.class));
+                finish();
+                break;
+            }
+            case R.id.nav_license:{
+                AlertDialog.Builder builder1 = new AlertDialog.Builder(this);
+                builder1.setMessage(getString(R.string.license));
+                builder1.setNegativeButton(getString(R.string.close_button),
+                        new DialogInterface.OnClickListener() {
+                            public void onClick(DialogInterface dialog, int id) {
+                                dialog.dismiss();
+                            }
+                        });
+                AlertDialog alert1 = builder1.create();
+                alert1.setTitle(getString(R.string.license_title));
+                alert1.show();
+                break;
+            }
+            case R.id.nav_homepage:{
+                Intent intent = new Intent(Intent.ACTION_VIEW, Uri.parse("http://anse.gnu.ac.kr"));
+                startActivity(intent);
+                break;
+            }
         }
 
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
