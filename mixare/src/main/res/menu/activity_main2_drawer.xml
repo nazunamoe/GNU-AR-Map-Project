@@ -3,35 +3,37 @@
     xmlns:tools="http://schemas.android.com/tools"
     tools:showIn="navigation_view">
 
-    <group android:checkableBehavior="single">
-        <item
-            android:id="@+id/nav_camera"
-            android:icon="@drawable/ic_menu_camera"
-            android:title="AR 뷰 보기" />
-        <item
-            android:id="@+id/design_navigation_view"
-            android:icon="@drawable/ic_menu_map"
-            android:title="네이버 지도" />
-        <item
-            android:id="@+id/nav_manage"
-            android:icon="@drawable/ic_menu_manage"
-            android:title="필터링 설정" />
-    </group>
+    <item android:title="@string/navigation_drawer_header1">
+        <menu>
+            <item
+                android:id="@+id/nav_camera"
+                android:icon="@drawable/ic_menu_camera"
+                android:title="@string/navigation_drawer_arview"/>
+            <item
+                android:id="@+id/design_navigation_view"
+                android:icon="@drawable/ic_menu_map"
+                android:title="@string/navigation_drawer_navermap" />
+            <item
+                android:id="@+id/nav_manage"
+                android:icon="@drawable/ic_menu_manage"
+                android:title="@string/navigation_drawer_filtering" />
+        </menu>
+    </item>
 
-    <item android:title="Communicate">
+    <item android:title="@string/navigation_drawer_header2">
         <menu>
             <item
                 android:id="@+id/nav_share"
                 android:icon="@drawable/ic_menu_share"
-                android:title="개발자에게 기부하기" />
+                android:title="@string/navigation_drawer_email" />
             <item
                 android:id="@+id/nav_send"
                 android:icon="@drawable/ic_menu_send"
-                android:title="경상대학교 홈페이지 이동" />
+                android:title="@string/navigation_drawer_homepage" />
             <item
                 android:id="@+id/nav_license"
                 android:icon="@drawable/ic_menu_license"
-                android:title="라이센스" />
+                android:title="@string/navigation_drawer_license" />
         </menu>
     </item>
 

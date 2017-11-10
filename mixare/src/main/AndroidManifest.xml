@@ -103,7 +103,7 @@
         <activity android:name=".data.DataSourceList" />
         <activity
             android:name=".MenuActivity"
-            android:label="@string/title_activity_main2"
+            android:label="@string/navigation_drawer_header"
             android:theme="@style/AppTheme.NoActionBar"></activity>
     </application>
 
