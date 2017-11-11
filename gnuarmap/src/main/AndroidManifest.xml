@@ -42,7 +42,7 @@
 
         <activity
             android:name="com.gnuarmap.MainActivity"
-            android:icon="@drawable/ic_launcher"
+            android:icon="@drawable/gmap_ic"
             android:label="@string/app_name">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
