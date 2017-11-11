@@ -41,14 +41,12 @@ public class DataConvertor {
 	public static DataConvertor getInstance(){
 		if(instance == null){
 			instance = new DataConvertor();
-			instance.addDefaultDataProcessors();
 		}
 		return instance;
 	}
 	
 	public void clearDataProcessors() {
 		dataProcessors.clear();
-		addDefaultDataProcessors();
 	}
 	
 	public void addDataProcessor(DataProcessor dataProcessor){
@@ -88,13 +86,7 @@ public class DataConvertor {
 		}
 		return null;
 	}
-	
-	private void addDefaultDataProcessors(){
-		dataProcessors.add(new WikiDataProcessor());
-		dataProcessors.add(new TwitterDataProcessor());
-		dataProcessors.add(new OsmDataProcessor());
-	}
-	
+
 	public static String getOSMBoundingBox(double lat, double lon, double radius) {
 		String bbox = "[bbox=";
 		PhysicalPlace lb = new PhysicalPlace(); // left bottom

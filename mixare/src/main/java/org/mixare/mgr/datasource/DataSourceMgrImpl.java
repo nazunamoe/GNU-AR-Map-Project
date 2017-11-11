@@ -71,10 +71,7 @@ class DataSourceMgrImpl implements DataSourceManager {
 	public void requestDataFromAllActiveDataSource(double lat, double lon,
 			double alt, float radius) {
 		for (DataSource ds : allDataSources) {
-			/*
-			 * when type is OpenStreetMap iterate the URL list and for selected
-			 * URL send data request
-			 */
+
 			if (ds.getEnabled()) {
 				requestData(ds, lat, lon, alt, radius, Locale.getDefault()
 						.getLanguage());
@@ -85,9 +82,6 @@ class DataSourceMgrImpl implements DataSourceManager {
 
 	private void requestData(DataSource datasource, double lat, double lon,
 			double alt, float radius, String locale) {
-		DownloadRequest request = new DownloadRequest(datasource,
-				datasource.createRequestParams(lat, lon, alt, radius, locale));
-		ctx.getDownloadManager().submitJob(request);
 
 	}
 
