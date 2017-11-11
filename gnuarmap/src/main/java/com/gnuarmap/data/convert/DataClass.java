@@ -15,8 +15,9 @@ public class DataClass {
     public ArrayList<POIMarker> List = new ArrayList<POIMarker>();
 
 
-    public void addItem( String name, String url, double Latitude, double Longitude, int Height, String color){
-        int value=0;
+    public void addItem( String name, String url, double Latitude, double Longitude, String color){
+        int value = 0;
+        int Height = 1;
         switch(color){
             case "BLACK":{
                 value = Color.BLACK;
