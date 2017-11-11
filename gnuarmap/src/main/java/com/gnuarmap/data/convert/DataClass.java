@@ -28,7 +28,9 @@ public class DataClass {
 
         return 0xFF000000 | R | G | B;
     }
+    //TODO : if 조건문을 사용해서 GPS 고도가 0으로 측정될 때에는 고도를 1로, 그렇지 않으면 GPS에서 측정된 고도 + 1의 값을 Height로 설정하여 최적의 사용성을 보장한다
 
+    //TODO : 데이터 추가하는 부분, 이부분에 이미지도 삽입해야함, POIMarker도 수정해야할 필요가 있음
     public void addItem( String name, String url, double Latitude, double Longitude, String color){
         int value = 0;
         int Height = 1;
