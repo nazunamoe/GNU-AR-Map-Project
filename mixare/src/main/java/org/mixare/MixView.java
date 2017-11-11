@@ -374,7 +374,7 @@ public class MixView extends Activity implements SensorEventListener, OnTouchLis
 	 */
 	private void maintainCamera() {
 		if (camScreen == null){
-		camScreen = new CameraSurface(this);
+		camScreen = new Camera2Surface(this);
 		}
 		setContentView(camScreen);
 	}
