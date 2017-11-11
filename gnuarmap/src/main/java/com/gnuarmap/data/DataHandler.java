@@ -26,9 +26,8 @@ import java.util.List;
 
 import com.gnuarmap.MixContext;
 import com.gnuarmap.MixView;
-import com.gnuarmap.data.convert.GNUData;
+import com.gnuarmap.data.convert.SampleData;
 
-import org.mixare.lib.HtmlUnescape;
 import org.mixare.lib.marker.Marker;
 
 import android.location.Location;
@@ -44,7 +43,7 @@ public class DataHandler {
 	private List<Marker> markerList = new ArrayList<Marker>();
 
 	public void addMarkers(List<Marker> markers) {
-		GNUData data = new GNUData();
+		SampleData data = new SampleData();
 		data.Initialize();
 		Log.v(MixView.TAG, "Marker before: "+markerList.size());
 

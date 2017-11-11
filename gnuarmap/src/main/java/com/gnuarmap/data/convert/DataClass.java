@@ -15,7 +15,7 @@ public class DataClass {
     public ArrayList<POIMarker> List = new ArrayList<POIMarker>();
 
 
-    public void addItem(String number, String name, String url, double Latitude, double Longitude, int Height, String color){
+    public void addItem( String name, String url, double Latitude, double Longitude, int Height, String color){
         int value=0;
         switch(color){
             case "BLACK":{
@@ -35,9 +35,11 @@ public class DataClass {
                 break;
             }
         }
+        int number = List.size();
+        String num = String.valueOf(number); // ID값은 사이즈에 따라서 결정됨
 
         POIMarker item = new POIMarker(
-                number,
+                num,
                 HtmlUnescape.unescapeHTML((name), 0),
                 Latitude,
                 Longitude,
