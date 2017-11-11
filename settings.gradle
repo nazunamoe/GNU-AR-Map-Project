@@ -1,2 +1,2 @@
 include ':mixarelib'
-include ':mixare'
+include ':gnuarmap'
