@@ -1,7 +1,9 @@
 package com.gnuarmap.data.convert;
 
 import android.graphics.Color;
+import android.location.Location;
 
+import com.gnuarmap.MixView;
 import com.gnuarmap.POIMarker;
 import org.mixare.lib.HtmlUnescape;
 import java.util.ArrayList;
@@ -14,6 +16,18 @@ public class DataClass {
 
     public ArrayList<POIMarker> List = new ArrayList<POIMarker>();
 
+
+    public int getIntFromColor(float Red, float Green, float Blue){
+        int R = Math.round(255 * Red);
+        int G = Math.round(255 * Green);
+        int B = Math.round(255 * Blue);
+
+        R = (R << 16) & 0x00FF0000;
+        G = (G << 8) & 0x0000FF00;
+        B = B & 0x000000FF;
+
+        return 0xFF000000 | R | G | B;
+    }
 
     public void addItem( String name, String url, double Latitude, double Longitude, String color){
         int value = 0;
@@ -31,6 +45,19 @@ public class DataClass {
                 value = Color.GREEN;
                 break;
             }
+            case "BLUE":{
+                value = Color.BLUE;
+                break;
+            }
+            case "YELLOW":{
+                value = Color.YELLOW;
+                break;
+            }
+            case "PINK":{
+                value = getIntFromColor(255,144,190);
+                break;
+            }
+
             default:{
                 value = Color.BLACK;
                 break;
