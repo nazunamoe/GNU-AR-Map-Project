@@ -22,7 +22,10 @@ package org.mixare.data;
 import org.mixare.R;
 import org.mixare.data.convert.DataConvertor;
 
+import android.content.res.Resources;
 import android.app.Activity;
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
 import android.graphics.Color;
 import android.os.Bundle;
 import android.util.Log;
@@ -43,6 +46,36 @@ import android.widget.TextView;
  
  // 이건 마커 정보에 따라서 URL을 생성하는 부분
 public class DataSource extends Activity {
+
+	public static Bitmap schoolicon; // 학교 아이콘
+	public static Bitmap dormicon;
+	public static Bitmap dorm2icon;
+	public static Bitmap elecicon;
+	public static Bitmap forlangicon; // 국제어학원
+	public static Bitmap gateicon; // 정문이나 후문
+	public static Bitmap libraryicon; // 도서관
+	public static Bitmap lifesci; // 농생대
+	public static Bitmap manageinticon; // 인문대
+	public static Bitmap multi; // 학생회관
+	public static Bitmap student; // 따로 만들어야함, 경상대 아이콘
+	public static Bitmap viliage; // 기숙사
+	public static Bitmap panpacific; // ??
+	public static Bitmap basic; // 기본 아이콘
+	public static Bitmap engine; // 공대
+	public static Bitmap physical; // 체육관, 운동시설
+
+	// 아이콘이 있는 것 : 농생대, 인문대, 공대
+	// 만들어야 하는 것 : 사회과학대학, 자연과학대학, 경영대학, 법과대학, 사법대학, 수의과대학, 약학대학
+	// res/drawable 폴더를 참조해서 제작
+
+	public static Bitmap SCHOOLRestaurant;
+	public static Bitmap cafeIcon;
+	public static Bitmap restraurantIcon;
+	public static Bitmap convenienceIcon;
+	public static Bitmap printer;
+
+	// 프린터 아이콘 필요
+	// 카페(매점), 편의점, 식당 아이콘은 이미 있음
 
 	private String name;
 	private String url;
@@ -80,6 +113,88 @@ public class DataSource extends Activity {
 		}
 
 	}
+
+	public static void createIcons(Resources res) {
+		cafeIcon = BitmapFactory.decodeResource(res, R.drawable.icon_cafe);
+		restraurantIcon = BitmapFactory.decodeResource(res,R.drawable.icon_store);
+		convenienceIcon = BitmapFactory.decodeResource(res,R.drawable.icon_conveni);
+		SCHOOLRestaurant = BitmapFactory.decodeResource(res,R.drawable.restraunticon);
+		dormicon = BitmapFactory.decodeResource(res,R.drawable.school_dorm);
+		dorm2icon = BitmapFactory.decodeResource(res,R.drawable.school_dorm2);
+		elecicon = BitmapFactory.decodeResource(res,R.drawable.school_elecinfo);
+		forlangicon = BitmapFactory.decodeResource(res,R.drawable.school_forlang);
+		gateicon = BitmapFactory.decodeResource(res,R.drawable.school_gate);
+		libraryicon = BitmapFactory.decodeResource(res,R.drawable.school_library);
+		lifesci = BitmapFactory.decodeResource(res,R.drawable.school_lifesci);
+		manageinticon = BitmapFactory.decodeResource(res,R.drawable.school_manageint);
+		multi = BitmapFactory.decodeResource(res,R.drawable.school_multi);
+		panpacific = BitmapFactory.decodeResource(res,R.drawable.school_panpacific);
+		engine = BitmapFactory.decodeResource(res,R.drawable.school_engine);
+		physical = BitmapFactory.decodeResource(res,R.drawable.school_physical);
+		viliage = BitmapFactory.decodeResource(res,R.drawable.school_village);
+		basic = BitmapFactory.decodeResource(res,R.drawable.school_default);
+		// routeIcon;
+	}
+
+	public static Bitmap getBitmap(String ds) {
+		Bitmap bitmap = null;
+		switch (ds) {
+
+			case "SCHOOLRestaurant":
+			     bitmap = cafeIcon;
+			     break;
+			case "dorm":
+				bitmap = dormicon;
+				break;
+			case "dorm2":
+				bitmap = dorm2icon;
+				break;
+			case "elecinfo":
+				bitmap = elecicon;
+				break;
+			case "forlang":
+				bitmap = forlangicon;
+				break;
+			case "gate":
+				bitmap = gateicon;
+				break;
+			case "library":
+				bitmap = libraryicon;
+				break;
+			case "lifesci":
+				bitmap = lifesci;
+				break;
+			case "manageint":
+				bitmap = manageinticon;
+				break;
+			case "student":
+				bitmap = multi;
+				break;
+			case "panpacific":
+				bitmap = panpacific;
+				break;
+			case "engine":
+				bitmap = engine;
+				break;
+			case "physical":
+				bitmap = physical;
+				break;
+			case "default":
+				bitmap = basic;
+				break;
+			case "CAFE":
+				bitmap = cafeIcon;
+				break;
+			case "CONVENICE":
+				bitmap = convenienceIcon;
+				break;
+			case "RESTRAUNT":
+				bitmap = restraurantIcon;
+				break;
+		}
+		return bitmap;
+	}
+
 
 	@Override
 	public boolean onKeyDown(int keyCode, KeyEvent event) {
@@ -176,53 +291,6 @@ public class DataSource extends Activity {
 		this.enabled = enabledBool;
 	}
 
-	public String createRequestParams(double lat, double lon, double alt,
-			float radius, String locale) {
-		String ret = "";
-		if (!ret.startsWith("file://")) {
-			switch (this.type) {
-
-			case WIKIPEDIA:
-				float geoNamesRadius = radius > 20 ? 20 : radius; // Free
-																	// service
-																	// limited
-																	// to 20km
-				ret += "?lat=" + lat + "&lng=" + lon + "&radius="
-						+ geoNamesRadius + "&maxRows=50" + "&lang=" + locale
-						+ "&username=mixare";
-				break;
-
-			case BUZZ:
-				ret += "&lat=" + lat + "&lon=" + lon + "&radius=" + radius
-						* 1000;
-				break;
-
-			case TWITTER:
-				ret += "?geocode=" + lat + "%2C" + lon + "%2C"
-						+ Math.max(radius, 1.0) + "km";
-				break;
-
-			case MIXARE:
-				ret += "?latitude=" + Double.toString(lat) + "&longitude="
-						+ Double.toString(lon) + "&altitude="
-						+ Double.toString(alt) + "&radius="
-						+ Double.toString(radius);
-				break;
-
-			case ARENA:
-				ret += "&lat=" + Double.toString(lat) + "&lng="
-						+ Double.toString(lon);
-				break;
-
-			case OSM:
-				ret += DataConvertor.getOSMBoundingBox(lat, lon, radius);
-				break;
-			}
-
-		}
-
-		return ret;
-	}
 
 	public int getColor() {
 		int ret;

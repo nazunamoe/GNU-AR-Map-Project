@@ -56,6 +56,7 @@ public class DataConvertor {
 	public void removeDataProcessor(DataProcessor dataProcessor){
 		dataProcessors.remove(dataProcessor);
 	}
+
 	
 	public List<Marker> load(String url, String rawResult, DataSource ds){
 		DataProcessor dataProcessor = searchForMatchingDataProcessors(url, rawResult, ds.getType());
