@@ -348,7 +348,7 @@ public class MixView extends Activity implements SensorEventListener, OnTouchLis
 	 */
 	protected void onRestart (){
 		super.onRestart();
-		//maintainCamera();
+		maintainCamera();
 		maintainAugmentR();
 		maintainZoomBar();
 		
