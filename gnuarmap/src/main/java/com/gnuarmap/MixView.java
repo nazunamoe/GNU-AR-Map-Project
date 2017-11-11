@@ -434,7 +434,7 @@ public class MixView extends Activity implements SensorEventListener, OnTouchLis
 				fError=false;
 				//TODO improve
 				try {
-					maintainCamera();
+					//maintainCamera();
 					maintainAugmentR();
 					repaint();
 					setZoomLevel();
