@@ -26,7 +26,7 @@ import java.util.List;
 
 import com.gnuarmap.MixContext;
 import com.gnuarmap.MixView;
-import com.gnuarmap.POIMarker;
+import com.gnuarmap.data.convert.GNUData;
 
 import org.mixare.lib.HtmlUnescape;
 import org.mixare.lib.marker.Marker;
@@ -36,7 +36,6 @@ import android.util.Log;
 
 /**
  * DataHandler is the model which provides the Marker Objects with its data.
- *
  * DataHandler is also the Factory for new Marker objects.
  */
 public class DataHandler {
@@ -45,22 +44,17 @@ public class DataHandler {
 	private List<Marker> markerList = new ArrayList<Marker>();
 
 	public void addMarkers(List<Marker> markers) {
+		GNUData data = new GNUData();
+		data.Initialize();
 		Log.v(MixView.TAG, "Marker before: "+markerList.size());
 
 		String id = "0";
 		String link="http://anse.gnu.ac.kr/anse/main.do";
 
+		for(int i=0; i<data.data.getSize(); i++){
+			markerList.add(data.data.getData(i));
 
-		POIMarker n = new POIMarker(
-				id,
-				HtmlUnescape.unescapeHTML(("디버그"), 0),
-				35.262898,
-				128.639501,
-				21,
-				link,
-				0, android.R.color.black);
-		markerList.add(n);
-
+		}
 		/**
 		 * 독립된 데이터 프로세서 대신 이 부분에 marker 배열에 필요한 마커 데이터를 직접 등록한다.
 		 */
