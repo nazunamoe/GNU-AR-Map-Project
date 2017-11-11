@@ -58,16 +58,6 @@ public class DataConvertor {
 	}
 
 	
-	public List<Marker> load(String url, String rawResult, DataSource ds){
-		DataProcessor dataProcessor = searchForMatchingDataProcessors(url, rawResult, ds.getType());
-		dataProcessor = new GNUDataProcessor(); //using this as default if nothing is found.
-		try {
-			return dataProcessor.load(rawResult, ds.getTaskId(), ds.getColor());
-		} catch (JSONException e) {
-		}
-		return null;
-	}
-	
 	private DataProcessor searchForMatchingDataProcessors(String url, String rawResult, DataSource.TYPE type){
 		for(DataProcessor dp : dataProcessors){
 			if(dp.matchesRequiredType(type.name())){

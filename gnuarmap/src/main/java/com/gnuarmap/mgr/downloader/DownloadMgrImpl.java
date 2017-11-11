@@ -93,14 +93,6 @@ class DownloadMgrImpl implements Runnable, DownloadManager {
 			String pageContent = HttpTools.getPageContent(request,
 					ctx.getContentResolver());
 
-			if (pageContent != null) {
-				// try loading Marker data
-				List<Marker> markers = DataConvertor.getInstance().load(
-						request.getSource().getUrl(), pageContent,
-						request.getSource());
-				result.setAccomplish(mRequest.getUniqueKey(), markers,
-						request.getSource());
-			}
 		} catch (Exception ex) {
 			result.setError(ex, request);
 			Log.w(MixContext.TAG, "ERROR ON DOWNLOAD REQUEST", ex);
