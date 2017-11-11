@@ -24,6 +24,7 @@ import java.util.List;
 @TargetApi(Build.VERSION_CODES.LOLLIPOP)
 class Camera2Surface extends CameraSurface {
 
+
     private static final int DEFAULT_CAM_WIDTH = 1920;
     private static final int DEFAULT_CAM_HEIGHT = 1080;
 
