@@ -21,7 +21,7 @@ public class MainActivity extends Activity {
 
 	private Context ctx;
 
-	// TODO : 사용자로부터 카메라, 위치에 대한 권한을 설정하도록 한다
+	// TODO : 사용자로부터 카메라, 위치에 대한 권한을 설정하도록 한다.
 	
 	@Override
 	public void onCreate(Bundle savedInstanceState) {
