@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android">
+ <!-- 설정 액티비티에 들어갈 요소 결정, -->
+ <PreferenceCategory
+     android:title="@string/settings_drawer_arview"
+     android:key="ar_view_setting">
+  <SwitchPreference
+      android:defaultValue="false"
+      android:key="switch_preference_1"
+      android:title="Switch preference" />
+  <SwitchPreference
+      android:defaultValue="false"
+      android:key="switch_preference_1"
+      android:title="Switch preference" />
+ </PreferenceCategory>
+
+ <PreferenceCategory
+     android:title="@string/settings_drawer_navermap"
+ android:key="naver_map_setting">
+  <EditTextPreference
+      android:defaultValue="Default value"
+      android:key="edit_text_preference_1"
+      android:selectAllOnFocus="true"
+      android:singleLine="true"
+      android:title="Edit text preference" />
+ </PreferenceCategory>
+
+ <PreferenceCategory
+     android:title="@string/settings_drawer_filtering"
+    android:key="filtering_setting">
+  <CheckBoxPreference
+      android:defaultValue="false"
+      android:key="check_box_preference_1"
+      android:title="Check box preference" />
+ </PreferenceCategory>
+
+</PreferenceScreen>
+

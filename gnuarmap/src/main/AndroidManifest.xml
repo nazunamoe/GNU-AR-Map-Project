@@ -108,10 +108,9 @@
                 <action android:name="android.intent.action.BROWSEABLE" />
             </intent-filter>
         </activity>
-        <activity
-            android:name="com.gnuarmap.SettingsActivity"
-            android:label="@string/title_activity_settings"
-            android:theme="@style/AppTheme" />
+        <activity android:name="com.gnuarmap.SettingsActivity"
+            android:theme="@style/AppCompat2"/>
+
     </application>
 
 </manifest>

@@ -3,78 +3,107 @@ package com.gnuarmap;
 import android.app.FragmentTransaction;
 import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
+import android.graphics.Color;
+import android.graphics.drawable.ColorDrawable;
+import android.os.Build;
 import android.os.Bundle;
-import android.support.annotation.NonNull;
-import android.support.design.widget.BottomNavigationView;
+import android.preference.CheckBoxPreference;
+import android.preference.Preference;
+import android.preference.PreferenceFragment;
+import android.preference.PreferenceManager;
 import android.support.v7.app.AppCompatActivity;
-import android.view.MenuItem;
-import android.widget.TextView;
-
-import com.gnuarmap.Fragments.AR_View_Fragment;
-import com.gnuarmap.Fragments.Naver_Map_Fragment;
-import com.gnuarmap.Fragments.Filtering_Fragment;
+import android.view.*;
+import android.view.KeyEvent;
+import android.widget.Toast;
+import android.support.v7.app.ActionBar;
 
 import org.gnuarmap.R;
 
-public class SettingsActivity extends AppCompatActivity {
+public class SettingsActivity extends AppCompatActivity implements SharedPreferences.OnSharedPreferenceChangeListener{
 
-    private TextView mTextMessage;
-
-    private BottomNavigationView.OnNavigationItemSelectedListener mOnNavigationItemSelectedListener
-            = new BottomNavigationView.OnNavigationItemSelectedListener() {
-
-        @Override
-        public boolean onNavigationItemSelected(@NonNull MenuItem item) {
-            switch (item.getItemId()) {
-                case R.id.settings_arview:
-                    setTitle(R.string.settings_drawer_arview);
-                    AR_View_Fragment ARView = new AR_View_Fragment();
-                    android.support.v4.app.FragmentTransaction transaction_ar = getSupportFragmentManager().beginTransaction();
-                    transaction_ar.replace(R.id.fram,ARView,"AR View");
-                    transaction_ar.commit();
-                    return true;
-                case R.id.settings_navermap:
-                    setTitle(R.string.settings_drawer_navermap);
-                    Naver_Map_Fragment NaverMap = new Naver_Map_Fragment();
-                    android.support.v4.app.FragmentTransaction transaction_naver = getSupportFragmentManager().beginTransaction();
-                    transaction_naver.replace(R.id.fram,NaverMap,"AR View");
-                    transaction_naver.commit();
-                    return true;
-                case R.id.settings_filtering :
-                    setTitle(R.string.settings_drawer_filtering);
-                    Filtering_Fragment Filtering = new Filtering_Fragment();
-                    android.support.v4.app.FragmentTransaction transaction_filter = getSupportFragmentManager().beginTransaction();
-                    transaction_filter.replace(R.id.fram,Filtering,"AR View");
-                    transaction_filter.commit();
-                    return true;
-            }
-            return false;
-        }
-    };
+    SharedPreferences sharedPref;
+    SettingsFragment settings;
 
     @Override
     public boolean onKeyDown(int keyCode, android.view.KeyEvent event) {
-        Context ctx;
-        ctx = this;
-        startActivity(new Intent(ctx, MenuActivity.class));
-        finish();
+        if (keyCode == KeyEvent.KEYCODE_BACK){
+            Context ctx;
+            ctx = this;
+            startActivity(new Intent(ctx, MenuActivity.class));
+            finish();
+        }
         return false;
     }
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_settings);
 
-        mTextMessage = (TextView) findViewById(R.id.message);
-        BottomNavigationView navigation = (BottomNavigationView) findViewById(R.id.navigation);
-        navigation.setOnNavigationItemSelectedListener(mOnNavigationItemSelectedListener);
+        ActionBar actionBar = getSupportActionBar();
+        /*actionBar.setBackgroundDrawable(new ColorDrawable(0xFF33B5E5));
+        if(Build.VERSION.SDK_INT>=21){
+            getWindow().setStatusBarColor(0xFF33B5E5);
+        }*/
+        actionBar.setTitle(R.string.title_activity_settings);
 
-        setTitle("AR View");
-        AR_View_Fragment ARView = new AR_View_Fragment();
-        android.support.v4.app.FragmentTransaction transaction_ar = getSupportFragmentManager().beginTransaction();
-        transaction_ar.commit();
+
+        sharedPref = PreferenceManager.getDefaultSharedPreferences(this);
+
+        settings = new SettingsFragment();
+        FragmentTransaction trans = getFragmentManager().beginTransaction();
+        trans.replace(android.R.id.content, settings);
+        trans.commit();
 
     }
 
+    // 설정 값을 변경할 때 이벤트 처리를 담당한다.
+    @Override
+    public void onSharedPreferenceChanged(SharedPreferences sharedPreferences, String key) {
+        Toast.makeText(getApplicationContext(), key, Toast.LENGTH_SHORT).show();
+
+        SharedPreferences.Editor editor = sharedPreferences.edit();
+        if("ar_view_settings".equals(key)){
+
+
+        }
+
+        if("naver_map_settings".equals(key)){
+
+
+        }
+
+        if("filtering_settings".equals(key)){
+
+
+        }
+
+        editor.commit();
+
+    }
+
+    // 화면 구성을 위해 PreferenceFragment 를 상속받는 SettingsFragment class 를 구현한다.
+    public static class SettingsFragment extends PreferenceFragment
+    {
+        @Override
+        public void onCreate(Bundle savedInstanceState) {
+            super.onCreate(savedInstanceState);
+            addPreferencesFromResource(R.xml.preference);
+
+
+        }
+    }
+
+
+    @Override
+    protected void onResume() {
+        super.onResume();
+        sharedPref.registerOnSharedPreferenceChangeListener(this);
+    }
+
+    @Override
+    protected void onPause() {
+        super.onPause();
+        sharedPref.unregisterOnSharedPreferenceChangeListener(this);
+    }
 }
