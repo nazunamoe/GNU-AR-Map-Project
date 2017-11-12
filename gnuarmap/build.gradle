@@ -27,4 +27,5 @@ dependencies {
     // two step crossfade DrawerLayout (mini layout which transforms to a normal layout within the drawer)
     compile('com.mikepenz:crossfadedrawerlayout:0.3.3@aar')
     compile project(':mixarelib')
+    implementation 'com.android.support:cardview-v7:26.1.0'
 }
