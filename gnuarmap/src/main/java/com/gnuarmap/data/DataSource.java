@@ -210,7 +210,7 @@ public class DataSource extends Activity {
 					.getItemIdAtPosition(displaySpinner
 							.getSelectedItemPosition());
 
-			// TODO: fix the weird hack for type!
+
 			DataSource newDS = new DataSource(name, url, typeId + 3, displayId,
 					true);
 

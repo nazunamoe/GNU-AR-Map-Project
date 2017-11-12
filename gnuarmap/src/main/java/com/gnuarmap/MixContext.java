@@ -63,7 +63,7 @@ public class MixContext extends ContextWrapper implements MixContextInterface {
 		super(appCtx);
 		mixView = appCtx;
 
-		// TODO: RE-ORDER THIS SEQUENCE... IS NECESSARY?
+
 		getDataSourceManager().refreshDataSources();
 
 		if (!getDataSourceManager().isAtLeastOneDatasourceSelected()) {

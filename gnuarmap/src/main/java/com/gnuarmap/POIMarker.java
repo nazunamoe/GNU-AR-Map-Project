@@ -89,7 +89,7 @@ public class POIMarker extends LocalMarker {
 	@Override
 	public void drawTextBlock(PaintScreen dw) {
 		float maxHeight = Math.round(dw.getHeight() / 10f) + 1;
-		// TODO: change textblock only when distance changes
+
 
 		String textStr = "";
 

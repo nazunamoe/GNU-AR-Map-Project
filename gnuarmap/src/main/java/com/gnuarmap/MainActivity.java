@@ -1,9 +1,12 @@
 package com.gnuarmap;
 
+import android.Manifest;
 import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
+import android.content.pm.PackageManager;
 import android.os.Bundle;
+import android.support.v4.app.ActivityCompat;
 
 /**
  * This is the main activity of mixare, that will be opened if mixare is
@@ -17,11 +20,14 @@ import android.os.Bundle;
 public class MainActivity extends Activity {
 
 	private Context ctx;
+
+	// TODO : 사용자로부터 카메라, 위치에 대한 권한을 설정하도록 한다
 	
 	@Override
 	public void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		ctx = this;
+
 		startActivity(new Intent(ctx, MenuActivity.class));
 		finish();
 	}	

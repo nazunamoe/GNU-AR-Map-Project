@@ -48,7 +48,7 @@ class DataSourceMgrImpl implements DataSourceManager {
 
 
 	public void setAllDataSourcesforLauncher(DataSource datasource) {
-		this.allDataSources.clear(); // TODO WHY? CLEAN ALL
+		this.allDataSources.clear();
 		this.allDataSources.add(datasource);
 	}
 

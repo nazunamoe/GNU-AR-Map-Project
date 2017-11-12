@@ -154,7 +154,6 @@ public class MixView extends Activity implements SensorEventListener, OnTouchLis
 
 	public MixViewDataHolder getMixViewData() {
 		if (mixViewData==null){
-			// TODO: VERY inportant, only one!
 			mixViewData = new MixViewDataHolder(new MixContext(this));
 		}
 		return mixViewData;
@@ -409,10 +408,7 @@ public class MixView extends Activity implements SensorEventListener, OnTouchLis
 				Gravity.BOTTOM));
 	}
 	
-	/**
-	 * Refreshes Download 
-	 * TODO refresh downloads
-	 */
+
 	private void refreshDownload(){
 //		try {
 //			if (getMixViewData().getDownloadThread() != null){
