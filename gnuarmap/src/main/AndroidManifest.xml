@@ -2,8 +2,8 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="org.gnuarmap"
     android:installLocation="auto"
-    android:versionCode="26"
     android:label="@string/app_name"
+    android:versionCode="26"
     android:versionName="0.9.2">
 
     <uses-sdk
@@ -111,7 +111,7 @@
         <activity
             android:name="com.gnuarmap.SettingsActivity"
             android:label="@string/title_activity_settings"
-            android:theme="@style/Theme.AppCompat" />
+            android:theme="@style/AppTheme" />
     </application>
 
 </manifest>
