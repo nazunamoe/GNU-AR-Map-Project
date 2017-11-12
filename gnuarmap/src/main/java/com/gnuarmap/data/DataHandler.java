@@ -47,9 +47,6 @@ public class DataHandler {
 		data.Initialize();
 		Log.v(MixView.TAG, "Marker before: "+markerList.size());
 
-		String id = "0";
-		String link="http://anse.gnu.ac.kr/anse/main.do";
-
 		for(int i=0; i<data.data.getSize(); i++){
 			markerList.add(data.data.getData(i));
 
