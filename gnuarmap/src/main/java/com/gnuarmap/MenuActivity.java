@@ -110,6 +110,10 @@ public class MenuActivity extends AppCompatActivity
                 break;
             }
             case R.id.design_navigation_view:{
+                ctx = this;
+                startActivity(new Intent(ctx, NaverMap.class));
+                finish();
+                // Handle the camera action
                 break;
             }
             case R.id.nav_settings:{

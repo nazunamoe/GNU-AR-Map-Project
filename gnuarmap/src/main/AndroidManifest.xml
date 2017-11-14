@@ -4,7 +4,8 @@
     android:installLocation="auto"
     android:label="@string/app_name"
     android:versionCode="26"
-    android:versionName="0.9.2">
+    android:versionName="0.9.2"
+    xmlns:tools="http://schemas.android.com/tools">
 
     <uses-sdk
         android:minSdkVersion="21"
@@ -33,9 +34,13 @@
         android:smallScreens="true"
         android:xlargeScreens="true" />
 
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.READ_PHONE_STATE" />
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
 
-    <application android:icon="@drawable/ic_launcher">
-        <uses-library android:name="com.google.android.maps" />
+    <application android:icon="@drawable/ic_launcher"
+        android:label="@string/app_name"
+        tools:replace="label">
 
         <activity
             android:name="com.gnuarmap.MainActivity"
@@ -105,9 +110,11 @@
                 <action android:name="android.intent.action.BROWSEABLE" />
             </intent-filter>
         </activity>
-        <activity android:name="com.gnuarmap.SettingsActivity"
-            android:theme="@style/AppCompat2"/>
-
+        <activity
+            android:name="com.gnuarmap.SettingsActivity"
+            android:theme="@style/AppCompat2" />
+        <activity android:name="com.gnuarmap.NaverMap"
+            android:theme="@style/AppCompat2" />
     </application>
 
 </manifest>
