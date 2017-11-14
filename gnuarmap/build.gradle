@@ -29,4 +29,5 @@ dependencies {
     compile('com.mikepenz:crossfadedrawerlayout:0.3.3@aar')
     compile project(':mixarelib')
     implementation 'com.android.support:preference-v7:26.1.0'
+    compile 'gun0912.ted:tedpermission-rx2:2.1.0'
 }
