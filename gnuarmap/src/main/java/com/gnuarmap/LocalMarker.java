@@ -287,7 +287,6 @@ public abstract class LocalMarker implements Marker {
 		Marker rightPm = another;
 
 		return Double.compare(leftPm.getDistance(), rightPm.getDistance());
-
 	}
 
 	@Override

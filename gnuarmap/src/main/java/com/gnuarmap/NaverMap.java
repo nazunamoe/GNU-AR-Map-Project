@@ -8,12 +8,12 @@ import android.view.*;
 
 import com.nhn.android.maps.NMapActivity;
 import com.nhn.android.maps.NMapView;
-import org.gnuarmap.R;
+import com.gnuarmap.R;
 
 public class NaverMap extends NMapActivity {
 
     private NMapView mMapView;// 지도 화면 View
-    private final String CLIENT_ID = "R1uIIKLP16UvE8nNWVdk";// 애플리케이션 클라이언트 아이디 값
+    private final String CLIENT_ID = "mUusvsrwEZf9uxFtJ5Se";// 애플리케이션 클라이언트 아이디 값
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

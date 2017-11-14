@@ -1,6 +1,6 @@
 package com.gnuarmap;
 
-import org.gnuarmap.R;
+import com.gnuarmap.R;
 
 import com.gnuarmap.data.DataSourceStorage;
 

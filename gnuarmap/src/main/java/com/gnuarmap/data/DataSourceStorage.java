@@ -18,7 +18,7 @@
  */
 package com.gnuarmap.data;
 
-import org.gnuarmap.R;
+import com.gnuarmap.R;
 
 import android.content.Context;
 import android.content.SharedPreferences;

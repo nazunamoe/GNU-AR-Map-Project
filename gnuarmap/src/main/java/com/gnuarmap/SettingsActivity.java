@@ -18,7 +18,7 @@ import android.view.KeyEvent;
 import android.widget.Toast;
 import android.support.v7.app.ActionBar;
 
-import org.gnuarmap.R;
+import com.gnuarmap.R;
 
 public class SettingsActivity extends AppCompatActivity implements SharedPreferences.OnSharedPreferenceChangeListener{
 

@@ -31,7 +31,7 @@ import java.util.List;
 import java.util.Timer;
 import java.util.TimerTask;
 
-import org.gnuarmap.R;
+import com.gnuarmap.R;
 
 import com.gnuarmap.data.DataHandler;
 import com.gnuarmap.data.DataSource;

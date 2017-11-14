@@ -19,7 +19,7 @@
 
 package com.gnuarmap.data;
 
-import org.gnuarmap.R;
+import com.gnuarmap.R;
 
 import android.content.res.Resources;
 import android.app.Activity;

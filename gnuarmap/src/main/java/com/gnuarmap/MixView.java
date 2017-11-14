@@ -32,8 +32,8 @@ import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
-import org.gnuarmap.R;
-import org.gnuarmap.R.drawable;
+import com.gnuarmap.R;
+import com.gnuarmap.R.drawable;
 import com.gnuarmap.data.DataHandler;
 import com.gnuarmap.data.DataSourceList;
 import com.gnuarmap.data.DataSourceStorage;

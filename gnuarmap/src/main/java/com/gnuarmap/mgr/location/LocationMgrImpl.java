@@ -25,7 +25,7 @@ import java.util.TimerTask;
 
 import com.gnuarmap.MixContext;
 import com.gnuarmap.MixView;
-import org.gnuarmap.R;
+import com.gnuarmap.R;
 import com.gnuarmap.mgr.downloader.DownloadManager;
 
 import android.content.Context;

@@ -21,7 +21,7 @@ package com.gnuarmap.data;
 import java.util.ArrayList;
 import java.util.List;
 
-import org.gnuarmap.R;
+import com.gnuarmap.R;
 
 import android.app.ListActivity;
 import android.content.Context;

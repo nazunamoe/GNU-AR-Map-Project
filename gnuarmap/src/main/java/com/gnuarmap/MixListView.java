@@ -22,7 +22,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Vector;
 
-import org.gnuarmap.R;
+import com.gnuarmap.R;
 
 import com.gnuarmap.data.DataHandler;
 import com.gnuarmap.data.DataSourceList;
