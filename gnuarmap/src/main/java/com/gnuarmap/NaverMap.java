@@ -7,8 +7,12 @@ import android.os.Bundle;
 import android.view.*;
 
 import com.nhn.android.maps.NMapActivity;
+import com.nhn.android.maps.NMapController;
 import com.nhn.android.maps.NMapView;
+
+import com.gnuarmap.State;
 import com.gnuarmap.R;
+import com.nhn.android.maps.maplib.NGeoPoint;
 
 public class NaverMap extends NMapActivity {
 
@@ -17,11 +21,19 @@ public class NaverMap extends NMapActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+        State state = (State)getApplicationContext();
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_naver_map);
         mMapView = new NMapView(this);
+        NMapController mMapController=mMapView.getMapController();
         setContentView(mMapView);
         mMapView.setClientId(CLIENT_ID); // 클라이언트 아이디 값 설정
+        if(state.getNMapState()==0){
+            mMapController.setMapViewMode(mMapView.VIEW_MODE_SATELLITE);
+
+        }else if(state.getNMapState()==1){
+            mMapController.setMapViewMode(mMapView.VIEW_MODE_VECTOR);
+        }
+        mMapController.setMapCenter(new NGeoPoint(128.098160, 35.154008), 11);
         mMapView.setClickable(true);
         mMapView.setEnabled(true);
         mMapView.setFocusable(true);

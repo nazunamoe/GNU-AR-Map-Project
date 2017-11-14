@@ -12,12 +12,15 @@ import android.preference.CheckBoxPreference;
 import android.preference.Preference;
 import android.preference.PreferenceFragment;
 import android.preference.PreferenceManager;
+import android.provider.Settings;
 import android.support.v7.app.AppCompatActivity;
+import android.util.Log;
 import android.view.*;
 import android.view.KeyEvent;
 import android.widget.Toast;
 import android.support.v7.app.ActionBar;
 
+import com.gnuarmap.State;
 import com.gnuarmap.R;
 
 public class SettingsActivity extends AppCompatActivity implements SharedPreferences.OnSharedPreferenceChangeListener{
@@ -60,26 +63,23 @@ public class SettingsActivity extends AppCompatActivity implements SharedPrefere
     // 설정 값을 변경할 때 이벤트 처리를 담당한다.
     @Override
     public void onSharedPreferenceChanged(SharedPreferences sharedPreferences, String key) {
-        Toast.makeText(getApplicationContext(), key, Toast.LENGTH_SHORT).show();
-
+        State state = (State)getApplicationContext();
         SharedPreferences.Editor editor = sharedPreferences.edit();
         if("ar_view_settings".equals(key)){
-
+        }
+        if("MMapViewSet".equals(key)){
+            if(state.getNMapState()==0){
+                state.setNMapState(1);
+            }else if (state.getNMapState()==1){
+                state.setNMapState(0);
+            }
 
         }
-
         if("naver_map_settings".equals(key)){
-
-
         }
-
         if("filtering_settings".equals(key)){
-
-
         }
-
         editor.commit();
-
     }
 
     // 화면 구성을 위해 PreferenceFragment 를 상속받는 SettingsFragment class 를 구현한다.

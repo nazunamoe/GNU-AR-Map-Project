@@ -136,4 +136,6 @@
     <string name="permission_rejected">"If you reject permission,you can not use this service
 
 Please turn on permissions at [Setting] > [Permission]"</string>
+
+    <string name="NMapSetView">Use satellite map</string>
 </resources>

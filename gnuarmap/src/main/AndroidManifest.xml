@@ -40,6 +40,8 @@
 
     <application android:icon="@drawable/ic_launcher"
         android:label="@string/app_name"
+        android:name=".State"
+        android:allowBackup="true"
         tools:replace="label">
 
         <activity
@@ -116,5 +118,6 @@
         <activity android:name="com.gnuarmap.NaverMap"
             android:theme="@style/AppCompat2" />
     </application>
+
 
 </manifest>
