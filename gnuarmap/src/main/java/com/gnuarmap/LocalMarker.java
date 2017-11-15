@@ -340,5 +340,5 @@ public abstract class LocalMarker implements Marker {
 	public void setExtras(String name, ParcelableProperty parcelableProperty){
 		//nothing to add
 	}
-	
+
 }

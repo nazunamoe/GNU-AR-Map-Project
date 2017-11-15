@@ -35,6 +35,7 @@ import java.util.List;
 import com.gnuarmap.R;
 import com.gnuarmap.R.drawable;
 import com.gnuarmap.data.DataHandler;
+import com.gnuarmap.data.DataSource;
 import com.gnuarmap.data.DataSourceList;
 import com.gnuarmap.data.DataSourceStorage;
 import org.mixare.lib.gui.PaintScreen;
@@ -100,6 +101,7 @@ public class MixView extends Activity implements SensorEventListener, OnTouchLis
 
 	@Override
 	public void onCreate(Bundle savedInstanceState) {
+		DataSource.createIcons(getResources());
 		super.onCreate(savedInstanceState);
 		AlertDialog.Builder builder1 = new AlertDialog.Builder(this);
 		builder1.setMessage(getString(R.string.GPSWarning));

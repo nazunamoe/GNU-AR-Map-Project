@@ -291,7 +291,7 @@ public class DataSource extends Activity {
 	}
 
 
-	public int getColor() {
+	public int getColor(String type) {
 		int ret;
 		switch (this.type) {
 		case BUZZ:

@@ -57,6 +57,7 @@
         <activity
             android:name="com.gnuarmap.MixView"
             android:label="@string/app_name"
+            android:screenOrientation="landscape"
             android:launchMode="singleTop">
             <intent-filter>
                 <action android:name="android.intent.action.VIEW" />

@@ -21,7 +21,12 @@ package com.gnuarmap;
 
 import org.mixare.lib.gui.PaintScreen;
 
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
 import android.location.Location;
+
+import com.gnuarmap.data.DataSource;
+import com.gnuarmap.MixContext;
 
 /**
  * The SocialMarker class represents a marker, which contains data from
@@ -32,8 +37,10 @@ import android.location.Location;
  *
  */
 public class SocialMarker extends LocalMarker {
-	
+
 	public static final int MAX_OBJECTS=15;
+
+
 
 	public SocialMarker(String id, String title, double latitude, double longitude,
 			double altitude, String URL, int type, int color) {
@@ -47,10 +54,11 @@ public class SocialMarker extends LocalMarker {
 		//0.85 radians ~= 45 degree
 		//minAltitude = sin(0.35)
 		//maxAltitude = sin(0.85)
-		
+
 		// we want the social markers to be on the upper part of
-		// your surrounding sphere 
-		double altitude = curGPSFix.getAltitude()+Math.sin(0.35)*distance+Math.sin(0.4)*(distance/(MixView.getDataView().getRadius()*1000f/distance));
+		// your surrounding sphere
+		double altitude = curGPSFix.getAltitude();
+				//+Math.sin(0.35)*distance+Math.sin(0.4)*(distance/(MixView.getDataView().getRadius()*1000f/distance));
 		mGeoLoc.setAltitude(altitude);
 		super.update(curGPSFix);
 
@@ -59,27 +67,34 @@ public class SocialMarker extends LocalMarker {
 	@Override
 	public void draw(PaintScreen dw) {
 
+		// 텍스트 블록을 그린다
 		drawTextBlock(dw);
 
+		// 보여지는 상황이라면
 		if (isVisible) {
-			float maxHeight = Math.round(dw.getHeight() / 10f) + 1;
-			//Bitmap bitmap = BitmapFactory.decodeResource(MixContext.getResources(), DataSource.getDataSourceIcon());
-//			if(bitmap!=null) {
-//				dw.paintBitmap(bitmap, cMarker.x - maxHeight/1.5f, cMarker.y - maxHeight/1.5f);
-//			}
-//			else {
+			float maxHeight = Math.round(dw.getHeight() / 10f) + 1;	// 최대 높이 계산
+			// 데이터 소스의 비트맵 파일을 읽어온다
+
+			Bitmap bitmap = DataSource.getBitmap("default");
+
+			// 비트맵 파일이 읽혔다면 적절한 위치에 출력
+			if(bitmap!=null) {
+				dw.paintBitmap(bitmap, cMarker.x - maxHeight/1.5f, cMarker.y - maxHeight/1.5f);
+			}
+			else {	// 비트맵 파일을 갖지 않는 마커의 경우
 				dw.setStrokeWidth(maxHeight / 10f);
 				dw.setFill(false);
-				//dw.setColor(DataSource.getColor(type));
+				//dw.setColor(DataSource.getColor(datasource));
 				dw.paintCircle(cMarker.x, cMarker.y, maxHeight / 1.5f);
-			//}
+			}
 		}
 	}
+
 
 	@Override
 	public int getMaxObjects() {
 		return MAX_OBJECTS;
 	}
 
-	
+
 }

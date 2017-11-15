@@ -1,11 +1,14 @@
 package com.gnuarmap.data.convert;
 
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
 import android.graphics.Color;
 import android.location.Location;
 
 import com.gnuarmap.LocalMarker;
 import com.gnuarmap.MixView;
 import com.gnuarmap.POIMarker;
+import com.gnuarmap.R;
 import com.gnuarmap.SocialMarker;
 
 import org.mixare.lib.HtmlUnescape;
@@ -18,7 +21,7 @@ import java.util.ArrayList;
 public class DataClass {
 
     public ArrayList<SocialMarker> List = new ArrayList<SocialMarker>();
-
+    public static Bitmap basic;
     public int getIntFromColor(float Red, float Green, float Blue){
         int R = Math.round(255 * Red);
         int G = Math.round(255 * Green);
@@ -67,7 +70,6 @@ public class DataClass {
         }
         int number = List.size();
         String num = String.valueOf(number); // ID값은 사이즈에 따라서 결정됨
-
         SocialMarker item = new SocialMarker(
                 num,
                 HtmlUnescape.unescapeHTML((name), 0),
