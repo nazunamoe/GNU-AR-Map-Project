@@ -3,8 +3,11 @@ package com.gnuarmap.data.convert;
 import android.graphics.Color;
 import android.location.Location;
 
+import com.gnuarmap.LocalMarker;
 import com.gnuarmap.MixView;
 import com.gnuarmap.POIMarker;
+import com.gnuarmap.SocialMarker;
+
 import org.mixare.lib.HtmlUnescape;
 import java.util.ArrayList;
 
@@ -14,7 +17,7 @@ import java.util.ArrayList;
 
 public class DataClass {
 
-    public ArrayList<POIMarker> List = new ArrayList<POIMarker>();
+    public ArrayList<SocialMarker> List = new ArrayList<SocialMarker>();
 
     public int getIntFromColor(float Red, float Green, float Blue){
         int R = Math.round(255 * Red);
@@ -65,7 +68,7 @@ public class DataClass {
         int number = List.size();
         String num = String.valueOf(number); // ID값은 사이즈에 따라서 결정됨
 
-        POIMarker item = new POIMarker(
+        SocialMarker item = new SocialMarker(
                 num,
                 HtmlUnescape.unescapeHTML((name), 0),
                 Latitude,
@@ -81,7 +84,7 @@ public class DataClass {
         return List.size();
     }
 
-    public POIMarker getData(int index){
+    public SocialMarker getData(int index){
         return List.get(index);
     }
 
