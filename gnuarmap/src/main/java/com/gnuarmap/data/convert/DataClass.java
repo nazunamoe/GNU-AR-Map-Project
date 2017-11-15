@@ -1,14 +1,8 @@
 package com.gnuarmap.data.convert;
 
 import android.graphics.Bitmap;
-import android.graphics.BitmapFactory;
 import android.graphics.Color;
-import android.location.Location;
 
-import com.gnuarmap.LocalMarker;
-import com.gnuarmap.MixView;
-import com.gnuarmap.POIMarker;
-import com.gnuarmap.R;
 import com.gnuarmap.SocialMarker;
 
 import org.mixare.lib.HtmlUnescape;
