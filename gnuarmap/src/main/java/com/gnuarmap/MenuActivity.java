@@ -141,6 +141,14 @@ public class MenuActivity extends AppCompatActivity
                 startActivity(intent);
                 break;
             }
+            case R.id.nav_email:{
+                Intent email = new Intent(Intent.ACTION_SEND);
+                email.setType("plain/text");
+                String[] address = {"jpg3927@gmail.com"};
+                email.putExtra(Intent.EXTRA_EMAIL, address);
+                startActivity(email);
+                break;
+            }
         }
 
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
