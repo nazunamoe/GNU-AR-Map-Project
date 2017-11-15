@@ -260,6 +260,7 @@ public abstract class LocalMarker implements Marker {
 
 		if (isClickValid(x, y)) {
 			evtHandled = state.handleEvent(ctx, URL);
+			// 이 곳에서 건물의 이름을 네이버 지도로 넘겨서 해당 건물에 해당하는 마커를 활성화 시키도록 한다.
 		}
 		return evtHandled;
 	}
@@ -310,6 +311,7 @@ public abstract class LocalMarker implements Marker {
 	abstract public int getMaxObjects();
 	
 	public void setImage(Bitmap image){
+		// 이곳에서 아이콘을 설정 가능할 것으로 보인다.
 	}
 	
 	public Bitmap getImage(){
@@ -338,4 +340,5 @@ public abstract class LocalMarker implements Marker {
 	public void setExtras(String name, ParcelableProperty parcelableProperty){
 		//nothing to add
 	}
+	
 }
