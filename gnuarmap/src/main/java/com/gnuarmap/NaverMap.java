@@ -4,7 +4,6 @@ import android.content.Context;
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
-import android.view.*;
 
 import com.nhn.android.maps.NMapActivity;
 import com.nhn.android.maps.NMapController;
@@ -27,9 +26,9 @@ public class NaverMap extends NMapActivity {
         NMapController mMapController=mMapView.getMapController();
         setContentView(mMapView);
         mMapView.setClientId(CLIENT_ID); // 클라이언트 아이디 값 설정
+        mMapController.setMapViewMode(mMapView.VIEW_MODE_SATELLITE);
         if(state.getNMapState()==0){
             mMapController.setMapViewMode(mMapView.VIEW_MODE_SATELLITE);
-
         }else if(state.getNMapState()==1){
             mMapController.setMapViewMode(mMapView.VIEW_MODE_VECTOR);
         }
