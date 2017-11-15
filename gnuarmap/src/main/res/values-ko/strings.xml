@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="app_name">경상대학교 AR MAP</string>
-    <string name="search_hint">Search Location</string>
+    <string name="app_name">경상대학교 AR 지도</string>
+    <string name="search_hint">장소 검색</string>
 
     <string name="N">N</string>
     <string name="NE">NE</string>
@@ -12,25 +12,23 @@
     <string name="W">W</string>
     <string name="NW">NW</string>
 
-    <string name="OSM">Openstreetmap</string>
-    <string name="MIXARE">Mixare</string>
+    <string name="CIRCLE_MARKER">원</string>
+    <string name="NAVIGATION_MARKER">화살표</string>
 
-    <string name="CIRCLE_MARKER">Circles</string>
-    <string name="NAVIGATION_MARKER">Arrows</string>
-
-    <string name="empty_list">Sorry, \nThere is no location information \navailable within this radius.\nPlease try to search in a wider range.</string>
-    <string name="option_not_available">Sorry, We are working on it... \nThis option will be available soon!</string>
+    <string name="empty_list">죄송합니다, \n현재 위치에서의 장소를 찾을 수 없습니다. \n각도를 넓게 하여 재시도하여 주십시오.</string>
 
     <string name="license">Copyright (C) 2010- Peer internet solutions
-		\n\nThis program is free software: 	you can redistribute it and/or modify it under the terms of the 
-		GNU General Public License as published by the Free Software Foundation, either version 3 of the License, 
-		or at your option) any later version. 
-		\n\nThis program is distributed in the hope that it will be useful, but WITHOUT ANY WARRANTY; without even 
-		the implied warranty of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the GNU General Public 
-		License for more details. 
-		\n\n You should have received a copy of the GNU General Public License along with this program. 
+		\n\nThis program is free software: 	you can redistribute it and/or modify it under the terms of the
+		GNU General Public License as published by the Free Software Foundation, either version 3 of the License,
+		or at your option) any later version.
+		\n\nThis program is distributed in the hope that it will be useful, but WITHOUT ANY WARRANTY; without even
+		the implied warranty of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the GNU General Public
+		License for more details.
+		\n\n You should have received a copy of the GNU General Public License along with this program.
 		If not, see &lt;http://www.gnu.org/licenses/&gt;
 	</string>
+    <string name="GPSWarningTitle">GPS Warning</string>
+    <string name="GPSWarning">When using indoors, the marker height may be incorrect, so please use it outdoors if possible.</string>
 
     <string name="launch_plugins">Launch plugins?</string>
     <string name="plugin_message">Some plugins where found, do you want to enable them?</string>
@@ -108,91 +106,32 @@
 
     <string name="navigation_drawer_open">Open navigation drawer</string>
     <string name="navigation_drawer_close">Close navigation drawer</string>
-    <string name="navigation_drawer_arview">AR 뷰</string>
-    <string name="navigation_drawer_navermap">네이버 지도</string>
-    <string name="navigation_drawer_settings">설정</string>
-    <string name="navigation_drawer_email">개발자에게 연락하기</string>
-    <string name="navigation_drawer_homepage">홈페이지</string>
-    <string name="navigation_drawer_license">라이센스</string>
+    <string name="navigation_drawer_arview">AR view</string>
+    <string name="navigation_drawer_navermap">Naver map</string>
+    <string name="navigation_drawer_settings">Settings</string>
+    <string name="navigation_drawer_email">Email to developer</string>
+    <string name="navigation_drawer_homepage">Homepage</string>
+    <string name="navigation_drawer_license">License</string>
 
-    <string name="navigation_drawer_header">경상대학교 AR 지도</string>
-    <string name="navigation_drawer_header1">기능</string>
-    <string name="navigation_drawer_header2">설정</string>
-    <string name="navigation_drawer_header3">기타</string>
+    <string name="navigation_drawer_header">GNU AR MAP</string>
+    <string name="navigation_drawer_header1">Functions</string>
+    <string name="navigation_drawer_header2">Settings</string>
+    <string name="navigation_drawer_header3">Etc</string>
     <string name="navigation_drawer_maker">Made by Team Observer</string>
-    <string name="action_exit">종료</string>
-    <string name="title_activity_settings">설정</string>
+    <string name="action_exit">Exit</string>
+    <string name="title_activity_settings">Settings</string>
 
-    <!-- Strings related to Settings -->
+    <string name="settings_drawer_arview">AR View</string>
+    <string name="settings_drawer_filtering">Filtering</string>
+    <string name="settings_drawer_navermap">Naver Map</string>
 
-    <!-- Example General settings -->
-    <string name="pref_header_general">General</string>
+    <string name="settings_drawer_arview_header">AR View Settings</string>
+    <string name="settings_drawer_filtering_header">Filtering Settings</string>
+    <string name="settings_drawer_navermap_header">Naver Map Settings</string>
 
-    <string name="pref_title_social_recommendations">Enable social recommendations</string>
-    <string name="pref_description_social_recommendations">Recommendations for people to contact
-        based on your message history
-    </string>
+    <string name="permission_rejected">"If you reject permission,you can not use this service
 
-    <string name="pref_title_display_name">Display name</string>
-    <string name="pref_default_display_name">John Smith</string>
+Please turn on permissions at [Setting] > [Permission]"</string>
 
-    <string name="pref_title_add_friends_to_messages">Add friends to messages</string>
-    <string-array name="pref_example_list_titles">
-        <item>Always</item>
-        <item>When possible</item>
-        <item>Never</item>
-    </string-array>
-    <string-array name="pref_example_list_values">
-        <item>1</item>
-        <item>0</item>
-        <item>-1</item>
-    </string-array>
-
-    <!-- Example settings for Data & Sync -->
-    <string name="pref_header_data_sync">Data &amp; sync</string>
-
-    <string name="pref_title_sync_frequency">Sync frequency</string>
-    <string-array name="pref_sync_frequency_titles">
-        <item>15 minutes</item>
-        <item>30 minutes</item>
-        <item>1 hour</item>
-        <item>3 hours</item>
-        <item>6 hours</item>
-        <item>Never</item>
-    </string-array>
-    <string-array name="pref_sync_frequency_values">
-        <item>15</item>
-        <item>30</item>
-        <item>60</item>
-        <item>180</item>
-        <item>360</item>
-        <item>-1</item>
-    </string-array>
-
-    <string-array name="list_preference_entries">
-        <item>Entry 1</item>
-        <item>Entry 2</item>
-        <item>Entry 3</item>
-    </string-array>
-
-    <string-array name="list_preference_entry_values">
-        <item>1</item>
-        <item>2</item>
-        <item>3</item>
-    </string-array>
-
-    <string-array name="multi_select_list_preference_default_value" />
-
-    <string name="pref_title_system_sync_settings">System sync settings</string>
-
-    <!-- Example settings for Notifications -->
-    <string name="pref_header_notifications">Notifications</string>
-
-    <string name="pref_title_new_message_notifications">New message notifications</string>
-
-    <string name="pref_title_ringtone">Ringtone</string>
-    <string name="pref_ringtone_silent">Silent</string>
-
-    <string name="pref_title_vibrate">Vibrate</string>
-
+    <string name="NMapSetView">Use satellite map</string>
 </resources>
