@@ -3,6 +3,9 @@
     <string name="app_name">GNU AR MAP</string>
     <string name="search_hint">Search Location</string>
 
+    <string name="OSM">OSM</string>
+    <string name="MIXARE">Mixare</string>
+
     <string name="N">N</string>
     <string name="NE">NE</string>
     <string name="E">E</string>
