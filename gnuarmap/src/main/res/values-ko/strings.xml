@@ -124,11 +124,11 @@
 
     <string name = "settings_drawer_arview">AR보기</string>
     <string name = "settings_drawer_filtering">필터링</string>
-    <string name = "settings_drawer_navermap">네이버 맵</string>
+    <string name = "settings_drawer_navermap">네이버 지도</string>
 
     <string name = "settings_drawer_arview_header">AR보기 설정</string>
     <string name = "settings_drawer_filtering_header">필터링 설정</string>
-    <string name = "settings_drawer_navermap_header">네이버 맵 설정</string>
+    <string name = "settings_drawer_navermap_header">네이버 지도 설정</string>
 
     <string name = "permission_rejected">"권한을 거부하면 이 서비스를 사용할 수 없습니다
 
