@@ -254,7 +254,7 @@ public class DataView {
 		}
 
 		// Draw Radar
-		drawRadar(dw);
+		// drawRadar(dw);
 
 		// Get next event
 		UIEvent evt = null;
