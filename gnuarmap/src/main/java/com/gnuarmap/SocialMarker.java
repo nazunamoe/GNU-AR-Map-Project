@@ -22,11 +22,9 @@ package com.gnuarmap;
 import org.mixare.lib.gui.PaintScreen;
 
 import android.graphics.Bitmap;
-import android.graphics.BitmapFactory;
 import android.location.Location;
 
 import com.gnuarmap.data.DataSource;
-import com.gnuarmap.MixContext;
 
 /**
  * The SocialMarker class represents a marker, which contains data from
@@ -41,10 +39,11 @@ public class SocialMarker extends LocalMarker {
 	public static final int MAX_OBJECTS=15;
 
 
-
+	public String getFlag;
 	public SocialMarker(String id, String title, double latitude, double longitude,
-			double altitude, String URL, int type, int color) {
+			double altitude, String URL, int type, int color ,String flag) {
 		super(id, title, latitude, longitude, altitude, URL, type, color);
+		getFlag = flag;
 	}
 
 	@Override
@@ -75,7 +74,7 @@ public class SocialMarker extends LocalMarker {
 			float maxHeight = Math.round(dw.getHeight() / 10f) + 1;	// 최대 높이 계산
 			// 데이터 소스의 비트맵 파일을 읽어온다
 
-			Bitmap bitmap = DataSource.getBitmap("default");
+			Bitmap bitmap = DataSource.getBitmap(getFlag);
 
 			// 비트맵 파일이 읽혔다면 적절한 위치에 출력
 			if(bitmap!=null) {

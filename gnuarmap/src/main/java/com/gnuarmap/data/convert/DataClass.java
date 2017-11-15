@@ -34,8 +34,7 @@ public class DataClass {
         return 0xFF000000 | R | G | B;
     }
 
-    //TODO : 데이터 추가하는 부분, 이부분에 이미지도 삽입해야함, POIMarker도 수정해야할 필요가 있음
-    public void addItem( String name, String url, double Latitude, double Longitude, String color,int Height){
+    public void addItem(String name, String url, double Latitude, double Longitude, String color,int Height, String type){
         int value = 0;
         switch(color){
             case "BLACK":{
@@ -62,7 +61,6 @@ public class DataClass {
                 value = getIntFromColor(255,144,190);
                 break;
             }
-
             default:{
                 value = Color.BLACK;
                 break;
@@ -78,7 +76,8 @@ public class DataClass {
                 Height,
                 url,
                 1,
-                value);
+                value,
+                type);
         List.add(item);
     }
 

@@ -87,6 +87,8 @@ public class DataSource extends Activity {
 		CIRCLE_MARKER, NAVIGATION_MARKER, IMAGE_MARKER
 	};
 
+	public static String Building_Type;
+
 	private boolean enabled;
 	private TYPE type;
 	private DISPLAY display;
