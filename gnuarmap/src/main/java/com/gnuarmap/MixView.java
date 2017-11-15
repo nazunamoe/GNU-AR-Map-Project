@@ -1033,8 +1033,8 @@ class AugmentedView extends View {
 				zoomPaint.setColor(Color.WHITE);
 				zoomPaint.setTextSize(14);
 				String startKM, endKM;
-				endKM = "80km";
-				startKM = "0km";
+				endKM = "800m";
+				startKM = "200m";
 				/*
 				 * if(MixListView.getDataSource().equals("Twitter")){ startKM =
 				 * "1km"; }
