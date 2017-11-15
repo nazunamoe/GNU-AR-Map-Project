@@ -133,6 +133,5 @@
     <string name = "permission_rejected">"권한을 거부하면 이 서비스를 사용할 수 없습니다
 
 [설정]>[권한] "에서 권한을 켜십시오.</string>
-
     <string name = "NMapSetView">위성지도 사용</string>
 </resources>
