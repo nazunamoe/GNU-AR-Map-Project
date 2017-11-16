@@ -259,8 +259,7 @@ public abstract class LocalMarker implements Marker {
 		boolean evtHandled = false;
 
 		if (isClickValid(x, y)) {
-			evtHandled = state.handleEvent(ctx, URL);
-			// 이 곳에서 건물의 이름을 네이버 지도로 넘겨서 해당 건물에 해당하는 마커를 활성화 시키도록 한다.
+			evtHandled = state.handleEvent(ctx, URL,getTitle());
 		}
 		return evtHandled;
 	}

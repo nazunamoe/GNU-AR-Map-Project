@@ -31,6 +31,7 @@ import com.gnuarmap.mgr.webcontent.WebContentManagerFactory;
 
 import android.app.Activity;
 import android.content.ContentResolver;
+import android.content.Context;
 import android.content.ContextWrapper;
 import android.content.Intent;
 import android.widget.Toast;
@@ -87,6 +88,14 @@ public class MixContext extends ContextWrapper implements MixContextInterface {
 		synchronized (rotationM) {
 			dest.set(rotationM);
 		}
+	}
+
+	public void MarkerMenu(String Title){
+		Context ctx;
+		ctx=this;
+		Intent menu = new Intent(ctx, MarkerActivity.class);
+		menu.putExtra(Title,Title);
+		startActivity(menu);
 	}
 
 	/**

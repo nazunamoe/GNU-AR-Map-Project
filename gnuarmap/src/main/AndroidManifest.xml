@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
     package="com.gnuarmap"
     android:installLocation="auto"
     android:label="@string/app_name"
     android:versionCode="26"
-    android:versionName="0.9.2"
-    xmlns:tools="http://schemas.android.com/tools">
+    android:versionName="0.9.2">
 
     <uses-sdk
         android:minSdkVersion="21"
@@ -38,14 +38,14 @@
     <uses-permission android:name="android.permission.READ_PHONE_STATE" />
     <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
 
-    <application android:icon="@drawable/ic_launcher"
-        android:label="@string/app_name"
+    <application
         android:name=".State"
         android:allowBackup="true"
+        android:icon="@drawable/ic_launcher"
+        android:label="@string/app_name"
         tools:replace="label">
-
         <activity
-            android:name="com.gnuarmap.MainActivity"
+            android:name=".MainActivity"
             android:icon="@drawable/gmap_ic"
             android:label="@string/app_name">
             <intent-filter>
@@ -55,10 +55,10 @@
             </intent-filter>
         </activity>
         <activity
-            android:name="com.gnuarmap.MixView"
+            android:name=".MixView"
             android:label="@string/app_name"
-            android:screenOrientation="landscape"
-            android:launchMode="singleTop">
+            android:launchMode="singleTop"
+            android:screenOrientation="landscape">
             <intent-filter>
                 <action android:name="android.intent.action.VIEW" />
 
@@ -86,13 +86,13 @@
                 android:name="android.app.default_searchable"
                 android:value=".MixView" />
         </activity>
-        <activity android:name="com.gnuarmap.PluginLoaderActivity">
+        <activity android:name=".PluginLoaderActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
             </intent-filter>
         </activity>
         <activity
-            android:name="com.gnuarmap.MixListView"
+            android:name=".MixListView"
             android:launchMode="singleTop"
             android:screenOrientation="user">
             <intent-filter>
@@ -103,10 +103,10 @@
                 android:name="android.app.searchable"
                 android:resource="@xml/searchable" />
         </activity>
-        <activity android:name="com.gnuarmap.data.DataSource" />
-        <activity android:name="com.gnuarmap.data.DataSourceList" />
+        <activity android:name=".data.DataSource" />
+        <activity android:name=".data.DataSourceList" />
         <activity
-            android:name="com.gnuarmap.MenuActivity"
+            android:name=".MenuActivity"
             android:label="@string/app_name"
             android:theme="@style/AppTheme.NoActionBar">
             <intent-filter>
@@ -114,11 +114,13 @@
             </intent-filter>
         </activity>
         <activity
-            android:name="com.gnuarmap.SettingsActivity"
+            android:name=".SettingsActivity"
             android:theme="@style/AppCompat2" />
-        <activity android:name="com.gnuarmap.NaverMap"
+        <activity
+            android:name=".NaverMap"
             android:theme="@style/AppCompat2" />
+        <activity android:name=".MarkerActivity"
+            android:theme="@style/AppCompat2"></activity>
     </application>
-
 
 </manifest>

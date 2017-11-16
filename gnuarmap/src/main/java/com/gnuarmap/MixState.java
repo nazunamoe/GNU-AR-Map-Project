@@ -18,6 +18,8 @@
  */
 package com.gnuarmap;
 
+import android.content.Context;
+import android.content.Intent;
 import android.util.Log;
 
 import org.mixare.lib.MixContextInterface;
@@ -44,17 +46,31 @@ public class MixState implements MixStateInterface{
 
 	private boolean detailsView;
 
+	public boolean handleEvent(MixContextInterface ctx, String onPress, String title) {
+		if (onPress != null && onPress.startsWith("webpage")) {
+			try {
+				String webpage = MixUtils.parseAction(onPress);
+				this.detailsView = true;
+				Log.d("mixare","Clicked Marker");
+				ctx.MarkerMenu(title);
+			} catch (Exception ex) {
+				ex.printStackTrace();
+			}
+		} 
+		return true;
+	}
+
 	public boolean handleEvent(MixContextInterface ctx, String onPress) {
 		if (onPress != null && onPress.startsWith("webpage")) {
 			try {
 				String webpage = MixUtils.parseAction(onPress);
 				this.detailsView = true;
 				Log.d("mixare","Clicked Marker");
-				//ctx.loadMixViewWebPage(webpage);
+				//ctx.MarkerMenu();
 			} catch (Exception ex) {
 				ex.printStackTrace();
 			}
-		} 
+		}
 		return true;
 	}
 
