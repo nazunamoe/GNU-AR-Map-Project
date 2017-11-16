@@ -43,7 +43,7 @@ public class SocialMarker extends LocalMarker {
 	public SocialMarker(String id, String title, double latitude, double longitude,
 			double altitude, String URL, int type, int color ,String flag) {
 		super(id, title, latitude, longitude, altitude, URL, type, color);
-		getFlag = flag;
+		this.getFlag = flag;
 	}
 
 	@Override
@@ -78,7 +78,7 @@ public class SocialMarker extends LocalMarker {
 
 			// 비트맵 파일이 읽혔다면 적절한 위치에 출력
 			if(bitmap!=null) {
-				dw.paintBitmap(bitmap, cMarker.x - maxHeight/1.5f, cMarker.y - maxHeight/1.5f);
+				dw.paintBitmap(bitmap, cMarker.x - maxHeight/1.5f, cMarker.y - maxHeight/0.6f);
 			}
 			else {	// 비트맵 파일을 갖지 않는 마커의 경우
 				dw.setStrokeWidth(maxHeight / 10f);
