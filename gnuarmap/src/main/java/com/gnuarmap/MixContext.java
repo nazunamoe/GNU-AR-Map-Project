@@ -92,10 +92,6 @@ public class MixContext extends ContextWrapper implements MixContextInterface {
 	/**
 	 * Shows a webpage with the given url when clicked on a marker.
 	 */
-	public void loadMixViewWebPage(String url) throws Exception {
-		// TODO: CHECK INTERFACE METHOD
-		getWebContentManager().loadWebPage(url, getActualMixView());
-	}
 
 	public void doResume(MixView mixView) {
 		setActualMixView(mixView);

@@ -45,9 +45,11 @@ import com.gnuarmap.mgr.downloader.DownloadManager;
 import com.gnuarmap.mgr.downloader.DownloadRequest;
 import com.gnuarmap.mgr.downloader.DownloadResult;
 
+import android.content.Context;
 import android.graphics.Color;
 import android.location.Location;
 import android.util.Log;
+import android.view.View;
 import android.widget.Toast;
 
 /**
@@ -193,7 +195,7 @@ public class DataView {
 //		state.nextLStatus = MixState.PROCESSING;
 //	}
 
-	public void draw(PaintScreen dw) {
+	public void draw(PaintScreen dw, Context ctx, View view) {
 		mixContext.getRM(cam.transform);
 		curFix = mixContext.getLocationFinder().getCurrentLocation();
 
@@ -254,7 +256,7 @@ public class DataView {
 		}
 
 		// Draw Radar
-		// drawRadar(dw);
+		 drawRadar(dw);
 
 		// Get next event
 		UIEvent evt = null;
@@ -270,7 +272,7 @@ public class DataView {
 				handleKeyEvent((KeyEvent) evt);
 				break;
 			case UIEvent.CLICK:
-				handleClickEvent((ClickEvent) evt);
+				handleClickEvent((ClickEvent) evt, ctx, view);
 				break;
 			}
 		}
@@ -399,7 +401,7 @@ public class DataView {
 		}
 	}
 
-	boolean handleClickEvent(ClickEvent evt) {
+	boolean handleClickEvent(ClickEvent evt, Context ctx, View view) {
 		boolean evtHandled = false;
 
 		// Handle event
@@ -411,7 +413,7 @@ public class DataView {
 			for (int i = 0; i < dataHandler.getMarkerCount() && !evtHandled; i++) {
 				Marker pm = dataHandler.getMarker(i);
 
-				evtHandled = pm.fClick(evt.x, evt.y, mixContext, state);
+				evtHandled = pm.fClick(evt.x, evt.y, mixContext, state, ctx, view);
 			}
 		}
 		return evtHandled;

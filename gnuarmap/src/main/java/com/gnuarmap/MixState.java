@@ -18,7 +18,11 @@
  */
 package com.gnuarmap;
 
+import android.app.Activity;
+import android.content.Context;
 import android.util.Log;
+import android.view.View;
+import android.widget.PopupMenu;
 
 import org.mixare.lib.MixContextInterface;
 import org.mixare.lib.MixStateInterface;
@@ -26,10 +30,12 @@ import org.mixare.lib.MixUtils;
 import org.mixare.lib.render.Matrix;
 import org.mixare.lib.render.MixVector;
 
+import com.gnuarmap.MixView;
+
 /**
  * This class calculates the bearing and pitch out of the angles
  */
-public class MixState implements MixStateInterface{
+public class MixState extends Activity implements MixStateInterface{
 
 	public static int NOT_STARTED = 0; 
 	public static int PROCESSING = 1; 
@@ -49,7 +55,6 @@ public class MixState implements MixStateInterface{
 			try {
 				String webpage = MixUtils.parseAction(onPress);
 				this.detailsView = true;
-				Log.d("mixare","Clicked Marker");
 				//ctx.loadMixViewWebPage(webpage);
 			} catch (Exception ex) {
 				ex.printStackTrace();
@@ -57,6 +62,25 @@ public class MixState implements MixStateInterface{
 		} 
 		return true;
 	}
+
+
+
+	public boolean handleEvent(MixContextInterface ctx, String onPress, Context ct, View view) {
+		if (onPress != null && onPress.startsWith("webpage")) {
+			try {
+				this.detailsView = true;
+				PopupMenu p = new PopupMenu (ct, view);
+				getMenuInflater().inflate(R.menu.menu_settings, p.getMenu());
+
+				Log.d("mixare","Clicked Marker");
+			} catch (Exception ex) {
+				ex.printStackTrace();
+			}
+		}
+		return true;
+	}
+
+
 
 	public float getCurBearing() {
 		return curBearing;

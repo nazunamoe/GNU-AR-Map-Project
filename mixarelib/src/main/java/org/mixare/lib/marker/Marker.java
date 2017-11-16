@@ -27,7 +27,9 @@ import org.mixare.lib.marker.draw.PrimitiveProperty;
 import org.mixare.lib.render.Camera;
 import org.mixare.lib.render.MixVector;
 
+import android.content.Context;
 import android.location.Location;
+import android.view.View;
 
 /**
  * The marker interface.
@@ -71,7 +73,7 @@ public interface Marker extends Comparable<Marker>{
 
 	Label getTxtLab();
 
-	public boolean fClick(float x, float y, MixContextInterface ctx, MixStateInterface state);
+	public boolean fClick(float x, float y, MixContextInterface ctx, MixStateInterface state, Context ct, View view);
 
 	int getMaxObjects();
 	

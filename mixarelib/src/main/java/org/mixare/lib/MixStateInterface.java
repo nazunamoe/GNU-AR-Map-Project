@@ -18,6 +18,9 @@
  */
 package org.mixare.lib;
 
+import android.content.Context;
+import android.view.View;
+
 /**
  * An interface for MixState, so that it can be used in the library / plugin side, without knowing
  * the implementation.
@@ -26,5 +29,5 @@ package org.mixare.lib;
 public interface MixStateInterface {
 
 	boolean handleEvent(MixContextInterface ctx, String onPress);
-	
+	boolean handleEvent(MixContextInterface ctx, String onPress, Context ct, View view);
 }
