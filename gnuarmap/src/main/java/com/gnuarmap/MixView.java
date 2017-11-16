@@ -63,7 +63,6 @@ import android.os.PowerManager;
 import android.os.PowerManager.WakeLock;
 import android.provider.Settings;
 import android.util.Log;
-import android.view.ContextThemeWrapper;
 import android.view.Gravity;
 import android.view.KeyEvent;
 import android.view.Menu;
@@ -83,9 +82,6 @@ public class MixView extends Activity implements SensorEventListener, OnTouchLis
 	private CameraSurface camScreen;
 	private AugmentedView augScreen;
 
-	static public Context ctx;
-	public View view;
-
 	private boolean isInited;
 	private static PaintScreen dWindow;
 	private static DataView dataView;
@@ -103,14 +99,8 @@ public class MixView extends Activity implements SensorEventListener, OnTouchLis
 	/* string to name & access the preference file in the internal storage */
 	public static final String PREFS_NAME = "MyPrefsFileForMenuItems";
 
-	static public Context getContext(){
-	    return ctx;
-    }
-
 	@Override
 	public void onCreate(Bundle savedInstanceState) {
-	    ctx = this.getApplicationContext();
-
 		DataSource.createIcons(getResources());
 		super.onCreate(savedInstanceState);
 		AlertDialog.Builder builder1 = new AlertDialog.Builder(this);
@@ -1062,9 +1052,8 @@ class AugmentedView extends View {
 				canvas.drawText(app.getZoomLevel(), (canvas.getWidth()) / 100
 						* zoomProgress + 20, height, zoomPaint);
 			}
-            // 마커 그리는 메소드 호출부
-			MixView.getDataView().draw(MixView.getdWindow(),MixView.ctx,findViewById(R.id.content));
 
+			MixView.getDataView().draw(MixView.getdWindow());
 		} catch (Exception ex) {
 			app.doError(ex);
 		}

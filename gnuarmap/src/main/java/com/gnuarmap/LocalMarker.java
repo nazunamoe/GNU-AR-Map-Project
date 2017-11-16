@@ -35,10 +35,8 @@ import org.mixare.lib.reality.PhysicalPlace;
 import org.mixare.lib.render.Camera;
 import org.mixare.lib.render.MixVector;
 
-import android.content.Context;
 import android.graphics.Bitmap;
 import android.location.Location;
-import android.view.View;
 
 /**
  * The class represents a marker and contains its information.
@@ -257,11 +255,11 @@ public abstract class LocalMarker implements Marker {
 
 	}
 
-	public boolean fClick(float x, float y, MixContextInterface ctx, MixStateInterface state, Context ct, View view) {
+	public boolean fClick(float x, float y, MixContextInterface ctx, MixStateInterface state) {
 		boolean evtHandled = false;
 
 		if (isClickValid(x, y)) {
-			evtHandled = state.handleEvent(ctx, URL, ct, view);
+			evtHandled = state.handleEvent(ctx, URL);
 			// 이 곳에서 건물의 이름을 네이버 지도로 넘겨서 해당 건물에 해당하는 마커를 활성화 시키도록 한다.
 		}
 		return evtHandled;
