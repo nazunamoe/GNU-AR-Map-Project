@@ -1,0 +1,130 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">慶尙大學校AR地図</string>
+    <string name="search_hint">場所検索</string>
+
+    <string name="N">N</string>
+    <string name="NE">NE</string>
+    <string name="E">E</string>
+    <string name="SE">SE</string>
+    <string name="S">S</string>
+    <string name="SW">SW</string>
+    <string name="W">W</string>
+    <string name="NW">NW</string>
+
+    <string name="CIRCLE_MARKER">円形</string>
+    <string name="NAVIGATION_MARKER">矢印</string>
+
+    <string name="empty_list">申し訳ありませんが、\n現在の位置からの場所を見つけることができません。\n角度を広くして再試行してください。</string>
+
+
+    <string name="license">Copyright (C) 2010- Peer internet solutions
+		\n\nThis program is free software: 	you can redistribute it and/or modify it under the terms of the
+		GNU General Public License as published by the Free Software Foundation, either version 3 of the License,
+		or at your option) any later version.
+		\n\nThis program is distributed in the hope that it will be useful, but WITHOUT ANY WARRANTY; without even
+		the implied warranty of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the GNU General Public
+		License for more details.
+		\n\n You should have received a copy of the GNU General Public License along with this program.
+		If not, see &lt;http://www.gnu.org/licenses/&gt;
+	</string>
+    <string name="GPSWarningTitle">GPS Warning</string>
+    <string name = "GPSWarning">室内で使用する場合、マーカーの高さが正確ではないことがありますので、可能な場合は、屋外で使用してください。 </string>
+
+    <string name = "menu_item_1">データソース</string>
+    <string name = "menu_item_2">一覧を見る</string>
+    <string name = "menu_item_3">地図を見る</string>
+    <string name = "menu_item_4">拡大/縮小レベル</string>
+    <string name = "menu_item_5">検索</string>
+    <string name = "menu_item_6">情報</string>
+    <string name = "menu_item_7">ライセンス</string>
+
+    <string name = "cancel">キャンセル</string>
+
+
+    <string name = "data_source_edit_err">このデータソースは、編集できません。</string>
+    <string name = "data_source_delete_err">このデータソースは、削除できません。</string>
+
+    <string name = "connection_error_dialog">申し訳ありません。接続エラーが発生しました！\ nインターネットに接続されていることを確認してください。</string>
+    <string name = "connection_error_dialog_button1">再試行</string>
+    <string name = "connection_error_dialog_button2">設定を開く</string>
+    <string name = "connection_error_dialog_button3">アプリを閉じる</string>
+    <string name = "connection_GPS_dialog_text">GPSの場所を更新することはできません。\n続行すると、情報が適切な場所に表示されないことがあります。</string>
+    <string name = "connection_GPS_dialog_button1">続き</string>
+    <string name = "connection_GPS_dialog_button2">閉じる</string>
+
+    <string name="no_website_available">申し訳ありません。使用可能な追加情報はありません。</string>
+
+    <string name="license_title">ライセンス</string>
+    <string name ="close_button">閉じる</string>
+    <string name ="general_info_title">一般情報</string>
+
+    <string name="general_info_text"> GPS情報：</string>
+    <string name="longitude">経度：</string>
+    <string name="latitude">場所の検索：</string>
+    <string name="altitude">高度：</string>
+    <string name="speed">速度：</string>
+    <string name="accuracy">精度：</string>
+    <string name="gps_last_fix">最後GPS修正：</string>
+
+    <string name = "map_menu_normal_mode">地図</string>
+    <string name = "map_menu_satellite_mode">衛星</string>
+    <string name = "map_menu_cam_mode">カメラ</string>
+    <string name = "map_my_location">現在地</string>
+    <string name = "map_toggle_path_on">パスを表示</string>
+    <string name = "map_toggle_path_off">パスを隠す</string>
+
+    <string name = "map_current_location_click">現在位置</string>
+
+    <string name = "data_source_add">データソースの追加</string>
+    <string name = "data_source_edit">データソースの編集</string>
+    <string name = "data_source_delete">データソースの削除</string>
+    <string name = "data_source_change_wikipedia">データソースとしてウィキペディアに変更されました。</string>
+    <string name = "data_source_change_twitter">データソースとしてTwitterに変更されました。</string>
+    <string name = "data_source_change_osm">データソースにOpenStreetMapに変更されました。</string>
+
+    <string name = "search_failed_notification">検索結果なし</string>
+    <string name = "source_openstreetmap">駅周辺</string>
+
+    <string name = "search_active_1">データソースから取得</string>
+    <string name = "search_active_2">タッチすると、検索が終了します。</string>
+    <string name = "download_error">ダウンロード中にエラーが発生しました。</string>
+    <string name = "download_received">受信したデータ</string>
+
+    <string name = "add_osm_menu"> OpenStreetMap URLを追加</string>
+    <string name = "insert_osm_url"> OpenStreetMap URLを挿入</string>
+    <string name = "osm_max_object_menu"> URLごとに最大POI設定</string>
+    <string name = "set_osm_max_object"> URLごとに最大の関心行く場所</string>
+    <string name = "location_not_found">​​の位置を見つけることができないので、設定でWi-Fi位置やGPSを使用するように設定したことを確認します。</string>
+    <string name = "refreshing">更新</string>
+
+    <string name = "navigation_drawer_open">ナビゲーションウィンドウを開く</string>
+    <string name = "navigation_drawer_close">ナビゲーションウィンドウを閉じる</string>
+    <string name = "navigation_drawer_arview"> AR表示</string>
+    <string name = "navigation_drawer_navermap">Naver 地図</string>
+    <string name = "navigation_drawer_settings">設定</string>
+    <string name = "navigation_drawer_email">開発者にメールを送信</string>
+    <string name = "navigation_drawer_homepage">ホームページ</string>
+    <string name = "navigation_drawer_license">ライセンス</string>
+
+    <string name = "navigation_drawer_header"> GNU AR MAP </string>
+    <string name = "navigation_drawer_header1">機能</string>
+    <string name = "navigation_drawer_header2">設定</string>
+    <string name = "navigation_drawer_header3">その他</string>
+    <string name = "navigation_drawer_maker">チームオブザーバー製作</string>
+    <string name = "action_exit">終了</string>
+    <string name = "title_activity_settings">設定</string>
+
+    <string name = "settings_drawer_arview"> AR表示</string>
+    <string name = "settings_drawer_filtering">フィルタ</string>
+    <string name = "settings_drawer_navermap">Naver 地図</string>
+
+    <string name = "settings_drawer_arview_header"> AR表示設定</string>
+    <string name = "settings_drawer_filtering_header">フィルタ設定</string>
+    <string name = "settings_drawer_navermap_header">Naver 地図設定</string>
+
+    <string name = "permission_rejected"> "権限を拒否すると、このサービスを利用することができません
+
+[設定]> [権限]」での権限をオンにしてください。</string>
+    <string name = "NMapSetView">衛星地図を使用</string>
+</resources>
