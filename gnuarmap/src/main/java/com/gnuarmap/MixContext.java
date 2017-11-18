@@ -19,6 +19,7 @@
 package com.gnuarmap;
 
 import org.mixare.lib.MixContextInterface;
+import org.mixare.lib.marker.Marker;
 import org.mixare.lib.render.Matrix;
 import com.gnuarmap.mgr.datasource.DataSourceManager;
 import com.gnuarmap.mgr.datasource.DataSourceManagerFactory;
@@ -90,11 +91,17 @@ public class MixContext extends ContextWrapper implements MixContextInterface {
 		}
 	}
 
-	public void MarkerMenu(String Title){
+	public void MarkerMenu(Marker marker){
 		Context ctx;
 		ctx=this;
 		Intent menu = new Intent(ctx, MarkerActivity.class);
-		menu.putExtra(Title,Title);
+		menu.putExtra("Title",marker.getTitle());
+		menu.putExtra("Latitude",marker.getLatitude());
+		menu.putExtra("Longitude",marker.getLongitude());
+		menu.putExtra("Altitude",marker.getAltitude());
+		//menu.putExtra("Filtering - 1",marker.getTitle());
+		//menu.putExtra("Filtering - 1",marker.getTitle());
+		//필터링 기준을 정해서 마커 액티비티로 넘겨준다.
 		startActivity(menu);
 	}
 

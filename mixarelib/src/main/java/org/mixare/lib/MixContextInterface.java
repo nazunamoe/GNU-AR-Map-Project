@@ -18,6 +18,8 @@
  */
 package org.mixare.lib;
 
+import org.mixare.lib.marker.Marker;
+
 /**
  * An interface for MixContext, so that it can be used in the libary / Plugin side, without knowing
  * the implementation.
@@ -26,6 +28,6 @@ package org.mixare.lib;
 public interface MixContextInterface {
 
 	void loadMixViewWebPage(String url)  throws Exception ;
-	void MarkerMenu(String title);
+	void MarkerMenu(Marker marker);
 
 }

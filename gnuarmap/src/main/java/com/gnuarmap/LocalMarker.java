@@ -37,6 +37,7 @@ import org.mixare.lib.render.MixVector;
 
 import android.graphics.Bitmap;
 import android.location.Location;
+import android.util.Log;
 
 /**
  * The class represents a marker and contains its information.
@@ -259,10 +260,12 @@ public abstract class LocalMarker implements Marker {
 		boolean evtHandled = false;
 
 		if (isClickValid(x, y)) {
-			evtHandled = state.handleEvent(ctx, URL,getTitle());
+			evtHandled = state.handleEvent(ctx, URL, this.getTitle(), this);
+			Log.v("mixare","go to activity"+this.getTitle());
 		}
 		return evtHandled;
 	}
+
 
 	public double getDistance() {
 		return distance;

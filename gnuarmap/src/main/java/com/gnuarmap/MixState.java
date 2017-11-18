@@ -25,6 +25,7 @@ import android.util.Log;
 import org.mixare.lib.MixContextInterface;
 import org.mixare.lib.MixStateInterface;
 import org.mixare.lib.MixUtils;
+import org.mixare.lib.marker.Marker;
 import org.mixare.lib.render.Matrix;
 import org.mixare.lib.render.MixVector;
 
@@ -46,13 +47,13 @@ public class MixState implements MixStateInterface{
 
 	private boolean detailsView;
 
-	public boolean handleEvent(MixContextInterface ctx, String onPress, String title) {
+	public boolean handleEvent(MixContextInterface ctx, String onPress, Marker marker) {
 		if (onPress != null && onPress.startsWith("webpage")) {
 			try {
 				String webpage = MixUtils.parseAction(onPress);
 				this.detailsView = true;
 				Log.d("mixare","Clicked Marker");
-				ctx.MarkerMenu(title);
+				ctx.MarkerMenu(marker);
 			} catch (Exception ex) {
 				ex.printStackTrace();
 			}
