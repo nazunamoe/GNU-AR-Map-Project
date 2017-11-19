@@ -6,8 +6,8 @@
      android:key="ar_view_setting">
   <SwitchPreference
       android:defaultValue="false"
-      android:key="switch_preference_1"
-      android:title="Switch preference" />
+      android:key="MoreView"
+      android:title="@string/MoreView" />
   <SwitchPreference
       android:defaultValue="false"
       android:key="switch_preference_1"

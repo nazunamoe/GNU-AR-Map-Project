@@ -12,6 +12,7 @@ import android.preference.CheckBoxPreference;
 import android.preference.Preference;
 import android.preference.PreferenceFragment;
 import android.preference.PreferenceManager;
+import android.preference.SwitchPreference;
 import android.provider.Settings;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
@@ -65,22 +66,31 @@ public class SettingsActivity extends AppCompatActivity implements SharedPrefere
     public void onSharedPreferenceChanged(SharedPreferences sharedPreferences, String key) {
         State state = (State)getApplicationContext();
         SharedPreferences.Editor editor = sharedPreferences.edit();
-        if("ar_view_settings".equals(key)){
 
-        }
         if("MMapViewSet".equals(key)){
-            if(state.getNMapState()==0){
-                state.setNMapState(1);
-            }else if (state.getNMapState()==1){
-                state.setNMapState(0);
+            switch(state.getNMapState()){
+                case 0:{
+                    state.setNMapState(1);
+                    break;
+                }
+                case 1:{
+                    state.setNMapState(0);
+                    break;
+                }
             }
+        }else if("MoreView".equals(key)){
 
-        }
-        if("naver_map_settings".equals(key)){
-
-        }
-        if("filtering_settings".equals(key)){
-
+            switch(state.getMoreView()){
+                case 0:{
+                    state.setMoreView(1);
+                    break;
+                }
+                case 1:{
+                    state.setMoreView(0);
+                    break;
+                }
+            }
+            Log.v("mixare","  "+state.getMoreView());
         }
         editor.commit();
     }

@@ -8,6 +8,7 @@ import android.app.Application;
 
 public class State extends Application {
     private int NMapState;
+    private int MoreView;
 
     @Override
     public void onCreate(){
@@ -26,5 +27,13 @@ public class State extends Application {
 
     public void setNMapState(int State){
         this.NMapState = State;
+    }
+
+    public int getMoreView(){
+        return MoreView;
+    }
+
+    public void setMoreView(int moreview){
+        this.MoreView = moreview;
     }
 }
