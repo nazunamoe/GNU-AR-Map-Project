@@ -26,7 +26,7 @@
  <PreferenceCategory
      android:title="@string/settings_drawer_1st_filtering"
     android:key="filtering_setting">
-  <CheckBoxPreference
+  <SwitchPreference
       android:defaultValue="false"
       android:key="check_box_preference_1"
       android:title="Check box preference" />
@@ -35,7 +35,7 @@
  <PreferenceCategory
      android:title="@string/settings_drawer_2nd_filtering"
      android:key="filtering_setting">
-  <CheckBoxPreference
+  <SwitchPreference
       android:defaultValue="false"
       android:key="check_box_preference_1"
       android:title="Check box preference" />
