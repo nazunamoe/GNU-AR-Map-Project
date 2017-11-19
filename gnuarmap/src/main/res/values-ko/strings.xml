@@ -134,4 +134,11 @@
 
 [설정]>[권한] "에서 권한을 켜십시오.</string>
     <string name = "NMapSetView">위성지도 사용</string>
+    <string name="NaverMarker">네이버 지도에서 보기</string>
+    <string name="WebSite">이 건물의 홈페이지로 이동</string>
+    <string name="Navi">길안내 켜기</string>
+    <string name="MoreView">AR 범위 확장</string>
+
+    <string name="App_Version">1.0-r1</string>
+
 </resources>
