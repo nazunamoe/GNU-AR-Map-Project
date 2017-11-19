@@ -66,6 +66,7 @@ public class SettingsActivity extends AppCompatActivity implements SharedPrefere
         State state = (State)getApplicationContext();
         SharedPreferences.Editor editor = sharedPreferences.edit();
         if("ar_view_settings".equals(key)){
+
         }
         if("MMapViewSet".equals(key)){
             if(state.getNMapState()==0){
@@ -76,8 +77,10 @@ public class SettingsActivity extends AppCompatActivity implements SharedPrefere
 
         }
         if("naver_map_settings".equals(key)){
+
         }
         if("filtering_settings".equals(key)){
+
         }
         editor.commit();
     }

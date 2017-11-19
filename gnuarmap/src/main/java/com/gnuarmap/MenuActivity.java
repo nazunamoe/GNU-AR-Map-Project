@@ -111,6 +111,7 @@ public class MenuActivity extends AppCompatActivity
             }
             case R.id.design_navigation_view:{
                 ctx = this;
+                Intent intent = new Intent(ctx, NaverMap.class);
                 startActivity(new Intent(ctx, NaverMap.class));
                 finish();
                 // Handle the camera action

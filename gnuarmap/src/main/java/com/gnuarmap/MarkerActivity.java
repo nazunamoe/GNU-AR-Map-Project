@@ -3,6 +3,7 @@ package com.gnuarmap;
 import android.app.ActionBar;
 import android.content.Context;
 import android.content.Intent;
+import android.net.Uri;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
@@ -12,27 +13,43 @@ import android.widget.ArrayAdapter;
 import android.widget.ListView;
 
 public class MarkerActivity extends AppCompatActivity {
-    String Menu1 = getResources().getString(R.string.NaverMarker);
-    String Menu2 = getResources().getString(R.string.WebSite);
-    final String[] LIST_MENU = {Menu1, Menu2} ;
+
+    String url = "";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+        Intent intent = this.getIntent();
+        url = intent.getExtras().getString("URL");
+        String title = intent.getExtras().getString("Title");
+        String Menu1 = getResources().getString(R.string.NaverMarker);
+        String Menu2 = getResources().getString(R.string.WebSite);
+        final String[] LIST_MENU = {Menu1, Menu2} ;
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_marker);
-        Intent intent = this.getIntent();
-        String title = intent.getExtras().getString("Title");
         ArrayAdapter adapter = new ArrayAdapter(this, android.R.layout.simple_list_item_1, LIST_MENU) ;
         ListView listview = (ListView) findViewById(R.id.listview1) ;
         listview.setAdapter(adapter) ;
         listview.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView parent, View v, int position, long id) {
-
-                // get TextView's Text.
-                String strText = (String) parent.getItemAtPosition(position) ;
-                Log.v("mixare","item clicked");
-                // TODO : use strText
+                Intent intent;
+                switch(position){
+                    case 0:{
+                        intent = new Intent(MarkerActivity.this, NaverMap.class);
+                        intent.putExtra("Return","True");
+                        intent.putExtra("set","True");
+                        startActivity(intent);
+                        break;
+                    }
+                    case 1:{
+                        try {
+                            intent =  new Intent(Intent.ACTION_VIEW, Uri.parse(url));
+                        } catch (Exception e) {
+                            e.printStackTrace();
+                        }
+                        break;
+                    }
+                }
             }
         }) ;
         setTitle(title);

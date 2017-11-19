@@ -99,6 +99,7 @@ public class MixContext extends ContextWrapper implements MixContextInterface {
 		menu.putExtra("Latitude",marker.getLatitude());
 		menu.putExtra("Longitude",marker.getLongitude());
 		menu.putExtra("Altitude",marker.getAltitude());
+		menu.putExtra("URL",marker.getURL());
 		//menu.putExtra("Filtering - 1",marker.getTitle());
 		//menu.putExtra("Filtering - 1",marker.getTitle());
 		//필터링 기준을 정해서 마커 액티비티로 넘겨준다.
