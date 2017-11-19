@@ -140,4 +140,7 @@ Please turn on permissions at [Setting] > [Permission]"</string>
     <string name="NaverMarker">Show on Naver map</string>
     <string name="WebSite">Go to website of this building</string>
     <string name="Navi">Turn on navigation</string>
+
+    <string name="App_Version">1.0-r1</string>
+
 </resources>
