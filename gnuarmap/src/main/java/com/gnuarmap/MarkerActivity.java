@@ -12,8 +12,9 @@ import android.widget.ArrayAdapter;
 import android.widget.ListView;
 
 public class MarkerActivity extends AppCompatActivity {
-
-    static final String[] LIST_MENU = {"LIST1", "LIST2", "LIST3"} ;
+    String Menu1 = getResources().getString(R.string.NaverMarker);
+    String Menu2 = getResources().getString(R.string.WebSite);
+    final String[] LIST_MENU = {Menu1, Menu2} ;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

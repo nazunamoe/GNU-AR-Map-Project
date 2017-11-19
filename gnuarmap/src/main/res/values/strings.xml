@@ -137,4 +137,7 @@
 Please turn on permissions at [Setting] > [Permission]"</string>
 
     <string name="NMapSetView">Use satellite map</string>
+    <string name="NaverMarker">Show on Naver map</string>
+    <string name="WebSite">Go to website of this building</string>
+    <string name="Navi">Turn on navigation</string>
 </resources>
