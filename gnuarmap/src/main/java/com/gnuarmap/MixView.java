@@ -81,7 +81,7 @@ public class MixView extends Activity implements SensorEventListener, OnTouchLis
 
 	private CameraSurface camScreen;
 	private AugmentedView augScreen;
-
+	public int moreview;
 	private boolean isInited;
 	private static PaintScreen dWindow;
 	private static DataView dataView;
@@ -103,6 +103,9 @@ public class MixView extends Activity implements SensorEventListener, OnTouchLis
 	public void onCreate(Bundle savedInstanceState) {
 		DataSource.createIcons(getResources());
 		super.onCreate(savedInstanceState);
+		State state = (State)getApplicationContext();
+		Log.v("mixare","  "+state.getMoreView());
+		moreview = state.getMoreView();
 		AlertDialog.Builder builder1 = new AlertDialog.Builder(this);
 		builder1.setMessage(getString(R.string.GPSWarning));
 		builder1.setNegativeButton(getString(R.string.close_button),
@@ -393,7 +396,7 @@ public class MixView extends Activity implements SensorEventListener, OnTouchLis
 	 */
 	private void maintainAugmentR() {
 		if (augScreen == null ){
-		augScreen = new AugmentedView(this);
+		augScreen = new AugmentedView(this, moreview);
 		}
 		addContentView(augScreen, new LayoutParams(
 				LayoutParams.WRAP_CONTENT, LayoutParams.WRAP_CONTENT));
@@ -995,6 +998,7 @@ public class MixView extends Activity implements SensorEventListener, OnTouchLis
  */
 
 class AugmentedView extends View {
+	public int moreview;
 	MixView app;
 	int xSearch = 200;
 	int ySearch = 10;
@@ -1003,9 +1007,9 @@ class AugmentedView extends View {
 
 	Paint zoomPaint = new Paint();
 
-	public AugmentedView(Context context) {
+	public AugmentedView(Context context, int imoreview) {
 		super(context);
-
+		this.moreview = imoreview;
 		try {
 			app = (MixView) context;
 
@@ -1032,9 +1036,19 @@ class AugmentedView extends View {
 			if (app.isZoombarVisible()) {
 				zoomPaint.setColor(Color.WHITE);
 				zoomPaint.setTextSize(14);
-				String startKM, endKM;
-				endKM = "800m";
+				String startKM, endKM ;
 				startKM = "200m";
+				endKM = "800m";
+				switch(moreview){
+					case 0:{
+						endKM = "800m";
+						startKM = "200m";
+					}
+					case 1:{
+						endKM = "1400m";
+						startKM = "200m";
+					}
+				}
 				/*
 				 * if(MixListView.getDataSource().equals("Twitter")){ startKM =
 				 * "1km"; }

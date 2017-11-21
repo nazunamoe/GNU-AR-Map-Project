@@ -127,4 +127,8 @@
 
 [設定]> [権限]」での権限をオンにしてください。</string>
     <string name = "NMapSetView">衛星地図を使用</string>
+    <string name="NaverMarker">Naver 地図で見る</string>
+    <string name="WebSite">この建物のホームページに移動</string>
+    <string name="Navi">道案内オン</string>
+    <string name="MoreView">ARの範囲拡大</string>
 </resources>

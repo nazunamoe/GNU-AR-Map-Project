@@ -115,7 +115,7 @@
         </activity>
         <activity
             android:name=".SettingsActivity"
-            android:theme="@style/AppCompat2" />
+            android:theme="@style/PreferenceScreen" />
         <activity
             android:name=".NaverMap"
             android:theme="@style/AppCompat2" />
