@@ -8,10 +8,6 @@
       android:defaultValue="false"
       android:key="MoreView"
       android:title="@string/MoreView" />
-  <SwitchPreference
-      android:defaultValue="false"
-      android:key="switch_preference_1"
-      android:title="Switch preference" />
  </PreferenceCategory>
 
  <PreferenceCategory
@@ -22,10 +18,30 @@
       android:key="MMapViewSet"
       android:title="@string/NMapSetView" />
  </PreferenceCategory>
-
+<!-- 각 건물에 대한 필터링 추가 -->
  <PreferenceCategory
      android:title="@string/settings_drawer_1st_filtering"
     android:key="filtering_setting">
+  <SwitchPreference
+      android:defaultValue="false"
+      android:key="check_box_preference_1"
+      android:title="Check box preference" />
+  <SwitchPreference
+      android:defaultValue="false"
+      android:key="check_box_preference_1"
+      android:title="Check box preference" />
+  <SwitchPreference
+      android:defaultValue="false"
+      android:key="check_box_preference_1"
+      android:title="Check box preference" />
+  <SwitchPreference
+      android:defaultValue="false"
+      android:key="check_box_preference_1"
+      android:title="Check box preference" />
+  <SwitchPreference
+      android:defaultValue="false"
+      android:key="check_box_preference_1"
+      android:title="Check box preference" />
   <SwitchPreference
       android:defaultValue="false"
       android:key="check_box_preference_1"
@@ -37,8 +53,30 @@
      android:key="filtering_setting">
   <SwitchPreference
       android:defaultValue="false"
-      android:key="check_box_preference_1"
-      android:title="Check box preference" />
+      android:key="All"
+      android:title="@string/Filtering_All"
+      android:disableDependentsState="true"/>
+  <SwitchPreference
+      android:defaultValue="false"
+      android:key="ATM"
+      android:title="@string/Filtering_ATM"
+      android:dependency="All"/>
+  <SwitchPreference
+      android:defaultValue="false"
+      android:key="CVS"
+      android:title="@string/Filtering_CVS"
+      android:dependency="All"/>
+  <SwitchPreference
+      android:defaultValue="false"
+      android:key="Vending"
+      android:title="@string/Filtering_Vending"
+      android:dependency="All"/>
+  <SwitchPreference
+      android:defaultValue="false"
+      android:key="Printer"
+      android:title="@string/Filtering_Printer"
+      android:dependency="All"/>
+  <!-- 각 시설에 대한 필터링을 추가 -->
  </PreferenceCategory>
 
 

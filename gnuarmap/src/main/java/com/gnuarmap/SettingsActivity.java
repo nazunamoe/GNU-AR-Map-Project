@@ -79,7 +79,6 @@ public class SettingsActivity extends AppCompatActivity implements SharedPrefere
                 }
             }
         }else if("MoreView".equals(key)){
-
             switch(state.getMoreView()){
                 case 0:{
                     state.setMoreView(1);
@@ -91,6 +90,16 @@ public class SettingsActivity extends AppCompatActivity implements SharedPrefere
                 }
             }
             Log.v("mixare","  "+state.getMoreView());
+        }else if("All".equals(key)){
+            // 필터링 - 모두 보기 핸들러
+        }else if("ATM".equals(key)){
+            // 필터링 - ATM만 보기 핸들러
+        }else if("CVS".equals(key)){
+            // 필터링 - 편의점/매점만 보기 핸들러
+        }else if("Vending".equals(key)){
+            // 필터링 - 자판기만 보기 핸들러
+        }else if("Printer".equals(key)){
+            // 필터링 - 프린터만 보기 핸들러
         }
         editor.commit();
     }
