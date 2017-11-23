@@ -101,6 +101,41 @@ public class SettingsActivity extends AppCompatActivity implements SharedPrefere
         }else if("Printer".equals(key)){
             // 필터링 - 프린터만 보기 핸들러
         }
+        // 각 건물에 맞는 필터링을 사용. 하나의 메소드로 처리한다.
+        else if("AllBuilding".equals(key)){
+
+        }else if("Business".equals(key)){
+
+        }else if("Engnieering".equals(key)){
+
+        }else if("Dormitory".equals(key)){
+
+        }else if("ETC".equals(key)){
+
+        }else if("Agriculture".equals(key)){
+
+        }else if("University".equals(key)){
+
+        }else if("Club".equals(key)){
+
+        }else if("Door".equals(key)){
+
+        }else if("Law".equals(key)){
+
+        }else if("Education".equals(key)){
+
+        }else if("Social".equals(key)){
+
+        }else if("Veterinary".equals(key)){
+
+        }else if("Leisure".equals(key)){
+
+        }else if("Humanities".equals(key)){
+
+        }else if("Natrual".equals(key)){
+
+        }
+
         editor.commit();
     }
 

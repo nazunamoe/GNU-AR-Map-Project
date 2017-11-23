@@ -19,8 +19,7 @@
             android:layout_height="wrap_content"
             android:contentDescription="@string/navigation_drawer_header"
             android:scaleType="centerCrop"
-            app:srcCompat="@drawable/main" />
-
+            app:srcCompat="@drawable/header" />
     </LinearLayout>
 
 </android.support.constraint.ConstraintLayout>

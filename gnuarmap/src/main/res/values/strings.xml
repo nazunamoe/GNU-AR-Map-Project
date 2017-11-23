@@ -149,6 +149,21 @@ Please turn on permissions at [Setting] > [Permission]"</string>
     <string name="Filtering_Vending">Vending Machine</string>
     <string name="Filtering_Printer">Printer</string>
 
+    <string name="Filtering_Business">College of Business Administration</string>
+    <string name="Filtering_Engnieering">College of Engineering</string>
+    <string name="Filtering_Dormitory">Dormitory</string>
+    <string name="Filtering_ETC">ETC</string>
+    <string name="Filtering_Door">Door</string>
+    <string name="Filtering_Agriculture">College of Agriculture and Life Sciences</string>
+    <string name="Filtering_University">University building</string>
+    <string name="Filtering_Club">Club</string>
+    <string name="Filtering_Veterinary">Veterinary college</string>
+    <string name="Filtering_Law">College of Law</string>
+    <string name="Filtering_Education">College of Education</string>
+    <string name="Filtering_Social">College of Social Science</string>
+    <string name="Filtering_Leisure">Leisure facilities</string>
+    <string name="Filtering_Humanities">College of Humanities</string>
+    <string name="Filtering_Natural">College of Natural Science</string>
 
     <string name="App_Version">1.0-r4</string>
 
