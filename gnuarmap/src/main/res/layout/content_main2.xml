@@ -17,8 +17,9 @@
             android:id="@+id/imageView14"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:contentDescription="@string/navigation_drawer_header"
             android:scaleType="centerCrop"
-            app:srcCompat="@drawable/header" />
+            app:srcCompat="@drawable/main" />
 
     </LinearLayout>
 
