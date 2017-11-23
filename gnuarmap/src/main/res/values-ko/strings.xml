@@ -139,6 +139,13 @@
     <string name="Navi">길안내 켜기</string>
     <string name="MoreView">AR 범위 확장</string>
 
+    <string name="Filtering_All">모두 보이기</string>
+    <string name="Filtering_ATM">ATM</string>
+    <string name="Filtering_CVS">편의점</string>
+    <string name="Filtering_Vending">자판기</string>
+    <string name="Filtering_Printer">프린터</string>
+
+
     <string name="App_Version">1.0-r1</string>
 
 </resources>
