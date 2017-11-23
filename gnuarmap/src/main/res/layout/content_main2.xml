@@ -19,7 +19,6 @@
             android:layout_height="wrap_content"
             android:scaleType="centerCrop"
             app:srcCompat="@drawable/header" />
-
     </LinearLayout>
 
 </android.support.constraint.ConstraintLayout>
