@@ -60,6 +60,7 @@ public class SettingsActivity extends AppCompatActivity implements SharedPrefere
 
     }
 
+
     // 설정 값을 변경할 때 이벤트 처리를 담당한다.
     @Override
     public void onSharedPreferenceChanged(SharedPreferences sharedPreferences, String key) {
@@ -103,8 +104,12 @@ public class SettingsActivity extends AppCompatActivity implements SharedPrefere
         }
         // 각 건물에 맞는 필터링을 사용. 하나의 메소드로 처리한다.
         else if("AllBuilding".equals(key)){
-
-
+            Log.d("mixare","status changed"+Filtering_state.All);
+            if(Filtering_state.All == true){
+                Filtering_state.All = false;
+            }else if(Filtering_state.All == false){
+                Filtering_state.All = true;
+            }
         }else if("Business".equals(key)){
             Log.d("mixare","status changed"+Filtering_state.Business);
             if(Filtering_state.Business == true){
@@ -223,6 +228,11 @@ public class SettingsActivity extends AppCompatActivity implements SharedPrefere
         }else if(!in){
             in = true;
         }
+    }
+
+    @Override
+    public void onDestroy(){
+        super.onDestroy();
     }
 
     // 화면 구성을 위해 PreferenceFragment 를 상속받는 SettingsFragment class 를 구현한다.

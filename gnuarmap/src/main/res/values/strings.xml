@@ -117,6 +117,8 @@
     <string name="navigation_drawer_homepage">Homepage</string>
     <string name="navigation_drawer_license">License</string>
 
+    <string name ="settings_drawer_filtering">Filtering</string>
+
     <string name="navigation_drawer_header">GNU AR MAP</string>
     <string name="navigation_drawer_header1">Functions</string>
     <string name="navigation_drawer_header2">Settings</string>

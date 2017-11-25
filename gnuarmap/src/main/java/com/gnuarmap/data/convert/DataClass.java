@@ -43,83 +43,86 @@ public class DataClass {
         this.Filtering2 = Filtering2;
         int number = List.size();
         String num = String.valueOf(number); // ID값은 사이즈에 따라서 결정됨
-        if(state.Agriculture){
-            if(Filtering1=="agriculture"){
-                addMarker(Integer.toString(no),Latitude,Longitude,url,value,type,name);
+        if(state.All){
+            addMarker(Integer.toString(no),Latitude,Longitude,url,value,type,name);
+        }else{
+            if(state.Agriculture){
+                if(Filtering1=="agriculture"){
+                    addMarker(Integer.toString(no),Latitude,Longitude,url,value,type,name);
+                }
             }
-        }
-        if(state.Business){
-            if(Filtering1=="business"){
-                addMarker(Integer.toString(no),Latitude,Longitude,url,value,type,name);
+            if(state.Business){
+                if(Filtering1=="business"){
+                    addMarker(Integer.toString(no),Latitude,Longitude,url,value,type,name);
+                }
             }
-        }
-        if(state.Engnieering){
-            if(Filtering1=="engnieering"){
-                addMarker(Integer.toString(no),Latitude,Longitude,url,value,type,name);
+            if(state.Engnieering){
+                if(Filtering1=="engnieering"){
+                    addMarker(Integer.toString(no),Latitude,Longitude,url,value,type,name);
+                }
             }
-        }
-        if(state.Dormitory){
-            if(Filtering1=="dormitory"){
-                addMarker(Integer.toString(no),Latitude,Longitude,url,value,type,name);
+            if(state.Dormitory){
+                if(Filtering1=="dormitory"){
+                    addMarker(Integer.toString(no),Latitude,Longitude,url,value,type,name);
+                }
             }
-        }
-        if(state.ETC){
-            if(Filtering1=="etc"){
-                addMarker(Integer.toString(no),Latitude,Longitude,url,value,type,name);
+            if(state.ETC){
+                if(Filtering1=="etc"){
+                    addMarker(Integer.toString(no),Latitude,Longitude,url,value,type,name);
+                }
             }
-        }
-        if(state.University){
-            if(Filtering1=="university"){
-                addMarker(Integer.toString(no),Latitude,Longitude,url,value,type,name);
+            if(state.University){
+                if(Filtering1=="university"){
+                    addMarker(Integer.toString(no),Latitude,Longitude,url,value,type,name);
+                }
             }
-        }
-        if(state.Club){
-            if(Filtering1=="club"){
-                addMarker(Integer.toString(no),Latitude,Longitude,url,value,type,name);
+            if(state.Club){
+                if(Filtering1=="club"){
+                    addMarker(Integer.toString(no),Latitude,Longitude,url,value,type,name);
+                }
             }
-        }
-        if(state.Door){
-            if(Filtering1=="door"){
-                addMarker(Integer.toString(no),Latitude,Longitude,url,value,type,name);
+            if(state.Door){
+                if(Filtering1=="door"){
+                    addMarker(Integer.toString(no),Latitude,Longitude,url,value,type,name);
+                }
             }
-        }
-        if(state.Law){
-            if(Filtering1=="law"){
-                addMarker(Integer.toString(no),Latitude,Longitude,url,value,type,name);
+            if(state.Law){
+                if(Filtering1=="law"){
+                    addMarker(Integer.toString(no),Latitude,Longitude,url,value,type,name);
+                }
             }
-        }
-        if(state.Education){
-            if(Filtering1=="education"){
-                addMarker(Integer.toString(no),Latitude,Longitude,url,value,type,name);
+            if(state.Education){
+                if(Filtering1=="education"){
+                    addMarker(Integer.toString(no),Latitude,Longitude,url,value,type,name);
+                }
             }
-        }
-        if(state.Social){
-            if(Filtering1=="social"){
-                addMarker(Integer.toString(no),Latitude,Longitude,url,value,type,name);
+            if(state.Social){
+                if(Filtering1=="social"){
+                    addMarker(Integer.toString(no),Latitude,Longitude,url,value,type,name);
+                }
             }
-        }
-        if(state.Veterinary){
-            if(Filtering1=="veterinary"){
-                addMarker(Integer.toString(no),Latitude,Longitude,url,value,type,name);
+            if(state.Veterinary){
+                if(Filtering1=="veterinary"){
+                    addMarker(Integer.toString(no),Latitude,Longitude,url,value,type,name);
+                }
             }
-        }
-        if(state.Leisure){
-            if(Filtering1=="leisure"){
-                addMarker(Integer.toString(no),Latitude,Longitude,url,value,type,name);
+            if(state.Leisure){
+                if(Filtering1=="leisure"){
+                    addMarker(Integer.toString(no),Latitude,Longitude,url,value,type,name);
+                }
             }
-        }
-        if(state.Humanities){
-            if(Filtering1=="humanities"){
-                addMarker(Integer.toString(no),Latitude,Longitude,url,value,type,name);
+            if(state.Humanities){
+                if(Filtering1=="humanities"){
+                    addMarker(Integer.toString(no),Latitude,Longitude,url,value,type,name);
+                }
             }
-        }
-        if(state.Science){
-            if(Filtering1=="science"){
-                addMarker(Integer.toString(no),Latitude,Longitude,url,value,type,name);
+            if(state.Science){
+                if(Filtering1=="science"){
+                    addMarker(Integer.toString(no),Latitude,Longitude,url,value,type,name);
+                }
             }
         }
         // 건물 필터링, 이 다음에 2차 필터링도 넣어야 함.
-
     }
 
     private void addMarker(String num, Double Latitude, Double Longitude, String url, int value, String type, String name){

@@ -4,6 +4,7 @@ import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
+import android.util.Log;
 import android.view.*;
 import android.widget.ArrayAdapter;
 import android.widget.AutoCompleteTextView;
@@ -43,16 +44,15 @@ public class Search extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 s = edit.getText().toString();
+                Log.d("mixare",s);
                 value();
-                if(s.equals("")){
-                    Toast.makeText(getApplicationContext(),"검색할 건물번호 또는 건물명을 입력하세요",Toast.LENGTH_SHORT).show();
-                }else if(j.equals("-1")){
-                 Toast.makeText(getApplicationContext(),"정확한 건물명 또는 건물번호를 입력하세요",Toast.LENGTH_SHORT).show();
+                if(s.equals("")) {
+                    Toast.makeText(getApplicationContext(), "검색할 건물번호 또는 건물명을 입력하세요", Toast.LENGTH_SHORT).show();
                 }
                 else{
                     Toast.makeText(getApplicationContext(),s,Toast.LENGTH_SHORT).show();
                     Intent intent = new Intent(getApplicationContext(),NaverMapActivity.class);
-                    intent.putExtra("num",j);
+                    intent.putExtra("num",s);
                     startActivity(intent);
                     s="";
                     finish();

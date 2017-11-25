@@ -23,7 +23,7 @@ public class FilteringState {
     public boolean Humanities;
     public boolean Science;
     public boolean Door;
-
+    public boolean All;
     private FilteringState(){}
 
     public static synchronized FilteringState getInstance(){
