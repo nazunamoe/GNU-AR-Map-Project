@@ -119,7 +119,10 @@
         <activity
             android:name=".NaverMap"
             android:theme="@style/AppCompat2" />
-        <activity android:name=".MarkerActivity"
+        <activity
+            android:name=".MarkerActivity"
+            android:theme="@style/AppCompat2" />
+        <activity android:name=".NaverMapActivity"
             android:theme="@style/AppCompat2"></activity>
     </application>
 

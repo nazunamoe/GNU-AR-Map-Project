@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical" >
+
+    <AutoCompleteTextView
+        android:id="@+id/edit"
+        android:layout_width="303dp"
+        android:layout_height="wrap_content"
+        android:completionHint="건물을 검색하세요"
+        android:completionThreshold="1"
+        android:hint="ex)407동 또는 407"
+        android:layout_alignParentStart="true"
+        android:layout_toStartOf="@+id/SearchButton" />
+
+    <Button
+        android:id="@+id/SearchButton"
+        android:layout_width="70dp"
+        android:layout_height="wrap_content"
+        android:layout_alignBottom="@+id/edit"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentTop="true"
+        android:text="검색" />
+
+</RelativeLayout>
