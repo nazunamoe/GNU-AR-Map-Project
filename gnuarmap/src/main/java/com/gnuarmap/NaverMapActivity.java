@@ -54,10 +54,15 @@ public class NaverMapActivity extends NMapActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_map);
-
+        State state = (State)getApplicationContext();
         mMapView = findViewById(R.id.mapView);
         mMapView.setClientId(CLIENT_ID.CLIENT_ID); // 클라이언트 아이디 값 설정
         mMapController = mMapView.getMapController();
+        if(state.getNMapState()==0){
+            mMapController.setMapViewMode(mMapView.VIEW_MODE_SATELLITE);
+        }else if(state.getNMapState()==1){
+            mMapController.setMapViewMode(mMapView.VIEW_MODE_VECTOR);
+        }
         Intent intent = getIntent();
         name = intent.getStringExtra("num");
         Toolbar toolbar = findViewById(R.id.toolbar);
