@@ -24,28 +24,80 @@
     android:key="filtering_setting">
   <SwitchPreference
       android:defaultValue="false"
-      android:key="check_box_preference_1"
-      android:title="Check box preference" />
+      android:key="AllBuilding"
+      android:title="@string/Filtering_All"
+      android:disableDependentsState="true"/>
   <SwitchPreference
-      android:defaultValue="false"
-      android:key="check_box_preference_1"
-      android:title="Check box preference" />
+      android:defaultValue="true"
+      android:key="Business"
+      android:title="@string/Filtering_Business"
+      android:dependency="AllBuilding"/>
   <SwitchPreference
-      android:defaultValue="false"
-      android:key="check_box_preference_1"
-      android:title="Check box preference" />
+      android:defaultValue="true"
+      android:key="Engnineering"
+      android:title="@string/Filtering_Engnieering"
+      android:dependency="AllBuilding"/>
   <SwitchPreference
-      android:defaultValue="false"
-      android:key="check_box_preference_1"
-      android:title="Check box preference" />
+      android:defaultValue="true"
+      android:key="Dormitory"
+      android:title="@string/Filtering_Dormitory"
+      android:dependency="AllBuilding"/>
   <SwitchPreference
-      android:defaultValue="false"
-      android:key="check_box_preference_1"
-      android:title="Check box preference" />
+      android:defaultValue="true"
+      android:key="ETC"
+      android:title="@string/Filtering_ETC"
+      android:dependency="AllBuilding"/>
   <SwitchPreference
-      android:defaultValue="false"
-      android:key="check_box_preference_1"
-      android:title="Check box preference" />
+      android:defaultValue="true"
+      android:key="Agriculture"
+      android:title="@string/Filtering_Agriculture"
+      android:dependency="AllBuilding"/>
+  <SwitchPreference
+     android:defaultValue="true"
+     android:key="University"
+     android:title="@string/Filtering_University"
+      android:dependency="AllBuilding"/>
+  <SwitchPreference
+      android:defaultValue="true"
+      android:key="Club"
+      android:title="@string/Filtering_Club"
+      android:dependency="AllBuilding"/>
+  <SwitchPreference
+      android:defaultValue="true"
+      android:key="Door"
+      android:title="@string/Filtering_Door"
+      android:dependency="AllBuilding"/>
+  <SwitchPreference
+      android:defaultValue="true"
+      android:key="Law"
+      android:title="@string/Filtering_Law"
+      android:dependency="AllBuilding"/>
+  <SwitchPreference
+      android:defaultValue="true"
+      android:key="Education"
+      android:title="@string/Filtering_Education"
+      android:dependency="AllBuilding"/>
+  <SwitchPreference
+      android:defaultValue="true"
+      android:key="Social"
+      android:title="@string/Filtering_Social"
+      android:dependency="AllBuilding"/>
+  <SwitchPreference
+      android:defaultValue="true"
+      android:key="Veterinary"
+      android:title="@string/Filtering_Veterinary"
+      android:dependency="AllBuilding"/>
+  <SwitchPreference
+     android:defaultValue="true"
+     android:key="Leisure"
+     android:title="@string/Filtering_Leisure"
+      android:dependency="AllBuilding"/>
+  <SwitchPreference
+      android:defaultValue="true"
+      android:key="Natural"
+      android:title="@string/Filtering_Natural"
+      android:dependency="AllBuilding"/>
+
  </PreferenceCategory>
 <!-- 1차 필터링 및 2차 필터링에 대한 체크박스들 -->
  <PreferenceCategory

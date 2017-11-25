@@ -139,11 +139,30 @@
     <string name="Navi">길안내 켜기</string>
     <string name="MoreView">AR 범위 확장</string>
 
+    <string name="settings_drawer_1st_filtering">건물 필터링</string>
+    <string name="settings_drawer_2nd_filtering">시설 필터링</string>
+
     <string name="Filtering_All">모두 보이기</string>
     <string name="Filtering_ATM">ATM</string>
     <string name="Filtering_CVS">편의점</string>
     <string name="Filtering_Vending">자판기</string>
     <string name="Filtering_Printer">프린터</string>
+
+    <string name="Filtering_Business">경영대학</string>
+    <string name="Filtering_Engnieering">공과대학</string>
+    <string name="Filtering_Dormitory">기숙사</string>
+    <string name="Filtering_ETC">기타</string>
+    <string name="Filtering_Door">문</string>
+    <string name="Filtering_Agriculture">농업생명대학</string>
+    <string name="Filtering_University">대학 건물</string>
+    <string name="Filtering_Club">동아리</string>
+    <string name="Filtering_Veterinary">수의대학</string>
+    <string name="Filtering_Law">법과대학</string>
+    <string name="Filtering_Education">사범대학</string>
+    <string name="Filtering_Social">사회과학대학</string>
+    <string name="Filtering_Leisure">여가시설</string>
+    <string name="Filtering_Humanities">인문대학</string>
+    <string name="Filtering_Natural">자연과학대학</string>
 
 
     <string name="App_Version">1.0-r1</string>

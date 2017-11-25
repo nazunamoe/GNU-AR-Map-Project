@@ -43,7 +43,8 @@ public class MarkerActivity extends AppCompatActivity {
                     }
                     case 1:{
                         try {
-                            intent =  new Intent(Intent.ACTION_VIEW, Uri.parse(url));
+                            intent = new Intent(Intent.ACTION_VIEW, Uri.parse(url));
+                            startActivity(intent);
                         } catch (Exception e) {
                             e.printStackTrace();
                         }
