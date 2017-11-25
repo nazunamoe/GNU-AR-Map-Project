@@ -125,19 +125,29 @@ public class DataClass {
         // 건물 필터링, 이 다음에 2차 필터링도 넣어야 함.
     }
 
-    /* 2차 필터링
-        vending,printer
-        cvs,atm
-        printer,cvs,atm
-        vending
-        printer
-        cvs
-        printer,cvs
-        atm
-        printer,atm
-        vending,cvs,atm
-        vending,atm
+    /*
+
+    public String[] vending = {"vending"};
+    public String[] printer = {"printer"};
+    public String[] cvs = {"cvs"};
+    public String[] atm = {"atm"};
+
+    public String[] printer_cvs = {"printer","cvs"};
+    public String[] printer_atm = {"printer","atm"};
+    public String[] vending_atm = {"vending","atm"};
+    public String[] vending_printer = {"vending","printer"};
+    public String[] cvs_atm = {"cvs","atm"};
+
+    public String[] vending_cvs_atm = {"vending","cvs","atm"};
+    public String[] printer_cvs_atm = {"printer","cvs","atm"};
+
+    public String[] nothing = {};
+    *
      */
+
+    private void secondFiltering(String num, Double Latitude, Double Longitude, String url, int value, String type, String name){
+        // 각 배열 안의 요소를 검사하여 필터링을 실시한다.
+    }
 
     private void addMarker(String num, Double Latitude, Double Longitude, String url, int value, String type, String name){
         SocialMarker item = new SocialMarker(

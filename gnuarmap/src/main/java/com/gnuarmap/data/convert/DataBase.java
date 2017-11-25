@@ -21,6 +21,8 @@ public class DataBase {
     public String Humanities = "http://inmun.gnu.ac.kr";
     public String Veterinary = "http://vet.gnu.ac.kr";
     public String Social = "http://css.gnu.ac.kr/main/";
+
+
     public String[] vending_printer = {"vending","printer"};
     public String[] cvs_atm = {"cvs","atm"};
     public String[] printer_cvs_atm = {"printer","cvs","atm"};
