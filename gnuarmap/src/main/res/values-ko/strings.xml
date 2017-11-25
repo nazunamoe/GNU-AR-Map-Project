@@ -109,6 +109,7 @@
     <string name = "navigation_drawer_close">탐색 창 닫기</string>
     <string name = "navigation_drawer_arview">AR보기</string>
     <string name = "navigation_drawer_navermap">네이버지도</string>
+    <string name = "navigation_drawer_search">검색</string>
     <string name = "navigation_drawer_settings">설정</string>
     <string name = "navigation_drawer_email">개발자 이메일</string>
     <string name = "navigation_drawer_homepage">홈페이지</string>

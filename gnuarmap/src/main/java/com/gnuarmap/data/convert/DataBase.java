@@ -22,6 +22,10 @@ public class DataBase {
     public String Veterinary = "http://vet.gnu.ac.kr";
     public String Social = "http://css.gnu.ac.kr/main/";
 
+    public DataBase(){
+        this.Initialize();
+    }
+
     public void Initialize(){
         /* 필터링 알고리즘
 

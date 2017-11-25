@@ -1,9 +1,10 @@
 package com.gnuarmap;
 
+import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
-import android.view.View;
+import android.view.*;
 import android.widget.ArrayAdapter;
 import android.widget.AutoCompleteTextView;
 import android.widget.Button;
@@ -20,14 +21,14 @@ public class Search extends AppCompatActivity {
     "약대","국제어학원","컴퓨터과학관","남명학관","학군단","고문헌도서관","박물관","예절교육관","예절교육원","InformationCenter",
             "야외공연장","야공","대운동장","파워플랜트","교직원테니스장","송신탑","기숙사 행정실","기숙사구관","게스트하우스","영캠",
     "영어캠퍼스","LG개척관"};
-    public DataBase database;
+    public DataBase database = new DataBase();
     public static String s = "";
     public int num=0;
     public String j="-1";
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        database.Initialize();
+        //database.Initialize();
 
         setContentView(R.layout.activity_search);
         num = database.data.getSize();
@@ -68,4 +69,16 @@ public class Search extends AppCompatActivity {
         }
         return j;
     }
+
+    @Override
+    public boolean onKeyDown(int keyCode, android.view.KeyEvent event) {
+        if (keyCode == android.view.KeyEvent.KEYCODE_BACK){
+            Context ctx;
+            ctx = this;
+            startActivity(new Intent(ctx, MenuActivity.class));
+            finish();
+        }
+        return false;
+    }
+
 }

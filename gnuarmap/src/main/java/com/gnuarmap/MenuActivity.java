@@ -106,15 +106,18 @@ public class MenuActivity extends AppCompatActivity
                 ctx = this;
                 startActivity(new Intent(ctx, MixView.class));
                 finish();
-                // Handle the camera action
                 break;
             }
             case R.id.design_navigation_view:{
                 ctx = this;
-                Intent intent = new Intent(ctx, NaverMapActivity.class);
                 startActivity(new Intent(ctx, NaverMapActivity.class));
                 finish();
-                // Handle the camera action
+                break;
+            }
+            case R.id.design_search:{
+                ctx = this;
+                startActivity(new Intent(ctx, Search.class));
+                finish();
                 break;
             }
             case R.id.nav_settings:{
