@@ -13,10 +13,8 @@ import com.nhn.android.maps.overlay.NMapPOIdata;
 import com.nhn.android.maps.overlay.NMapPOIitem;
 import com.nhn.android.mapviewer.overlay.NMapOverlayManager;
 import com.nhn.android.mapviewer.overlay.NMapPOIdataOverlay;
+import com.gnuarmap.data.convert.DataBase;
 
-import static com.gnuarmap.data.convert.DB.Hardness;
-import static com.gnuarmap.data.convert.DB.Latitude;
-import static com.gnuarmap.data.convert.DB.Title;
 import static com.gnuarmap.NaverMapActivity.DEBUG;
 import static com.gnuarmap.NaverMapActivity.LOG_TAG;
 import static com.gnuarmap.NaverMapActivity.db;
@@ -31,37 +29,30 @@ import static com.gnuarmap.NaverMapActivity.mOverlayManager;
 public class Filtering {
     int markerId = NMapPOIflagType.PIN;
     Context context;
-    int d = db.Count();
     public static NMapPOIdata poiData;
     public static NMapPOIdataOverlay poiDataOverlay;
     public static NMapPOIdataOverlay poiDataOverlay1;
+    DataBase database = new DataBase();
 
-    public Filtering(Context context){
-        this.context = context;
-    }
 
     public void GMarker() {
-        Double a = db.Latitude(0);
-        Double b = db.Hardness(0);
-        String c = db.Title(0);
-        int d = db.Count();
+
+        database.Initialize();
+        int d = db.data.getSize();
         poiData = new NMapPOIdata(d, mMapViewerResourceProvider, true);
         poiData.beginPOIdata(d);
-        for(int i=0;i<d;i++) {
-            poiData.addPOIitem(new NGeoPoint(Hardness.get(i), Latitude.get(i)),Title.get(i),markerId,0);
+        for(int i=0;i<database.data.getSize();i++) {
+            poiData.addPOIitem(new NGeoPoint(database.data.getData(i).getLongitude(), database.data.getData(i).getLatitude()),database.data.getData(i).getTitle(),markerId,0);
         }
         poiData.endPOIdata();
         poiDataOverlay1 = mOverlayManager.createPOIdataOverlay(poiData, null);
         poiDataOverlay1.setOnStateChangeListener(onPOIdataStateChangeListener);
     }
 
-    public void print() {
-        Double a = db.Latitude(0);
-        Double b = db.Hardness(0);
-        String c = db.Title(0);
-        int d = db.Count();
-        poiData = new NMapPOIdata(d, mMapViewerResourceProvider, true);
-        poiData.beginPOIdata(d);
+    /*public void print() {
+        database.Initialize();
+        poiData = new NMapPOIdata(database.data.getSize(), mMapViewerResourceProvider, true);
+        poiData.beginPOIdata(database.data.getSize());
             poiData.addPOIitem(new NGeoPoint(Hardness.get(9), Latitude.get(9)), Title.get(9),markerId,0);
             poiData.addPOIitem(new NGeoPoint(Hardness.get(15), Latitude.get(15)), Title.get(15),markerId,0);
             poiData.addPOIitem(new NGeoPoint(Hardness.get(19), Latitude.get(19)), Title.get(19),markerId,0);
@@ -162,10 +153,6 @@ public class Filtering {
     }
 
     public void Searching(int num){
-        Double a = db.Latitude(0);
-        Double b = db.Hardness(0);
-        String c = db.Title(0);
-        int d = db.Count();
         NMapPOIdata poiData = new NMapPOIdata(d, mMapViewerResourceProvider, true);
         poiData.beginPOIdata(d);
         poiData.addPOIitem(new NGeoPoint(Hardness.get(num), Latitude.get(num)), Title.get(num) ,markerId, 0);
@@ -173,7 +160,8 @@ public class Filtering {
         poiData.endPOIdata();
         poiDataOverlay = mOverlayManager.createPOIdataOverlay(poiData, null);
         poiDataOverlay.setOnStateChangeListener(onPOIdataStateChangeListener);
-    }
+    }*/
+
     public final NMapPOIdataOverlay.OnStateChangeListener onPOIdataStateChangeListener = new NMapPOIdataOverlay.OnStateChangeListener() {
         public void onCalloutClick(NMapPOIdataOverlay poiDataOverlay, NMapPOIitem item) {
             NGeoPoint point = item.getPoint();
@@ -182,7 +170,7 @@ public class Filtering {
             }
 
             // [[TEMP]] handle a click event of the callout
-            Toast.makeText(context, "onCalloutClick: " +  item.getTitle() , Toast.LENGTH_LONG).show();
+           // Toast.makeText(, "onCalloutClick: " +  item.getTitle() , Toast.LENGTH_LONG).show();
         }
 
         @Override

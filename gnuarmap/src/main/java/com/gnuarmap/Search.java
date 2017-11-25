@@ -9,6 +9,8 @@ import android.widget.AutoCompleteTextView;
 import android.widget.Button;
 import android.widget.Toast;
 
+import com.gnuarmap.data.convert.DataBase;
+
 import static com.gnuarmap.NaverMapActivity.db;
 
 public class Search extends AppCompatActivity {
@@ -18,15 +20,17 @@ public class Search extends AppCompatActivity {
     "약대","국제어학원","컴퓨터과학관","남명학관","학군단","고문헌도서관","박물관","예절교육관","예절교육원","InformationCenter",
             "야외공연장","야공","대운동장","파워플랜트","교직원테니스장","송신탑","기숙사 행정실","기숙사구관","게스트하우스","영캠",
     "영어캠퍼스","LG개척관"};
-
+    public DataBase database;
     public static String s = "";
     public int num=0;
     public String j="-1";
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        database.Initialize();
+
         setContentView(R.layout.activity_search);
-        num = db.Count();
+        num = database.data.getSize();
 
         final AutoCompleteTextView edit = (AutoCompleteTextView) findViewById(R.id.edit);
 
@@ -58,7 +62,7 @@ public class Search extends AppCompatActivity {
 
     private String value(){
         for(int i=0;i<num;i++){
-            if(s.equals(db.Title(i))){
+            if(s.equals(database.data.getData(i).getTitle())){
                 j=Integer.toString(i);
             }
         }
