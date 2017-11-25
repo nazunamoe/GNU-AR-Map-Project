@@ -25,13 +25,11 @@ import java.util.Hashtable;
 import java.util.List;
 
 import com.gnuarmap.MixContext;
-import com.gnuarmap.MixView;
-import com.gnuarmap.data.convert.SampleData;
+import com.gnuarmap.data.convert.DataBase;
 
 import org.mixare.lib.marker.Marker;
 
 import android.location.Location;
-import android.util.Log;
 
 /**
  * DataHandler is the model which provides the Marker Objects with its data.
@@ -43,7 +41,7 @@ public class DataHandler {
 	private List<Marker> markerList = new ArrayList<Marker>();
 
 	public void addMarkers(List<Marker> markers) {
-		SampleData data = new SampleData();
+		DataBase data = new DataBase();
 		data.Initialize();
 		// Log.v(MixView.TAG, "Marker before: "+markerList.size());
 		for(int i=0; i<data.data.getSize(); i++){

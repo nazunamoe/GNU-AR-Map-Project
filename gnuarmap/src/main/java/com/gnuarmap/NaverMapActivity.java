@@ -9,7 +9,7 @@ import android.support.v7.widget.Toolbar;
 import android.view.*;
 import android.widget.Toast;
 
-import com.gnuarmap.data.convert.DB;
+import com.gnuarmap.data.convert.DataBase;
 import com.nhn.android.maps.NMapActivity;
 import com.nhn.android.maps.NMapCompassManager;
 import com.nhn.android.maps.NMapController;

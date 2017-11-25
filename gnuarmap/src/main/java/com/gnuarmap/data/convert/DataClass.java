@@ -28,38 +28,8 @@ public class DataClass {
         return 0xFF000000 | R | G | B;
     }
 
-    public void addItem(String name, String url, double Latitude, double Longitude, String color,int Height, String type){
+    public void addItem(String name, String url, double Latitude, double Longitude, String type, String Filtering1, String Filtering2, int no){
         int value = 0;
-        switch(color){
-            case "BLACK":{
-                value = Color.BLACK;
-                break;
-            }
-            case "RED":{
-                value = Color.RED;
-                break;
-            }
-            case "GREEN":{
-                value = Color.GREEN;
-                break;
-            }
-            case "BLUE":{
-                value = Color.BLUE;
-                break;
-            }
-            case "YELLOW":{
-                value = Color.YELLOW;
-                break;
-            }
-            case "PINK":{
-                value = getIntFromColor(255,144,190);
-                break;
-            }
-            default:{
-                value = Color.BLACK;
-                break;
-            }
-        }
         int number = List.size();
         String num = String.valueOf(number); // ID값은 사이즈에 따라서 결정됨
         SocialMarker item = new SocialMarker(
@@ -67,7 +37,7 @@ public class DataClass {
                 HtmlUnescape.unescapeHTML((name), 0),
                 Latitude,
                 Longitude,
-                Height,
+                0, // 소셜 마커이므로 고도에 구애받지 않는다.
                 url,
                 1,
                 value,
