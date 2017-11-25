@@ -39,11 +39,11 @@ public class SocialMarker extends LocalMarker {
 	public static final int MAX_OBJECTS=15;
 
 	public String filter1;
-	public String filter2;
+	public String filter2[];
 
 	public String getFlag;
 	public SocialMarker(String id, String title, double latitude, double longitude,
-			double altitude, String URL, int type, int color ,String flag, String filtering1, String filtering2) {
+			double altitude, String URL, int type, int color ,String flag, String filtering1, String filtering2[]) {
 		super(id, title, latitude, longitude, altitude, URL, type, color);
 		this.getFlag = flag;
 		this.filter1 = filtering1;

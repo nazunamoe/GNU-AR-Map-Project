@@ -21,6 +21,19 @@ public class DataBase {
     public String Humanities = "http://inmun.gnu.ac.kr";
     public String Veterinary = "http://vet.gnu.ac.kr";
     public String Social = "http://css.gnu.ac.kr/main/";
+    public String[] vending_printer = {"vending","printer"};
+    public String[] cvs_atm = {"cvs","atm"};
+    public String[] printer_cvs_atm = {"printer","cvs","atm"};
+    public String[] vending = {"vending"};
+    public String[] printer = {"printer"};
+    public String[] cvs = {"cvs"};
+    public String[] atm = {"atm"};
+    public String[] printer_cvs = {"printer","cvs"};
+    public String[] vending_cvs_atm = {"vending","cvs","atm"};
+    public String[] printer_atm = {"printer","atm"};
+    public String[] vending_atm = {"vending","atm"};
+    public String[] nothing = {};
+
 
     public DataBase(){
         this.Initialize();
@@ -54,8 +67,8 @@ public class DataBase {
         cvs
         printer,cvs
         atm
-        printer,arm
-        vending,cvs,arm
+        printer,atm
+        vending,cvs,atm
         vending,atm
 
         */
@@ -66,7 +79,7 @@ public class DataBase {
                     35.15382,128.099861,
                     "engine",
                 "engnieering",
-                "nothing",
+                nothing,
                 401
                 );
         data.addItem("공대 2호관",
@@ -74,7 +87,7 @@ public class DataBase {
                 35.154728,128.094193,
                 "engine",
                 "engnieering",
-                "nothing",
+                nothing,
                 402
         );
         data.addItem("공대 3호관",
@@ -82,7 +95,7 @@ public class DataBase {
                 35.155825,128.094035,
                 "engine",
                 "engnieering",
-                "nothing",
+                nothing,
                 403
         );
         data.addItem("공대 4호관",
@@ -90,7 +103,7 @@ public class DataBase {
                 35.155408,128.094235,
                 "engine",
                 "engnieering",
-                "cvs,atm",
+                cvs_atm,
                 404
         );
         data.addItem("공대 5호관",
@@ -98,7 +111,7 @@ public class DataBase {
                 35.154863,128.094563,
                 "engine",
                 "engnieering",
-                "nothing",
+                nothing,
                 405
         );
         data.addItem("공대 6호관",
@@ -106,7 +119,7 @@ public class DataBase {
                 35.1542783,128.0941758,
                 "engine",
                 "engnieering",
-                "nothing",
+                nothing,
                 406
         );
         data.addItem("공대 7호관",
@@ -114,7 +127,7 @@ public class DataBase {
                 35.154354,128.093236,
                 "engine",
                 "engnieering",
-                "nothing",
+                nothing,
                 407
         );
         data.addItem("공대부속공장",
@@ -122,7 +135,7 @@ public class DataBase {
                 35.156122,128.0945,
                 "engine",
                 "engnieering",
-                "nothing",
+                nothing,
                 416
         );
 
@@ -132,7 +145,7 @@ public class DataBase {
                 35.15382,128.099861,
                 "business",
                 "business",
-                "nothing",
+                nothing,
                 201
         );
 
@@ -142,7 +155,7 @@ public class DataBase {
                 35.157377,128.100519,
                 "dominatory",
                 "dominatory",
-                "printer,cvs,atm",
+                printer_cvs_atm,
                 416
         );
         data.addItem("게스트하우스",
@@ -150,7 +163,7 @@ public class DataBase {
                 35.1577176,128.0991493,
                 "dominatory",
                 "dominatory",
-                "nothing",
+                nothing,
                 68
         );
         data.addItem("LG개척관",
@@ -158,7 +171,7 @@ public class DataBase {
                 35.158045,128.098891,
                 "dominatory",
                 "dominatory",
-                "nothing",
+                nothing,
                 70
         );
         data.addItem("기숙사 1동",
@@ -166,7 +179,7 @@ public class DataBase {
                 35.157377,128.100519,
                 "dominatory",
                 "dominatory",
-                "nothing",
+                nothing,
                 61
         );
         data.addItem("기숙사 2동",
@@ -174,7 +187,7 @@ public class DataBase {
                 35.157735,128.100078,
                 "dominatory",
                 "dominatory",
-                "nothing",
+                nothing,
                 62
         );
         data.addItem("기숙사 3동",
@@ -182,7 +195,7 @@ public class DataBase {
                 35.156122,128.0945,
                 "dominatory",
                 "dominatory",
-                "nothing",
+                nothing,
                 416
         );
         data.addItem("기숙사 4동",
@@ -190,7 +203,7 @@ public class DataBase {
                 35.157941,128.100439,
                 "dominatory",
                 "dominatory",
-                "nothing",
+                nothing,
                 64
         );
         data.addItem("기숙사 5동",
@@ -198,7 +211,7 @@ public class DataBase {
                 35.158456,128.098934,
                 "dominatory",
                 "dominatory",
-                "vending",
+                vending,
                 65
         );
         data.addItem("기숙사 6동",
@@ -206,7 +219,7 @@ public class DataBase {
                 35.157541,128.101319,
                 "dominatory",
                 "dominatory",
-                "nothing",
+                nothing,
                 66
         );
         data.addItem("기숙사 7동",
@@ -214,7 +227,7 @@ public class DataBase {
                 35.1574650,128.1015570,
                 "dominatory",
                 "dominatory",
-                "nothing",
+                nothing,
                 67
         );
         data.addItem("ENGLISH ONLY ZONE",
@@ -222,7 +235,7 @@ public class DataBase {
                 35.1577648,128.1008716,
                 "dominatory",
                 "dominatory",
-                "nothing",
+                nothing,
                 416
         );
         data.addItem("기숙사 8동",
@@ -230,7 +243,7 @@ public class DataBase {
                 35.156735,128.101429,
                 "dominatory",
                 "dominatory",
-                "printer",
+                printer,
                 71
         );
         data.addItem("기숙사 9동",
@@ -238,7 +251,7 @@ public class DataBase {
                 35.15672,128.101799,
                 "dominatory",
                 "dominatory",
-                "cvs",
+                cvs,
                 72
         );
         data.addItem("기숙사 10동",
@@ -246,7 +259,7 @@ public class DataBase {
                 35.156738,128.1006885,
                 "dominatory",
                 "dominatory",
-                "printer,cvs",
+                printer_cvs,
                 73
         );
         data.addItem("기숙사 11동",
@@ -254,7 +267,7 @@ public class DataBase {
                 35.157065,128.100451,
                 "dominatory",
                 "dominatory",
-                "nothing",
+                nothing,
                 74
         );
         data.addItem("아람관",
@@ -262,7 +275,7 @@ public class DataBase {
                 35.1573572,128.1008773,
                 "dominatory",
                 "dominatory",
-                "nothing",
+                nothing,
                 74
         );
 
@@ -272,7 +285,7 @@ public class DataBase {
                 35.152723,128.100083,
                 "etc",
                 "etc",
-                "nothing",
+                nothing,
                 74
         );
         data.addItem("남문주차장",
@@ -280,7 +293,7 @@ public class DataBase {
                 35.1518122,128.1017564,
                 "etc",
                 "etc",
-                "nothing",
+                nothing,
                 74
         );
 
@@ -290,7 +303,7 @@ public class DataBase {
                 35.15332,128.094787,
                 "agriculture",
                 "agriculture",
-                "nothing",
+                nothing,
                 27
         );
         data.addItem("농생대 1호관",
@@ -298,7 +311,7 @@ public class DataBase {
                 35.151932,128.098099,
                 "agriculture",
                 "agriculture",
-                "nothing",
+                nothing,
                 451
         );
         data.addItem("농생대 2호관",
@@ -306,7 +319,7 @@ public class DataBase {
                 35.152891,128.09758,
                 "agriculture",
                 "agriculture",
-                "vending",
+                vending,
                 452
         );
         data.addItem("농생대 3호관",
@@ -314,7 +327,7 @@ public class DataBase {
                 35.153362,128.098328,
                 "agriculture",
                 "agriculture",
-                "nothing",
+                nothing,
                 453
         );
         data.addItem("농생대 4호관",
@@ -322,7 +335,7 @@ public class DataBase {
                 35.151089,128.097168,
                 "agriculture",
                 "agriculture",
-                "vending",
+                vending,
                 454
         );
         data.addItem("농생대 5호관",
@@ -330,7 +343,7 @@ public class DataBase {
                 35.151859,128.096268,
                 "agriculture",
                 "agriculture",
-                "vending",
+                vending,
                 455
         );
         data.addItem("농생대 6호관",
@@ -338,7 +351,7 @@ public class DataBase {
                 35.153266,128.096192,
                 "agriculture",
                 "agriculture",
-                "nothing",
+                nothing,
                 456
         );
         data.addItem("농생대 7호관",
@@ -346,7 +359,7 @@ public class DataBase {
                 35.152103,128.096176,
                 "agriculture",
                 "agriculture",
-                "nothing",
+                nothing,
                 457
         );
         data.addItem("농생대 8호관",
@@ -354,7 +367,7 @@ public class DataBase {
                 35.152115,128.096313,
                 "agriculture",
                 "agriculture",
-                "nothing",
+                nothing,
                 458
         );
         data.addItem("농생대 9호관",
@@ -362,7 +375,7 @@ public class DataBase {
                 35.152386,128.0961,
                 "agriculture",
                 "agriculture",
-                "nothing",
+                nothing,
                 459
         );
         data.addItem("농대부속농장",
@@ -370,7 +383,7 @@ public class DataBase {
                 35.150478,128.098755,
                 "agriculture",
                 "agriculture",
-                "nothing",
+                nothing,
                 0
         );
         data.addItem("농대 카페테리아",
@@ -378,7 +391,7 @@ public class DataBase {
                 35.150505,128.09874,
                 "agriculture",
                 "agriculture",
-                "nothing",
+                nothing,
                 0
         );
 
@@ -388,7 +401,7 @@ public class DataBase {
                 35.1538058,128.1012258,
                 "university",
                 "university",
-                "nothing",
+                nothing,
                 1
         );
         data.addItem("대학본부",
@@ -396,7 +409,7 @@ public class DataBase {
                 35.1537364,128.1015611,
                 "university",
                 "university",
-                "nothing",
+                nothing,
                 1
         );
         data.addItem("중앙도서관",
@@ -404,7 +417,7 @@ public class DataBase {
                 35.153057,128.099869,
                 "university",
                 "university",
-                "printer,cvs",
+                printer_cvs,
                 2
         );
         data.addItem("학생회관",
@@ -412,7 +425,7 @@ public class DataBase {
                 35.153587,128.097427,
                 "university",
                 "university",
-                "nothing",
+                nothing,
                 3
         );
         data.addItem("학술정보관",
@@ -420,7 +433,7 @@ public class DataBase {
                 35.153305,128.096603,
                 "university",
                 "university",
-                "nothing",
+                nothing,
                 1
         );
         data.addItem("GNU어린이집",
@@ -428,7 +441,7 @@ public class DataBase {
                 35.156085,128.103174,
                 "university",
                 "university",
-                "nothing",
+                nothing,
                 0
         );
         data.addItem("국제문화회관",
@@ -436,7 +449,7 @@ public class DataBase {
                 35.154518,128.101817,
                 "university",
                 "university",
-                "nothing",
+                nothing,
                 0
         );
         data.addItem("교양동",
@@ -444,7 +457,7 @@ public class DataBase {
                 35.151986,128.099173,
                 "university",
                 "university",
-                "vending,printer",
+                vending_printer,
                 24
         );
         data.addItem("창업보육센터",
@@ -452,7 +465,7 @@ public class DataBase {
                 35.151787,128.099991,
                 "university",
                 "university",
-                "nothing",
+                nothing,
                 25
         );
         data.addItem("BNIT관/약대",
@@ -460,7 +473,7 @@ public class DataBase {
                 35.1537802,128.0949872,
                 "university",
                 "university",
-                "atm",
+                atm,
                 28
         );
         data.addItem("국제어학원",
@@ -468,7 +481,7 @@ public class DataBase {
                 35.154055,128.098787,
                 "university",
                 "university",
-                "nothing",
+                nothing,
                 29
         );
         data.addItem("남명학관",
@@ -476,7 +489,7 @@ public class DataBase {
                 35.156117,128.099965,
                 "university",
                 "university",
-                "nothing",
+                nothing,
                 31
         );
         data.addItem("학군단",
@@ -484,7 +497,7 @@ public class DataBase {
                 35.15745,128.092433,
                 "university",
                 "university",
-                "nothing",
+                nothing,
                 32
         );
         data.addItem("박물관",
@@ -492,7 +505,7 @@ public class DataBase {
                 35.155313,128.102129,
                 "university",
                 "university",
-                "nothing",
+                nothing,
                 33
         );
         data.addItem("예절교육원",
@@ -500,7 +513,7 @@ public class DataBase {
                 35.153349,128.103188,
                 "university",
                 "university",
-                "nothing",
+                nothing,
                 34
         );
         data.addItem("경비실",
@@ -508,7 +521,7 @@ public class DataBase {
                 35.152751,128.103959,
                 "university",
                 "university",
-                "nothing",
+                nothing,
                 0
         );
 
@@ -519,7 +532,7 @@ public class DataBase {
                 35.151151,128.0995362,
                 "club",
                 "club",
-                "nothing",
+                nothing,
                 303
         );
 
@@ -529,7 +542,7 @@ public class DataBase {
                 35.152538,128.104164,
                 "door",
                 "door",
-                "nothing",
+                nothing,
                 0
         );
         data.addItem("남문",
@@ -537,7 +550,7 @@ public class DataBase {
                 35.149809,128.099459,
                 "door",
                 "door",
-                "nothing",
+                nothing,
                 0
         );
         data.addItem("북문",
@@ -545,7 +558,7 @@ public class DataBase {
                 35.155902,128.104297,
                 "door",
                 "door",
-                "nothing",
+                nothing,
                 0
         );
 
@@ -555,7 +568,7 @@ public class DataBase {
                 35.154416,128.09973,
                 "law",
                 "law",
-                "vending",
+                vending,
                 251
         );
         data.addItem("대경학술관",
@@ -563,7 +576,7 @@ public class DataBase {
                 35.1541728,128.1008419,
                 "law",
                 "law",
-                "nothing",
+                nothing,
                 252
         );
 
@@ -573,7 +586,7 @@ public class DataBase {
                 35.1542261,128.0975008,
                 "education",
                 "education",
-                "nothing",
+                nothing,
                 301
         );
         data.addItem("사범대 2호관",
@@ -581,7 +594,7 @@ public class DataBase {
                 35.1547425,128.0973952,
                 "education",
                 "education",
-                "printer",
+                printer,
                 302
         );
         data.addItem("평생교육원",
@@ -589,7 +602,7 @@ public class DataBase {
                 35.1549003,128.0985308,
                 "education",
                 "education",
-                "nothing",
+                nothing,
                 303
         );
         data.addItem("교육문화센터",
@@ -597,7 +610,7 @@ public class DataBase {
                 35.1547403,128.0993619,
                 "education",
                 "education",
-                "nothing",
+                nothing,
                 303
         );
         data.addItem("예술관",
@@ -605,7 +618,7 @@ public class DataBase {
                 35.15608,128.101117,
                 "education",
                 "education",
-                "vending",
+                vending,
                 304
         );
 
@@ -615,7 +628,7 @@ public class DataBase {
                 35.1548353,128.1004319,
                 "social",
                 "social",
-                "vending",
+                vending,
                 151
         );
 
@@ -625,7 +638,7 @@ public class DataBase {
                 35.1548353,128.1004319,
                 "veterinary",
                 "veterinary",
-                "vending,atm",
+                vending_atm,
                 501
         );
         data.addItem("수의대 2호관",
@@ -633,7 +646,7 @@ public class DataBase {
                 35.150898,128.09787,
                 "veterinary",
                 "veterinary",
-                "vending,atm",
+                nothing,
                 502
         );
         data.addItem("수의대 3호관",
@@ -641,7 +654,7 @@ public class DataBase {
                 35.1501,128.096923,
                 "veterinary",
                 "veterinary",
-                "vending,atm",
+                nothing,
                 503
         );
         data.addItem("수의대 4호관",
@@ -649,7 +662,7 @@ public class DataBase {
                 35.150391,128.096721,
                 "veterinary",
                 "veterinary",
-                "vending,atm",
+                nothing,
                 504
         );
         data.addItem("수의대 5호관",
@@ -657,7 +670,7 @@ public class DataBase {
                 35.150982,128.097137,
                 "veterinary",
                 "veterinary",
-                "vending,atm",
+                nothing,
                 505
         );
 
@@ -667,7 +680,7 @@ public class DataBase {
                 35.155083,128.102976,
                 "leisure",
                 "leisure",
-                "nothing",
+                nothing,
                 0
         );
         data.addItem("스포츠컴플렉스",
@@ -675,7 +688,7 @@ public class DataBase {
                 35.154663,128.1055,
                 "leisure",
                 "leisure",
-                "nothing",
+                nothing,
                 0
         );
         data.addItem("남문운동장",
@@ -683,7 +696,7 @@ public class DataBase {
                 35.1513994,128.1008149,
                 "leisure",
                 "leisure",
-                "nothing",
+                nothing,
                 0
         );
         data.addItem("스포츠컴플렉스",
@@ -691,7 +704,7 @@ public class DataBase {
                 35.154663,128.1055,
                 "leisure",
                 "leisure",
-                "nothing",
+                nothing,
                 0
         );
         data.addItem("야외공연장",
@@ -699,7 +712,7 @@ public class DataBase {
                 35.1521609,128.1029144,
                 "leisure",
                 "leisure",
-                "nothing",
+                nothing,
                 0
         );
         data.addItem("대운동장",
@@ -707,7 +720,7 @@ public class DataBase {
                 35.154856,128.103712,
                 "leisure",
                 "leisure",
-                "nothing",
+                nothing,
                 0
         );
         data.addItem("도서관매점",
@@ -715,7 +728,7 @@ public class DataBase {
                 35.153279,128.099226,
                 "leisure",
                 "leisure",
-                "cvs",
+                cvs,
                 0
         );
 
@@ -725,7 +738,7 @@ public class DataBase {
                 35.1551261,128.1001703,
                 "humanities",
                 "humanities",
-                "printer",
+                printer,
                 101
         );
         data.addItem("인문 2호관",
@@ -733,7 +746,7 @@ public class DataBase {
                 35.1549278,128.1000108,
                 "humanities",
                 "humanities",
-                "printer",
+                printer,
                 102
         );
 
@@ -743,7 +756,7 @@ public class DataBase {
                 35.1552561,128.0955716,
                 "science",
                 "science",
-                "vending",
+                vending,
                 351
         );
         data.addItem("자연 2호관",
@@ -751,7 +764,7 @@ public class DataBase {
                 35.1554908,128.0964877,
                 "science",
                 "science",
-                "vending",
+                vending,
                 352
         );
         data.addItem("자연 3호관",
@@ -759,7 +772,7 @@ public class DataBase {
                 35.1549003,128.0985308,
                 "science",
                 "science",
-                "vending",
+                vending,
                 353
         );
         data.addItem("자연 4호관",
@@ -767,7 +780,7 @@ public class DataBase {
                 35.1559556,128.0968994,
                 "science",
                 "science",
-                "vending",
+                vending,
                 102
         );
         data.addItem("컴퓨터과학관",
@@ -775,7 +788,7 @@ public class DataBase {
                 35.154373,128.098434,
                 "science",
                 "science",
-                "printer",
+                printer,
                 30
         );
         data.addItem("지진관측소",
@@ -783,7 +796,7 @@ public class DataBase {
                 35.1551678,128.0971216,
                 "science",
                 "science",
-                "printer",
+                printer,
                 0
         );
         data.addItem("과학영재교육관",
@@ -791,7 +804,7 @@ public class DataBase {
                 35.1550508,128.0964877,
                 "science",
                 "science",
-                "printer",
+                printer,
                 352
         );
     }

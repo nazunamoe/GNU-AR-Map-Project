@@ -24,6 +24,13 @@ public class FilteringState {
     public boolean Science;
     public boolean Door;
     public boolean All;
+
+    public boolean Printer;
+    public boolean ATM;
+    public boolean CVS;
+    public boolean Vending;
+    public boolean All2;
+
     private FilteringState(){}
 
     public static synchronized FilteringState getInstance(){

@@ -21,7 +21,7 @@ public class DataClass {
     public ArrayList<SocialMarker> List = new ArrayList<SocialMarker>();
     public static Bitmap basic;
     private String Filtering1;
-    private String Filtering2;
+    private String[] Filtering2;
 
 
     public int getIntFromColor(float Red, float Green, float Blue){
@@ -36,7 +36,7 @@ public class DataClass {
         return 0xFF000000 | R | G | B;
     }
 
-    public void addItem(String name, String url, double Latitude, double Longitude, String type, String Filtering1, String Filtering2, int no){
+    public void addItem(String name, String url, double Latitude, double Longitude, String type, String Filtering1, String[] Filtering2, int no){
         FilteringState state = FilteringState.getInstance();
         int value = 0;
         this.Filtering1 = Filtering1;
@@ -125,6 +125,20 @@ public class DataClass {
         // 건물 필터링, 이 다음에 2차 필터링도 넣어야 함.
     }
 
+    /* 2차 필터링
+        vending,printer
+        cvs,atm
+        printer,cvs,atm
+        vending
+        printer
+        cvs
+        printer,cvs
+        atm
+        printer,atm
+        vending,cvs,atm
+        vending,atm
+     */
+
     private void addMarker(String num, Double Latitude, Double Longitude, String url, int value, String type, String name){
         SocialMarker item = new SocialMarker(
                 num,
@@ -153,7 +167,7 @@ public class DataClass {
         return List.get(index).filter1;
     }
 
-    public String getFilter2(int index){
+    public String[] getFilter2(int index){
         return List.get(index).filter2;
     }
 }

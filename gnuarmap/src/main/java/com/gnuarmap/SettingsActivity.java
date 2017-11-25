@@ -92,15 +92,40 @@ public class SettingsActivity extends AppCompatActivity implements SharedPrefere
             }
             Log.v("mixare","  "+state.getMoreView());
         }else if("All".equals(key)){
-            // 필터링 - 모두 보기 핸들러
+            Log.d("mixare","status changed"+Filtering_state.All2);
+            if(Filtering_state.All2 == true){
+                Filtering_state.All2 = false;
+            }else if(Filtering_state.All2 == false){
+                Filtering_state.All2 = true;
+            }
         }else if("ATM".equals(key)){
-            // 필터링 - ATM만 보기 핸들러
+            Log.d("mixare","status changed"+Filtering_state.ATM);
+            if(Filtering_state.ATM == true){
+                Filtering_state.ATM = false;
+            }else if(Filtering_state.ATM == false){
+                Filtering_state.ATM = true;
+            }
         }else if("CVS".equals(key)){
-            // 필터링 - 편의점/매점만 보기 핸들러
+            Log.d("mixare","status changed"+Filtering_state.CVS);
+            if(Filtering_state.CVS == true){
+                Filtering_state.CVS = false;
+            }else if(Filtering_state.CVS == false){
+                Filtering_state.CVS = true;
+            }
         }else if("Vending".equals(key)){
-            // 필터링 - 자판기만 보기 핸들러
+            Log.d("mixare","status changed"+Filtering_state.Vending);
+            if(Filtering_state.Vending == true){
+                Filtering_state.Vending = false;
+            }else if(Filtering_state.Vending == false){
+                Filtering_state.Vending = true;
+            }
         }else if("Printer".equals(key)){
-            // 필터링 - 프린터만 보기 핸들러
+            Log.d("mixare","status changed"+Filtering_state.Printer);
+            if(Filtering_state.Printer == true){
+                Filtering_state.Printer = false;
+            }else if(Filtering_state.Printer == false){
+                Filtering_state.Printer = true;
+            }
         }
         // 각 건물에 맞는 필터링을 사용. 하나의 메소드로 처리한다.
         else if("AllBuilding".equals(key)){
