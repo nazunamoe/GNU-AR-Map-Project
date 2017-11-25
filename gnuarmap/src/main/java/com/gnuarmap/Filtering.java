@@ -1,14 +1,10 @@
 package com.gnuarmap;
 
-import android.app.Activity;
-import android.app.Application;
 import android.content.Context;
 import android.graphics.Rect;
 import android.util.Log;
 import android.view.View;
-import android.widget.Toast;
 
-import com.nhn.android.maps.NMapActivity;
 import com.nhn.android.maps.NMapOverlay;
 import com.nhn.android.maps.NMapOverlayItem;
 import com.nhn.android.maps.maplib.NGeoPoint;
@@ -17,8 +13,6 @@ import com.nhn.android.maps.overlay.NMapPOIitem;
 import com.nhn.android.mapviewer.overlay.NMapOverlayManager;
 import com.nhn.android.mapviewer.overlay.NMapPOIdataOverlay;
 import com.gnuarmap.data.convert.DataBase;
-
-import com.gnuarmap.State;
 
 import static com.gnuarmap.NaverMapActivity.DEBUG;
 import static com.gnuarmap.NaverMapActivity.LOG_TAG;
@@ -50,24 +44,13 @@ public class Filtering {
         int d = db.data.getSize();
         poiData = new NMapPOIdata(d, mMapViewerResourceProvider, true);
         poiData.beginPOIdata(d);
-        //State state = (State)getApplicationContext();
-        //Log.d("mixare", ""+state.getMoreView());
-       // if(state.Agriculture){
-            for(int i=0;i<database.data.getSize();i++) {
-                    poiData.addPOIitem(new NGeoPoint(database.data.getData(i).getLongitude(), database.data.getData(i).getLatitude()),database.data.getData(i).getTitle(),markerId,0);
-            }
-       // }
-        /*if(state.Business){
-            for(int i=0;i<database.data.getSize();i++) {
-                if(database.data.getData(i).filter1=="business")
-                    poiData.addPOIitem(new NGeoPoint(database.data.getData(i).getLongitude(), database.data.getData(i).getLatitude()),database.data.getData(i).getTitle(),markerId,0);
-            }
-        }*/
+        for(int i=0;i<database.data.getSize();i++) {
+            poiData.addPOIitem(new NGeoPoint(database.data.getData(i).getLongitude(), database.data.getData(i).getLatitude()),database.data.getData(i).getTitle(),markerId,0);
+        }
         poiData.endPOIdata();
         poiDataOverlay1 = mOverlayManager.createPOIdataOverlay(poiData, null);
         poiDataOverlay1.setOnStateChangeListener(onPOIdataStateChangeListener);
     }
-
 
     public final NMapPOIdataOverlay.OnStateChangeListener onPOIdataStateChangeListener = new NMapPOIdataOverlay.OnStateChangeListener() {
         public void onCalloutClick(NMapPOIdataOverlay poiDataOverlay, NMapPOIitem item) {

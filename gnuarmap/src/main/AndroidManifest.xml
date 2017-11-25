@@ -127,5 +127,4 @@
         <activity android:name=".Search"
             android:theme="@style/AppTheme"></activity>
     </application>
-
 </manifest>
