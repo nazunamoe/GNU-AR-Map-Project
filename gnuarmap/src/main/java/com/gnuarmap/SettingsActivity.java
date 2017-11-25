@@ -43,14 +43,13 @@ public class SettingsActivity extends AppCompatActivity implements SharedPrefere
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-
         ActionBar actionBar = getSupportActionBar();
         /*actionBar.setBackgroundDrawable(new ColorDrawable(0xFF33B5E5));
         if(Build.VERSION.SDK_INT>=21){
             getWindow().setStatusBarColor(0xFF33B5E5);
         }*/
         actionBar.setTitle(R.string.title_activity_settings);
-
+        PreferenceManager.setDefaultValues(this, R.xml.preference, false);
 
         sharedPref = PreferenceManager.getDefaultSharedPreferences(this);
 
@@ -65,6 +64,7 @@ public class SettingsActivity extends AppCompatActivity implements SharedPrefere
     @Override
     public void onSharedPreferenceChanged(SharedPreferences sharedPreferences, String key) {
         State state = (State)getApplicationContext();
+        FilteringState Filtering_state = FilteringState.getInstance();
         SharedPreferences.Editor editor = sharedPreferences.edit();
 
         if("MMapViewSet".equals(key)){
@@ -104,42 +104,126 @@ public class SettingsActivity extends AppCompatActivity implements SharedPrefere
         // 각 건물에 맞는 필터링을 사용. 하나의 메소드로 처리한다.
         else if("AllBuilding".equals(key)){
 
+
         }else if("Business".equals(key)){
-
+            Log.d("mixare","status changed"+Filtering_state.Business);
+            if(Filtering_state.Business == true){
+                Filtering_state.Business = false;
+            }else if(Filtering_state.Business == false){
+                Filtering_state.Business = true;
+            }
         }else if("Engnieering".equals(key)){
-
+            Log.d("mixare","status changed"+Filtering_state.Engnieering);
+            if(Filtering_state.Engnieering == true){
+                Filtering_state.Engnieering = false;
+            }else if(Filtering_state.Engnieering == false){
+                Filtering_state.Engnieering = true;
+            }
         }else if("Dormitory".equals(key)){
-
+            Log.d("mixare","status changed"+Filtering_state.Dormitory);
+            if(Filtering_state.Dormitory == true){
+                Filtering_state.Dormitory = false;
+            }else if(Filtering_state.Dormitory == false){
+                Filtering_state.Dormitory = true;
+            }
         }else if("ETC".equals(key)){
-
+            Log.d("mixare","status changed"+Filtering_state.ETC);
+            if(Filtering_state.ETC == true){
+                Filtering_state.ETC = false;
+            }else if(Filtering_state.ETC == false){
+                Filtering_state.ETC = true;
+            }
         }else if("Agriculture".equals(key)){
-
+            Log.d("mixare","status changed"+Filtering_state.Agriculture);
+            if(Filtering_state.Agriculture == true){
+                Filtering_state.Agriculture = false;
+            }else if(Filtering_state.Agriculture == false){
+                Filtering_state.Agriculture = true;
+            }
         }else if("University".equals(key)){
-
+            Log.d("mixare","status changed"+Filtering_state.University);
+            if(Filtering_state.University == true){
+                Filtering_state.University = false;
+            }else if(Filtering_state.University == false){
+                Filtering_state.University = true;
+            }
         }else if("Club".equals(key)){
-
+            Log.d("mixare","status changed"+Filtering_state.Club);
+            if(Filtering_state.Club == true){
+                Filtering_state.Club = false;
+            }else if(Filtering_state.Club == false){
+                Filtering_state.Club = true;
+            }
         }else if("Door".equals(key)){
-
+            Log.d("mixare","status changed"+Filtering_state.Door);
+            if(Filtering_state.Door == true){
+                Filtering_state.Door = false;
+            }else if(Filtering_state.Door == false){
+                Filtering_state.Door = true;
+            }
         }else if("Law".equals(key)){
-
+            Log.d("mixare","status changed"+Filtering_state.Law);
+            if(Filtering_state.Law == true){
+                Filtering_state.Law = false;
+            }else if(Filtering_state.Law == false){
+                Filtering_state.Law = true;
+            }
         }else if("Education".equals(key)){
-
+            Log.d("mixare","status changed"+Filtering_state.Education);
+            if(Filtering_state.Education == true){
+                Filtering_state.Education = false;
+            }else if(Filtering_state.Education == false){
+                Filtering_state.Education = true;
+            }
         }else if("Social".equals(key)){
-
+            Log.d("mixare","status changed"+Filtering_state.Social);
+            if(Filtering_state.Social == true){
+                Filtering_state.Social = false;
+            }else if(Filtering_state.Social == false){
+                Filtering_state.Social = true;
+            }
         }else if("Veterinary".equals(key)){
-
+            Log.d("mixare","status changed"+Filtering_state.Veterinary);
+            if(Filtering_state.Veterinary == true){
+                Filtering_state.Veterinary = false;
+            }else if(Filtering_state.Veterinary == false){
+                Filtering_state.Veterinary = true;
+            }
         }else if("Leisure".equals(key)){
-
+            Log.d("mixare","status changed"+Filtering_state.Leisure);
+            if(Filtering_state.Leisure == true){
+                Filtering_state.Leisure = false;
+            }else if(Filtering_state.Leisure == false){
+                Filtering_state.Leisure = true;
+            }
         }else if("Humanities".equals(key)){
-
+            Log.d("mixare","status changed"+Filtering_state.Humanities);
+            if(Filtering_state.Humanities == true){
+                Filtering_state.Humanities = false;
+            }else if(Filtering_state.Humanities == false){
+                Filtering_state.Humanities = true;
+            }
         }else if("Natrual".equals(key)){
-
+            Log.d("mixare","status changed"+Filtering_state.Science);
+            if(Filtering_state.Science == true){
+                Filtering_state.Science = false;
+            }else if(Filtering_state.Science == false){
+                Filtering_state.Science = true;
+            }
         }
+
 
         editor.commit();
     }
 
-    
+    public void changeStatus(boolean in){
+        Log.d("mixare","status changed");
+        if(in){
+            in = false;
+        }else if(!in){
+            in = true;
+        }
+    }
 
     // 화면 구성을 위해 PreferenceFragment 를 상속받는 SettingsFragment class 를 구현한다.
     public static class SettingsFragment extends PreferenceFragment

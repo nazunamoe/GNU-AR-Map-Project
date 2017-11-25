@@ -34,7 +34,7 @@
       android:dependency="AllBuilding"/>
   <SwitchPreference
       android:defaultValue="true"
-      android:key="Engnineering"
+      android:key="Engnieering"
       android:title="@string/Filtering_Engnieering"
       android:dependency="AllBuilding"/>
   <SwitchPreference
@@ -94,7 +94,7 @@
       android:dependency="AllBuilding"/>
   <SwitchPreference
       android:defaultValue="true"
-      android:key="Natural"
+      android:key="Science"
       android:title="@string/Filtering_Natural"
       android:dependency="AllBuilding"/>
 

@@ -1,6 +1,7 @@
 package com.gnuarmap;
 
 import android.app.Application;
+import android.util.Log;
 
 /**
  * Created by nazunamoe on 2017-11-14.
@@ -36,4 +37,5 @@ public class State extends Application {
     public void setMoreView(int moreview){
         this.MoreView = moreview;
     }
+
 }

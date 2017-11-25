@@ -44,7 +44,7 @@ public class NaverMapActivity extends NMapActivity {
 
     public static DataBase db = new DataBase();
     public GLocation_Setting gLocation_setting = new GLocation_Setting();
-    public Filtering filtering = new Filtering();
+    public Filtering filtering = new Filtering(this);
     public static Search search = new Search();
     private Context context;
     public String name="";
@@ -96,9 +96,6 @@ public class NaverMapActivity extends NMapActivity {
         mMyLocationOverlay = mOverlayManager.createMyLocationOverlay(mMapLocationManager, mMapCompassManager);
         if(name == null){
             filtering.GMarker();
-        }else{
-            int a = Integer.parseInt(name);
-            //filtering.Searching(a);
         }
     }
 

@@ -26,6 +26,10 @@ public class DataBase {
         this.Initialize();
     }
 
+    public void getFiltering1(DataClass in, int index){
+        in.getData(index);
+    }
+
     public void Initialize(){
         /* 필터링 알고리즘
 
@@ -125,9 +129,9 @@ public class DataBase {
         // 경영대학
         data.addItem("경영대학",
                 Business,
-                35.156122,128.0945,
-                "engine",
-                "engnieering",
+                35.15382,128.099861,
+                "business",
+                "business",
                 "nothing",
                 201
         );
@@ -513,8 +517,8 @@ public class DataBase {
         data.addItem("남문 동아리방",
                 Base,
                 35.151151,128.0995362,
-                "university",
-                "university",
+                "club",
+                "club",
                 "nothing",
                 303
         );
@@ -523,24 +527,24 @@ public class DataBase {
         data.addItem("정문",
                 Base,
                 35.152538,128.104164,
-                "university",
-                "university",
+                "door",
+                "door",
                 "nothing",
                 0
         );
         data.addItem("남문",
                 Base,
                 35.149809,128.099459,
-                "university",
-                "university",
+                "door",
+                "door",
                 "nothing",
                 0
         );
         data.addItem("북문",
                 Base,
                 35.155902,128.104297,
-                "university",
-                "university",
+                "door",
+                "door",
                 "nothing",
                 0
         );
