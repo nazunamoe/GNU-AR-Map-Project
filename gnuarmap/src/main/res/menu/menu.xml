@@ -2,79 +2,7 @@
 <menu xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto">
     <item
-        android:id="@+id/action_map"
-        android:checkableBehavior="all"
-        android:icon="@android:drawable/ic_menu_mapmode"
-        android:title="지도보기"
-        app:showAsAction="always">
-        <menu>
-            <group>
-                <item
-                    android:id="@+id/action_vector"
-                    android:alphabeticShortcut="m"
-                    android:title="일반지도"
-                    />
-                <item
-                    android:id="@+id/action_satellite"
-                    android:alphabeticShortcut="s"
-                    android:title="위성지도" />
-                <item
-                    android:id="@+id/action_traffic"
-                    android:alphabeticShortcut="t"
-                    android:title="실시간교통" />
-                <item
-                    android:id="@+id/action_bicycle"
-                    android:alphabeticShortcut="b"
-                    android:title="자전거지도" />
-            </group>
-        </menu>
-    </item>
-<item
-    android:id="@+id/action_filtering"
-    android:icon="@android:drawable/ic_menu_preferences"
-    android:title="필터링"
-    app:showAsAction="always">
-    <menu>
-        <group>
-            <item
-                android:title="프린트"
-                android:id="@+id/action_filter_print"
-                />
-            <item
-                android:title="매점"
-                android:id="@+id/action_filter_market"
-                />
-            <item
-                android:title="자판기"
-                android:id="@+id/action_filter_vending"
-                />
-            <item
-                android:title="매점"
-                android:id="@+id/action_filter_ATM"
-                />
-            <item
-                android:title="식당"
-                android:id="@+id/action_filter_restaurant"
-                />
-        </group>
-    </menu>
-</item>
-    <item
         android:id="@+id/action_location"
         android:title="내 위치보기">
     </item>
-    <item
-        android:id="@+id/action_poi_data"
-        android:alphabeticShortcut="m"
-        android:title="마커 표시"
-        app:showAsAction="never" />
-    <item
-        android:id="@+id/action_navermap"
-        android:alphabeticShortcut="m"
-        android:title="마커 지우기"
-        app:showAsAction="never" />
-    <item
-        android:id="@+id/action_search"
-        android:title="검색하기"
-        app:showAsAction="never"/>
 </menu>

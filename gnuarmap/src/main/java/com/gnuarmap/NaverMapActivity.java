@@ -48,7 +48,9 @@ public class NaverMapActivity extends NMapActivity {
     public static Search search = new Search();
     private Context context;
     public String name="";
-    @Override
+
+
+
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_map);
@@ -58,175 +60,23 @@ public class NaverMapActivity extends NMapActivity {
         mMapController = mMapView.getMapController();
         Intent intent = getIntent();
         name = intent.getStringExtra("num");
-        /*Toolbar toolbar = findViewById(R.id.toolbar);
+        Toolbar toolbar = findViewById(R.id.toolbar);
         toolbar.setTitle("지도화면");
         toolbar.setTitleTextColor(0xFFFFFFFF);
-        toolbar.setLogo(R.drawable.icon);
         toolbar.inflateMenu(R.menu.menu);
-
         toolbar.setOnMenuItemClickListener(new Toolbar.OnMenuItemClickListener() {
-            @Override
-            public boolean onMenuItemClick(MenuItem item) {
-                switch (item.getItemId()) {
-                    case R.id.action_vector:
-                        invalidateMenu();
-                        mMapController.setMapViewMode(NMapView.VIEW_MODE_VECTOR);
-                        Toast.makeText(getApplicationContext(),"일반지도 호출",Toast.LENGTH_SHORT).show();
-                        return true;
-                    case R.id.action_satellite:
-                        invalidateMenu();
-                        mMapController.setMapViewMode(NMapView.VIEW_MODE_HYBRID);
-                        Toast.makeText(getApplicationContext(),"위성지도 호출",Toast.LENGTH_SHORT).show();
-                        return true;
-                    case R.id.action_traffic:
-                        invalidateMenu();
-                        mMapController.setMapViewTrafficMode(!mMapController.getMapViewTrafficMode());
-                        Toast.makeText(getApplicationContext(),"실시간교통지도 호출",Toast.LENGTH_SHORT).show();
-                        return true;
-                    case R.id.action_bicycle:
-                        invalidateMenu();
-                        mMapController.setMapViewBicycleMode(!mMapController.getMapViewBicycleMode());
-                        Toast.makeText(getApplicationContext(),"자전거 도로 지도 호출",Toast.LENGTH_SHORT).show();
-                        return true;
-                    case R.id.action_location:
-                        mMapController.setZoomLevel(11);
-                        gLocation_setting.startMyLocation();
-                        Toast.makeText(getApplicationContext(),"현재 위치로 이동",Toast.LENGTH_SHORT).show();
-                        return true;
-                    case R.id.action_search:
-                        Intent intent = new Intent(getApplicationContext(),Search.class);
-                        startActivityForResult(intent,101);
-                        return true;
-                    case R.id.action_navermap:
-                        mOverlayManager.clearOverlays();
-                        atm = false;
-                        Vending = false;
-                        Print = false;
-                        Market = false;
-                        Controller = false;
-                        Restaurant = false;
-                        Toast.makeText(getApplicationContext(),name,Toast.LENGTH_SHORT).show();
-                        return true;
-
-                    case R.id.action_poi_data:
-                        if(Controller == true){
-                            Controller = false;
-                        }
-                        Toast.makeText(getApplicationContext(),"마커 표시하기",Toast.LENGTH_SHORT).show();
-                        filtering.GMarker();
-                        return true;
-
-                    case R.id.action_filter_print:
-                        if(Controller == false && Print == false){
-                            mOverlayManager.clearOverlays();
-                            filtering.print();
-                            Print = true;
-                        }else if(Print == false && Controller == true){
-                            Print = true;
-                            filtering.GMarker();
-                        }
-                        else{
-                            atm = false;
-                            Vending = false;
-                            Print = false;
-                            Restaurant = false;
-                            Market = false;
-                            Controller = false;
-                            filtering.GMarker();
-                        }
-                        Toast.makeText(getApplicationContext(),"프린트가 있는 건물의 마커만 보여줌",Toast.LENGTH_SHORT).show();
-                        return true;
-
-                    case R.id.action_filter_market:
-                        if(Controller == false&&Market == false) {
-                            mOverlayManager.clearOverlays();
-                            filtering.market();
-                            Market = true;
-                        }else if(Market == false && Controller == true){
-                            Market = true;
-                            filtering.market();
-                        }
-                        else{
-                            atm = false;
-                            Vending = false;
-                            Market = false;
-                            Print = false;
-                            Restaurant = false;
-                            Controller = false;
-                            mOverlayManager.clearOverlays();
-                            filtering.GMarker();
-                        }
-                        Toast.makeText(getApplicationContext(),"매점이 있는 건물의 마커만 보여줌",Toast.LENGTH_SHORT).show();
-                        return true;
-
-                    case R.id.action_filter_vending:
-                        if(Controller == false&&Vending == false) {
-                            mOverlayManager.clearOverlays();
-                            filtering.vending();
-                            Vending = true;
-                        }else if(Vending == false && Controller == true){
-                            Vending = true;
-                            filtering.vending();
-                        }
-                        else{
-                            Vending = false;
-                            Market = false;
-                            Print = false;
-                            atm = false;
-                            Controller = false;
-                            Restaurant = false;
-                            mOverlayManager.clearOverlays();
-                            filtering.GMarker();
-                        }
-                        Toast.makeText(getApplicationContext(),"매점이 있는 건물의 마커만 보여줌",Toast.LENGTH_SHORT).show();
-                        return true;
-
-                    case R.id.action_filter_ATM:
-                        if(Controller == false&&atm == false) {
-                            mOverlayManager.clearOverlays();
-                            filtering.ATM();
-                            atm = true;
-                        }else if(atm == false && Controller == true){
-                            atm = true;
-                            filtering.ATM();
-                        }
-                        else{
-                            atm = false;
-                            Vending = false;
-                            Market = false;
-                            Print = false;
-                            Controller = false;
-                            Restaurant = false;
-                            mOverlayManager.clearOverlays();
-                            filtering.GMarker();
-                        }
-                        Toast.makeText(getApplicationContext(),"매점이 있는 건물의 마커만 보여줌",Toast.LENGTH_SHORT).show();
-                        return true;
-                    case R.id.action_filter_restaurant:
-                        if(Controller == false&&Restaurant == false) {
-                            mOverlayManager.clearOverlays();
-                            filtering.Restaurant();
-                            Restaurant = true;
-                        }else if(Restaurant == false && Controller == true){
-                            Restaurant = true;
-                            filtering.Restaurant();
-                        }
-                        else{
-                            Restaurant = false;
-                            atm = false;
-                            Vending = false;
-                            Market = false;
-                            Print = false;
-                            Controller = false;
-                            mOverlayManager.clearOverlays();
-                            filtering.GMarker();
-                        }
-                        Toast.makeText(getApplicationContext(),"식당이 있는 건물",Toast.LENGTH_SHORT).show();
-                        return true;
-                }
-                return false;
-            }
-        });*/
+                                               @Override
+                                               public boolean onMenuItemClick(MenuItem item) {
+                                                   switch (item.getItemId()) {
+                                                       case R.id.action_location:
+                                                           mMapController.setZoomLevel(11);
+                                                           gLocation_setting.startMyLocation();
+                                                           Toast.makeText(getApplicationContext(),"현재 위치로 이동",Toast.LENGTH_SHORT).show();
+                                                           return true;
+                                                   }
+                                                   return false;
+                                               }
+                                           });
 
         gLocation_setting.initialize();
         mMapController.setZoomLevel(11);
