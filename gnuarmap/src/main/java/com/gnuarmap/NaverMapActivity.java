@@ -6,6 +6,7 @@ import android.os.Build;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.Toolbar;
+import android.util.Log;
 import android.view.*;
 import android.widget.Toast;
 
@@ -55,15 +56,16 @@ public class NaverMapActivity extends NMapActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_map);
-        State state = (State)getApplicationContext();
+        FilteringState state = FilteringState.getInstance();
         mMapView = findViewById(R.id.mapView);
         mMapView.setClientId(CLIENT_ID); // 클라이언트 아이디 값 설정
         mMapController = mMapView.getMapController();
-        if(state.getNMapState()==0){
+        if(state.NMapState==0){
             mMapController.setMapViewMode(mMapView.VIEW_MODE_SATELLITE);
-        }else if(state.getNMapState()==1){
+        }else if(state.NMapState==1){
             mMapController.setMapViewMode(mMapView.VIEW_MODE_VECTOR);
         }
+        Log.d("mixare","Al"+state.All2);
         Intent intent = getIntent();
         name = intent.getStringExtra("num");
         Toolbar toolbar = findViewById(R.id.toolbar);

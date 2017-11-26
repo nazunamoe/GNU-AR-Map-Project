@@ -31,6 +31,9 @@ public class FilteringState {
     public boolean Vending;
     public boolean All2;
 
+    public int NMapState;
+    public int MoreView;
+
     private FilteringState(){}
 
     public static synchronized FilteringState getInstance(){
@@ -39,4 +42,6 @@ public class FilteringState {
         }
         return instance;
     }
+
+
 }

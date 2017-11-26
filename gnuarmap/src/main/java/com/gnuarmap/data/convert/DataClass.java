@@ -1,14 +1,11 @@
 package com.gnuarmap.data.convert;
 
-import android.app.Activity;
 import android.graphics.Bitmap;
-import android.graphics.Color;
-import android.os.Bundle;
 import android.util.Log;
 
 import com.gnuarmap.FilteringState;
 import com.gnuarmap.SocialMarker;
-import com.gnuarmap.State;
+
 import org.mixare.lib.HtmlUnescape;
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -142,7 +139,9 @@ public class DataClass {
     public String[] nothing = {};
 
     private void secondFiltering(String num, Double Latitude, Double Longitude, String url, int value, String type, String name, String[] Filtering2){
+
         if(state.All2){
+
             addMarker(num,Latitude,Longitude,url,value,type,name);
         }else{
             if(state.Vending){

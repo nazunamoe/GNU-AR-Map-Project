@@ -2,19 +2,15 @@ package com.gnuarmap;
 
 import android.content.Context;
 import android.content.Intent;
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
 
 import com.nhn.android.maps.NMapActivity;
 import com.nhn.android.maps.NMapController;
 import com.nhn.android.maps.NMapLocationManager;
-import com.nhn.android.maps.NMapOverlay;
 import com.nhn.android.maps.NMapOverlayItem;
 import com.nhn.android.maps.NMapView;
 
-import com.gnuarmap.State;
-import com.gnuarmap.R;
 import com.nhn.android.maps.maplib.NGeoPoint;
 
 public class NaverMap extends NMapActivity {
@@ -34,16 +30,16 @@ public class NaverMap extends NMapActivity {
         catch(NullPointerException e){
             set = "False";
         }
-        State state = (State)getApplicationContext();
+        FilteringState state = FilteringState.getInstance();
         super.onCreate(savedInstanceState);
         mMapView = new NMapView(this);
         NMapController mMapController=mMapView.getMapController();
         setContentView(mMapView);
         mMapView.setClientId(CLIENT_ID); // 클라이언트 아이디 값 설정
         mMapController.setMapViewMode(mMapView.VIEW_MODE_SATELLITE);
-        if(state.getNMapState()==0){
+        if(state.NMapState==0){
             mMapController.setMapViewMode(mMapView.VIEW_MODE_SATELLITE);
-        }else if(state.getNMapState()==1){
+        }else if(state.NMapState==1){
             mMapController.setMapViewMode(mMapView.VIEW_MODE_VECTOR);
         }
 

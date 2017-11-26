@@ -14,7 +14,7 @@
      android:title="@string/settings_drawer_navermap"
  android:key="naver_map_setting">
   <SwitchPreference
-      android:defaultValue="true"
+      android:defaultValue="false"
       android:key="MMapViewSet"
       android:title="@string/NMapSetView" />
  </PreferenceCategory>

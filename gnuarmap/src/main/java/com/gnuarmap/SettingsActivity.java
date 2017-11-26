@@ -10,6 +10,7 @@ import android.os.Build;
 import android.os.Bundle;
 import android.preference.CheckBoxPreference;
 import android.preference.Preference;
+import android.preference.PreferenceCategory;
 import android.preference.PreferenceFragment;
 import android.preference.PreferenceManager;
 import android.preference.SwitchPreference;
@@ -21,7 +22,6 @@ import android.view.KeyEvent;
 import android.widget.Toast;
 import android.support.v7.app.ActionBar;
 
-import com.gnuarmap.State;
 import com.gnuarmap.R;
 
 public class SettingsActivity extends AppCompatActivity implements SharedPreferences.OnSharedPreferenceChangeListener{
@@ -60,189 +60,176 @@ public class SettingsActivity extends AppCompatActivity implements SharedPrefere
 
     }
 
+    private void pickPreferenceObject(Preference p) {
+        if (p instanceof PreferenceCategory) {
+            PreferenceCategory cat = (PreferenceCategory) p;
+            for (int i = 0; i < cat.getPreferenceCount(); i++) {
+                pickPreferenceObject(cat.getPreference(i));
+            }
+        } else {
+        }
+    }
+
 
     // 설정 값을 변경할 때 이벤트 처리를 담당한다.
     @Override
     public void onSharedPreferenceChanged(SharedPreferences sharedPreferences, String key) {
-        State state = (State)getApplicationContext();
-        FilteringState Filtering_state = FilteringState.getInstance();
+        FilteringState state = FilteringState.getInstance();
         SharedPreferences.Editor editor = sharedPreferences.edit();
 
         if("MMapViewSet".equals(key)){
-            switch(state.getNMapState()){
+            switch(state.NMapState){
                 case 0:{
-                    state.setNMapState(1);
+                    state.NMapState=1;
                     break;
                 }
                 case 1:{
-                    state.setNMapState(0);
+                    state.NMapState=0;
                     break;
                 }
             }
         }else if("MoreView".equals(key)){
-            switch(state.getMoreView()){
+            switch(state.MoreView){
                 case 0:{
-                    state.setMoreView(1);
+                    state.MoreView=1;
                     break;
                 }
                 case 1:{
-                    state.setMoreView(0);
+                    state.MoreView=0;
                     break;
                 }
             }
-            Log.v("mixare","  "+state.getMoreView());
+            Log.v("mixare","  "+state.MoreView);
         }else if("All".equals(key)){
-            Log.d("mixare","status changed"+Filtering_state.All2);
-            if(Filtering_state.All2 == true){
-                Filtering_state.All2 = false;
-            }else if(Filtering_state.All2 == false){
-                Filtering_state.All2 = true;
+            if(!sharedPreferences.getBoolean("All",false)){
+                state.All = false;
+            }else if(sharedPreferences.getBoolean("All",false)){
+                state.All = true;
             }
         }else if("ATM".equals(key)){
-            Log.d("mixare","status changed"+Filtering_state.ATM);
-            if(Filtering_state.ATM == true){
-                Filtering_state.ATM = false;
-            }else if(Filtering_state.ATM == false){
-                Filtering_state.ATM = true;
+            if(!sharedPreferences.getBoolean("ATM",false)){
+                state.ATM = false;
+            }else if(sharedPreferences.getBoolean("ATM",false)){
+                state.ATM = true;
             }
         }else if("CVS".equals(key)){
-            Log.d("mixare","status changed"+Filtering_state.CVS);
-            if(Filtering_state.CVS == true){
-                Filtering_state.CVS = false;
-            }else if(Filtering_state.CVS == false){
-                Filtering_state.CVS = true;
+            if(!sharedPreferences.getBoolean("CVS",false)){
+                state.CVS = false;
+            }else if(sharedPreferences.getBoolean("CVS",false)){
+                state.CVS = true;
             }
         }else if("Vending".equals(key)){
-            Log.d("mixare","status changed"+Filtering_state.Vending);
-            if(Filtering_state.Vending == true){
-                Filtering_state.Vending = false;
-            }else if(Filtering_state.Vending == false){
-                Filtering_state.Vending = true;
+            if(!sharedPreferences.getBoolean("Vending",false)){
+                state.Vending = false;
+            }else if(sharedPreferences.getBoolean("Vending",false)){
+                state.Vending = true;
             }
         }else if("Printer".equals(key)){
-            Log.d("mixare","status changed"+Filtering_state.Printer);
-            if(Filtering_state.Printer == true){
-                Filtering_state.Printer = false;
-            }else if(Filtering_state.Printer == false){
-                Filtering_state.Printer = true;
+            if(!sharedPreferences.getBoolean("Printer",false)){
+                state.Printer = false;
+            }else if(sharedPreferences.getBoolean("Printer",false)){
+                state.Printer = true;
             }
         }
-        // 각 건물에 맞는 필터링을 사용. 하나의 메소드로 처리한다.
+        // 건물 필터링 시작
         else if("AllBuilding".equals(key)){
-            Log.d("mixare","status changed"+Filtering_state.All);
-            if(Filtering_state.All == true){
-                Filtering_state.All = false;
-            }else if(Filtering_state.All == false){
-                Filtering_state.All = true;
+            if(!sharedPreferences.getBoolean("AllBuilding",false)){
+                state.All2 = false;
+            }else if(sharedPreferences.getBoolean("AllBuilding",false)){
+                state.All2 = true;
             }
+            Log.d("mixare",""+state.All2);
         }else if("Business".equals(key)){
-            Log.d("mixare","status changed"+Filtering_state.Business);
-            if(Filtering_state.Business == true){
-                Filtering_state.Business = false;
-            }else if(Filtering_state.Business == false){
-                Filtering_state.Business = true;
+            if(!sharedPreferences.getBoolean("Business",false)){
+                state.Business = false;
+            }else if(sharedPreferences.getBoolean("Business",false)){
+                state.Business = true;
             }
         }else if("Engnieering".equals(key)){
-            Log.d("mixare","status changed"+Filtering_state.Engnieering);
-            if(Filtering_state.Engnieering == true){
-                Filtering_state.Engnieering = false;
-            }else if(Filtering_state.Engnieering == false){
-                Filtering_state.Engnieering = true;
+            if(!sharedPreferences.getBoolean("Engnieering",false)){
+                state.Engnieering = false;
+            }else if(sharedPreferences.getBoolean("Engnieering",false)){
+                state.Engnieering = true;
             }
         }else if("Dormitory".equals(key)){
-            Log.d("mixare","status changed"+Filtering_state.Dormitory);
-            if(Filtering_state.Dormitory == true){
-                Filtering_state.Dormitory = false;
-            }else if(Filtering_state.Dormitory == false){
-                Filtering_state.Dormitory = true;
+            if(!sharedPreferences.getBoolean("Dormitory",false)){
+                state.Dormitory = false;
+            }else if(sharedPreferences.getBoolean("Dormitory",false)){
+                state.Dormitory = true;
             }
         }else if("ETC".equals(key)){
-            Log.d("mixare","status changed"+Filtering_state.ETC);
-            if(Filtering_state.ETC == true){
-                Filtering_state.ETC = false;
-            }else if(Filtering_state.ETC == false){
-                Filtering_state.ETC = true;
+            if(!sharedPreferences.getBoolean("ETC",false)){
+                state.ETC = false;
+            }else if(sharedPreferences.getBoolean("ETC",false)){
+                state.ETC = true;
             }
         }else if("Agriculture".equals(key)){
-            Log.d("mixare","status changed"+Filtering_state.Agriculture);
-            if(Filtering_state.Agriculture == true){
-                Filtering_state.Agriculture = false;
-            }else if(Filtering_state.Agriculture == false){
-                Filtering_state.Agriculture = true;
+            if(!sharedPreferences.getBoolean("Agriculture",false)){
+                state.Agriculture = false;
+            }else if(sharedPreferences.getBoolean("Agriculture",false)){
+                state.Agriculture = true;
             }
         }else if("University".equals(key)){
-            Log.d("mixare","status changed"+Filtering_state.University);
-            if(Filtering_state.University == true){
-                Filtering_state.University = false;
-            }else if(Filtering_state.University == false){
-                Filtering_state.University = true;
+            if(!sharedPreferences.getBoolean("University",false)){
+                state.University = false;
+            }else if(sharedPreferences.getBoolean("University",false)){
+                state.University = true;
             }
         }else if("Club".equals(key)){
-            Log.d("mixare","status changed"+Filtering_state.Club);
-            if(Filtering_state.Club == true){
-                Filtering_state.Club = false;
-            }else if(Filtering_state.Club == false){
-                Filtering_state.Club = true;
+            if(!sharedPreferences.getBoolean("Club",false)){
+                state.Club = false;
+            }else if(sharedPreferences.getBoolean("Club",false)){
+                state.Club = true;
             }
         }else if("Door".equals(key)){
-            Log.d("mixare","status changed"+Filtering_state.Door);
-            if(Filtering_state.Door == true){
-                Filtering_state.Door = false;
-            }else if(Filtering_state.Door == false){
-                Filtering_state.Door = true;
+            if(!sharedPreferences.getBoolean("Door",false)){
+                state.Door = false;
+            }else if(sharedPreferences.getBoolean("Door",false)){
+                state.Door = true;
             }
         }else if("Law".equals(key)){
-            Log.d("mixare","status changed"+Filtering_state.Law);
-            if(Filtering_state.Law == true){
-                Filtering_state.Law = false;
-            }else if(Filtering_state.Law == false){
-                Filtering_state.Law = true;
+            if(!sharedPreferences.getBoolean("Law",false)){
+                state.Law = false;
+            }else if(sharedPreferences.getBoolean("Law",false)){
+                state.Law = true;
             }
         }else if("Education".equals(key)){
-            Log.d("mixare","status changed"+Filtering_state.Education);
-            if(Filtering_state.Education == true){
-                Filtering_state.Education = false;
-            }else if(Filtering_state.Education == false){
-                Filtering_state.Education = true;
+            if(!sharedPreferences.getBoolean("Education",false)){
+                state.Education = false;
+            }else if(sharedPreferences.getBoolean("Education",false)){
+                state.Education = true;
             }
         }else if("Social".equals(key)){
-            Log.d("mixare","status changed"+Filtering_state.Social);
-            if(Filtering_state.Social == true){
-                Filtering_state.Social = false;
-            }else if(Filtering_state.Social == false){
-                Filtering_state.Social = true;
+            if(!sharedPreferences.getBoolean("Social",false)){
+                state.Social = false;
+            }else if(sharedPreferences.getBoolean("Social",false)){
+                state.Social = true;
             }
         }else if("Veterinary".equals(key)){
-            Log.d("mixare","status changed"+Filtering_state.Veterinary);
-            if(Filtering_state.Veterinary == true){
-                Filtering_state.Veterinary = false;
-            }else if(Filtering_state.Veterinary == false){
-                Filtering_state.Veterinary = true;
+            if(!sharedPreferences.getBoolean("Veterinary",false)){
+                state.Veterinary = false;
+            }else if(sharedPreferences.getBoolean("Veterinary",false)){
+                state.Veterinary = true;
             }
         }else if("Leisure".equals(key)){
-            Log.d("mixare","status changed"+Filtering_state.Leisure);
-            if(Filtering_state.Leisure == true){
-                Filtering_state.Leisure = false;
-            }else if(Filtering_state.Leisure == false){
-                Filtering_state.Leisure = true;
+            if(!sharedPreferences.getBoolean("Leisure",false)){
+                state.Leisure = false;
+            }else if(sharedPreferences.getBoolean("Leisure",false)){
+                state.Leisure = true;
             }
         }else if("Humanities".equals(key)){
-            Log.d("mixare","status changed"+Filtering_state.Humanities);
-            if(Filtering_state.Humanities == true){
-                Filtering_state.Humanities = false;
-            }else if(Filtering_state.Humanities == false){
-                Filtering_state.Humanities = true;
+            if(!sharedPreferences.getBoolean("Humanities",false)){
+                state.Humanities = false;
+            }else if(sharedPreferences.getBoolean("Humanities",false)){
+                state.Humanities = true;
             }
         }else if("Natrual".equals(key)){
-            Log.d("mixare","status changed"+Filtering_state.Science);
-            if(Filtering_state.Science == true){
-                Filtering_state.Science = false;
-            }else if(Filtering_state.Science == false){
-                Filtering_state.Science = true;
+            if(!sharedPreferences.getBoolean("Natrual",false)){
+                state.Science = false;
+            }else if(sharedPreferences.getBoolean("Natrual",false)){
+                state.Science = true;
             }
         }
-
-
         editor.commit();
     }
 
@@ -267,9 +254,21 @@ public class SettingsActivity extends AppCompatActivity implements SharedPrefere
         public void onCreate(Bundle savedInstanceState) {
             super.onCreate(savedInstanceState);
             addPreferencesFromResource(R.xml.preference);
+            for (int i = 0; i < getPreferenceScreen().getPreferenceCount(); i++) {
 
-
+                pickPreferenceObject(getPreferenceScreen().getPreference(i));
+            }
         }
+        private void pickPreferenceObject(Preference p) {
+            if (p instanceof PreferenceCategory) {
+                PreferenceCategory cat = (PreferenceCategory) p;
+                for (int i = 0; i < cat.getPreferenceCount(); i++) {
+                    pickPreferenceObject(cat.getPreference(i));
+                }
+            } else {
+            }
+        }
+
     }
 
 
