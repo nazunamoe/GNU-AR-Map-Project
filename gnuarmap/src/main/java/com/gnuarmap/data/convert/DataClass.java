@@ -11,6 +11,7 @@ import com.gnuarmap.SocialMarker;
 import com.gnuarmap.State;
 import org.mixare.lib.HtmlUnescape;
 import java.util.ArrayList;
+import java.util.Arrays;
 
 /**
  * Created by nazunamoe on 2017-11-11.
@@ -22,7 +23,7 @@ public class DataClass {
     public static Bitmap basic;
     private String Filtering1;
     private String[] Filtering2;
-
+    FilteringState state = FilteringState.getInstance();
 
     public int getIntFromColor(float Red, float Green, float Blue){
         int R = Math.round(255 * Red);
@@ -37,95 +38,92 @@ public class DataClass {
     }
 
     public void addItem(String name, String url, double Latitude, double Longitude, String type, String Filtering1, String[] Filtering2, int no){
-        FilteringState state = FilteringState.getInstance();
         int value = 0;
         this.Filtering1 = Filtering1;
         this.Filtering2 = Filtering2;
         int number = List.size();
         String num = String.valueOf(number); // ID값은 사이즈에 따라서 결정됨
-        //if(state.All){
-            addMarker(Integer.toString(no),Latitude,Longitude,url,value,type,name);
-        /*}else{
+        if(state.All){
+            secondFiltering(Integer.toString(no),Latitude,Longitude,url,value,type,name,Filtering2);
+        }else{
             if(state.Agriculture){
                 if(Filtering1=="agriculture"){
-                    addMarker(Integer.toString(no),Latitude,Longitude,url,value,type,name);
+                    secondFiltering(Integer.toString(no),Latitude,Longitude,url,value,type,name,Filtering2);
                 }
             }
             if(state.Business){
                 if(Filtering1=="business"){
-                    addMarker(Integer.toString(no),Latitude,Longitude,url,value,type,name);
+                    secondFiltering(Integer.toString(no),Latitude,Longitude,url,value,type,name,Filtering2);
                 }
             }
             if(state.Engnieering){
                 if(Filtering1=="engnieering"){
-                    addMarker(Integer.toString(no),Latitude,Longitude,url,value,type,name);
+                    secondFiltering(Integer.toString(no),Latitude,Longitude,url,value,type,name,Filtering2);
                 }
             }
             if(state.Dormitory){
                 if(Filtering1=="dormitory"){
-                    addMarker(Integer.toString(no),Latitude,Longitude,url,value,type,name);
+                    secondFiltering(Integer.toString(no),Latitude,Longitude,url,value,type,name,Filtering2);
                 }
             }
             if(state.ETC){
                 if(Filtering1=="etc"){
-                    addMarker(Integer.toString(no),Latitude,Longitude,url,value,type,name);
+                    secondFiltering(Integer.toString(no),Latitude,Longitude,url,value,type,name,Filtering2);
                 }
             }
             if(state.University){
                 if(Filtering1=="university"){
-                    addMarker(Integer.toString(no),Latitude,Longitude,url,value,type,name);
+                    secondFiltering(Integer.toString(no),Latitude,Longitude,url,value,type,name,Filtering2);
                 }
             }
             if(state.Club){
                 if(Filtering1=="club"){
-                    addMarker(Integer.toString(no),Latitude,Longitude,url,value,type,name);
+                    secondFiltering(Integer.toString(no),Latitude,Longitude,url,value,type,name,Filtering2);
                 }
             }
             if(state.Door){
                 if(Filtering1=="door"){
-                    addMarker(Integer.toString(no),Latitude,Longitude,url,value,type,name);
+                    secondFiltering(Integer.toString(no),Latitude,Longitude,url,value,type,name,Filtering2);
                 }
             }
             if(state.Law){
                 if(Filtering1=="law"){
-                    addMarker(Integer.toString(no),Latitude,Longitude,url,value,type,name);
+                    secondFiltering(Integer.toString(no),Latitude,Longitude,url,value,type,name,Filtering2);
                 }
             }
             if(state.Education){
                 if(Filtering1=="education"){
-                    addMarker(Integer.toString(no),Latitude,Longitude,url,value,type,name);
+                    secondFiltering(Integer.toString(no),Latitude,Longitude,url,value,type,name,Filtering2);
                 }
             }
             if(state.Social){
                 if(Filtering1=="social"){
-                    addMarker(Integer.toString(no),Latitude,Longitude,url,value,type,name);
+                    secondFiltering(Integer.toString(no),Latitude,Longitude,url,value,type,name,Filtering2);
                 }
             }
             if(state.Veterinary){
                 if(Filtering1=="veterinary"){
-                    addMarker(Integer.toString(no),Latitude,Longitude,url,value,type,name);
+                    secondFiltering(Integer.toString(no),Latitude,Longitude,url,value,type,name,Filtering2);
                 }
             }
             if(state.Leisure){
                 if(Filtering1=="leisure"){
-                    addMarker(Integer.toString(no),Latitude,Longitude,url,value,type,name);
+                    secondFiltering(Integer.toString(no),Latitude,Longitude,url,value,type,name,Filtering2);
                 }
             }
             if(state.Humanities){
                 if(Filtering1=="humanities"){
-                    addMarker(Integer.toString(no),Latitude,Longitude,url,value,type,name);
+                    secondFiltering(Integer.toString(no),Latitude,Longitude,url,value,type,name,Filtering2);
                 }
             }
             if(state.Science){
                 if(Filtering1=="science"){
-                    addMarker(Integer.toString(no),Latitude,Longitude,url,value,type,name);
+                    secondFiltering(Integer.toString(no),Latitude,Longitude,url,value,type,name,Filtering2);
                 }
             }
-        }*/
+        }
         // 건물 필터링, 이 다음에 2차 필터링도 넣어야 함.
     }
-
-    /*
 
     public String[] vending = {"vending"};
     public String[] printer = {"printer"};
@@ -142,11 +140,67 @@ public class DataClass {
     public String[] printer_cvs_atm = {"printer","cvs","atm"};
 
     public String[] nothing = {};
-    *
-     */
 
-    private void secondFiltering(String num, Double Latitude, Double Longitude, String url, int value, String type, String name){
-        // 각 배열 안의 요소를 검사하여 필터링을 실시한다.
+    private void secondFiltering(String num, Double Latitude, Double Longitude, String url, int value, String type, String name, String[] Filtering2){
+        if(state.All2){
+            addMarker(num,Latitude,Longitude,url,value,type,name);
+        }else{
+            if(state.Vending){
+                if(state.ATM){
+                    if(Arrays.asList(Filtering2).contains("vending") && Arrays.asList(Filtering2).contains("atm")){
+                        addMarker(num,Latitude,Longitude,url,value,type,name);
+                    }
+                }else if(state.Printer){
+                    if(Arrays.asList(Filtering2).contains("vending") && Arrays.asList(Filtering2).contains("printer")){
+                        addMarker(num,Latitude,Longitude,url,value,type,name);
+                    }
+                }else if(state.CVS) {
+                    if(Arrays.asList(Filtering2).contains("vending") && Arrays.asList(Filtering2).contains("cvs")){
+                        addMarker(num,Latitude,Longitude,url,value,type,name);
+                    }
+                }else{
+                    if(Arrays.asList(Filtering2).contains("vending")){
+                        addMarker(num,Latitude,Longitude,url,value,type,name);
+                    }
+                }
+            }else if(state.Printer){
+                if(state.CVS){
+                    if(state.ATM){
+                        if(Arrays.asList(Filtering2).contains("printer") && Arrays.asList(Filtering2).contains("cvs") && Arrays.asList(Filtering2).contains("atm")) {
+                            addMarker(num,Latitude,Longitude,url,value,type,name);
+                        }
+                    }else{
+                        if(Arrays.asList(Filtering2).contains("printer") && Arrays.asList(Filtering2).contains("cvs")){
+                            addMarker(num,Latitude,Longitude,url,value,type,name);
+                        }else{
+                        }
+                    }
+                }else if(state.ATM){
+                    if(Arrays.asList(Filtering2).contains("printer") && Arrays.asList(Filtering2).contains("atm")){
+                        addMarker(num,Latitude,Longitude,url,value,type,name);
+                    }
+                }else{
+                    if(Arrays.asList(Filtering2).contains("printer")){
+                        addMarker(num,Latitude,Longitude,url,value,type,name);
+                    }
+                }
+            }else if(state.CVS){
+                if(state.ATM){
+                    if(Arrays.asList(Filtering2).contains("cvs") && Arrays.asList(Filtering2).contains("atm")){
+                        addMarker(num,Latitude,Longitude,url,value,type,name);
+                    }
+                }else{
+                    if(Arrays.asList(Filtering2).contains("cvs")){
+                        addMarker(num,Latitude,Longitude,url,value,type,name);
+                    }
+                }
+            }else if(state.ATM){
+                if(Arrays.asList(Filtering2).contains("atm")){
+                    addMarker(num,Latitude,Longitude,url,value,type,name);
+                }
+            }else{
+            }
+        }
     }
 
     private void addMarker(String num, Double Latitude, Double Longitude, String url, int value, String type, String name){

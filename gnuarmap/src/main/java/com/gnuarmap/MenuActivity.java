@@ -110,7 +110,9 @@ public class MenuActivity extends AppCompatActivity
             }
             case R.id.design_navigation_view:{
                 ctx = this;
-                startActivity(new Intent(ctx, NaverMapActivity.class));
+                Intent intent = new Intent(ctx,NaverMapActivity.class);
+                intent.putExtra("return",0);
+                startActivity(intent);
                 finish();
                 break;
             }

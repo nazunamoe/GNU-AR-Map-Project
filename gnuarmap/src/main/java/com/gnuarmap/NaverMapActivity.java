@@ -109,8 +109,21 @@ public class NaverMapActivity extends NMapActivity {
 
     @Override
     public boolean onKeyDown(int keyCode, android.view.KeyEvent event) {
+        Intent intent = getIntent();
+        int ret = intent.getIntExtra("return",1);
         if (keyCode == android.view.KeyEvent.KEYCODE_BACK){
-            this.finish();
+            if(ret == 1){
+                Context ctx;
+                ctx = this;
+                startActivity(new Intent(ctx, MixView.class));
+                finish();
+            }
+            else if (ret == 0){
+                Context ctx;
+                ctx = this;
+                startActivity(new Intent(ctx, MenuActivity.class));
+                finish();
+            }
         }
         return false;
     }

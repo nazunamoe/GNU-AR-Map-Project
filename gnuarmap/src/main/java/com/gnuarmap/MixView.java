@@ -580,6 +580,7 @@ public class MixView extends Activity implements SensorEventListener, OnTouchLis
 		/* Map View */
 		case 1:
 			Intent intent2 = new Intent(MixView.this, NaverMapActivity.class);
+			intent2.putExtra("return",1);
 			startActivityForResult(intent2, 20);
 			break;
 		/* zoom level */
@@ -859,7 +860,7 @@ public class MixView extends Activity implements SensorEventListener, OnTouchLis
 	private void doMixSearch(String query) {
 		DataHandler jLayer = getDataView().getDataHandler();
 		if (!getDataView().isFrozen()) {
-			MixListView.originalMarkerList = jLayer.getMarkerList();
+			//MixListView.originalMarkerList = jLayer.getMarkerList();
 			//MixMap.originalMarkerList = jLayer.getMarkerList();
 		}
 
@@ -1007,10 +1008,6 @@ class AugmentedView extends View {
 						startKM = "200m";
 					}
 				}
-				/*
-				 * if(MixListView.getDataSource().equals("Twitter")){ startKM =
-				 * "1km"; }
-				 */
 				canvas.drawText(startKM, canvas.getWidth() / 100 * 4,
 						canvas.getHeight() / 100 * 85, zoomPaint);
 				canvas.drawText(endKM, canvas.getWidth() / 100 * 99 + 25,
