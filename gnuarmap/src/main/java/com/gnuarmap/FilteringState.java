@@ -31,8 +31,8 @@ public class FilteringState {
     public boolean Vending;
     public boolean All2;
 
-    public int NMapState;
-    public int MoreView;
+    public boolean NMapState;
+    public boolean MoreView;
 
     private FilteringState(){}
 

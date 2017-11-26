@@ -81,7 +81,7 @@ public class MixView extends Activity implements SensorEventListener, OnTouchLis
 
 	private CameraSurface camScreen;
 	private AugmentedView augScreen;
-	public int moreview;
+	public boolean moreview;
 	private boolean isInited;
 	private static PaintScreen dWindow;
 	private static DataView dataView;
@@ -956,7 +956,7 @@ public class MixView extends Activity implements SensorEventListener, OnTouchLis
  */
 
 class AugmentedView extends View {
-	public int moreview;
+	public boolean moreview;
 	MixView app;
 	int xSearch = 200;
 	int ySearch = 10;
@@ -965,7 +965,7 @@ class AugmentedView extends View {
 
 	Paint zoomPaint = new Paint();
 
-	public AugmentedView(Context context, int imoreview) {
+	public AugmentedView(Context context, boolean imoreview) {
 		super(context);
 		this.moreview = imoreview;
 		try {
@@ -997,15 +997,12 @@ class AugmentedView extends View {
 				String startKM, endKM ;
 				startKM = "200m";
 				endKM = "800m";
-				switch(moreview){
-					case 0:{
-						endKM = "800m";
-						startKM = "200m";
-					}
-					case 1:{
-						endKM = "1400m";
-						startKM = "200m";
-					}
+				if(moreview){
+					endKM = "1400m";
+					startKM = "200m";
+				}else{
+					endKM = "800m";
+					startKM = "200m";
 				}
 				canvas.drawText(startKM, canvas.getWidth() / 100 * 4,
 						canvas.getHeight() / 100 * 85, zoomPaint);

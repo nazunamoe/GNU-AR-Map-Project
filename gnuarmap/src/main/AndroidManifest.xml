@@ -116,9 +116,6 @@
             android:name=".SettingsActivity"
             android:theme="@style/PreferenceScreen" />
         <activity
-            android:name=".NaverMap"
-            android:theme="@style/AppCompat2" />
-        <activity
             android:name=".MarkerActivity"
             android:theme="@style/AppCompat2" />
         <activity

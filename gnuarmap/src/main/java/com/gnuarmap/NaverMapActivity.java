@@ -60,9 +60,9 @@ public class NaverMapActivity extends NMapActivity {
         mMapView = findViewById(R.id.mapView);
         mMapView.setClientId(CLIENT_ID); // 클라이언트 아이디 값 설정
         mMapController = mMapView.getMapController();
-        if(state.NMapState==0){
+        if(state.NMapState){
             mMapController.setMapViewMode(mMapView.VIEW_MODE_SATELLITE);
-        }else if(state.NMapState==1){
+        }else{
             mMapController.setMapViewMode(mMapView.VIEW_MODE_VECTOR);
         }
         Intent intent = getIntent();

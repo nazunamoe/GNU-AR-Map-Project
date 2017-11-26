@@ -78,27 +78,17 @@ public class SettingsActivity extends AppCompatActivity implements SharedPrefere
         SharedPreferences.Editor editor = sharedPreferences.edit();
 
         if("MMapViewSet".equals(key)){
-            switch(state.NMapState){
-                case 0:{
-                    state.NMapState=1;
-                    break;
-                }
-                case 1:{
-                    state.NMapState=0;
-                    break;
-                }
+            if(!sharedPreferences.getBoolean("MMapViewSet",false)){
+                state.NMapState = false;
+            }else if(sharedPreferences.getBoolean("MMapViewSet",false)){
+                state.NMapState = true;
             }
         }else if("MoreView".equals(key)){
-            switch(state.MoreView){
-                case 0:{
-                    state.MoreView=1;
-                    break;
-                }
-                case 1:{
-                    state.MoreView=0;
-                    break;
-                }
-            }
+            if(!sharedPreferences.getBoolean("MoreView",false)){
+                state.MoreView = false;
+            }else if(sharedPreferences.getBoolean("MoreView",false)){
+                state.MoreView = true;
+            }Log.d("mixare",""+state.MoreView);
         }else if("All".equals(key)){
             if(!sharedPreferences.getBoolean("All",false)){
                 state.All2 = false;

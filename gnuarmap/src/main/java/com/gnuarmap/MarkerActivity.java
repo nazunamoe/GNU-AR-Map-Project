@@ -35,7 +35,7 @@ public class MarkerActivity extends AppCompatActivity {
                 Intent intent;
                 switch(position){
                     case 0:{
-                        intent = new Intent(MarkerActivity.this, NaverMap.class);
+                        intent = new Intent(MarkerActivity.this, NaverMapActivity.class);
                         intent.putExtra("Return","True");
                         intent.putExtra("set","True");
                         startActivity(intent);
