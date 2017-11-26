@@ -318,7 +318,7 @@ public class DataBase {
         );
         data.addItem("농생대 1호관",
                 Agriculture,
-                35.151932,128.098099,
+                35.152217,128.096643,
                 "agriculture",
                 "agriculture",
                 nothing,
@@ -334,7 +334,7 @@ public class DataBase {
         );
         data.addItem("농생대 3호관",
                 Agriculture,
-                35.153362,128.098328,
+                35.152013, 128.097217,
                 "agriculture",
                 "agriculture",
                 nothing,
@@ -350,7 +350,7 @@ public class DataBase {
         );
         data.addItem("농생대 5호관",
                 Agriculture,
-                35.151859,128.096268,
+                35.151292,128.097162,
                 "agriculture",
                 "agriculture",
                 vending,
@@ -358,7 +358,7 @@ public class DataBase {
         );
         data.addItem("농생대 6호관",
                 Agriculture,
-                35.153266,128.096192,
+                35.153162,128.095841,
                 "agriculture",
                 "agriculture",
                 nothing,
@@ -390,7 +390,7 @@ public class DataBase {
         );
         data.addItem("농대부속농장",
                 Agriculture,
-                35.150478,128.098755,
+                35.150130,128.098963,
                 "agriculture",
                 "agriculture",
                 nothing,
@@ -398,7 +398,7 @@ public class DataBase {
         );
         data.addItem("농대 카페테리아",
                 Agriculture,
-                35.150505,128.09874,
+                35.150809,128.098089,
                 "agriculture",
                 "agriculture",
                 nothing,
@@ -645,7 +645,7 @@ public class DataBase {
         // 수의대
         data.addItem("수의대 1호관",
                 Veterinary,
-                35.1548353,128.1004319,
+                35.150997,128.097473,
                 "veterinary",
                 "veterinary",
                 vending_atm,
