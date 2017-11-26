@@ -74,7 +74,15 @@ public class DataBase {
         vending,atm
 
         */
-
+        // 샘플 데이터
+        data.addItem("샘플",
+                Engnieering,
+                35.262957,128.639452,
+                "dorm",
+                "engnieering",
+                nothing,
+                401
+        );
         // 공대 데이터
         data.addItem("공대 1호관",
                     Engnieering,

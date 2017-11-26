@@ -23,6 +23,7 @@ import org.mixare.lib.gui.PaintScreen;
 
 import android.graphics.Bitmap;
 import android.location.Location;
+import android.util.Log;
 
 import com.gnuarmap.data.DataSource;
 
@@ -82,9 +83,11 @@ public class SocialMarker extends LocalMarker {
 
 			// 비트맵 파일이 읽혔다면 적절한 위치에 출력
 			if(bitmap!=null) {
+				Log.v(MixView.TAG, "fuck");
 				dw.paintBitmap(bitmap, cMarker.x - maxHeight/1.5f, cMarker.y - maxHeight/0.6f);
 			}
 			else {	// 비트맵 파일을 갖지 않는 마커의 경우
+
 				dw.setStrokeWidth(maxHeight / 10f);
 				dw.setFill(false);
 				//dw.setColor(DataSource.getColor(datasource));

@@ -43,9 +43,9 @@ public class DataClass {
         this.Filtering2 = Filtering2;
         int number = List.size();
         String num = String.valueOf(number); // ID값은 사이즈에 따라서 결정됨
-        if(state.All){
+        //if(state.All){
             addMarker(Integer.toString(no),Latitude,Longitude,url,value,type,name);
-        }else{
+        /*}else{
             if(state.Agriculture){
                 if(Filtering1=="agriculture"){
                     addMarker(Integer.toString(no),Latitude,Longitude,url,value,type,name);
@@ -121,7 +121,7 @@ public class DataClass {
                     addMarker(Integer.toString(no),Latitude,Longitude,url,value,type,name);
                 }
             }
-        }
+        }*/
         // 건물 필터링, 이 다음에 2차 필터링도 넣어야 함.
     }
 
