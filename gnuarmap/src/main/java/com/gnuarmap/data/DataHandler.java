@@ -25,11 +25,14 @@ import java.util.Hashtable;
 import java.util.List;
 
 import com.gnuarmap.MixContext;
+import com.gnuarmap.MixView;
 import com.gnuarmap.data.convert.DataBase;
+import com.gnuarmap.data.convert.Sample;
 
 import org.mixare.lib.marker.Marker;
 
 import android.location.Location;
+import android.util.Log;
 
 /**
  * DataHandler is the model which provides the Marker Objects with its data.
@@ -41,17 +44,20 @@ public class DataHandler {
 	private List<Marker> markerList = new ArrayList<Marker>();
 
 	public void addMarkers(List<Marker> markers) {
-		DataBase data = new DataBase();
+		//DataBase data = new DataBase();
+		Sample data = new Sample();
 		data.Initialize();
-		// Log.v(MixView.TAG, "Marker before: "+markerList.size());
+
 		for(int i=0; i<data.data.getSize(); i++){
-			markerList.add(data.data.getData(i));
+
+			markerList.add(data.data.List.get(i));
+			Log.v(MixView.TAG, "Marker before: "+markerList.get(i).getLongitude());
 		}
 		/**
 		 * 독립된 데이터 프로세서 대신 이 부분에 marker 배열에 필요한 마커 데이터를 직접 등록한다.
 		 */
 
-		// Log.d(MixView.TAG, "Marker count: "+markerList.size());
+		 Log.d(MixView.TAG, "Marker count: "+markerList.size());
 	}
 
 	// 마커 리스트 정렬
