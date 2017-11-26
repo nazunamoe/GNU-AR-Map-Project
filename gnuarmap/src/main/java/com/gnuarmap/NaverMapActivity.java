@@ -22,6 +22,7 @@ import com.nhn.android.mapviewer.overlay.NMapMyLocationOverlay;
 import com.nhn.android.mapviewer.overlay.NMapOverlayManager;
 
 public class NaverMapActivity extends NMapActivity {
+    public final static String CLIENT_ID = "mUusvsrwEZf9uxFtJ5Se";
     public static final String LOG_TAG = "NMapViewer";
     public static MapContainerView mMapContainerView;
     public static NMapView mMapView;// 지도 화면 View
@@ -56,7 +57,7 @@ public class NaverMapActivity extends NMapActivity {
         setContentView(R.layout.activity_map);
         State state = (State)getApplicationContext();
         mMapView = findViewById(R.id.mapView);
-        mMapView.setClientId(CLIENT_ID.CLIENT_ID); // 클라이언트 아이디 값 설정
+        mMapView.setClientId(CLIENT_ID); // 클라이언트 아이디 값 설정
         mMapController = mMapView.getMapController();
         if(state.getNMapState()==0){
             mMapController.setMapViewMode(mMapView.VIEW_MODE_SATELLITE);
