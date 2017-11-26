@@ -65,7 +65,6 @@ public class NaverMapActivity extends NMapActivity {
         }else if(state.NMapState==1){
             mMapController.setMapViewMode(mMapView.VIEW_MODE_VECTOR);
         }
-        Log.d("mixare","Al"+state.All2);
         Intent intent = getIntent();
         name = intent.getStringExtra("num");
         Toolbar toolbar = findViewById(R.id.toolbar);

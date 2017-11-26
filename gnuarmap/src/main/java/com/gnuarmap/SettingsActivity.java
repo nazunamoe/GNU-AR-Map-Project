@@ -99,12 +99,11 @@ public class SettingsActivity extends AppCompatActivity implements SharedPrefere
                     break;
                 }
             }
-            Log.v("mixare","  "+state.MoreView);
         }else if("All".equals(key)){
             if(!sharedPreferences.getBoolean("All",false)){
-                state.All = false;
+                state.All2 = false;
             }else if(sharedPreferences.getBoolean("All",false)){
-                state.All = true;
+                state.All2 = true;
             }
         }else if("ATM".equals(key)){
             if(!sharedPreferences.getBoolean("ATM",false)){
@@ -134,9 +133,9 @@ public class SettingsActivity extends AppCompatActivity implements SharedPrefere
         // 건물 필터링 시작
         else if("AllBuilding".equals(key)){
             if(!sharedPreferences.getBoolean("AllBuilding",false)){
-                state.All2 = false;
+                state.All = false;
             }else if(sharedPreferences.getBoolean("AllBuilding",false)){
-                state.All2 = true;
+                state.All = true;
             }
             Log.d("mixare",""+state.All2);
         }else if("Business".equals(key)){

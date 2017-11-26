@@ -141,66 +141,64 @@ public class DataClass {
     private void secondFiltering(String num, Double Latitude, Double Longitude, String url, int value, String type, String name, String[] Filtering2){
 
         if(state.All2){
-
-            addMarker(num,Latitude,Longitude,url,value,type,name);
-        }else{
-            if(state.Vending){
-                if(state.ATM){
-                    if(Arrays.asList(Filtering2).contains("vending") && Arrays.asList(Filtering2).contains("atm")){
-                        addMarker(num,Latitude,Longitude,url,value,type,name);
-                    }
-                }else if(state.Printer){
-                    if(Arrays.asList(Filtering2).contains("vending") && Arrays.asList(Filtering2).contains("printer")){
-                        addMarker(num,Latitude,Longitude,url,value,type,name);
-                    }
-                }else if(state.CVS) {
-                    if(Arrays.asList(Filtering2).contains("vending") && Arrays.asList(Filtering2).contains("cvs")){
-                        addMarker(num,Latitude,Longitude,url,value,type,name);
-                    }
-                }else{
-                    if(Arrays.asList(Filtering2).contains("vending")){
-                        addMarker(num,Latitude,Longitude,url,value,type,name);
-                    }
+            addMarker(num,Latitude,Longitude,url,value,type,name);}
+        else if(state.Vending){
+            if(state.ATM){
+                if(Arrays.asList(Filtering2).contains("vending") && Arrays.asList(Filtering2).contains("atm")){
+                    addMarker(num,Latitude,Longitude,url,value,type,name);
                 }
             }else if(state.Printer){
-                if(state.CVS){
-                    if(state.ATM){
-                        if(Arrays.asList(Filtering2).contains("printer") && Arrays.asList(Filtering2).contains("cvs") && Arrays.asList(Filtering2).contains("atm")) {
-                            addMarker(num,Latitude,Longitude,url,value,type,name);
-                        }
-                    }else{
-                        if(Arrays.asList(Filtering2).contains("printer") && Arrays.asList(Filtering2).contains("cvs")){
-                            addMarker(num,Latitude,Longitude,url,value,type,name);
-                        }else{
-                        }
-                    }
-                }else if(state.ATM){
-                    if(Arrays.asList(Filtering2).contains("printer") && Arrays.asList(Filtering2).contains("atm")){
-                        addMarker(num,Latitude,Longitude,url,value,type,name);
-                    }
-                }else{
-                    if(Arrays.asList(Filtering2).contains("printer")){
-                        addMarker(num,Latitude,Longitude,url,value,type,name);
-                    }
+                if(Arrays.asList(Filtering2).contains("vending") && Arrays.asList(Filtering2).contains("printer")){
+                    addMarker(num,Latitude,Longitude,url,value,type,name);
                 }
-            }else if(state.CVS){
-                if(state.ATM){
-                    if(Arrays.asList(Filtering2).contains("cvs") && Arrays.asList(Filtering2).contains("atm")){
-                        addMarker(num,Latitude,Longitude,url,value,type,name);
-                    }
-                }else{
-                    if(Arrays.asList(Filtering2).contains("cvs")){
-                        addMarker(num,Latitude,Longitude,url,value,type,name);
-                    }
-                }
-            }else if(state.ATM){
-                if(Arrays.asList(Filtering2).contains("atm")){
+            }else if(state.CVS) {
+                if(Arrays.asList(Filtering2).contains("vending") && Arrays.asList(Filtering2).contains("cvs")){
                     addMarker(num,Latitude,Longitude,url,value,type,name);
                 }
             }else{
+                if(Arrays.asList(Filtering2).contains("vending")){
+                    addMarker(num,Latitude,Longitude,url,value,type,name);
+                }
             }
+        }else if(state.Printer){
+            if(state.CVS){
+                if(state.ATM){
+                    if(Arrays.asList(Filtering2).contains("printer") && Arrays.asList(Filtering2).contains("cvs") && Arrays.asList(Filtering2).contains("atm")) {
+                        addMarker(num,Latitude,Longitude,url,value,type,name);
+                    }
+                }else{
+                    if(Arrays.asList(Filtering2).contains("printer") && Arrays.asList(Filtering2).contains("cvs")){
+                        addMarker(num,Latitude,Longitude,url,value,type,name);
+                    }else{
+                    }
+                }
+            }else if(state.ATM){
+                if(Arrays.asList(Filtering2).contains("printer") && Arrays.asList(Filtering2).contains("atm")){
+                    addMarker(num,Latitude,Longitude,url,value,type,name);
+                }
+            }else{
+                if(Arrays.asList(Filtering2).contains("printer")){
+                    addMarker(num,Latitude,Longitude,url,value,type,name);
+                }
+            }
+        }else if(state.CVS){
+            if(state.ATM){
+                if(Arrays.asList(Filtering2).contains("cvs") && Arrays.asList(Filtering2).contains("atm")){
+                    addMarker(num,Latitude,Longitude,url,value,type,name);
+                }
+            }else{
+                if(Arrays.asList(Filtering2).contains("cvs")){
+                    addMarker(num,Latitude,Longitude,url,value,type,name);
+                }
+            }
+        }else if(state.ATM){
+            if(Arrays.asList(Filtering2).contains("atm")){
+                addMarker(num,Latitude,Longitude,url,value,type,name);
+            }
+        }else{
         }
     }
+
 
     private void addMarker(String num, Double Latitude, Double Longitude, String url, int value, String type, String name){
         SocialMarker item = new SocialMarker(

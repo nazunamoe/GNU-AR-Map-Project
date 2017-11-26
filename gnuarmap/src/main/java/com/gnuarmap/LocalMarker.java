@@ -261,7 +261,6 @@ public abstract class LocalMarker implements Marker {
 
 		if (isClickValid(x, y)) {
 			evtHandled = state.handleEvent(ctx, URL, this);
-			Log.v("mixare","go to activity"+this.getTitle());
 		}
 		return evtHandled;
 	}

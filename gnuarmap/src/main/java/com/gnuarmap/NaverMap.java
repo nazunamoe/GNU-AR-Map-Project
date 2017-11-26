@@ -55,7 +55,6 @@ public class NaverMap extends NMapActivity {
                 NGeoPoint building = new NGeoPoint(128.098160,35.154008);
                 NMapOverlayItem marker = new NMapOverlayItem(building, "Test","Test",getResources().getDrawable(R.drawable.school_default));
                 marker.setMarker(getResources().getDrawable(R.drawable.school_default));
-                Log.v("mixare","Marker!");
                 marker.setVisibility(NMapOverlayItem.VISIBLE);
                // 마커 액티비티에서 네이버 지도로 넘어왔을 때 핸들러, 해당 좌표만 따와서 보여준다.
             }
@@ -75,7 +74,6 @@ public class NaverMap extends NMapActivity {
         catch (NullPointerException e){
             value = "";
         }
-        Log.v("mixare",value);
         if (keyCode == android.view.KeyEvent.KEYCODE_BACK){
             Context ctx;
             ctx = this;

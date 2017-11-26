@@ -101,7 +101,6 @@ public class MixView extends Activity implements SensorEventListener, OnTouchLis
 		DataSource.createIcons(getResources());
 		super.onCreate(savedInstanceState);
 		FilteringState state = FilteringState.getInstance();
-		Log.v("mixare","  "+state.MoreView);
 		moreview = state.MoreView;
 		AlertDialog.Builder builder1 = new AlertDialog.Builder(this);
 		builder1.setMessage(getString(R.string.GPSWarning));
