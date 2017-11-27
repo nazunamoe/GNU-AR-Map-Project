@@ -402,7 +402,7 @@ public class DataBase {
                 35.1538058,128.1012258,
                 "university",
                 "university",
-                nothing,
+                atm,
                 1
         );
         data.addItem("대학본부",
