@@ -5,9 +5,12 @@ import android.app.AlertDialog;
 import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
+import android.location.Location;
+import android.location.LocationManager;
 import android.net.Uri;
 import android.os.Bundle;
 import android.support.design.widget.NavigationView;
+import android.support.v4.content.ContextCompat;
 import android.support.v4.view.GravityCompat;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBarDrawerToggle;
@@ -17,12 +20,16 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.widget.Toast;
 
+
 import com.gun0912.tedpermission.PermissionListener;
 import com.gun0912.tedpermission.TedPermission;
 
 import com.gnuarmap.R;
 
 import java.util.ArrayList;
+import java.util.Date;
+
+import static android.location.LocationManager.GPS_PROVIDER;
 
 public class MainActivity extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
@@ -155,6 +162,39 @@ public class MainActivity extends AppCompatActivity
                 startActivity(email);
                 break;
             }
+            case R.id.nav_information:{
+                LocationManager current = (LocationManager) getSystemService(Context.LOCATION_SERVICE);
+                int gps = ContextCompat.checkSelfPermission(this, Manifest.permission.ACCESS_FINE_LOCATION);
+                try{
+                    Location currentGPSInfo = current.getLastKnownLocation(GPS_PROVIDER);
+                    AlertDialog.Builder builder = new AlertDialog.Builder(this);
+                    builder.setMessage(getString(R.string.general_info_text) + "\n\n"
+                            + getString(R.string.longitude)
+                            + currentGPSInfo.getLongitude() + "\n"
+                            + getString(R.string.latitude)
+                            + currentGPSInfo.getLatitude() + "\n"
+                            + getString(R.string.altitude)
+                            + currentGPSInfo.getAltitude() + "m\n"
+                            + getString(R.string.speed) + currentGPSInfo.getSpeed()
+                            + "km/h\n" + getString(R.string.accuracy)
+                            + currentGPSInfo.getAccuracy() + "m\n"
+                            + getString(R.string.gps_last_fix)
+                            + new Date(currentGPSInfo.getTime()).toString() + "\n");
+                    builder.setNegativeButton(getString(R.string.close_button),
+                            new DialogInterface.OnClickListener() {
+                                public void onClick(DialogInterface dialog, int id) {
+                                    dialog.dismiss();
+                                }
+                            });
+                    AlertDialog alert = builder.create();
+                    alert.setTitle(getString(R.string.general_info_title));
+                    alert.show();
+                }catch(SecurityException e){
+                    Toast.makeText(getApplicationContext(), R.string.permission_rejected, Toast.LENGTH_SHORT).show();
+                }
+
+			break;
+			}
         }
 
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);

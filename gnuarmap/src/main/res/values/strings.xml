@@ -116,6 +116,7 @@
     <string name="navigation_drawer_email">Email to developer</string>
     <string name="navigation_drawer_homepage">Homepage</string>
     <string name="navigation_drawer_license">License</string>
+    <string name="navigation_drawer_information">GPS Information</string>
 
     <string name="navigation_drawer_header">GNU AR MAP</string>
     <string name="navigation_drawer_header1">Functions</string>
