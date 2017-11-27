@@ -46,7 +46,6 @@ public class DataHandler {
 		SampleData data = new SampleData();
 		data.Initialize();
 		// Log.v(MixView.TAG, "Marker before: "+markerList.size());
-
 		for(int i=0; i<data.data.getSize(); i++){
 			markerList.add(data.data.getData(i));
 		}

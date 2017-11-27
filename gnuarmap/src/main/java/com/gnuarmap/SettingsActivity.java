@@ -139,6 +139,8 @@ public class SettingsActivity extends AppCompatActivity implements SharedPrefere
         editor.commit();
     }
 
+    
+
     // 화면 구성을 위해 PreferenceFragment 를 상속받는 SettingsFragment class 를 구현한다.
     public static class SettingsFragment extends PreferenceFragment
     {

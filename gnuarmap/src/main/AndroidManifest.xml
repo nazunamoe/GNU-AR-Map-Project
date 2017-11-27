@@ -120,7 +120,9 @@
             android:name=".NaverMap"
             android:theme="@style/AppCompat2" />
         <activity android:name=".MarkerActivity"
-            android:theme="@style/AppCompat2"></activity>
+            android:theme="@style/AppCompat2">
+        </activity>
+
     </application>
 
 </manifest>
