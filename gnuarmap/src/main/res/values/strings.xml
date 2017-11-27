@@ -164,7 +164,7 @@ Please turn on permissions at [Setting] > [Permission]"</string>
     <string name="Filtering_Social">College of Social Science</string>
     <string name="Filtering_Leisure">Leisure facilities</string>
     <string name="Filtering_Humanities">College of Humanities</string>
-    <string name="Filtering_Natural">College of Natural Science</string>
+    <string name="Filtering_Science">College of Natural Science</string>
 
     <string name="App_Version">1.0-r20</string>
 

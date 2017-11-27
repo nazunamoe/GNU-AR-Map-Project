@@ -124,6 +124,9 @@
         <activity
             android:name=".Search"
             android:theme="@style/AppTheme" />
+        <activity
+            android:name=".Initialize"
+            android:theme="@style/AppCompat2" />
     </application>
 
 </manifest>

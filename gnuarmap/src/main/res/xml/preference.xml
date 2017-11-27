@@ -95,7 +95,7 @@
   <SwitchPreference
       android:defaultValue="false"
       android:key="Science"
-      android:title="@string/Filtering_Natural"
+      android:title="@string/Filtering_Science"
       android:dependency="AllBuilding"/>
 
  </PreferenceCategory>

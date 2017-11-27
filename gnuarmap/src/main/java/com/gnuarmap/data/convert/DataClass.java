@@ -40,7 +40,7 @@ public class DataClass {
         this.Filtering2 = Filtering2;
         int number = List.size();
         String num = String.valueOf(number); // ID값은 사이즈에 따라서 결정됨
-        if(state.All){
+        if(state.AllBuilding){
             secondFiltering(Integer.toString(no),Latitude,Longitude,url,value,type,name,Filtering2);
         }else{
             if(state.Agriculture){
@@ -140,7 +140,7 @@ public class DataClass {
 
     private void secondFiltering(String num, Double Latitude, Double Longitude, String url, int value, String type, String name, String[] Filtering2){
 
-        if(state.All2){
+        if(state.All){
             addMarker(num,Latitude,Longitude,url,value,type,name);}
         else if(state.Vending){
             if(state.ATM){

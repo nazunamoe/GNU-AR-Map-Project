@@ -23,13 +23,13 @@ public class FilteringState {
     public boolean Humanities;
     public boolean Science;
     public boolean Door;
-    public boolean All;
+    public boolean AllBuilding;
 
     public boolean Printer;
     public boolean ATM;
     public boolean CVS;
     public boolean Vending;
-    public boolean All2;
+    public boolean All;
 
     public boolean NMapState;
     public boolean MoreView;

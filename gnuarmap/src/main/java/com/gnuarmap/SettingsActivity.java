@@ -28,7 +28,7 @@ public class SettingsActivity extends AppCompatActivity implements SharedPrefere
 
     SharedPreferences sharedPref;
     SettingsFragment settings;
-
+    FilteringState state = FilteringState.getInstance();
     @Override
     public boolean onKeyDown(int keyCode, android.view.KeyEvent event) {
         if (keyCode == KeyEvent.KEYCODE_BACK){
@@ -52,12 +52,10 @@ public class SettingsActivity extends AppCompatActivity implements SharedPrefere
         PreferenceManager.setDefaultValues(this, R.xml.preference, false);
 
         sharedPref = PreferenceManager.getDefaultSharedPreferences(this);
-
         settings = new SettingsFragment();
         FragmentTransaction trans = getFragmentManager().beginTransaction();
         trans.replace(android.R.id.content, settings);
         trans.commit();
-
     }
 
     private void pickPreferenceObject(Preference p) {
@@ -70,11 +68,10 @@ public class SettingsActivity extends AppCompatActivity implements SharedPrefere
         }
     }
 
-
     // 설정 값을 변경할 때 이벤트 처리를 담당한다.
     @Override
     public void onSharedPreferenceChanged(SharedPreferences sharedPreferences, String key) {
-        FilteringState state = FilteringState.getInstance();
+
         SharedPreferences.Editor editor = sharedPreferences.edit();
 
         if("MMapViewSet".equals(key)){
@@ -91,9 +88,9 @@ public class SettingsActivity extends AppCompatActivity implements SharedPrefere
             }Log.d("mixare",""+state.MoreView);
         }else if("All".equals(key)){
             if(!sharedPreferences.getBoolean("All",false)){
-                state.All2 = false;
+                state.All = false;
             }else if(sharedPreferences.getBoolean("All",false)){
-                state.All2 = true;
+                state.All = true;
             }
         }else if("ATM".equals(key)){
             if(!sharedPreferences.getBoolean("ATM",false)){
@@ -123,11 +120,10 @@ public class SettingsActivity extends AppCompatActivity implements SharedPrefere
         // 건물 필터링 시작
         else if("AllBuilding".equals(key)){
             if(!sharedPreferences.getBoolean("AllBuilding",false)){
-                state.All = false;
+                state.AllBuilding = false;
             }else if(sharedPreferences.getBoolean("AllBuilding",false)){
-                state.All = true;
+                state.AllBuilding = true;
             }
-            Log.d("mixare",""+state.All2);
         }else if("Business".equals(key)){
             if(!sharedPreferences.getBoolean("Business",false)){
                 state.Business = false;
@@ -212,10 +208,10 @@ public class SettingsActivity extends AppCompatActivity implements SharedPrefere
             }else if(sharedPreferences.getBoolean("Humanities",false)){
                 state.Humanities = true;
             }
-        }else if("Natrual".equals(key)){
-            if(!sharedPreferences.getBoolean("Natrual",false)){
+        }else if("Science".equals(key)){
+            if(!sharedPreferences.getBoolean("Science",false)){
                 state.Science = false;
-            }else if(sharedPreferences.getBoolean("Natrual",false)){
+            }else if(sharedPreferences.getBoolean("Science",false)){
                 state.Science = true;
             }
         }

@@ -23,7 +23,7 @@ public class MainActivity extends Activity {
 		super.onCreate(savedInstanceState);
 		ctx = this;
 
-		startActivity(new Intent(ctx, MenuActivity.class));
+		startActivity(new Intent(ctx, Initialize.class));
 		finish();
 	}
 }
