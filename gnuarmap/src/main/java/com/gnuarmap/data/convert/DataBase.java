@@ -74,20 +74,11 @@ public class DataBase {
         vending,atm
 
         */
-        // 샘플 데이터
-        data.addItem("샘플",
-                Engnieering,
-                35.262957,128.639452,
-                "dorm",
-                "engnieering",
-                nothing,
-                401
-        );
         // 공대 데이터
         data.addItem("공대 1호관",
-                    Engnieering,
-                    35.15382,128.099861,
-                    "engine",
+                Engnieering,
+                35.15382,128.099861,
+                "dorm",
                 "engnieering",
                 nothing,
                 401
@@ -95,7 +86,7 @@ public class DataBase {
         data.addItem("공대 2호관",
                 Engnieering,
                 35.154728,128.094193,
-                "engine",
+                "dorm",
                 "engnieering",
                 nothing,
                 402
@@ -103,7 +94,7 @@ public class DataBase {
         data.addItem("공대 3호관",
                 Engnieering,
                 35.155825,128.094035,
-                "engine",
+                "dorm",
                 "engnieering",
                 nothing,
                 403
