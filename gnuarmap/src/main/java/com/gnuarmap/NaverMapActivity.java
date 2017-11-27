@@ -3,10 +3,8 @@ package com.gnuarmap;
 import android.content.Context;
 import android.content.Intent;
 import android.os.Build;
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.Toolbar;
-import android.util.Log;
 import android.view.*;
 import android.widget.Toast;
 
@@ -122,7 +120,7 @@ public class NaverMapActivity extends NMapActivity {
             else if (ret == 0){
                 Context ctx;
                 ctx = this;
-                startActivity(new Intent(ctx, MenuActivity.class));
+                startActivity(new Intent(ctx, MainActivity.class));
                 finish();
             }
         }

@@ -32,8 +32,6 @@ import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
-import com.gnuarmap.R;
-import com.gnuarmap.R.drawable;
 import com.gnuarmap.data.DataHandler;
 import com.gnuarmap.data.DataSource;
 import com.gnuarmap.data.DataSourceList;
@@ -784,7 +782,7 @@ public class MixView extends Activity implements SensorEventListener, OnTouchLis
 				} else {
 					//TODO handle keyback to finish app correctly
 					ctx = this;
-					startActivity(new Intent(ctx, MenuActivity.class));
+					startActivity(new Intent(ctx, MainActivity.class));
 					finish();
 					return false;
 				}

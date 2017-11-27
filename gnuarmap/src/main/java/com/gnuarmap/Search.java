@@ -13,8 +13,6 @@ import android.widget.Toast;
 
 import com.gnuarmap.data.convert.DataBase;
 
-import static com.gnuarmap.NaverMapActivity.db;
-
 public class Search extends AppCompatActivity {
 
     String[] items = {"대학본부","중앙도서관","중도","중식","학생회관","인재개발원","체육관","GNU어린이집","어린이집","문화회관",
@@ -75,7 +73,7 @@ public class Search extends AppCompatActivity {
         if (keyCode == android.view.KeyEvent.KEYCODE_BACK){
             Context ctx;
             ctx = this;
-            startActivity(new Intent(ctx, MenuActivity.class));
+            startActivity(new Intent(ctx, MainActivity.class));
             finish();
         }
         return false;

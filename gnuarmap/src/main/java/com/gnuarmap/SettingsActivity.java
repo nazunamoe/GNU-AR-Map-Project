@@ -4,25 +4,15 @@ import android.app.FragmentTransaction;
 import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
-import android.graphics.Color;
-import android.graphics.drawable.ColorDrawable;
-import android.os.Build;
 import android.os.Bundle;
-import android.preference.CheckBoxPreference;
 import android.preference.Preference;
 import android.preference.PreferenceCategory;
 import android.preference.PreferenceFragment;
 import android.preference.PreferenceManager;
-import android.preference.SwitchPreference;
-import android.provider.Settings;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
-import android.view.*;
 import android.view.KeyEvent;
-import android.widget.Toast;
 import android.support.v7.app.ActionBar;
-
-import com.gnuarmap.R;
 
 public class SettingsActivity extends AppCompatActivity implements SharedPreferences.OnSharedPreferenceChangeListener{
 
@@ -34,7 +24,7 @@ public class SettingsActivity extends AppCompatActivity implements SharedPrefere
         if (keyCode == KeyEvent.KEYCODE_BACK){
             Context ctx;
             ctx = this;
-            startActivity(new Intent(ctx, MenuActivity.class));
+            startActivity(new Intent(ctx, MainActivity.class));
             finish();
         }
         return false;

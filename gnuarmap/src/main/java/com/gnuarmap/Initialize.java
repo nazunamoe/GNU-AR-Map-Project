@@ -1,18 +1,11 @@
 package com.gnuarmap;
 
-import android.app.FragmentTransaction;
 import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
-import android.os.Build;
 import android.os.Bundle;
-import android.preference.Preference;
-import android.preference.PreferenceCategory;
-import android.preference.PreferenceFragment;
 import android.preference.PreferenceManager;
-import android.support.v7.app.ActionBar;
 import android.support.v7.app.AppCompatActivity;
-import android.util.Log;
 import android.view.KeyEvent;
 
 public class Initialize extends AppCompatActivity{
@@ -25,7 +18,7 @@ public class Initialize extends AppCompatActivity{
         if (keyCode == KeyEvent.KEYCODE_BACK){
             Context ctx;
             ctx = this;
-            startActivity(new Intent(ctx, MenuActivity.class));
+            startActivity(new Intent(ctx, MainActivity.class));
             finish();
         }
         return false;
@@ -37,7 +30,7 @@ public class Initialize extends AppCompatActivity{
         Context ctx = this.getApplicationContext();
         sharedPref = PreferenceManager.getDefaultSharedPreferences(this);
         Initialize();
-        startActivity(new Intent(ctx, MenuActivity.class));
+        startActivity(new Intent(ctx, MainActivity.class));
         finish();
     }
 
