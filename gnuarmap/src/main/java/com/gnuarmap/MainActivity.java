@@ -5,6 +5,7 @@ import android.app.AlertDialog;
 import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
+import android.content.pm.PackageManager;
 import android.location.Location;
 import android.location.LocationManager;
 import android.net.Uri;
@@ -30,6 +31,7 @@ import java.util.ArrayList;
 import java.util.Date;
 
 import static android.location.LocationManager.GPS_PROVIDER;
+import static android.location.LocationManager.NETWORK_PROVIDER;
 
 public class MainActivity extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
@@ -107,20 +109,30 @@ public class MainActivity extends AppCompatActivity
     public boolean onNavigationItemSelected(MenuItem item) {
         // Handle navigation view item clicks here.
         int id = item.getItemId();
-
+        int gpsCheck = ContextCompat.checkSelfPermission(this,Manifest.permission.ACCESS_FINE_LOCATION);
         switch(id){
             case R.id.nav_camera:{
                 ctx = this;
-                startActivity(new Intent(ctx, MixView.class));
-                finish();
+                if(gpsCheck == PackageManager.PERMISSION_DENIED){
+                    Toast.makeText(getApplicationContext(), R.string.permission_rejected, Toast.LENGTH_SHORT).show();
+                }
+                else if(gpsCheck == PackageManager.PERMISSION_GRANTED){
+                    startActivity(new Intent(ctx, MixView.class));
+                    finish();
+                }
                 break;
             }
             case R.id.design_navigation_view:{
                 ctx = this;
-                Intent intent = new Intent(ctx,NaverMapActivity.class);
-                intent.putExtra("return",0);
-                startActivity(intent);
-                finish();
+                if(gpsCheck == PackageManager.PERMISSION_DENIED){
+                    Toast.makeText(getApplicationContext(), R.string.permission_rejected, Toast.LENGTH_SHORT).show();
+                }
+                else if(gpsCheck == PackageManager.PERMISSION_GRANTED){
+                    Intent intent = new Intent(ctx,NaverMapActivity.class);
+                    intent.putExtra("return",0);
+                    startActivity(intent);
+                    finish();
+                }
                 break;
             }
             case R.id.design_search:{
@@ -166,7 +178,10 @@ public class MainActivity extends AppCompatActivity
                 LocationManager current = (LocationManager) getSystemService(Context.LOCATION_SERVICE);
                 int gps = ContextCompat.checkSelfPermission(this, Manifest.permission.ACCESS_FINE_LOCATION);
                 try{
-                    Location currentGPSInfo = current.getLastKnownLocation(GPS_PROVIDER);
+                    Location currentGPSInfo = current.getLastKnownLocation(NETWORK_PROVIDER);
+                    if(current.isProviderEnabled(GPS_PROVIDER)){
+                        currentGPSInfo = current.getLastKnownLocation(GPS_PROVIDER);
+                    }
                     AlertDialog.Builder builder = new AlertDialog.Builder(this);
                     builder.setMessage(getString(R.string.general_info_text) + "\n\n"
                             + getString(R.string.longitude)
