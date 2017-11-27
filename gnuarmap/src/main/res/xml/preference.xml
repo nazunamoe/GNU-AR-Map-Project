@@ -6,15 +6,20 @@
      android:key="ar_view_setting">
   <SwitchPreference
       android:defaultValue="false"
+      android:key="Camera2"
+      android:summary="@string/Camera2_Summary"
+      android:title="@string/Camera2" />
+  <SwitchPreference
+      android:defaultValue="false"
       android:key="MoreView"
       android:title="@string/MoreView" />
  </PreferenceCategory>
 
  <PreferenceCategory
      android:title="@string/settings_drawer_navermap"
- android:key="naver_map_setting">
+     android:key="NaverMap">
   <SwitchPreference
-      android:defaultValue="true"
+      android:defaultValue="false"
       android:key="MMapViewSet"
       android:title="@string/NMapSetView" />
  </PreferenceCategory>
@@ -28,74 +33,74 @@
       android:title="@string/Filtering_All"
       android:disableDependentsState="true"/>
   <SwitchPreference
-      android:defaultValue="true"
+      android:defaultValue="false"
       android:key="Business"
       android:title="@string/Filtering_Business"
       android:dependency="AllBuilding"/>
   <SwitchPreference
-      android:defaultValue="true"
-      android:key="Engnineering"
+      android:defaultValue="false"
+      android:key="Engnieering"
       android:title="@string/Filtering_Engnieering"
       android:dependency="AllBuilding"/>
   <SwitchPreference
-      android:defaultValue="true"
+      android:defaultValue="false"
       android:key="Dormitory"
       android:title="@string/Filtering_Dormitory"
       android:dependency="AllBuilding"/>
   <SwitchPreference
-      android:defaultValue="true"
+      android:defaultValue="false"
       android:key="ETC"
       android:title="@string/Filtering_ETC"
       android:dependency="AllBuilding"/>
   <SwitchPreference
-      android:defaultValue="true"
+      android:defaultValue="false"
       android:key="Agriculture"
       android:title="@string/Filtering_Agriculture"
       android:dependency="AllBuilding"/>
   <SwitchPreference
-     android:defaultValue="true"
-     android:key="University"
-     android:title="@string/Filtering_University"
+      android:defaultValue="false"
+      android:key="University"
+      android:title="@string/Filtering_University"
       android:dependency="AllBuilding"/>
   <SwitchPreference
-      android:defaultValue="true"
+      android:defaultValue="false"
       android:key="Club"
       android:title="@string/Filtering_Club"
       android:dependency="AllBuilding"/>
   <SwitchPreference
-      android:defaultValue="true"
+      android:defaultValue="false"
       android:key="Door"
       android:title="@string/Filtering_Door"
       android:dependency="AllBuilding"/>
   <SwitchPreference
-      android:defaultValue="true"
+      android:defaultValue="false"
       android:key="Law"
       android:title="@string/Filtering_Law"
       android:dependency="AllBuilding"/>
   <SwitchPreference
-      android:defaultValue="true"
+      android:defaultValue="false"
       android:key="Education"
       android:title="@string/Filtering_Education"
       android:dependency="AllBuilding"/>
   <SwitchPreference
-      android:defaultValue="true"
+      android:defaultValue="false"
       android:key="Social"
       android:title="@string/Filtering_Social"
       android:dependency="AllBuilding"/>
   <SwitchPreference
-      android:defaultValue="true"
+      android:defaultValue="false"
       android:key="Veterinary"
       android:title="@string/Filtering_Veterinary"
       android:dependency="AllBuilding"/>
   <SwitchPreference
-     android:defaultValue="true"
-     android:key="Leisure"
-     android:title="@string/Filtering_Leisure"
+      android:defaultValue="false"
+      android:key="Leisure"
+      android:title="@string/Filtering_Leisure"
       android:dependency="AllBuilding"/>
   <SwitchPreference
-      android:defaultValue="true"
-      android:key="Natural"
-      android:title="@string/Filtering_Natural"
+      android:defaultValue="false"
+      android:key="Science"
+      android:title="@string/Filtering_Science"
       android:dependency="AllBuilding"/>
 
  </PreferenceCategory>

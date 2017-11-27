@@ -5,7 +5,7 @@
     android:installLocation="auto"
     android:label="@string/app_name"
     android:versionCode="26"
-    android:versionName="0.9.2">
+    android:versionName="1.0_r1">
 
     <uses-sdk
         android:minSdkVersion="21"
@@ -39,7 +39,6 @@
     <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
 
     <application
-        android:name=".State"
         android:allowBackup="true"
         android:icon="@drawable/ic_launcher"
         android:label="@string/app_name"
@@ -47,10 +46,11 @@
         <activity
             android:name=".MainActivity"
             android:icon="@drawable/gmap_ic"
-            android:label="@string/app_name">
+            android:label="@string/app_name"
+            android:theme="@style/AppTheme.NoActionBar">
             <intent-filter>
+                <action android:name="android.intent.action.BROWSEABLE" />
                 <action android:name="android.intent.action.MAIN" />
-
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
@@ -106,23 +106,20 @@
         <activity android:name=".data.DataSource" />
         <activity android:name=".data.DataSourceList" />
         <activity
-            android:name=".MenuActivity"
-            android:label="@string/app_name"
-            android:theme="@style/AppTheme.NoActionBar">
-            <intent-filter>
-                <action android:name="android.intent.action.BROWSEABLE" />
-            </intent-filter>
-        </activity>
-        <activity
             android:name=".SettingsActivity"
             android:theme="@style/PreferenceScreen" />
         <activity
-            android:name=".NaverMap"
+            android:name=".MarkerActivity"
             android:theme="@style/AppCompat2" />
-        <activity android:name=".MarkerActivity"
-            android:theme="@style/AppCompat2">
-        </activity>
-
+        <activity
+            android:name=".NaverMapActivity"
+            android:theme="@style/AppCompat2" />
+        <activity
+            android:name=".Search"
+            android:theme="@style/AppTheme" />
+        <activity
+            android:name=".Initialize"
+            android:theme="@style/AppCompat2" />
     </application>
 
 </manifest>

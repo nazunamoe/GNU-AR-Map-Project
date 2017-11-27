@@ -23,6 +23,7 @@ import org.mixare.lib.gui.PaintScreen;
 
 import android.graphics.Bitmap;
 import android.location.Location;
+import android.util.Log;
 
 import com.gnuarmap.data.DataSource;
 
@@ -38,12 +39,16 @@ public class SocialMarker extends LocalMarker {
 
 	public static final int MAX_OBJECTS=15;
 
+	public String filter1;
+	public String filter2[];
 
 	public String getFlag;
 	public SocialMarker(String id, String title, double latitude, double longitude,
-			double altitude, String URL, int type, int color ,String flag) {
+			double altitude, String URL, int type, int color ,String flag, String filtering1, String filtering2[]) {
 		super(id, title, latitude, longitude, altitude, URL, type, color);
 		this.getFlag = flag;
+		this.filter1 = filtering1;
+		this.filter2 = filtering2;
 	}
 
 	@Override
@@ -74,13 +79,14 @@ public class SocialMarker extends LocalMarker {
 			float maxHeight = Math.round(dw.getHeight() / 10f) + 1;	// 최대 높이 계산
 			// 데이터 소스의 비트맵 파일을 읽어온다
 
-			Bitmap bitmap = DataSource.getBitmap(getFlag);
+			Bitmap bitmap = DataSource.getBitmap("default");
 
 			// 비트맵 파일이 읽혔다면 적절한 위치에 출력
 			if(bitmap!=null) {
 				dw.paintBitmap(bitmap, cMarker.x - maxHeight/1.5f, cMarker.y - maxHeight/0.6f);
 			}
 			else {	// 비트맵 파일을 갖지 않는 마커의 경우
+
 				dw.setStrokeWidth(maxHeight / 10f);
 				dw.setFill(false);
 				//dw.setColor(DataSource.getColor(datasource));

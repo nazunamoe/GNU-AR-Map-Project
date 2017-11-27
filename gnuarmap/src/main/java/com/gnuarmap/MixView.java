@@ -32,8 +32,6 @@ import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
-import com.gnuarmap.R;
-import com.gnuarmap.R.drawable;
 import com.gnuarmap.data.DataHandler;
 import com.gnuarmap.data.DataSource;
 import com.gnuarmap.data.DataSourceList;
@@ -81,20 +79,17 @@ public class MixView extends Activity implements SensorEventListener, OnTouchLis
 
 	private CameraSurface camScreen;
 	private AugmentedView augScreen;
-	public int moreview;
+	public boolean moreview;
 	private boolean isInited;
 	private static PaintScreen dWindow;
 	private static DataView dataView;
 	private boolean fError;
-
+	public FilteringState state = FilteringState.getInstance();
 	//----------
     private MixViewDataHolder mixViewData  ;
 	
 	// TAG for logging
 	public static final String TAG = "Mixare";
-
-	// why use Memory to save a state? MixContext? activity lifecycle?
-	//private static MixView CONTEXT;
 
 	/* string to name & access the preference file in the internal storage */
 	public static final String PREFS_NAME = "MyPrefsFileForMenuItems";
@@ -103,20 +98,23 @@ public class MixView extends Activity implements SensorEventListener, OnTouchLis
 	public void onCreate(Bundle savedInstanceState) {
 		DataSource.createIcons(getResources());
 		super.onCreate(savedInstanceState);
-		State state = (State)getApplicationContext();
-		Log.v("mixare","  "+state.getMoreView());
-		moreview = state.getMoreView();
-		AlertDialog.Builder builder1 = new AlertDialog.Builder(this);
-		builder1.setMessage(getString(R.string.GPSWarning));
-		builder1.setNegativeButton(getString(R.string.close_button),
-				new DialogInterface.OnClickListener() {
-					public void onClick(DialogInterface dialog, int id) {
-						dialog.dismiss();
-					}
-				});
-		AlertDialog alert1 = builder1.create();
-		alert1.setTitle(getString(R.string.GPSWarningTitle));
-		alert1.show();
+		Log.d("ShitFuck",""+state.Camera2);
+		moreview = state.MoreView;
+		if(state.count == 0){
+			AlertDialog.Builder builder1 = new AlertDialog.Builder(this);
+			builder1.setMessage(getString(R.string.GPSWarning));
+			builder1.setNegativeButton(getString(R.string.close_button),
+					new DialogInterface.OnClickListener() {
+						public void onClick(DialogInterface dialog, int id) {
+							dialog.dismiss();
+						}
+					});
+			AlertDialog alert1 = builder1.create();
+			alert1.setTitle(getString(R.string.GPSWarningTitle));
+			alert1.show();
+			state.count ++;
+		}
+		// 경고문은 한번만
 		//MixView.CONTEXT = this;
 		try {
 						
@@ -386,7 +384,12 @@ public class MixView extends Activity implements SensorEventListener, OnTouchLis
 	 */
 	private void maintainCamera() {
 		if (camScreen == null){
-		camScreen = new Camera2Surface(this);
+
+			if(state.Camera2){
+				camScreen = new Camera2Surface(this);
+			}else{
+				camScreen = new CameraSurface(this);
+			} // 카메라 2와 구 카메라 API 변환 기능, 오래된 기종에 대한 호환성의 확보 목적
 		}
 		setContentView(camScreen);
 	}
@@ -558,29 +561,20 @@ public class MixView extends Activity implements SensorEventListener, OnTouchLis
 	public boolean onCreateOptionsMenu(Menu menu) {
 		int base = Menu.FIRST;
 		/* define the first */
-		MenuItem item1 = menu.add(base, base, base,
-				getString(R.string.menu_item_1));
-		MenuItem item2 = menu.add(base, base + 1, base + 1,
-				getString(R.string.menu_item_2));
-		MenuItem item3 = menu.add(base, base + 2, base + 2,
+		MenuItem item1 = menu.add(base, base + 0, base + 0,
 				getString(R.string.menu_item_3));
-		MenuItem item4 = menu.add(base, base + 3, base + 3,
+		MenuItem item2 = menu.add(base, base + 1, base + 1,
 				getString(R.string.menu_item_4));
-		MenuItem item5 = menu.add(base, base + 4, base + 4,
-				getString(R.string.menu_item_5));
-		MenuItem item6 = menu.add(base, base + 5, base + 5,
+		MenuItem item3 = menu.add(base, base + 2, base + 2,
 				getString(R.string.menu_item_6));
-		MenuItem item7 = menu.add(base, base + 6, base + 6,
+		MenuItem item4 = menu.add(base, base + 3, base + 3,
 				getString(R.string.menu_item_7));
 
 		/* assign icons to the menu items */
-		item1.setIcon(drawable.icon_datasource);
-		item2.setIcon(android.R.drawable.ic_menu_view);
-		item3.setIcon(android.R.drawable.ic_menu_mapmode);
-		item4.setIcon(android.R.drawable.ic_menu_zoom);
-		item5.setIcon(android.R.drawable.ic_menu_search);
-		item6.setIcon(android.R.drawable.ic_menu_info_details);
-		item7.setIcon(android.R.drawable.ic_menu_share);
+		item1.setIcon(android.R.drawable.ic_menu_mapmode);
+		item2.setIcon(android.R.drawable.ic_menu_zoom);
+		item3.setIcon(android.R.drawable.ic_menu_info_details);
+		item4.setIcon(android.R.drawable.ic_menu_share);
 
 		return true;
 	}
@@ -589,49 +583,20 @@ public class MixView extends Activity implements SensorEventListener, OnTouchLis
 	@Override
 	public boolean onOptionsItemSelected(MenuItem item) {
 		switch (item.getItemId()) {
-		/* Data sources */
-		case 1:
-			if (!getDataView().isLauncherStarted()) {
-				Intent intent = new Intent(MixView.this, DataSourceList.class);
-				startActivityForResult(intent, 40);
-			} else {
-				Toast.makeText(this, getString(R.string.no_website_available),
-						Toast.LENGTH_LONG).show();
-			}
-			break;
-		/* List view */
-		case 2:
-			/*
-			 * if the list of titles to show in alternative list view is not
-			 * empty
-			 */
-			if (getDataView().getDataHandler().getMarkerCount() > 0) {
-				Intent intent1 = new Intent(MixView.this, MixListView.class); 
-				startActivityForResult(intent1, 42);
-			}
-			/* if the list is empty */
-			else {
-				Toast.makeText(this, R.string.empty_list, Toast.LENGTH_LONG)
-						.show();
-			}
-			break;
 		/* Map View */
-		case 3:
-			//Intent intent2 = new Intent(MixView.this, MixMap.class);
-			//startActivityForResult(intent2, 20);
+		case 1:
+			Intent intent2 = new Intent(MixView.this, NaverMapActivity.class);
+			intent2.putExtra("return",1);
+			startActivityForResult(intent2, 20);
 			break;
 		/* zoom level */
-		case 4:
+		case 2:
 			getMixViewData().getMyZoomBar().setVisibility(View.VISIBLE);
 			getMixViewData().setZoomProgress(getMixViewData().getMyZoomBar()
 					.getProgress());
 			break;
-		/* Search */
-		case 5:
-			onSearchRequested();
-			break;
 		/* GPS Information */
-		case 6:
+		case 3:
 			Location currentGPSInfo = getMixViewData().getMixContext().getLocationFinder().getCurrentLocation();
 			AlertDialog.Builder builder = new AlertDialog.Builder(this);
 			builder.setMessage(getString(R.string.general_info_text) + "\n\n"
@@ -657,7 +622,7 @@ public class MixView extends Activity implements SensorEventListener, OnTouchLis
 			alert.show();
 			break;
 		/* Case 6: license agreements */
-		case 7:
+		case 4:
 			AlertDialog.Builder builder1 = new AlertDialog.Builder(this);
 			builder1.setMessage(getString(R.string.license));
 			/* Retry */
@@ -817,7 +782,7 @@ public class MixView extends Activity implements SensorEventListener, OnTouchLis
 				} else {
 					//TODO handle keyback to finish app correctly
 					ctx = this;
-					startActivity(new Intent(ctx, MenuActivity.class));
+					startActivity(new Intent(ctx, MainActivity.class));
 					finish();
 					return false;
 				}
@@ -901,7 +866,7 @@ public class MixView extends Activity implements SensorEventListener, OnTouchLis
 	private void doMixSearch(String query) {
 		DataHandler jLayer = getDataView().getDataHandler();
 		if (!getDataView().isFrozen()) {
-			MixListView.originalMarkerList = jLayer.getMarkerList();
+			//MixListView.originalMarkerList = jLayer.getMarkerList();
 			//MixMap.originalMarkerList = jLayer.getMarkerList();
 		}
 
@@ -998,7 +963,7 @@ public class MixView extends Activity implements SensorEventListener, OnTouchLis
  */
 
 class AugmentedView extends View {
-	public int moreview;
+	public boolean moreview;
 	MixView app;
 	int xSearch = 200;
 	int ySearch = 10;
@@ -1007,7 +972,7 @@ class AugmentedView extends View {
 
 	Paint zoomPaint = new Paint();
 
-	public AugmentedView(Context context, int imoreview) {
+	public AugmentedView(Context context, boolean imoreview) {
 		super(context);
 		this.moreview = imoreview;
 		try {
@@ -1039,20 +1004,13 @@ class AugmentedView extends View {
 				String startKM, endKM ;
 				startKM = "200m";
 				endKM = "800m";
-				switch(moreview){
-					case 0:{
-						endKM = "800m";
-						startKM = "200m";
-					}
-					case 1:{
-						endKM = "1400m";
-						startKM = "200m";
-					}
+				if(moreview){
+					endKM = "1400m";
+					startKM = "200m";
+				}else{
+					endKM = "800m";
+					startKM = "200m";
 				}
-				/*
-				 * if(MixListView.getDataSource().equals("Twitter")){ startKM =
-				 * "1km"; }
-				 */
 				canvas.drawText(startKM, canvas.getWidth() / 100 * 4,
 						canvas.getHeight() / 100 * 85, zoomPaint);
 				canvas.drawText(endKM, canvas.getWidth() / 100 * 99 + 25,
