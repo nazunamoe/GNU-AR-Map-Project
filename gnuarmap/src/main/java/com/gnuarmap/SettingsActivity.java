@@ -73,8 +73,13 @@ public class SettingsActivity extends AppCompatActivity implements SharedPrefere
     public void onSharedPreferenceChanged(SharedPreferences sharedPreferences, String key) {
 
         SharedPreferences.Editor editor = sharedPreferences.edit();
-
-        if("MMapViewSet".equals(key)){
+        if("Camera2".equals(key)) {
+            if (!sharedPreferences.getBoolean("Camera2", false)) {
+                state.Camera2 = false;
+            } else if (sharedPreferences.getBoolean("Camera2", false)) {
+                state.Camera2 = true;
+            }Log.d("ShitFuck",""+state.Camera2);
+        }else if("MMapViewSet".equals(key)){
             if(!sharedPreferences.getBoolean("MMapViewSet",false)){
                 state.NMapState = false;
             }else if(sharedPreferences.getBoolean("MMapViewSet",false)){
@@ -85,7 +90,7 @@ public class SettingsActivity extends AppCompatActivity implements SharedPrefere
                 state.MoreView = false;
             }else if(sharedPreferences.getBoolean("MoreView",false)){
                 state.MoreView = true;
-            }Log.d("mixare",""+state.MoreView);
+            }
         }else if("All".equals(key)){
             if(!sharedPreferences.getBoolean("All",false)){
                 state.All = false;

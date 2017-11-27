@@ -143,6 +143,8 @@ Please turn on permissions at [Setting] > [Permission]"</string>
     <string name="WebSite">Go to website of this building</string>
     <string name="Navi">Turn on navigation</string>
     <string name="MoreView">Get more view on AR</string>
+    <string name="Camera2">Use Camera2 API</string>
+    <string name="Camera2_Summary">Please turn off the function when there is a problem</string>
 
     <string name="Filtering_All">Show all</string>
     <string name="Filtering_ATM">ATM</string>

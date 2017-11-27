@@ -83,7 +83,6 @@ public class SocialMarker extends LocalMarker {
 
 			// 비트맵 파일이 읽혔다면 적절한 위치에 출력
 			if(bitmap!=null) {
-				Log.d("mixare","get rr");
 				dw.paintBitmap(bitmap, cMarker.x - maxHeight/1.5f, cMarker.y - maxHeight/0.6f);
 			}
 			else {	// 비트맵 파일을 갖지 않는 마커의 경우

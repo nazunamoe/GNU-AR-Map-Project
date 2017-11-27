@@ -86,7 +86,7 @@ public class MixView extends Activity implements SensorEventListener, OnTouchLis
 	private static PaintScreen dWindow;
 	private static DataView dataView;
 	private boolean fError;
-
+	public FilteringState state = FilteringState.getInstance();
 	//----------
     private MixViewDataHolder mixViewData  ;
 	
@@ -100,7 +100,7 @@ public class MixView extends Activity implements SensorEventListener, OnTouchLis
 	public void onCreate(Bundle savedInstanceState) {
 		DataSource.createIcons(getResources());
 		super.onCreate(savedInstanceState);
-		FilteringState state = FilteringState.getInstance();
+		Log.d("ShitFuck",""+state.Camera2);
 		moreview = state.MoreView;
 		AlertDialog.Builder builder1 = new AlertDialog.Builder(this);
 		builder1.setMessage(getString(R.string.GPSWarning));
@@ -382,7 +382,12 @@ public class MixView extends Activity implements SensorEventListener, OnTouchLis
 	 */
 	private void maintainCamera() {
 		if (camScreen == null){
-		camScreen = new Camera2Surface(this);
+
+			if(state.Camera2){
+				camScreen = new Camera2Surface(this);
+			}else{
+				camScreen = new CameraSurface(this);
+			} // 카메라 2와 구 카메라 API 변환 기능, 오래된 기종에 대한 호환성의 확보 목적
 		}
 		setContentView(camScreen);
 	}

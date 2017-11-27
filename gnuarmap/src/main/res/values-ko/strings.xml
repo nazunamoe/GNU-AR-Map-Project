@@ -142,6 +142,8 @@
     <string name="WebSite">이 건물의 홈페이지로 이동</string>
     <string name="Navi">길안내 켜기</string>
     <string name="MoreView">AR 범위 확장</string>
+    <string name="Camera2">카메라 2 API 사용</string>
+    <string name="Camera2_Summary">문제가 발생할 시 기능을 꺼 주시기 바랍니다</string>
 
     <string name="settings_drawer_1st_filtering">건물 필터링</string>
     <string name="settings_drawer_2nd_filtering">시설 필터링</string>

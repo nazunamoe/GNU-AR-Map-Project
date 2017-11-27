@@ -33,6 +33,7 @@ public class FilteringState {
 
     public boolean NMapState;
     public boolean MoreView;
+    public boolean Camera2;
 
     private FilteringState(){}
 

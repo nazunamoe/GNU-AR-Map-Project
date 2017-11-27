@@ -6,6 +6,11 @@
      android:key="ar_view_setting">
   <SwitchPreference
       android:defaultValue="false"
+      android:key="Camera2"
+      android:summary="@string/Camera2_Summary"
+      android:title="@string/Camera2" />
+  <SwitchPreference
+      android:defaultValue="false"
       android:key="MoreView"
       android:title="@string/MoreView" />
  </PreferenceCategory>

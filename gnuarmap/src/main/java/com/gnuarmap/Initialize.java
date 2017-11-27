@@ -41,7 +41,7 @@ public class Initialize extends AppCompatActivity{
         finish();
     }
 
-
+    // 초기화 메소드, for문으로 모든 세팅값을 돌면서 각자의 원래 값을 찾아서 설정한다
     public void Initialize(){
         for(int i=0; i<ListSize; i++){
             if(sharedPref.getBoolean(List[i],false)){
@@ -52,13 +52,15 @@ public class Initialize extends AppCompatActivity{
         }
     }
 
-    public String[] List = {"MMapViewSet","MoreView","All","ATM","CVS","Vending","Printer","AllBuilding","Business","Engnieering",
+    public String[] List = {"Camera","MMapViewSet","MoreView","All","ATM","CVS","Vending","Printer","AllBuilding","Business","Engnieering",
             "Dormitory","ETC","Agriculture","University","Club","Door","Law","Education","Social","Veterinary","Leisure","Science"};
-    public int ListSize = 22;
+    public int ListSize = 23;
+    // 초기화 해야할 세팅값 목록
 
-
+    // 스위치 문을 통해서 각 값들을 설정한다
     private void setState(String key, boolean value){
         switch(key){
+            case "Camera2":{state.Camera2 = value; break;}
             case "MMapViewSet":{state.NMapState = value; break;}
             case "MoreView":{state.MoreView = value; break;}
             case "All":{state.All = value; break;}
