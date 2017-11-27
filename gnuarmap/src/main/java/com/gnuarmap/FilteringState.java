@@ -35,6 +35,8 @@ public class FilteringState {
     public boolean MoreView;
     public boolean Camera2;
 
+    public int count;
+
     private FilteringState(){}
 
     public static synchronized FilteringState getInstance(){

@@ -102,17 +102,21 @@ public class MixView extends Activity implements SensorEventListener, OnTouchLis
 		super.onCreate(savedInstanceState);
 		Log.d("ShitFuck",""+state.Camera2);
 		moreview = state.MoreView;
-		AlertDialog.Builder builder1 = new AlertDialog.Builder(this);
-		builder1.setMessage(getString(R.string.GPSWarning));
-		builder1.setNegativeButton(getString(R.string.close_button),
-				new DialogInterface.OnClickListener() {
-					public void onClick(DialogInterface dialog, int id) {
-						dialog.dismiss();
-					}
-				});
-		AlertDialog alert1 = builder1.create();
-		alert1.setTitle(getString(R.string.GPSWarningTitle));
-		alert1.show();
+		if(state.count == 0){
+			AlertDialog.Builder builder1 = new AlertDialog.Builder(this);
+			builder1.setMessage(getString(R.string.GPSWarning));
+			builder1.setNegativeButton(getString(R.string.close_button),
+					new DialogInterface.OnClickListener() {
+						public void onClick(DialogInterface dialog, int id) {
+							dialog.dismiss();
+						}
+					});
+			AlertDialog alert1 = builder1.create();
+			alert1.setTitle(getString(R.string.GPSWarningTitle));
+			alert1.show();
+			state.count ++;
+		}
+		// 경고문은 한번만
 		//MixView.CONTEXT = this;
 		try {
 						
