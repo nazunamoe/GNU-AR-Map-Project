@@ -21,8 +21,7 @@ package com.gnuarmap;
 import org.mixare.lib.MixContextInterface;
 import org.mixare.lib.marker.Marker;
 import org.mixare.lib.render.Matrix;
-import com.gnuarmap.mgr.datasource.DataSourceManager;
-import com.gnuarmap.mgr.datasource.DataSourceManagerFactory;
+
 import com.gnuarmap.mgr.downloader.DownloadManager;
 import com.gnuarmap.mgr.downloader.DownloadManagerFactory;
 import com.gnuarmap.mgr.location.LocationFinder;
@@ -55,19 +54,12 @@ public class MixContext extends ContextWrapper implements MixContextInterface {
 	/** Responsible for all location tasks */
 	private LocationFinder locationFinder;
 
-	/** Responsible for data Source Management */
-	private DataSourceManager dataSourceManager;
-
 	/** Responsible for Web Content */
 	private WebContentManager webContentManager;
 
 	public MixContext(MixView appCtx) {
 		super(appCtx);
 		mixView = appCtx;
-
-
-		//getDataSourceManager().refreshDataSources();
-
 		getLocationFinder().switchOn();
 		getLocationFinder().findLocation();
 	}
@@ -121,13 +113,6 @@ public class MixContext extends ContextWrapper implements MixContextInterface {
 		}
 	}
 
-	public DataSourceManager getDataSourceManager() {
-		if (this.dataSourceManager == null) {
-			dataSourceManager = DataSourceManagerFactory
-					.makeDataSourceManager(this);
-		}
-		return dataSourceManager;
-	}
 
 	public LocationFinder getLocationFinder() {
 		if (this.locationFinder == null) {

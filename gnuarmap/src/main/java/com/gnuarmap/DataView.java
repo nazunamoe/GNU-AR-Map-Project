@@ -166,8 +166,6 @@ public class DataView {
 		DownloadRequest request = new DownloadRequest(new DataSource(
 				"LAUNCHER", url, DataSource.TYPE.MIXARE,
 				DataSource.DISPLAY.CIRCLE_MARKER, true));
-		mixContext.getDataSourceManager().setAllDataSourcesforLauncher(
-				request.getSource());
 		mixContext.getDownloadManager().submitJob(request);
 		state.nextLStatus = MixState.PROCESSING;
 		}
@@ -279,7 +277,6 @@ public class DataView {
 			double lat = curFix.getLatitude(), lon = curFix.getLongitude(), alt = curFix
 					.getAltitude();
 			state.nextLStatus = MixState.PROCESSING;
-			mixContext.getDataSourceManager().requestDataFromAllActiveDataSource(lat, lon, alt,	radius);
 		}
 
 		// if no datasources are activated
