@@ -18,7 +18,6 @@
  */
 package com.gnuarmap.mgr.downloader;
 
-import java.util.List;
 import java.util.concurrent.ConcurrentHashMap;
 import java.util.concurrent.Executor;
 import java.util.concurrent.Executors;
@@ -26,8 +25,7 @@ import java.util.concurrent.LinkedBlockingQueue;
 
 import com.gnuarmap.MixContext;
 import com.gnuarmap.MixView;
-import com.gnuarmap.data.convert.DataConvertor;
-import org.mixare.lib.marker.Marker;
+
 import com.gnuarmap.mgr.HttpTools;
 
 import android.util.Log;
