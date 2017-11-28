@@ -80,12 +80,6 @@ public class MixListView extends ListActivity {
 		return dataSourceDescription;
 	}
 
-	public Vector<Boolean> getDataSourceChecked() {
-		return dataSourceChecked;
-	}
-	public Vector<Integer> getDataSourceIcon() {
-		return dataSourceIcon;
-	}
 	@Override
 	public void onCreate(Bundle savedInstanceState){
 		super.onCreate(savedInstanceState);
