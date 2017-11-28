@@ -164,24 +164,6 @@ public class DataView {
 		isInit = true;
 	}
 
-	public void requestData(String url) {
-		DownloadRequest request = new DownloadRequest(new DataSource(
-				"LAUNCHER", url, DataSource.TYPE.MIXARE,
-				DataSource.DISPLAY.CIRCLE_MARKER, true));
-		mixContext.getDownloadManager().submitJob(request);
-		state.nextLStatus = MixState.PROCESSING;
-		}
-
-
-//	public void requestData(DataSource datasource, double lat, double lon, double alt, float radius, String locale) {
-//		DownloadRequest request = new DownloadRequest();
-//		request.params = datasource.createRequestParams(lat, lon, alt, radius, locale);
-//		request.source = datasource;
-//		
-//		mixContext.getDownloadManager().submitJob(request);
-//		state.nextLStatus = MixState.PROCESSING;
-//	}
-
 	public void draw(PaintScreen dw) {
 		mixContext.getRM(cam.transform);
 		curFix = mixContext.getLocationFinder().getCurrentLocation();
@@ -194,30 +176,24 @@ public class DataView {
 			markers = new ArrayList<Marker>();
 		}
 		else if (state.nextLStatus == MixState.PROCESSING) {
-			DownloadManager dm = mixContext.getDownloadManager();
-			DownloadResult dRes = null;
+			retry = 0;
+			state.nextLStatus = MixState.DONE;
 
-			if (dm.isDone()) {
-				retry = 0;
-				state.nextLStatus = MixState.DONE;
-				
-				dataHandler = new DataHandler();
-				dataHandler.addMarkers(markers);
-				dataHandler.onLocationChanged(curFix);
-								
-				if (refresh == null) { // start the refresh timer if it is null
-					refresh = new Timer(false);
-					Date date = new Date(System.currentTimeMillis()
-							+ refreshDelay);
-					refresh.schedule(new TimerTask() {
+			dataHandler = new DataHandler();
+			dataHandler.addMarkers(markers);
+			dataHandler.onLocationChanged(curFix);
 
-						@Override
-						public void run() {
-							callRefreshToast();
-							refresh();
-						}
-					}, date, refreshDelay);
-				}
+			if (refresh == null) { // start the refresh timer if it is null
+				refresh = new Timer(false);
+				Date date = new Date(System.currentTimeMillis()
+						+ refreshDelay);
+				refresh.schedule(new TimerTask() {
+					@Override
+					public void run() {
+						callRefreshToast();
+						refresh();
+					}
+				}, date, refreshDelay);
 			}
 		}
 
@@ -239,9 +215,6 @@ public class DataView {
 				ma.draw(dw);
 			}
 		}
-
-		// Draw Radar
-		// drawRadar(dw);
 
 		// Get next event
 		UIEvent evt = null;
@@ -269,7 +242,7 @@ public class DataView {
 	 */
 	private void loadDrawLayer(){
 		if (mixContext.getStartUrl().length() > 0) {
-			requestData(mixContext.getStartUrl());
+			state.nextLStatus = MixState.PROCESSING;
 			isLauncherStarted = true;
 		}
 
