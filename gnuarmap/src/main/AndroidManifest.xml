@@ -98,8 +98,6 @@
                 android:name="android.app.searchable"
                 android:resource="@xml/searchable" />
         </activity>
-        <activity android:name=".data.DataSource" />
-        <activity android:name=".data.DataSourceList" />
         <activity
             android:name=".SettingsActivity"
             android:theme="@style/PreferenceScreen" />
@@ -107,7 +105,7 @@
             android:name=".MarkerActivity"
             android:theme="@style/AppCompat2" />
         <activity
-            android:name=".NaverMapActivity"
+            android:name=".NaverMap.NaverMapActivity"
             android:theme="@style/AppCompat2" />
         <activity
             android:name=".Search"

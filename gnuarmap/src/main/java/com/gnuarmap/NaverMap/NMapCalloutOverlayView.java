@@ -13,7 +13,7 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package com.gnuarmap;
+package com.gnuarmap.NaverMap;
 
 import android.content.Context;
 import android.graphics.Point;
@@ -169,11 +169,6 @@ public abstract class NMapCalloutOverlayView extends FrameLayout implements
 		this.startAnimation(animation);
 	}
 
-	/**
-	 * Register a callback to be invoked when this callout is clicked
-	 * 
-	 * @param l the click listener to attach to this callout overlay
-	 */
 	@Override
 	public void setOnClickListener(NMapCalloutOverlay.OnClickListener listener) {
 		mOnClickListener = listener;

@@ -32,21 +32,15 @@ import java.util.Timer;
 import java.util.TimerTask;
 
 import com.gnuarmap.data.DataHandler;
-import com.gnuarmap.data.DataSource;
-import com.gnuarmap.data.convert.DataBase;
 import com.gnuarmap.data.convert.DataClass;
 
 import org.mixare.lib.gui.PaintScreen;
 import org.mixare.lib.gui.ScreenLine;
 import org.mixare.lib.marker.Marker;
 import org.mixare.lib.render.Camera;
-import com.gnuarmap.mgr.downloader.DownloadManager;
-import com.gnuarmap.mgr.downloader.DownloadRequest;
-import com.gnuarmap.mgr.downloader.DownloadResult;
 
 import android.graphics.Color;
 import android.location.Location;
-import android.util.Log;
 import android.widget.Toast;
 
 /**

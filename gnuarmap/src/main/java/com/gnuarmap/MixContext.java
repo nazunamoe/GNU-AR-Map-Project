@@ -22,12 +22,10 @@ import org.mixare.lib.MixContextInterface;
 import org.mixare.lib.marker.Marker;
 import org.mixare.lib.render.Matrix;
 
-import com.gnuarmap.mgr.downloader.DownloadManager;
-import com.gnuarmap.mgr.downloader.DownloadManagerFactory;
-import com.gnuarmap.mgr.location.LocationFinder;
-import com.gnuarmap.mgr.location.LocationFinderFactory;
-import com.gnuarmap.mgr.webcontent.WebContentManager;
-import com.gnuarmap.mgr.webcontent.WebContentManagerFactory;
+import com.gnuarmap.Location.LocationFinder;
+import com.gnuarmap.Location.LocationFinderFactory;
+import com.gnuarmap.WebContent.WebContentManager;
+import com.gnuarmap.WebContent.WebContentManagerFactory;
 
 import android.app.Activity;
 import android.content.ContentResolver;
@@ -47,9 +45,6 @@ public class MixContext extends ContextWrapper implements MixContextInterface {
 	private MixView mixView;
 
 	private Matrix rotationM = new Matrix();
-
-	/** Responsible for all download */
-	private DownloadManager downloadManager;
 
 	/** Responsible for all location tasks */
 	private LocationFinder locationFinder;
@@ -119,14 +114,6 @@ public class MixContext extends ContextWrapper implements MixContextInterface {
 			locationFinder = LocationFinderFactory.makeLocationFinder(this);
 		}
 		return locationFinder;
-	}
-
-	public DownloadManager getDownloadManager() {
-		if (this.downloadManager == null) {
-			downloadManager = DownloadManagerFactory.makeDownloadManager(this);
-			getLocationFinder().setDownloadManager(downloadManager);
-		}
-		return downloadManager;
 	}
 
 	public WebContentManager getWebContentManager() {

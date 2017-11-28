@@ -1,4 +1,4 @@
-package com.gnuarmap;
+package com.gnuarmap.NaverMap;
 
 import android.content.Context;
 import android.content.Intent;
@@ -9,6 +9,12 @@ import android.view.*;
 import android.widget.Toast;
 
 import com.gnuarmap.data.convert.DataBase;
+import com.gnuarmap.Filtering;
+import com.gnuarmap.FilteringState;
+import com.gnuarmap.MenuActivity;
+import com.gnuarmap.MixView;
+import com.gnuarmap.R;
+import com.gnuarmap.Search;
 import com.nhn.android.maps.NMapActivity;
 import com.nhn.android.maps.NMapCompassManager;
 import com.nhn.android.maps.NMapController;

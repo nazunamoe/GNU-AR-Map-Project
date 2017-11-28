@@ -16,9 +16,7 @@
  * You should have received a copy of the GNU General Public License along with 
  * this program. If not, see <http://www.gnu.org/licenses/>
  */
-package com.gnuarmap.mgr.location;
-
-import com.gnuarmap.mgr.downloader.DownloadManager;
+package com.gnuarmap.Location;
 
 import android.hardware.GeomagneticField;
 import android.location.Location;
@@ -66,13 +64,6 @@ public interface LocationFinder {
 	 * Sets the property to the location with the last successfull download.
 	 */
 	void setLocationAtLastDownload(Location locationAtLastDownload);
-
-	/**
-	 * Set the DownloadManager manager at this service
-	 * 
-	 * @param downloadManager
-	 */
-	void setDownloadManager(DownloadManager downloadManager);
 
 	/**
 	 * Request to active the service

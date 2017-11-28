@@ -1,4 +1,4 @@
-package com.gnuarmap.mgr.location;
+package com.gnuarmap.Location;
 
 import android.location.Location;
 import android.location.LocationListener;

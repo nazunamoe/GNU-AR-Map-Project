@@ -28,16 +28,13 @@ package com.gnuarmap;
 
 import static android.hardware.SensorManager.SENSOR_DELAY_GAME;
 
-import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
-import com.gnuarmap.data.DataHandler;
 import com.gnuarmap.data.DataSource;
-import com.gnuarmap.data.DataSourceList;
-import com.gnuarmap.data.DataSourceStorage;
+import com.gnuarmap.NaverMap.NaverMapActivity;
+
 import org.mixare.lib.gui.PaintScreen;
-import org.mixare.lib.marker.Marker;
 import org.mixare.lib.render.Matrix;
 
 import android.app.Activity;
@@ -168,7 +165,6 @@ public class MixView extends Activity implements SensorEventListener, OnTouchLis
 				getMixViewData().setSensorMgr(null);
 				
 				getMixViewData().getMixContext().getLocationFinder().switchOff();
-				getMixViewData().getMixContext().getDownloadManager().switchOff();
 
 				if (getDataView() != null) {
 					getDataView().cancelRefreshTimer();
@@ -297,7 +293,6 @@ public class MixView extends Activity implements SensorEventListener, OnTouchLis
 				Log.d("mixare", "GPS Initialize Error", ex);
 			}
 
-			getMixViewData().getMixContext().getDownloadManager().switchOn();
 			getMixViewData().getMixContext().getLocationFinder().switchOn();
 		} catch (Exception ex) {
 			doError(ex);
@@ -312,7 +307,6 @@ public class MixView extends Activity implements SensorEventListener, OnTouchLis
 
 				if (getMixViewData().getMixContext() != null) {
 					getMixViewData().getMixContext().getLocationFinder().switchOff();
-					getMixViewData().getMixContext().getDownloadManager().switchOff();
 				}
 			} catch (Exception ignore) {
 			}
@@ -849,12 +843,6 @@ public class MixView extends Activity implements SensorEventListener, OnTouchLis
 		//mixViewData.getMyZoomBar().setVisibility(View.INVISIBLE);
 		mixViewData.setZoomLevel(String.valueOf(myout));
 		//setZoomLevel, caller has to call refreash download if needed.
-//		mixViewData.setDownloadThread(new Thread(mixViewData.getMixContext().getDownloadManager()));
-//		mixViewData.getDownloadThread().start();
-
-
-		getMixViewData().getMixContext().getDownloadManager().switchOn();
-
 	};
 
 }

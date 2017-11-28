@@ -16,7 +16,7 @@
  * You should have received a copy of the GNU General Public License along with 
  * this program. If not, see <http://www.gnu.org/licenses/>
  */
-package com.gnuarmap.mgr.location;
+package com.gnuarmap.Location;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -26,7 +26,6 @@ import java.util.TimerTask;
 import com.gnuarmap.MixContext;
 import com.gnuarmap.MixView;
 import com.gnuarmap.R;
-import com.gnuarmap.mgr.downloader.DownloadManager;
 
 import android.content.Context;
 import android.hardware.GeomagneticField;
@@ -141,11 +140,6 @@ class LocationMgrImpl implements LocationFinder {
 	public Location getCurrentLocation() {
 		if (curLoc == null) {
 			MixView mixView = mixContext.getActualMixView();
-			Toast.makeText(
-					mixView,
-					mixView.getResources().getString(
-							R.string.location_not_found), Toast.LENGTH_LONG)
-					.show();
 			throw new RuntimeException("No GPS Found");
 		}
 		synchronized (curLoc) {
@@ -171,17 +165,6 @@ class LocationMgrImpl implements LocationFinder {
 	 */
 	public void setLocationAtLastDownload(Location locationAtLastDownload) {
 		this.locationAtLastDownload = locationAtLastDownload;
-	}
-
-	/*
-	 * (non-Javadoc)
-	 * 
-	 * @see
-	 * LocationFinder#setDownloadManager(org.mixare.
-	 * mgr.downloader.DownloadManager)
-	 */
-	public void setDownloadManager(DownloadManager downloadManager) {
-		getObserver().setDownloadManager(downloadManager);
 	}
 
 	/*
@@ -259,9 +242,6 @@ class LocationMgrImpl implements LocationFinder {
 				mixContext.getActualMixView().runOnUiThread(new Runnable() {					
 					@Override
 					public void run() {
-						Toast.makeText(mixContext.getActualMixView(), 
-								mixContext.getActualMixView().getResources().getString(
-								R.string.location_not_found), Toast.LENGTH_LONG);
 					}
 				});
 				

@@ -1,4 +1,4 @@
-package com.gnuarmap;
+package com.gnuarmap.NaverMap;
 
 import android.content.Intent;
 import android.provider.Settings;
@@ -6,11 +6,11 @@ import android.widget.Toast;
 
 import com.nhn.android.maps.NMapActivity;
 
-import static com.gnuarmap.NaverMapActivity.mMapController;
-import static com.gnuarmap.NaverMapActivity.mMapLocationManager;
-import static com.gnuarmap.NaverMapActivity.mMapView;
-import static com.gnuarmap.NaverMapActivity.mMyLocationOverlay;
-import static com.gnuarmap.NaverMapActivity.mOverlayManager;
+import static com.gnuarmap.NaverMap.NaverMapActivity.mMapController;
+import static com.gnuarmap.NaverMap.NaverMapActivity.mMapLocationManager;
+import static com.gnuarmap.NaverMap.NaverMapActivity.mMapView;
+import static com.gnuarmap.NaverMap.NaverMapActivity.mMyLocationOverlay;
+import static com.gnuarmap.NaverMap.NaverMapActivity.mOverlayManager;
 
 /**
  * 현재위치를 나타내는 클래스

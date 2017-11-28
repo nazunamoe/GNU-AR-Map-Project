@@ -10,7 +10,7 @@ import java.util.Iterator;
 import java.util.List;
 
 /**
- * Created by nazunamoe on 2017-11-09.
+ * Created by nazunamoe on 2017-11-09
  */
 
 class CameraSurface extends SurfaceView implements SurfaceHolder.Callback {

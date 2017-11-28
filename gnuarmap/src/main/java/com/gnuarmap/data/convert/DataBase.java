@@ -1,7 +1,5 @@
 package com.gnuarmap.data.convert;
 
-import android.graphics.Color;
-import com.gnuarmap.data.convert.DataClass;
 /**
  * Created by nazunamoe on 2017-11-11.
  */

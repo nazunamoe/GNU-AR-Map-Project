@@ -16,13 +16,9 @@
  * You should have received a copy of the GNU General Public License along with 
  * this program. If not, see <http://www.gnu.org/licenses/>
  */
-package com.gnuarmap.mgr.location;
+package com.gnuarmap.Location;
 
 import com.gnuarmap.MixContext;
-//import org.mixare.MixMap;
-import com.gnuarmap.mgr.downloader.DownloadManager;
-
-//import com.google.android.maps.GeoPoint;
 
 import android.location.Location;
 import android.location.LocationListener;
@@ -30,28 +26,12 @@ import android.os.Bundle;
 import android.util.Log;
 
 class LocationObserver implements LocationListener {
-	
-	private DownloadManager downloadManager;
 	private LocationMgrImpl myController;
 
 	public LocationObserver(LocationMgrImpl myController) {
 		super();
 		this.myController=myController;
 	}
-	
-	
-
-	public DownloadManager getDownloadManager() {
-		return downloadManager;
-	}
-
-
-
-	public void setDownloadManager(DownloadManager downloadManager) {
-		this.downloadManager = downloadManager;
-	}
-
-
 
 	public void onLocationChanged(Location location) {
 		Log.d(MixContext.TAG, "Normal Location Changed: " + location.getProvider()
@@ -61,7 +41,6 @@ class LocationObserver implements LocationListener {
 						+ location.getAccuracy());
 		try {
 			addWalkingPathPosition(location);
-			deleteAllDownloadActivity();
 			Log.v(MixContext.TAG, "Location Changed: " + location.getProvider()
 							+ " lat: " + location.getLatitude() + " lon: "
 							+ location.getLongitude() + " alt: "
@@ -70,12 +49,6 @@ class LocationObserver implements LocationListener {
 			myController.setPosition(location);
 		} catch (Exception ex) {
 			ex.printStackTrace();
-		}
-	}
-
-	private void deleteAllDownloadActivity() {
-		if (downloadManager != null) {
-			downloadManager.resetActivity();
 		}
 	}
 
@@ -91,6 +64,4 @@ class LocationObserver implements LocationListener {
 
 	public void onStatusChanged(String provider, int status, Bundle extras) {
 	}
-	
-	
 }

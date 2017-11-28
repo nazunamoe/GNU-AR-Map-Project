@@ -23,7 +23,6 @@ import org.mixare.lib.gui.PaintScreen;
 
 import android.graphics.Bitmap;
 import android.location.Location;
-import android.util.Log;
 
 import com.gnuarmap.data.DataSource;
 

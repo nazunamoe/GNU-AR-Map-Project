@@ -3,9 +3,6 @@
     <string name="app_name">경상대학교 AR 지도</string>
     <string name="search_hint">장소 검색</string>
 
-    <string name="OSM">OSM</string>
-    <string name="MIXARE">Mixare</string>
-
     <string name="N">N</string>
     <string name="NE">NE</string>
     <string name="E">E</string>
@@ -14,18 +11,6 @@
     <string name="SW">SW</string>
     <string name="W">W</string>
     <string name="NW">NW</string>
-
-    <string name="CIRCLE_MARKER">원</string>
-    <string name="NAVIGATION_MARKER">화살표</string>
-
-    <string name="launch_plugins">Launch plugins?</string>
-    <string name="plugin_message">Some plugins where found, do you want to enable them?</string>
-    <string name="remember_this_decision">Remember this decision</string>
-    <string name="yes">Yes</string>
-    <string name="no">No</string>
-
-    <string name="empty_list">죄송합니다, \n현재 위치에서의 장소를 찾을 수 없습니다. \n각도를 넓게 하여 재시도하여 주십시오.</string>
-
 
     <string name="license">Copyright (C) 2010- Peer internet solutions
 		\n\nThis program is free software: 	you can redistribute it and/or modify it under the terms of the
@@ -44,12 +29,6 @@
     <string name = "menu_item_2">확대 / 축소 수준</string>
     <string name = "menu_item_3">정보</string>
     <string name = "menu_item_4">라이센스</string>
-
-    <string name = "cancel">취소</string>
-
-
-    <string name = "data_source_edit_err">이 데이터 소스는 편집 할 수 없습니다.</string>
-    <string name = "data_source_delete_err">이 데이터 소스는 삭제할 수 없습니다.</string>
 
     <string name = "connection_error_dialog">죄송합니다. 연결 오류가 발생했습니다! \ n 인터넷에 연결되어 있는지 확인하십시오.</string>
     <string name = "connection_error_dialog_button1">다시 시도</string>
@@ -74,35 +53,6 @@
     <string name = "accuracy">정확도 :</string>
     <string name = "gps_last_fix">마지막 GPS 수정 사항 :</string>
 
-    <string name = "map_menu_normal_mode">지도</string>
-    <string name = "map_menu_satellite_mode">위성</string>
-    <string name = "map_menu_cam_mode">카메라</string>
-    <string name = "map_my_location">내 위치</string>
-    <string name = "map_toggle_path_on">경로 표시</string>
-    <string name = "map_toggle_path_off">경로 숨기기</string>
-
-    <string name = "map_current_location_click">현재 위치</string>
-
-    <string name = "data_source_add">데이터 소스 추가</string>
-    <string name = "data_source_edit">데이터 소스 편집</string>
-    <string name = "data_source_delete">데이터 소스 삭제</string>
-    <string name = "data_source_change_wikipedia">데이터 소스로 위키 백과로 변경되었습니다.</string>
-    <string name = "data_source_change_twitter">데이터 소스로 Twitter로 변경되었습니다.</string>
-    <string name = "data_source_change_osm">데이터 소스로 OpenStreetMap으로 변경되었습니다.</string>
-
-    <string name = "search_failed_notification">검색 결과 없음</string>
-    <string name = "source_openstreetmap">역 주변</string>
-
-    <string name = "search_active_1">데이터 소스에서 검색</string>
-    <string name = "search_active_2">터치하면 검색이 종료됩니다.</string>
-    <string name = "download_error">다운로드하는 동안 오류가 발생했습니다.</string>
-    <string name = "download_received">수신 된 데이터</string>
-
-    <string name = "add_osm_menu">OpenStreetMap URL 추가</string>
-    <string name = "insert_osm_url">OpenStreetMap URL 삽입</string>
-    <string name = "osm_max_object_menu">URL 당 최대 POI 설정</string>
-    <string name = "set_osm_max_object">URL 당 최대 관심가는 장소</string>
-    <string name = "location_not_found">​​위치를 찾을 수 없으므로 설정에서 Wi-Fi 위치 또는 GPS를 사용하도록 설정했는지 확인하십시오.</string>
     <string name = "refreshing">새로 고침</string>
 
     <string name = "navigation_drawer_open">탐색 창 열기</string>

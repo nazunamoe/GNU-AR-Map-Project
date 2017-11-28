@@ -22,10 +22,8 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Vector;
 
-import com.gnuarmap.R;
-
 import com.gnuarmap.data.DataHandler;
-import com.gnuarmap.data.DataSourceList;
+
 import org.mixare.lib.MixUtils;
 import org.mixare.lib.marker.Marker;
 
@@ -142,7 +140,6 @@ public class MixListView extends ListActivity {
 		}
 		originalMarkerList = jLayer.getMarkerList();
 		searchResultMarkers = new ArrayList<Marker>();
-		//Log.d("SEARCH-------------------0", ""+query);
 		setSearchQuery(query);
 
 		selectedItemURL = new Vector<String>();
@@ -161,16 +158,11 @@ public class MixListView extends ListActivity {
 					selectedItemURL.add("");
 			}
 		}
-		if (listViewMenu.size() == 0) {
-			Toast.makeText( this, getString(R.string.search_failed_notification), Toast.LENGTH_LONG ).show();
-		}
-		else {
-			jLayer.setMarkerList(searchResultMarkers);
-			dataView.setFrozen(true);
-			finish();
-			Intent intent1 = new Intent(this, MixListView.class); 
-			startActivityForResult(intent1, 42);
-		}
+		jLayer.setMarkerList(searchResultMarkers);
+		dataView.setFrozen(true);
+		finish();
+		Intent intent1 = new Intent(this, MixListView.class);
+		startActivityForResult(intent1, 42);
 	}
 
 
@@ -202,20 +194,6 @@ public class MixListView extends ListActivity {
 				e.printStackTrace();
 			}
 		}
-	}
-
-	@Override
-	public boolean onCreateOptionsMenu(Menu menu) {
-		int base = Menu.FIRST;
-
-		/*define menu items*/
-		MenuItem item1 = menu.add(base, base, base, getString(R.string.menu_item_3)); 
-		MenuItem item2 = menu.add(base, base+1, base+1, getString(R.string.map_menu_cam_mode));
-		/*assign icons to the menu items*/
-		item1.setIcon(android.R.drawable.ic_menu_mapmode);
-		item2.setIcon(android.R.drawable.ic_menu_camera);
-
-		return true;
 	}
 
 	@Override

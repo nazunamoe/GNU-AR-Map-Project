@@ -29,8 +29,6 @@ import android.graphics.Color;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.KeyEvent;
-import android.view.Menu;
-import android.view.MenuItem;
 import android.widget.EditText;
 import android.widget.Spinner;
 import android.widget.TextView;
@@ -44,7 +42,7 @@ import android.widget.TextView;
  */
  
  // 이건 마커 정보에 따라서 URL을 생성하는 부분
-public class DataSource extends Activity {
+public class DataSource {
 
 	public static Bitmap schoolicon; // 학교 아이콘
 	public static Bitmap dormicon;
@@ -92,28 +90,6 @@ public class DataSource extends Activity {
 	private boolean enabled;
 	private TYPE type;
 	private DISPLAY display;
-
-	@Override
-	public void onCreate(Bundle savedInstanceState) {
-		super.onCreate(savedInstanceState);
-		setContentView(R.layout.datasourcedetails);
-		final EditText nameField = (EditText) findViewById(R.id.name);
-		final EditText urlField = (EditText) findViewById(R.id.url);
-		final Spinner typeSpinner = (Spinner) findViewById(R.id.type);
-		final Spinner displaySpinner = (Spinner) findViewById(R.id.displaytype);
-		Bundle extras = getIntent().getExtras();
-		if (extras != null) {
-			if (extras.containsKey("DataSourceId")) {
-				String fields[] = DataSourceStorage.getInstance().getFields(
-						extras.getInt("DataSourceId"));
-				nameField.setText(fields[0], TextView.BufferType.EDITABLE);
-				urlField.setText(fields[1], TextView.BufferType.EDITABLE);
-				typeSpinner.setSelection(Integer.parseInt(fields[2]) - 3);
-				displaySpinner.setSelection(Integer.parseInt(fields[3]));
-			}
-		}
-
-	}
 
 	public static void createIcons(Resources res) {
 		cafeIcon = BitmapFactory.decodeResource(res, R.drawable.icon_cafe);
@@ -197,67 +173,6 @@ public class DataSource extends Activity {
 	}
 
 
-	@Override
-	public boolean onKeyDown(int keyCode, KeyEvent event) {
-		if (keyCode == KeyEvent.KEYCODE_BACK && event.getRepeatCount() == 0) {
-			final EditText nameField = (EditText) findViewById(R.id.name);
-			String name = nameField.getText().toString();
-			final EditText urlField = (EditText) findViewById(R.id.url);
-			String url = urlField.getText().toString();
-			final Spinner typeSpinner = (Spinner) findViewById(R.id.type);
-			int typeId = (int) typeSpinner.getItemIdAtPosition(typeSpinner
-					.getSelectedItemPosition());
-			final Spinner displaySpinner = (Spinner) findViewById(R.id.displaytype);
-			int displayId = (int) displaySpinner
-					.getItemIdAtPosition(displaySpinner
-							.getSelectedItemPosition());
-
-
-			DataSource newDS = new DataSource(name, url, typeId + 3, displayId,
-					true);
-
-			int index = DataSourceStorage.getInstance().getSize();
-			Bundle extras = getIntent().getExtras();
-			if (extras != null) {
-				if (extras.containsKey("DataSourceId")) {
-					index = extras.getInt("DataSourceId");
-				}
-			}
-			DataSourceStorage.getInstance().add("DataSource" + index,
-					newDS.serialize());
-		}
-
-		return super.onKeyDown(keyCode, event);
-	}
-
-	@Override
-	protected void onPause() {
-
-		super.onPause();
-	}
-
-	@Override
-	public boolean onCreateOptionsMenu(Menu menu) {
-		int base = Menu.FIRST;
-		menu.add(base, base, base, R.string.cancel);
-		return super.onCreateOptionsMenu(menu);
-
-	}
-
-	@Override
-	public boolean onMenuItemSelected(int featureId, MenuItem item) {
-		switch (item.getItemId()) {
-		case Menu.FIRST:
-			finish();
-			break;
-		}
-		return super.onMenuItemSelected(featureId, item);
-	}
-
-	public DataSource() {
-
-	}
-
 	public DataSource(String name, String url, TYPE type, DISPLAY display,
 			boolean enabled) {
 		this.name = name;
@@ -290,54 +205,6 @@ public class DataSource extends Activity {
 		this.type = typeEnum;
 		this.display = displayEnum;
 		this.enabled = enabledBool;
-	}
-
-
-	public int getColor(String type) {
-		int ret;
-		switch (this.type) {
-		case BUZZ:
-			ret = Color.rgb(4, 228, 20);
-			break;
-		case TWITTER:
-			ret = Color.rgb(50, 204, 255);
-			break;
-		case WIKIPEDIA:
-			ret = Color.RED;
-			break;
-		case ARENA:
-			ret = Color.RED;
-			break;
-		default:
-			ret = Color.WHITE;
-			break;
-		}
-		return ret;
-	}
-
-	public int getDataSourceIcon() {
-		int ret;
-		switch (this.type) {
-		case BUZZ:
-			ret = R.drawable.buzz;
-			break;
-		case TWITTER:
-			ret = R.drawable.twitter;
-			break;
-		case OSM:
-			ret = R.drawable.osm;
-			break;
-		case WIKIPEDIA:
-			ret = R.drawable.wikipedia;
-			break;
-		case ARENA:
-			ret = R.drawable.arena;
-			break;
-		default:
-			ret = R.drawable.ic_launcher;
-			break;
-		}
-		return ret;
 	}
 
 	public int getDisplayId() {
