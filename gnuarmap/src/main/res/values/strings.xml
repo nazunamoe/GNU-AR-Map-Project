@@ -44,6 +44,7 @@
 
     <string name="license_title">License</string>
     <string name="close_button">Close</string>
+    <string name = "general_info_title">Information</string>
 
     <string name="general_info_text">GPS info: </string>
     <string name="longitude">Longitude: </string>
@@ -62,7 +63,7 @@
     <string name="navigation_drawer_search">Search</string>
     <string name="navigation_drawer_settings">Settings</string>
     <string name="navigation_drawer_email">Email to developer</string>
-    <string name="navigation_drawer_homepage">Homepage</string>
+    <string name="navigation_drawer_homepage">Homaepage</string>
     <string name="navigation_drawer_license">License</string>
     <string name="navigation_drawer_information">GPS Information</string>
 
@@ -75,6 +76,7 @@
     <string name="title_activity_settings">Settings</string>
 
     <string name="settings_drawer_arview">AR View</string>
+    <string name ="settings_drawer_filtering">Filtering</string>
     <string name="settings_drawer_1st_filtering">Filtering (Building)</string>
     <string name="settings_drawer_2nd_filtering">Filtering (Facilities)</string>
     <string name="settings_drawer_navermap">Naver Map</string>

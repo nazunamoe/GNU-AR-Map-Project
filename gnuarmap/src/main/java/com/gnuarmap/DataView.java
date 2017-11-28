@@ -195,8 +195,6 @@ public class DataView {
 		dataHandler.updateActivationStatus(mixContext);
 		for (int i = dataHandler.getMarkerCount() - 1; i >= 0; i--) {
 			Marker ma = dataHandler.getMarker(i);
-			// if (ma.isActive() && (ma.getDistance() / 1000f < radius || ma
-			// instanceof NavigationMarker || ma instanceof SocialMarker)) {
 			if (ma.isActive() && (ma.getDistance() / 1000f < radius)) {
 
 				// To increase performance don't recalculate position vector

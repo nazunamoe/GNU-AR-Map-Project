@@ -43,7 +43,7 @@
 
     <string name = "license_title">라이센스</string>
     <string name = "close_button">닫기</string>
-    <string name = "general_info_title">일반 정보</string>
+    <string name = "general_info_title">정보</string>
 
     <string name = "general_info_text">GPS 정보 :</string>
     <string name = "longitude">경도 :</string>
@@ -117,5 +117,8 @@
     <string name="Filtering_Leisure">여가시설</string>
     <string name="Filtering_Humanities">인문대학</string>
     <string name="Filtering_Science">자연과학대학</string>
+
+    <string name="App_Version">1.1-r5</string>
+
 
 </resources>

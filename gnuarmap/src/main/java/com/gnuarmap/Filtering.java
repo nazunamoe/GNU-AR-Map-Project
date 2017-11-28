@@ -60,9 +60,6 @@ public class Filtering {
             if (DEBUG) {
                 Log.i(LOG_TAG, "onCalloutClick: title=" + item.getTitle() + item.getTitle());
             }
-
-            // [[TEMP]] handle a click event of the callout
-           // Toast.makeText(, "onCalloutClick: " +  item.getTitle() , Toast.LENGTH_LONG).show();
         }
 
         @Override
