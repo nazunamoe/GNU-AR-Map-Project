@@ -86,11 +86,6 @@
                 android:name="android.app.default_searchable"
                 android:value=".MixView" />
         </activity>
-        <activity android:name=".PluginLoaderActivity">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-            </intent-filter>
-        </activity>
         <activity
             android:name=".MixListView"
             android:launchMode="singleTop"
