@@ -24,7 +24,7 @@ public class SettingsActivity extends AppCompatActivity implements SharedPrefere
         if (keyCode == KeyEvent.KEYCODE_BACK){
             Context ctx;
             ctx = this;
-            startActivity(new Intent(ctx, MainActivity.class));
+            startActivity(new Intent(ctx, MenuActivity.class));
             finish();
         }
         return false;

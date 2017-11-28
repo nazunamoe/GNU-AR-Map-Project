@@ -27,7 +27,6 @@ public class Search extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        //database.Initialize();
 
         setContentView(R.layout.activity_search);
         num = database.data.getSize();
@@ -73,7 +72,7 @@ public class Search extends AppCompatActivity {
         if (keyCode == android.view.KeyEvent.KEYCODE_BACK){
             Context ctx;
             ctx = this;
-            startActivity(new Intent(ctx, MainActivity.class));
+            startActivity(new Intent(ctx, MenuActivity.class));
             finish();
         }
         return false;

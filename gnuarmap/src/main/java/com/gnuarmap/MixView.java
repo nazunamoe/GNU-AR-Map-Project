@@ -782,7 +782,7 @@ public class MixView extends Activity implements SensorEventListener, OnTouchLis
 				} else {
 					//TODO handle keyback to finish app correctly
 					ctx = this;
-					startActivity(new Intent(ctx, MainActivity.class));
+					startActivity(new Intent(ctx, MenuActivity.class));
 					finish();
 					return false;
 				}

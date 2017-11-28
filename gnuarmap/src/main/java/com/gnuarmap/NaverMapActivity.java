@@ -120,7 +120,7 @@ public class NaverMapActivity extends NMapActivity {
             else if (ret == 0){
                 Context ctx;
                 ctx = this;
-                startActivity(new Intent(ctx, MainActivity.class));
+                startActivity(new Intent(ctx, MenuActivity.class));
                 finish();
             }
         }

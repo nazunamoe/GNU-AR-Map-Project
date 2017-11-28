@@ -118,8 +118,15 @@
             android:name=".Search"
             android:theme="@style/AppTheme" />
         <activity
-            android:name=".Initialize"
-            android:theme="@style/AppCompat2" />
+            android:name=".MenuActivity"
+            android:icon="@drawable/gmap_ic"
+            android:label="@string/app_name"
+            android:theme="@style/AppTheme.NoActionBar">
+            <intent-filter>
+                <action android:name="android.intent.action.BROWSEABLE"/>
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
     </application>
 
 </manifest>

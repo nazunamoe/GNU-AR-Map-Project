@@ -1,219 +1,83 @@
 package com.gnuarmap;
 
-import android.Manifest;
-import android.app.AlertDialog;
 import android.content.Context;
-import android.content.DialogInterface;
 import android.content.Intent;
-import android.content.pm.PackageManager;
-import android.location.Location;
-import android.location.LocationManager;
-import android.net.Uri;
+import android.content.SharedPreferences;
 import android.os.Bundle;
-import android.support.design.widget.NavigationView;
-import android.support.v4.content.ContextCompat;
-import android.support.v4.view.GravityCompat;
-import android.support.v4.widget.DrawerLayout;
-import android.support.v7.app.ActionBarDrawerToggle;
+import android.preference.PreferenceManager;
 import android.support.v7.app.AppCompatActivity;
-import android.support.v7.widget.Toolbar;
-import android.view.Menu;
-import android.view.MenuItem;
-import android.widget.Toast;
+import android.util.Log;
+import android.view.KeyEvent;
 
+public class MainActivity extends AppCompatActivity{
 
-import com.gun0912.tedpermission.PermissionListener;
-import com.gun0912.tedpermission.TedPermission;
+    SharedPreferences sharedPref;
+    FilteringState state = FilteringState.getInstance();
 
-import com.gnuarmap.R;
-
-import java.util.ArrayList;
-import java.util.Date;
-
-import static android.location.LocationManager.GPS_PROVIDER;
-import static android.location.LocationManager.NETWORK_PROVIDER;
-
-public class MainActivity extends AppCompatActivity
-        implements NavigationView.OnNavigationItemSelectedListener {
-    private Context ctx;
-
-    PermissionListener permissionlistener = new PermissionListener() {
-        @Override
-        public void onPermissionGranted() {
-            //Toast.makeText(MainActivity.this, "Permission Granted", Toast.LENGTH_SHORT).show();
+    @Override
+    public boolean onKeyDown(int keyCode, KeyEvent event) {
+        if (keyCode == KeyEvent.KEYCODE_BACK){
+            Context ctx;
+            ctx = this;
+            startActivity(new Intent(ctx, MenuActivity.class));
+            finish();
         }
+        return false;
+    }
 
-        @Override
-        public void onPermissionDenied(ArrayList<String> deniedPermissions) {
-            //Toast.makeText(MainActivity.this, "Permission Denied\n" + deniedPermissions.toString(), Toast.LENGTH_SHORT).show();
-        }
-    };
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main2);
-        Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
-        setSupportActionBar(toolbar);
-
-        TedPermission.with(this)
-                .setPermissionListener(permissionlistener)
-                .setDeniedMessage(R.string.permission_rejected)
-                .setPermissions(Manifest.permission.CAMERA, Manifest.permission.ACCESS_FINE_LOCATION)
-                .check();
-
-        DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
-        ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(
-                this, drawer, toolbar, R.string.navigation_drawer_open, R.string.navigation_drawer_close);
-        drawer.addDrawerListener(toggle);
-        toggle.syncState();
-
-        NavigationView navigationView = (NavigationView) findViewById(R.id.nav_view);
-        navigationView.setNavigationItemSelectedListener(this);
+        Context ctx = this.getApplicationContext();
+        sharedPref = PreferenceManager.getDefaultSharedPreferences(this);
+        Initialize();
+        Log.d("mixare","Initialize start");
+        startActivity(new Intent(ctx, MenuActivity.class));
+        finish();
     }
 
-    @Override
-    public void onBackPressed() {
-        DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
-        if (drawer.isDrawerOpen(GravityCompat.START)) {
-            drawer.closeDrawer(GravityCompat.START);
-        } else {
-            super.onBackPressed();
+    // 초기화 메소드, for문으로 모든 세팅값을 돌면서 각자의 원래 값을 찾아서 설정한다
+    public void Initialize(){
+        for(int i=0; i<ListSize; i++){
+            if(sharedPref.getBoolean(List[i],false)){
+                setState(List[i],true);
+            }else{
+                setState(List[i],false);
+            }
         }
     }
 
-    @Override
-    public boolean onCreateOptionsMenu(Menu menu) {
-        // Inflate the menu; this adds items to the action bar if it is present.
-        getMenuInflater().inflate(R.menu.main2, menu);
-        return true;
-    }
+    public String[] List = {"Camera","MMapViewSet","MoreView","All","ATM","CVS","Vending","Printer","AllBuilding","Business","Engnieering",
+            "Dormitory","ETC","Agriculture","University","Club","Door","Law","Education","Social","Veterinary","Leisure","Science"};
+    public int ListSize = 23;
+    // 초기화 해야할 세팅값 목록
 
-    @Override
-    public boolean onOptionsItemSelected(MenuItem item) {
-        // Handle action bar item clicks here. The action bar will
-        // automatically handle clicks on the Home/Up button, so long
-        // as you specify a parent activity in AndroidManifest.xml.
-        int id = item.getItemId();
-
-        //noinspection SimplifiableIfStatement
-        if (id == R.id.action_exit) {
-            finish();
-            return true;
+    // 스위치 문을 통해서 각 값들을 설정한다
+    private void setState(String key, boolean value){
+        switch(key){
+            case "Camera2":{state.Camera2 = value; break;}
+            case "MMapViewSet":{state.NMapState = value; break;}
+            case "MoreView":{state.MoreView = value; break;}
+            case "All":{state.All = value; break;}
+            case "ATM":{state.ATM = value; break;}
+            case "CVS":{state.CVS = value; break;}
+            case "Vending":{state.Vending = value; break;}
+            case "Printer":{state.Printer = value; break;}
+            case "AllBuilding":{state.AllBuilding = value; break;}
+            case "Business":{state.Business = value; break;}
+            case "Engnieering":{state.Engnieering = value; break;}
+            case "Dormitory":{state.Dormitory = value; break;}
+            case "ETC":{state.ETC = value; break;}
+            case "Agricultire":{state.Agriculture = value; break;}
+            case "University":{state.University = value; break;}
+            case "Club":{state.Club = value; break;}
+            case "Door":{state.Door = value; break;}
+            case "Law":{state.Law = value; break;}
+            case "Education":{state.Education = value; break;}
+            case "Social":{state.Social = value; break;}
+            case "Vaterinary":{state.Veterinary = value; break;}
+            case "Leisure":{state.Leisure = value; break;}
+            case "Science":{state.Science = value; break;}
         }
-
-        return super.onOptionsItemSelected(item);
-    }
-
-    @SuppressWarnings("StatementWithEmptyBody")
-    @Override
-    public boolean onNavigationItemSelected(MenuItem item) {
-        // Handle navigation view item clicks here.
-        int id = item.getItemId();
-        int gpsCheck = ContextCompat.checkSelfPermission(this,Manifest.permission.ACCESS_FINE_LOCATION);
-        switch(id){
-            case R.id.nav_camera:{
-                ctx = this;
-                if(gpsCheck == PackageManager.PERMISSION_DENIED){
-                    Toast.makeText(getApplicationContext(), R.string.permission_rejected, Toast.LENGTH_SHORT).show();
-                }
-                else if(gpsCheck == PackageManager.PERMISSION_GRANTED){
-                    startActivity(new Intent(ctx, MixView.class));
-                    finish();
-                }
-                break;
-            }
-            case R.id.design_navigation_view:{
-                ctx = this;
-                if(gpsCheck == PackageManager.PERMISSION_DENIED){
-                    Toast.makeText(getApplicationContext(), R.string.permission_rejected, Toast.LENGTH_SHORT).show();
-                }
-                else if(gpsCheck == PackageManager.PERMISSION_GRANTED){
-                    Intent intent = new Intent(ctx,NaverMapActivity.class);
-                    intent.putExtra("return",0);
-                    startActivity(intent);
-                    finish();
-                }
-                break;
-            }
-            case R.id.design_search:{
-                ctx = this;
-                startActivity(new Intent(ctx, Search.class));
-                finish();
-                break;
-            }
-            case R.id.nav_settings:{
-                ctx = this;
-                startActivity(new Intent(ctx, SettingsActivity.class));
-                finish();
-                break;
-            }
-            case R.id.nav_license:{
-                AlertDialog.Builder builder1 = new AlertDialog.Builder(this);
-                builder1.setMessage(getString(R.string.license));
-                builder1.setNegativeButton(getString(R.string.close_button),
-                        new DialogInterface.OnClickListener() {
-                            public void onClick(DialogInterface dialog, int id) {
-                                dialog.dismiss();
-                            }
-                        });
-                AlertDialog alert1 = builder1.create();
-                alert1.setTitle(getString(R.string.license_title));
-                alert1.show();
-                break;
-            }
-            case R.id.nav_homepage:{
-                Intent intent = new Intent(Intent.ACTION_VIEW, Uri.parse("http://anse.gnu.ac.kr"));
-                startActivity(intent);
-                break;
-            }
-            case R.id.nav_email:{
-                Intent email = new Intent(Intent.ACTION_SEND);
-                email.setType("plain/text");
-                String[] address = {"jpg3927@gmail.com"};
-                email.putExtra(Intent.EXTRA_EMAIL, address);
-                startActivity(email);
-                break;
-            }
-            case R.id.nav_information:{
-                LocationManager current = (LocationManager) getSystemService(Context.LOCATION_SERVICE);
-                int gps = ContextCompat.checkSelfPermission(this, Manifest.permission.ACCESS_FINE_LOCATION);
-                try{
-                    Location currentGPSInfo = current.getLastKnownLocation(NETWORK_PROVIDER);
-                    if(current.isProviderEnabled(GPS_PROVIDER)){
-                        currentGPSInfo = current.getLastKnownLocation(GPS_PROVIDER);
-                    }
-                    AlertDialog.Builder builder = new AlertDialog.Builder(this);
-                    builder.setMessage(getString(R.string.general_info_text) + "\n\n"
-                            + getString(R.string.longitude)
-                            + currentGPSInfo.getLongitude() + "\n"
-                            + getString(R.string.latitude)
-                            + currentGPSInfo.getLatitude() + "\n"
-                            + getString(R.string.altitude)
-                            + currentGPSInfo.getAltitude() + "m\n"
-                            + getString(R.string.speed) + currentGPSInfo.getSpeed()
-                            + "km/h\n" + getString(R.string.accuracy)
-                            + currentGPSInfo.getAccuracy() + "m\n"
-                            + getString(R.string.gps_last_fix)
-                            + new Date(currentGPSInfo.getTime()).toString() + "\n");
-                    builder.setNegativeButton(getString(R.string.close_button),
-                            new DialogInterface.OnClickListener() {
-                                public void onClick(DialogInterface dialog, int id) {
-                                    dialog.dismiss();
-                                }
-                            });
-                    AlertDialog alert = builder.create();
-                    alert.setTitle(getString(R.string.general_info_title));
-                    alert.show();
-                }catch(SecurityException e){
-                    Toast.makeText(getApplicationContext(), R.string.permission_rejected, Toast.LENGTH_SHORT).show();
-                }
-
-			break;
-			}
-        }
-
-        DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
-        drawer.closeDrawer(GravityCompat.START);
-        return true;
     }
 }
