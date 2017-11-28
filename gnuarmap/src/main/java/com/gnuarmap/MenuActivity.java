@@ -55,7 +55,8 @@ public class MenuActivity extends AppCompatActivity
                 .setDeniedMessage(R.string.permission_rejected)
                 .setPermissions(Manifest.permission.CAMERA, Manifest.permission.ACCESS_FINE_LOCATION)
                 .check();
-
+        NavigationView navigationView = (NavigationView) findViewById(R.id.nav_view);
+        navigationView.setNavigationItemSelectedListener(this);
     }
 
     @Override
