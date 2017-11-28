@@ -115,7 +115,6 @@ public class MixView extends Activity implements SensorEventListener, OnTouchLis
 			state.count ++;
 		}
 		// 경고문은 한번만
-		//MixView.CONTEXT = this;
 		try {
 						
 			handleIntent(getIntent());
@@ -131,8 +130,6 @@ public class MixView extends Activity implements SensorEventListener, OnTouchLis
 			maintainZoomBar();
 			
 			if (!isInited) {
-				//getMixViewData().setMixContext(new MixContext(this));
-				//getMixViewData().getMixContext().setDownloadManager(new DownloadManager(mixViewData.getMixContext()));
 				setdWindow(new PaintScreen());
 				setDataView(new DataView(getMixViewData().getMixContext()));
 
@@ -143,12 +140,6 @@ public class MixView extends Activity implements SensorEventListener, OnTouchLis
 
 			/*Get the preference file PREFS_NAME stored in the internal memory of the phone*/
 			SharedPreferences settings = getSharedPreferences(PREFS_NAME, 0);
-			
-			/*check if the application is launched for the first time*/
-			if(settings.getBoolean("firstAccess",false)==false){
-				firstAccess(settings);
-
-			}
 
 		} catch (Exception ex) {
 			doError(ex);
@@ -230,8 +221,6 @@ public class MixView extends Activity implements SensorEventListener, OnTouchLis
 			repaint();
 			getDataView().doStart();
 			getDataView().clearEvents();
-
-//			getMixViewData().getMixContext().getDataSourceManager().refreshDataSources();
 
 			float angleX, angleY;
 
@@ -478,36 +467,6 @@ public class MixView extends Activity implements SensorEventListener, OnTouchLis
 	}
 
 	/**
-	 * Handle First time users. It display license agreement and store user's
-	 * acceptance.
-	 * 
-	 * @param settings
-	 */
-	private void firstAccess(SharedPreferences settings) {
-		SharedPreferences.Editor editor = settings.edit();
-		AlertDialog.Builder builder1 = new AlertDialog.Builder(this);
-		builder1.setMessage(getString(R.string.license));
-		builder1.setNegativeButton(getString(R.string.close_button),
-				new DialogInterface.OnClickListener() {
-					public void onClick(DialogInterface dialog, int id) {
-						dialog.dismiss();
-					}
-				});
-		AlertDialog alert1 = builder1.create();
-		alert1.setTitle(getString(R.string.license_title));
-		alert1.show();
-		editor.putBoolean("firstAccess", true);
-
-		// value for maximum POI for each selected OSM URL to be active by
-		// default is 5
-		editor.putInt("osmMaxObject", 5);
-		editor.commit();
-
-		// add the default datasources to the preferences file
-		DataSourceStorage.getInstance().fillDefaultDataSources();
-	}
-
-	/**
 	 * Create zoom bar and returns FrameLayout. FrameLayout is created to be
 	 * hidden and not added to view, Caller needs to add the frameLayout to
 	 * view, and enable visibility when needed.
@@ -538,13 +497,13 @@ public class MixView extends Activity implements SensorEventListener, OnTouchLis
 		int base = Menu.FIRST;
 		/* define the first */
 		MenuItem item1 = menu.add(base, base + 0, base + 0,
-				getString(R.string.menu_item_3));
+				getString(R.string.menu_item_1));
 		MenuItem item2 = menu.add(base, base + 1, base + 1,
-				getString(R.string.menu_item_4));
+				getString(R.string.menu_item_2));
 		MenuItem item3 = menu.add(base, base + 2, base + 2,
-				getString(R.string.menu_item_6));
+				getString(R.string.menu_item_3));
 		MenuItem item4 = menu.add(base, base + 3, base + 3,
-				getString(R.string.menu_item_7));
+				getString(R.string.menu_item_4));
 
 		/* assign icons to the menu items */
 		item1.setIcon(android.R.drawable.ic_menu_mapmode);
@@ -559,19 +518,16 @@ public class MixView extends Activity implements SensorEventListener, OnTouchLis
 	@Override
 	public boolean onOptionsItemSelected(MenuItem item) {
 		switch (item.getItemId()) {
-		/* Map View */
 		case 1:
 			Intent intent2 = new Intent(MixView.this, NaverMapActivity.class);
 			intent2.putExtra("return",1);
 			startActivityForResult(intent2, 20);
 			break;
-		/* zoom level */
 		case 2:
 			getMixViewData().getMyZoomBar().setVisibility(View.VISIBLE);
 			getMixViewData().setZoomProgress(getMixViewData().getMyZoomBar()
 					.getProgress());
 			break;
-		/* GPS Information */
 		case 3:
 			Location currentGPSInfo = getMixViewData().getMixContext().getLocationFinder().getCurrentLocation();
 			AlertDialog.Builder builder = new AlertDialog.Builder(this);
@@ -597,7 +553,6 @@ public class MixView extends Activity implements SensorEventListener, OnTouchLis
 			alert.setTitle(getString(R.string.general_info_title));
 			alert.show();
 			break;
-		/* Case 6: license agreements */
 		case 4:
 			AlertDialog.Builder builder1 = new AlertDialog.Builder(this);
 			builder1.setMessage(getString(R.string.license));
@@ -829,7 +784,6 @@ public class MixView extends Activity implements SensorEventListener, OnTouchLis
 	private void handleIntent(Intent intent) {
 		if (Intent.ACTION_SEARCH.equals(intent.getAction())) {
 			String query = intent.getStringExtra(SearchManager.QUERY);
-			doMixSearch(query);
 		}
 	}
 
@@ -837,33 +791,6 @@ public class MixView extends Activity implements SensorEventListener, OnTouchLis
 	protected void onNewIntent(Intent intent) {
 		setIntent(intent);
 		handleIntent(intent);
-	}
-
-	private void doMixSearch(String query) {
-		DataHandler jLayer = getDataView().getDataHandler();
-		if (!getDataView().isFrozen()) {
-			//MixListView.originalMarkerList = jLayer.getMarkerList();
-			//MixMap.originalMarkerList = jLayer.getMarkerList();
-		}
-
-		ArrayList<Marker> searchResults = new ArrayList<Marker>();
-
-		if (jLayer.getMarkerCount() > 0) {
-			for (int i = 0; i < jLayer.getMarkerCount(); i++) {
-				Marker ma = jLayer.getMarker(i);
-				if (ma.getTitle().toLowerCase().indexOf(query.toLowerCase()) != -1) {
-					searchResults.add(ma);
-					/* the website for the corresponding title */
-				}
-			}
-		}
-		if (searchResults.size() > 0) {
-			getDataView().setFrozen(true);
-			jLayer.setMarkerList(searchResults);
-		} else
-			Toast.makeText(this,
-					getString(R.string.search_failed_notification),
-					Toast.LENGTH_LONG).show();
 	}
 
 	/* ******* Getter and Setters ********** */
