@@ -15,7 +15,7 @@ import java.util.Arrays;
  */
 
 public class DataClass {
-
+    public ArrayList<SocialMarker> WholeList = new ArrayList<SocialMarker>();
     public ArrayList<SocialMarker> List = new ArrayList<SocialMarker>();
     public static Bitmap basic;
     private String Filtering1;
@@ -40,6 +40,19 @@ public class DataClass {
         this.Filtering2 = Filtering2;
         int number = List.size();
         String num = String.valueOf(number); // ID값은 사이즈에 따라서 결정됨
+        WholeList.add(new SocialMarker(
+                num,
+                HtmlUnescape.unescapeHTML((name), 0),
+                Latitude,
+                Longitude,
+                0, // 소셜 마커이므로 고도에 구애받지 않는다.
+                url,
+                1,
+                value,
+                type,
+                Filtering1,
+                Filtering2)
+        );
         if(state.AllBuilding){
             secondFiltering(Integer.toString(no),Latitude,Longitude,url,value,type,name,Filtering2);
         }else{
@@ -219,6 +232,8 @@ public class DataClass {
     public int getSize(){
         return List.size();
     }
+
+    public int getWholeSize() { return WholeList.size();}
 
     public SocialMarker getData(int index){
         return List.get(index);
