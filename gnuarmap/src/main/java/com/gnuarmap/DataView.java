@@ -33,6 +33,8 @@ import java.util.TimerTask;
 
 import com.gnuarmap.data.DataHandler;
 import com.gnuarmap.data.DataSource;
+import com.gnuarmap.data.convert.DataBase;
+import com.gnuarmap.data.convert.DataClass;
 
 import org.mixare.lib.gui.PaintScreen;
 import org.mixare.lib.gui.ScreenLine;
@@ -183,7 +185,7 @@ public class DataView {
 	public void draw(PaintScreen dw) {
 		mixContext.getRM(cam.transform);
 		curFix = mixContext.getLocationFinder().getCurrentLocation();
-
+		DataClass dataclass = new DataClass();
 		state.calcPitchBearing(cam.transform);
 
 		// Load Layer
@@ -195,8 +197,6 @@ public class DataView {
 			DownloadManager dm = mixContext.getDownloadManager();
 			DownloadResult dRes = null;
 
-			markers.addAll(downloadDrawResults(dm, dRes));
-			
 			if (dm.isDone()) {
 				retry = 0;
 				state.nextLStatus = MixState.DONE;
@@ -282,37 +282,6 @@ public class DataView {
 		// if no datasources are activated
 		if (state.nextLStatus == MixState.NOT_STARTED)
 			state.nextLStatus = MixState.DONE;
-	}
-	
-	private List<Marker> downloadDrawResults(DownloadManager dm, DownloadResult dRes){
-		List<Marker> markers = new ArrayList<Marker>();
-		while ((dRes = dm.getNextResult()) != null) {
-			if (dRes.isError() && retry < 3) {
-				retry++;
-				mixContext.getDownloadManager().submitJob(
-						dRes.getErrorRequest());
-				// Notification
-				// Toast.makeText(mixContext, dRes.errorMsg,
-				// Toast.LENGTH_SHORT).show();
-			}
-			
-			if(!dRes.isError()) {
-				if(dRes.getMarkers() != null){
-					//jLayer = (DataHandler) dRes.obj;
-					Log.i(MixView.TAG,"Adding Markers");
-					markers.addAll(dRes.getMarkers());
-
-					// Notification
-					Toast.makeText(
-							mixContext,
-							mixContext.getResources().getString(
-									R.string.download_received)
-									+ " " + dRes.getDataSource().getName(),
-							Toast.LENGTH_SHORT).show();
-				}
-			}
-		}
-		return markers;
 	}
 
 	private void handleKeyEvent(KeyEvent evt) {
