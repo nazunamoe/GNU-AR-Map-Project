@@ -1,50 +1,145 @@
+/*
+ * Copyright (C) 2010- Peer internet solutions
+ * 
+ * This file is part of mixare.
+ * 
+ * This program is free software: you can redistribute it and/or modify it 
+ * under the terms of the GNU General Public License as published by 
+ * the Free Software Foundation, either version 3 of the License, or 
+ * (at your option) any later version. 
+ * 
+ * This program is distributed in the hope that it will be useful, but WITHOUT
+ * ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS 
+ * FOR A PARTICULAR PURPOSE. See the GNU General Public License 
+ * for more details. 
+ * 
+ * You should have received a copy of the GNU General Public License along with 
+ * this program. If not, see <http://www.gnu.org/licenses/>
+ */
 package com.gnuarmap;
 
+import android.util.Log;
+
+import org.mixare.lib.MixContextInterface;
+import org.mixare.lib.MixStateInterface;
+import org.mixare.lib.MixUtils;
+import org.mixare.lib.marker.Marker;
+import org.mixare.lib.render.Matrix;
+import org.mixare.lib.render.MixVector;
+
 /**
- * Created by nazunamoe on 2017-11-25.
+ * This class calculates the bearing and pitch out of the angles
  */
+public class FilteringState implements MixStateInterface{
 
-public class FilteringState {
-    private static FilteringState instance;
+	private static FilteringState instance;
 
-    // Global variable
-    public boolean Business;
-    public boolean Engnieering;
-    public boolean Dormitory;
-    public boolean ETC;
-    public boolean Agriculture;
-    public boolean University;
-    public boolean Club;
-    public boolean Law;
-    public boolean Education;
-    public boolean Social;
-    public boolean Veterinary;
-    public boolean Leisure;
-    public boolean Humanities;
-    public boolean Science;
-    public boolean Door;
-    public boolean AllBuilding;
+	// Global variable
+	public boolean Business;
+	public boolean Engnieering;
+	public boolean Dormitory;
+	public boolean ETC;
+	public boolean Agriculture;
+	public boolean University;
+	public boolean Club;
+	public boolean Law;
+	public boolean Education;
+	public boolean Social;
+	public boolean Veterinary;
+	public boolean Leisure;
+	public boolean Humanities;
+	public boolean Science;
+	public boolean Door;
+	public boolean AllBuilding;
 
-    public boolean Printer;
-    public boolean ATM;
-    public boolean CVS;
-    public boolean Vending;
-    public boolean All;
+	public boolean Printer;
+	public boolean ATM;
+	public boolean CVS;
+	public boolean Vending;
+	public boolean All;
 
-    public boolean NMapState;
-    public boolean MoreView;
-    public boolean Camera2;
+	public boolean NMapState;
+	public boolean MoreView;
+	public boolean Camera2;
 
-    public int count;
+	public int count;
 
-    private FilteringState(){}
+	private FilteringState(){}
 
-    public static synchronized FilteringState getInstance(){
-        if(instance==null){
-            instance=new FilteringState();
-        }
-        return instance;
-    }
+	public static synchronized FilteringState getInstance(){
+		if(instance==null){
+			instance=new FilteringState();
+		}
+		return instance;
+	}
 
+	public static int NOT_STARTED = 0; 
+	public static int PROCESSING = 1; 
+	public static int READY = 2; 
+	public static int DONE = 3; 
 
+	int nextLStatus = FilteringState.NOT_STARTED;
+	String downloadId;
+
+	private float curBearing;
+	private float curPitch;
+
+	private boolean detailsView;
+
+	public boolean handleEvent(MixContextInterface ctx, String onPress, Marker marker) {
+		if (onPress != null && onPress.startsWith("webpage")) {
+			try {
+				String webpage = MixUtils.parseAction(onPress);
+				this.detailsView = true;
+				Log.d("mixare","Clicked Marker");
+				ctx.MarkerMenu(marker);
+			} catch (Exception ex) {
+				ex.printStackTrace();
+			}
+		} 
+		return true;
+	}
+
+	public boolean handleEvent(MixContextInterface ctx, String onPress) {
+		if (onPress != null && onPress.startsWith("webpage")) {
+			try {
+				String webpage = MixUtils.parseAction(onPress);
+				this.detailsView = true;
+				Log.d("mixare","Clicked Marker");
+				//ctx.MarkerMenu();
+			} catch (Exception ex) {
+				ex.printStackTrace();
+			}
+		}
+		return true;
+	}
+
+	public float getCurBearing() {
+		return curBearing;
+	}
+
+	public float getCurPitch() {
+		return curPitch;
+	}
+	
+	public boolean isDetailsView() {
+		return detailsView;
+	}
+	
+	public void setDetailsView(boolean detailsView) {
+		this.detailsView = detailsView;
+	}
+
+	public void calcPitchBearing(Matrix rotationM) {
+		MixVector looking = new MixVector();
+		rotationM.transpose();
+		looking.set(1, 0, 0);
+		looking.prod(rotationM);
+		this.curBearing = (int) (MixUtils.getAngle(0, 0, looking.x, looking.z)  + 360 ) % 360 ;
+
+		rotationM.transpose();
+		looking.set(0, 1, 0);
+		looking.prod(rotationM);
+		this.curPitch = -MixUtils.getAngle(0, 0, looking.y, looking.z);
+	}
 }

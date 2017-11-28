@@ -65,7 +65,7 @@ public class DataView {
 	 */
 	private Camera cam;
 
-	private MixState state = new MixState();
+	private FilteringState state = FilteringState.getInstance();
 
 	/** The view can be "frozen" for debug purposes */
 	private boolean frozen;
@@ -135,7 +135,7 @@ public class DataView {
 	}
 
 	public void doStart() {
-		state.nextLStatus = MixState.NOT_STARTED;
+		state.nextLStatus = FilteringState.NOT_STARTED;
 		mixContext.getLocationFinder().setLocationAtLastDownload(curFix);
 	}
 
@@ -165,13 +165,13 @@ public class DataView {
 		state.calcPitchBearing(cam.transform);
 
 		// Load Layer
-		if (state.nextLStatus == MixState.NOT_STARTED && !frozen) {
+		if (state.nextLStatus == FilteringState.NOT_STARTED && !frozen) {
 			loadDrawLayer();
 			markers = new ArrayList<Marker>();
 		}
-		else if (state.nextLStatus == MixState.PROCESSING) {
+		else if (state.nextLStatus == FilteringState.PROCESSING) {
 			retry = 0;
-			state.nextLStatus = MixState.DONE;
+			state.nextLStatus = FilteringState.DONE;
 
 			dataHandler = new DataHandler();
 			dataHandler.addMarkers(markers);
@@ -228,7 +228,7 @@ public class DataView {
 				break;
 			}
 		}
-		state.nextLStatus = MixState.PROCESSING;
+		state.nextLStatus = FilteringState.PROCESSING;
 	}
 
 	/**
@@ -236,19 +236,19 @@ public class DataView {
 	 */
 	private void loadDrawLayer(){
 		if (mixContext.getStartUrl().length() > 0) {
-			state.nextLStatus = MixState.PROCESSING;
+			state.nextLStatus = FilteringState.PROCESSING;
 			isLauncherStarted = true;
 		}
 
 		else {
 			double lat = curFix.getLatitude(), lon = curFix.getLongitude(), alt = curFix
 					.getAltitude();
-			state.nextLStatus = MixState.PROCESSING;
+			state.nextLStatus = FilteringState.PROCESSING;
 		}
 
 		// if no datasources are activated
-		if (state.nextLStatus == MixState.NOT_STARTED)
-			state.nextLStatus = MixState.DONE;
+		if (state.nextLStatus == FilteringState.NOT_STARTED)
+			state.nextLStatus = FilteringState.DONE;
 	}
 
 	private void handleKeyEvent(KeyEvent evt) {
@@ -282,7 +282,7 @@ public class DataView {
 		boolean evtHandled = false;
 
 		// Handle event
-		if (state.nextLStatus == MixState.DONE) {
+		if (state.nextLStatus == FilteringState.DONE) {
 			// the following will traverse the markers in ascending order (by
 			// distance) the first marker that
 			// matches triggers the event.
@@ -340,7 +340,7 @@ public class DataView {
 	 * Re-downloads the markers, and draw them on the map.
 	 */
 	public void refresh(){
-		state.nextLStatus = MixState.NOT_STARTED;
+		state.nextLStatus = FilteringState.NOT_STARTED;
 	}
 	
 	private void callRefreshToast(){
