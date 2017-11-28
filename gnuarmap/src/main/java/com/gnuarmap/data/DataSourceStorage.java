@@ -41,7 +41,6 @@ public class DataSourceStorage {
 		
 	public DataSourceStorage(Context ctx){
 		this.ctx = ctx;
-		settings = ctx.getSharedPreferences(DataSourceList.SHARED_PREFS, 0);
 	}
 	
 	public static void init(Context ctx){

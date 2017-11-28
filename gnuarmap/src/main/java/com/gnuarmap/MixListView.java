@@ -114,21 +114,6 @@ public class MixListView extends ListActivity {
 			}
 
 
-			if (dataView.isFrozen()) {
-
-				TextView searchNotificationTxt = new TextView(this);
-				searchNotificationTxt.setVisibility(View.VISIBLE);
-				searchNotificationTxt.setText(getString(R.string.search_active_1)+" "+ DataSourceList.getDataSourcesStringList() + getString(R.string.search_active_2));
-				searchNotificationTxt.setWidth(MixView.getdWindow().getWidth());
-
-				searchNotificationTxt.setPadding(10, 2, 0, 0);
-				searchNotificationTxt.setBackgroundColor(Color.DKGRAY);
-				searchNotificationTxt.setTextColor(Color.WHITE);
-
-				getListView().addHeaderView(searchNotificationTxt);
-
-			}
-
 			setListAdapter(new ArrayAdapter<SpannableString>(this, android.R.layout.simple_list_item_1,listViewMenu));
 			getListView().setTextFilterEnabled(true);
 			break;

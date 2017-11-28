@@ -231,7 +231,7 @@ public class MixView extends Activity implements SensorEventListener, OnTouchLis
 			getDataView().doStart();
 			getDataView().clearEvents();
 
-			getMixViewData().getMixContext().getDataSourceManager().refreshDataSources();
+//			getMixViewData().getMixContext().getDataSourceManager().refreshDataSources();
 
 			float angleX, angleY;
 
@@ -327,30 +327,6 @@ public class MixView extends Activity implements SensorEventListener, OnTouchLis
 				}
 			} catch (Exception ignore) {
 			}
-		}
-
-		if (getDataView().isFrozen() && getMixViewData().getSearchNotificationTxt() == null) {
-			getMixViewData().setSearchNotificationTxt(new TextView(this));
-			getMixViewData().getSearchNotificationTxt().setWidth(
-					getdWindow().getWidth());
-			getMixViewData().getSearchNotificationTxt().setPadding(10, 2, 0, 0);
-			getMixViewData().getSearchNotificationTxt().setText(
-					getString(R.string.search_active_1) + " "
-							+ DataSourceList.getDataSourcesStringList()
-							+ getString(R.string.search_active_2));
-			;
-			getMixViewData().getSearchNotificationTxt().setBackgroundColor(
-					Color.DKGRAY);
-			getMixViewData().getSearchNotificationTxt().setTextColor(Color.WHITE);
-
-			getMixViewData().getSearchNotificationTxt().setOnTouchListener(this);
-			addContentView(getMixViewData().getSearchNotificationTxt(),
-					new LayoutParams(LayoutParams.FILL_PARENT,
-							LayoutParams.WRAP_CONTENT));
-		} else if (!getDataView().isFrozen()
-				&& getMixViewData().getSearchNotificationTxt() != null) {
-			getMixViewData().getSearchNotificationTxt().setVisibility(View.GONE);
-			getMixViewData().setSearchNotificationTxt(null);
 		}
 	}
 	

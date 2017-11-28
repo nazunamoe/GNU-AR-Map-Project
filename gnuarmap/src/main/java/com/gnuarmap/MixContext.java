@@ -66,11 +66,8 @@ public class MixContext extends ContextWrapper implements MixContextInterface {
 		mixView = appCtx;
 
 
-		getDataSourceManager().refreshDataSources();
+		//getDataSourceManager().refreshDataSources();
 
-		if (!getDataSourceManager().isAtLeastOneDatasourceSelected()) {
-			rotationM.toIdentity();
-		}
 		getLocationFinder().switchOn();
 		getLocationFinder().findLocation();
 	}

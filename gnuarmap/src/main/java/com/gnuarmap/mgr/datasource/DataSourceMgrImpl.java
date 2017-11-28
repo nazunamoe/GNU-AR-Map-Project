@@ -58,8 +58,7 @@ class DataSourceMgrImpl implements DataSourceManager {
 		DataSourceStorage.getInstance(ctx).fillDefaultDataSources();
 
 		int size = DataSourceStorage.getInstance().getSize();
-
-		// copy the value from shared preference to adapter
+		
 		for (int i = 0; i < size; i++) {
 			String fields[] = DataSourceStorage.getInstance().getFields(i);
 			this.allDataSources.add(new DataSource(fields[0], fields[1],
