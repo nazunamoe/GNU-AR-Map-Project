@@ -79,7 +79,7 @@ public class DataView {
 
 	/** timer to refresh the browser */
 	private Timer refresh = null;
-	private final long refreshDelay = 3 * 1000; // refresh every 2 seconds
+	private final long refreshDelay = 45 * 1000; // refresh every 45 seconds
 
 	private boolean isLauncherStarted;
 
