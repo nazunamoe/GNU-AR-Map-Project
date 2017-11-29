@@ -38,7 +38,7 @@ public class MenuActivity extends AppCompatActivity implements AdapterView.OnIte
         int gpsCheck = ContextCompat.checkSelfPermission(this, Manifest.permission.ACCESS_FINE_LOCATION);
         int select = (int)parent.getItemIdAtPosition(position);
         switch(select){
-            case 0:{
+            case 0:{ // AR 뷰
                 ctx = this;
                 if(gpsCheck == PackageManager.PERMISSION_DENIED){
                     Toast.makeText(getApplicationContext(), R.string.permission_rejected, Toast.LENGTH_SHORT).show();
@@ -49,7 +49,7 @@ public class MenuActivity extends AppCompatActivity implements AdapterView.OnIte
                 }
                 break;
             }
-            case 1:{
+            case 1:{ // 네이버 지도
                 ctx = this;
                 if(gpsCheck == PackageManager.PERMISSION_DENIED){
                     Toast.makeText(getApplicationContext(), R.string.permission_rejected, Toast.LENGTH_SHORT).show();
@@ -62,19 +62,19 @@ public class MenuActivity extends AppCompatActivity implements AdapterView.OnIte
                 }
                 break;
             }
-            case 2:{
+            case 2:{ // 검색
                 ctx = this;
                 startActivity(new Intent(ctx, SearchActivity.class));
                 finish();
                 break;
             }
-            case 3:{
+            case 3:{ // 설정
                 ctx = this;
                 startActivity(new Intent(ctx, SettingsActivity.class));
                 finish();
                 break;
             }
-            case 4:{
+            case 4:{ // 라이센스
                 AlertDialog.Builder builder1 = new AlertDialog.Builder(this);
                 builder1.setMessage(getString(R.string.license));
                 builder1.setNegativeButton(getString(R.string.close_button),
@@ -88,12 +88,12 @@ public class MenuActivity extends AppCompatActivity implements AdapterView.OnIte
                 alert1.show();
                 break;
             }
-            case 5:{
+            case 5:{ // 홈페이지
                 Intent intent = new Intent(Intent.ACTION_VIEW, Uri.parse("http://anse.gnu.ac.kr"));
                 startActivity(intent);
                 break;
             }
-            case 6:{
+            case 6:{ // 이메일
                 Intent email = new Intent(Intent.ACTION_SEND);
                 email.setType("plain/text");
                 String[] address = {"jpg3927@gmail.com"};
@@ -101,7 +101,7 @@ public class MenuActivity extends AppCompatActivity implements AdapterView.OnIte
                 startActivity(email);
                 break;
             }
-            case 7:{
+            case 7:{ // 현재 위치
                 LocationManager current = (LocationManager) getSystemService(Context.LOCATION_SERVICE);
                 int gps = ContextCompat.checkSelfPermission(this, Manifest.permission.ACCESS_FINE_LOCATION);
                 try{
@@ -136,7 +136,7 @@ public class MenuActivity extends AppCompatActivity implements AdapterView.OnIte
                 }
                 break;
             }
-            case 8:{
+            case 8:{ // 종료
                 finish();
                 break;
             }

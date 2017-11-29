@@ -4,10 +4,10 @@
         <item>@string/navigation_drawer_navermap</item>
         <item>@string/navigation_drawer_search</item>
         <item>@string/navigation_drawer_settings</item>
-        <item>@string/navigation_drawer_information</item>
+        <item>@string/navigation_drawer_license</item>
         <item>@string/navigation_drawer_email</item>
         <item>@string/navigation_drawer_homepage</item>
-        <item>@string/navigation_drawer_license</item>
+        <item>@string/navigation_drawer_information</item>
         <item>@string/navigation_drawer_exit</item>
     </string-array>
 </resources>
