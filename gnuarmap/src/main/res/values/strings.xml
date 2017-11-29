@@ -123,7 +123,11 @@ Please turn on permissions at [Setting] > [Permission]"</string>
     <string name="Search_Hint_2">ex) 407동 or 407</string>
 
     <string name="My_location">Current Location</string>
+    <string name="gnu_location">GNU Location</string>
     <string name="NaverMapTitle">Naver Map</string>
+
+    <string name="GoTo_Current">Go to current location</string>
+    <string name="GoTo_GNU">Go to GNU location</string>
 
     <string name="App_Version">1.2-r3</string>
 
