@@ -921,6 +921,7 @@ class AugmentedView extends View {
 			app.doError(ex);
 		}
 	}
+
 }
 
 /**
