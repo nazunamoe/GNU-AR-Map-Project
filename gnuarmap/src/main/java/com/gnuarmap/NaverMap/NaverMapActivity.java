@@ -90,7 +90,7 @@ public class NaverMapActivity extends NMapActivity {
         Intent intent = getIntent();
         name = intent.getStringExtra("num");
         Toolbar toolbar = findViewById(R.id.toolbar);
-        toolbar.setTitle("지도화면");
+        toolbar.setTitle(R.string.NaverMapTitle);
         toolbar.setTitleTextColor(0xFFFFFFFF);
         toolbar.inflateMenu(R.menu.menu);
         toolbar.setOnMenuItemClickListener(new Toolbar.OnMenuItemClickListener() {

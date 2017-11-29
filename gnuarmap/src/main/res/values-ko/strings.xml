@@ -1,7 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="app_name">경상대학교 AR 지도</string>
-    <string name="search_hint">장소 검색</string>
 
     <string name="N">N</string>
     <string name="NE">NE</string>
@@ -117,6 +116,13 @@
     <string name="Filtering_Leisure">여가시설</string>
     <string name="Filtering_Humanities">인문대학</string>
     <string name="Filtering_Science">자연과학대학</string>
+
+    <string name="Search_Error">검색할 건물번호나 건물이름을 입력하세요</string>
+    <string name="Search_Hint">건물 검색</string>
+    <string name="Search_Hint_2">ex) 407동 또는 407</string>
+    <string name="NaverMapTitle">네이버 지도</string>
+
+    <string name="My_location">현재 위치</string>
 
     <string name="App_Version">1.1-r5</string>
 

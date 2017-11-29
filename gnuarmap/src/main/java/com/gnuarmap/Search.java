@@ -91,9 +91,9 @@ public class Search extends AppCompatActivity {
                 s = edit.getText().toString();
                 value();
                 if(s.equals("")){
-                    Toast.makeText(getApplicationContext(),"검색할 건물번호 또는 건물명을 입력하세요3",Toast.LENGTH_SHORT).show();
+                    Toast.makeText(getApplicationContext(),R.string.Search_Error,Toast.LENGTH_SHORT).show();
                 }else if(j.equals("-1")){
-                    Toast.makeText(getApplicationContext(),"정확한 건물명 또는 건물번호를 입력하세요33",Toast.LENGTH_SHORT).show();
+                    Toast.makeText(getApplicationContext(),R.string.Search_Error,Toast.LENGTH_SHORT).show();
                 }
                 else{
                     Toast.makeText(getApplicationContext(),s,Toast.LENGTH_SHORT).show();

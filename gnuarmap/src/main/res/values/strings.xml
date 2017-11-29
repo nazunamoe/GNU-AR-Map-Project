@@ -1,7 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="app_name">GNU AR MAP</string>
-    <string name="search_hint">Search Location</string>
 
     <string name="N">N</string>
     <string name="NE">NE</string>
@@ -118,6 +117,13 @@ Please turn on permissions at [Setting] > [Permission]"</string>
     <string name="Filtering_Leisure">Leisure facilities</string>
     <string name="Filtering_Humanities">College of Humanities</string>
     <string name="Filtering_Science">College of Natural Science</string>
+
+    <string name="Search_Error">Enter building number or building name to search</string>
+    <string name="Search_Hint">Search buildings</string>
+    <string name="Search_Hint_2">ex) 407동 or 407</string>
+
+    <string name="My_location">Current Location</string>
+    <string name="NaverMapTitle">Naver Map</string>
 
     <string name="App_Version">1.2-r3</string>
 
