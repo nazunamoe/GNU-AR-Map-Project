@@ -1,7 +1,6 @@
 package com.gnuarmap.data;
 
 import android.graphics.Bitmap;
-import android.util.Log;
 
 import com.gnuarmap.FilteringState;
 import com.gnuarmap.SocialMarker;
