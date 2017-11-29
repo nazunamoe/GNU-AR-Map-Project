@@ -5,11 +5,8 @@ import android.graphics.Rect;
 import android.util.Log;
 import android.view.View;
 
-import com.gnuarmap.NaverMap.NMapCalloutCustomOverlayView;
-import com.gnuarmap.NaverMap.NMapPOIflagType;
 import com.gnuarmap.R;
 import com.gnuarmap.SocialMarker;
-import com.nhn.android.maps.NMapController;
 import com.nhn.android.maps.NMapOverlay;
 import com.nhn.android.maps.NMapOverlayItem;
 import com.nhn.android.maps.maplib.NGeoPoint;
