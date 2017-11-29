@@ -122,8 +122,11 @@
     <string name="Search_Hint_2">ex) 407동 또는 407</string>
     <string name="NaverMapTitle">네이버 지도</string>
 
-    <string name="My_location">현재 위치</string>
+    <string name="GoTo_Current">현재 위치로 이동</string>
+    <string name="GoTo_GNU">경상대학교 위치로 이동</string>
 
+    <string name="My_location">현재 위치</string>
+    <string name="gnu_location">경상대학교 위치</string>
     <string name="App_Version">1.1-r5</string>
 
 

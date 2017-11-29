@@ -96,8 +96,14 @@ public class NaverMapActivity extends NMapActivity {
                                                            }catch(SecurityException e){
                                                                Toast.makeText(getApplicationContext(), R.string.permission_rejected, Toast.LENGTH_SHORT).show();
                                                            }
-                                                           Toast.makeText(getApplicationContext(),"현재 위치로 이동",Toast.LENGTH_SHORT).show();
+                                                           Toast.makeText(getApplicationContext(),R.string.GoTo_Current,Toast.LENGTH_SHORT).show();
                                                            return true;
+                                                       case R.id.action_gnu:{
+                                                           mMapController.setZoomLevel(11);
+                                                           mMapController.setMapCenter(128.098211,35.153960) ;
+                                                           Toast.makeText(getApplicationContext(),R.string.GoTo_GNU,Toast.LENGTH_SHORT).show();
+                                                           return true;
+                                                       }
                                                    }
                                                    return false;
                                                }
