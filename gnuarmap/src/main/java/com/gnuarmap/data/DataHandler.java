@@ -26,7 +26,6 @@ import java.util.List;
 
 import com.gnuarmap.MixContext;
 import com.gnuarmap.MixView;
-import com.gnuarmap.data.convert.DataBase;
 
 import org.mixare.lib.marker.Marker;
 

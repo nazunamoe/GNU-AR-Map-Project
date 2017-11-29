@@ -32,7 +32,7 @@ import java.util.Timer;
 import java.util.TimerTask;
 
 import com.gnuarmap.data.DataHandler;
-import com.gnuarmap.data.convert.DataClass;
+import com.gnuarmap.data.DataClass;
 
 import org.mixare.lib.gui.PaintScreen;
 import org.mixare.lib.gui.ScreenLine;

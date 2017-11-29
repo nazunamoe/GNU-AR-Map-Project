@@ -9,7 +9,7 @@ import android.util.Log;
 import android.view.*;
 import android.widget.Toast;
 
-import com.gnuarmap.data.convert.DataBase;
+import com.gnuarmap.data.DataBase;
 import com.gnuarmap.Filtering;
 import com.gnuarmap.FilteringState;
 import com.gnuarmap.MenuActivity;

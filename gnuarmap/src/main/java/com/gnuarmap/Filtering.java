@@ -4,7 +4,6 @@ import android.content.Context;
 import android.graphics.Rect;
 import android.util.Log;
 import android.view.View;
-import android.widget.Toast;
 
 import com.gnuarmap.NaverMap.NMapCalloutCustomOverlayView;
 import com.gnuarmap.NaverMap.NMapPOIflagType;
@@ -15,7 +14,7 @@ import com.nhn.android.maps.overlay.NMapPOIdata;
 import com.nhn.android.maps.overlay.NMapPOIitem;
 import com.nhn.android.mapviewer.overlay.NMapOverlayManager;
 import com.nhn.android.mapviewer.overlay.NMapPOIdataOverlay;
-import com.gnuarmap.data.convert.DataBase;
+import com.gnuarmap.data.DataBase;
 
 import static com.gnuarmap.NaverMap.NaverMapActivity.DEBUG;
 import static com.gnuarmap.NaverMap.NaverMapActivity.LOG_TAG;

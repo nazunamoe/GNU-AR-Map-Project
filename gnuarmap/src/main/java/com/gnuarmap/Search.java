@@ -11,11 +11,9 @@ import android.widget.AutoCompleteTextView;
 import android.widget.Button;
 import android.widget.Toast;
 
-import com.gnuarmap.data.convert.DataBase;
+import com.gnuarmap.data.DataBase;
 import com.gnuarmap.NaverMap.NaverMapActivity;
-import com.gnuarmap.data.convert.DataClass;
-
-import java.util.ArrayList;
+import com.gnuarmap.data.DataClass;
 
 public class Search extends AppCompatActivity {
 
