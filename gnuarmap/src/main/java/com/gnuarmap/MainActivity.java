@@ -7,23 +7,11 @@ import android.os.Bundle;
 import android.preference.PreferenceManager;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
-import android.view.KeyEvent;
 
 public class MainActivity extends AppCompatActivity{
 
     SharedPreferences sharedPref;
     FilteringState state = FilteringState.getInstance();
-
-    @Override
-    public boolean onKeyDown(int keyCode, KeyEvent event) {
-        if (keyCode == KeyEvent.KEYCODE_BACK){
-            Context ctx;
-            ctx = this;
-            startActivity(new Intent(ctx, MenuActivity.class));
-            finish();
-        }
-        return false;
-    }
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

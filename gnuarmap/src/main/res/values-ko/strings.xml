@@ -64,13 +64,13 @@
     <string name = "navigation_drawer_homepage">홈페이지</string>
     <string name = "navigation_drawer_license">라이센스</string>
     <string name="navigation_drawer_information">GPS 정보</string>
+    <string name="navigation_drawer_exit">종료</string>
 
     <string name = "navigation_drawer_header">GNU AR MAP</string>
     <string name = "navigation_drawer_header1">기능</string>
     <string name = "navigation_drawer_header2">설정</string>
     <string name = "navigation_drawer_header3">기타</string>
     <string name = "navigation_drawer_maker">팀 옵저버 제작</string>
-    <string name = "action_exit">종료</string>
     <string name = "title_activity_settings">설정</string>
 
     <string name = "settings_drawer_arview">AR보기</string>

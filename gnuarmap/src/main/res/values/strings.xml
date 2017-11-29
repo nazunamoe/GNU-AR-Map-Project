@@ -43,7 +43,7 @@
 
     <string name="license_title">License</string>
     <string name="close_button">Close</string>
-    <string name = "general_info_title">Information</string>
+    <string name="general_info_title">Information</string>
 
     <string name="general_info_text">GPS info: </string>
     <string name="longitude">Longitude: </string>
@@ -65,17 +65,18 @@
     <string name="navigation_drawer_homepage">Homaepage</string>
     <string name="navigation_drawer_license">License</string>
     <string name="navigation_drawer_information">GPS Information</string>
+    <string name="navigation_drawer_exit">Exit</string>
 
     <string name="navigation_drawer_header">GNU AR MAP</string>
     <string name="navigation_drawer_header1">Functions</string>
     <string name="navigation_drawer_header2">Settings</string>
     <string name="navigation_drawer_header3">Etc</string>
     <string name="navigation_drawer_maker">Made by Team Observer</string>
-    <string name="action_exit">Exit</string>
+
     <string name="title_activity_settings">Settings</string>
 
     <string name="settings_drawer_arview">AR View</string>
-    <string name ="settings_drawer_filtering">Filtering</string>
+    <string name="settings_drawer_filtering">Filtering</string>
     <string name="settings_drawer_1st_filtering">Filtering (Building)</string>
     <string name="settings_drawer_2nd_filtering">Filtering (Facilities)</string>
     <string name="settings_drawer_navermap">Naver Map</string>
@@ -130,5 +131,6 @@ Please turn on permissions at [Setting] > [Permission]"</string>
     <string name="GoTo_GNU">Go to GNU location</string>
 
     <string name="App_Version">1.2-r3</string>
+    <string name="title_activity_menu2">MenuActivity2</string>
 
 </resources>

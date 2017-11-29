@@ -10,78 +10,35 @@ import android.location.Location;
 import android.location.LocationManager;
 import android.net.Uri;
 import android.os.Bundle;
-import android.support.design.widget.NavigationView;
 import android.support.v4.content.ContextCompat;
 import android.support.v7.app.AppCompatActivity;
-import android.support.v7.widget.Toolbar;
-import android.view.MenuItem;
+import android.view.View;
+import android.widget.AdapterView;
+import android.widget.ArrayAdapter;
+import android.widget.ListView;
 import android.widget.Toast;
+import android.widget.Toolbar;
 
 import com.gnuarmap.NaverMap.NaverMapActivity;
-import com.gun0912.tedpermission.PermissionListener;
-import com.gun0912.tedpermission.TedPermission;
 
-import java.util.ArrayList;
 import java.util.Date;
 
 import static android.location.LocationManager.GPS_PROVIDER;
 import static android.location.LocationManager.NETWORK_PROVIDER;
 
-public class MenuActivity extends AppCompatActivity
-        implements NavigationView.OnNavigationItemSelectedListener {
-    private Context ctx;
+public class MenuActivity extends AppCompatActivity implements AdapterView.OnItemClickListener {
 
-    PermissionListener permissionlistener = new PermissionListener() {
-        @Override
-        public void onPermissionGranted() {
-            //Toast.makeText(MenuActivity.this, "Permission Granted", Toast.LENGTH_SHORT).show();
-        }
-
-        @Override
-        public void onPermissionDenied(ArrayList<String> deniedPermissions) {
-            //Toast.makeText(MenuActivity.this, "Permission Denied\n" + deniedPermissions.toString(), Toast.LENGTH_SHORT).show();
-        }
-    };
-    @Override
-    protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main2);
-        Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
-        setSupportActionBar(toolbar);
-
-        TedPermission.with(this)
-                .setPermissionListener(permissionlistener)
-                .setDeniedMessage(R.string.permission_rejected)
-                .setPermissions(Manifest.permission.CAMERA, Manifest.permission.ACCESS_FINE_LOCATION)
-                .check();
-        NavigationView navigationView = (NavigationView) findViewById(R.id.nav_view);
-        navigationView.setNavigationItemSelectedListener(this);
+    public Context getContext() {
+        return getApplicationContext();
     }
 
     @Override
-    public boolean onOptionsItemSelected(MenuItem item) {
-        // Handle action bar item clicks here. The action bar will
-        // automatically handle clicks on the Home/Up button, so long
-        // as you specify a parent activity in AndroidManifest.xml.
-        int id = item.getItemId();
-
-        //noinspection SimplifiableIfStatement
-        if (id == R.id.action_exit) {
-            finish();
-            return true;
-        }
-
-        return super.onOptionsItemSelected(item);
-    }
-
-    @SuppressWarnings("StatementWithEmptyBody")
-    @Override
-    public boolean onNavigationItemSelected(MenuItem item) {
-        // Handle navigation view item clicks here.
-        int id = item.getItemId();
-        int gpsCheck = ContextCompat.checkSelfPermission(this,Manifest.permission.ACCESS_FINE_LOCATION);
-        switch(id){
-            case R.id.nav_camera:{
+    public void onItemClick(AdapterView<?> parent, View v, int position, long id) {
+        Context ctx;
+        int gpsCheck = ContextCompat.checkSelfPermission(this, Manifest.permission.ACCESS_FINE_LOCATION);
+        int select = (int)parent.getItemIdAtPosition(position);
+        switch(select){
+            case 0:{
                 ctx = this;
                 if(gpsCheck == PackageManager.PERMISSION_DENIED){
                     Toast.makeText(getApplicationContext(), R.string.permission_rejected, Toast.LENGTH_SHORT).show();
@@ -92,7 +49,7 @@ public class MenuActivity extends AppCompatActivity
                 }
                 break;
             }
-            case R.id.design_navigation_view:{
+            case 1:{
                 ctx = this;
                 if(gpsCheck == PackageManager.PERMISSION_DENIED){
                     Toast.makeText(getApplicationContext(), R.string.permission_rejected, Toast.LENGTH_SHORT).show();
@@ -105,19 +62,19 @@ public class MenuActivity extends AppCompatActivity
                 }
                 break;
             }
-            case R.id.design_search:{
+            case 2:{
                 ctx = this;
                 startActivity(new Intent(ctx, SearchActivity.class));
                 finish();
                 break;
             }
-            case R.id.nav_settings:{
+            case 3:{
                 ctx = this;
                 startActivity(new Intent(ctx, SettingsActivity.class));
                 finish();
                 break;
             }
-            case R.id.nav_license:{
+            case 4:{
                 AlertDialog.Builder builder1 = new AlertDialog.Builder(this);
                 builder1.setMessage(getString(R.string.license));
                 builder1.setNegativeButton(getString(R.string.close_button),
@@ -131,12 +88,12 @@ public class MenuActivity extends AppCompatActivity
                 alert1.show();
                 break;
             }
-            case R.id.nav_homepage:{
+            case 5:{
                 Intent intent = new Intent(Intent.ACTION_VIEW, Uri.parse("http://anse.gnu.ac.kr"));
                 startActivity(intent);
                 break;
             }
-            case R.id.nav_email:{
+            case 6:{
                 Intent email = new Intent(Intent.ACTION_SEND);
                 email.setType("plain/text");
                 String[] address = {"jpg3927@gmail.com"};
@@ -144,7 +101,7 @@ public class MenuActivity extends AppCompatActivity
                 startActivity(email);
                 break;
             }
-            case R.id.nav_information:{
+            case 7:{
                 LocationManager current = (LocationManager) getSystemService(Context.LOCATION_SERVICE);
                 int gps = ContextCompat.checkSelfPermission(this, Manifest.permission.ACCESS_FINE_LOCATION);
                 try{
@@ -177,11 +134,24 @@ public class MenuActivity extends AppCompatActivity
                 }catch(SecurityException e){
                     Toast.makeText(getApplicationContext(), R.string.permission_rejected, Toast.LENGTH_SHORT).show();
                 }
-
-			break;
-			}
+                break;
+            }
+            case 8:{
+                finish();
+                break;
+            }
         }
+    }
 
-        return true;
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_menu);
+        android.support.v7.widget.Toolbar toolbar = findViewById(R.id.toolbar);
+        toolbar.setTitle(R.string.app_name);
+        ArrayAdapter adapter = ArrayAdapter.createFromResource(this, R.array.MenuList, android.R.layout.simple_list_item_1);
+        ListView listview = (ListView) findViewById(R.id.listview1);
+        listview.setOnItemClickListener(this);
+        listview.setAdapter(adapter);
     }
 }
