@@ -140,7 +140,6 @@ public class NaverMapActivity extends NMapActivity {
         Intent intent = getIntent();
         int ret = intent.getIntExtra("return",1);
         if (keyCode == android.view.KeyEvent.KEYCODE_BACK){
-            Log.d("FAL",""+ret);
             if(ret == 2){
                 Context ctx;
                 ctx = this;
