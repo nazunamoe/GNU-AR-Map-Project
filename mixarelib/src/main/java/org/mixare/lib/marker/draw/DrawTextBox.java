@@ -113,9 +113,7 @@ public class DrawTextBox extends DrawCommand {
 
 			dw.setStrokeWidth(1f);
 			dw.setFill(true);
-			dw.paintObj(txtlab, signMarker.x
-					- txtlab.getWidth() / 2, signMarker.y
-					+ maxHeight, 0, 1);
+			dw.paintObj(txtlab, signMarker.x, signMarker.y + maxHeight, 0, 1);
 
 		}
 

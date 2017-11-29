@@ -244,8 +244,7 @@ public abstract class LocalMarker implements Marker {
 			textStr = title + " (" + df.format(d) + "km)";
 		}
 
-		textBlock = new TextObj(textStr, Math.round(maxHeight / 2f) + 1,
-				250, dw, underline);
+		textBlock = new TextObj(textStr, Math.round(maxHeight / 2f) + 1, 800, dw, underline);
 
 		if (isVisible) {
 

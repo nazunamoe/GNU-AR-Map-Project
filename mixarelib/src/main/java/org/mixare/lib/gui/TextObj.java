@@ -45,9 +45,9 @@ public class TextObj implements ScreenObj, Parcelable{
 
 	public TextObj(String txtInit, float fontSizeInit, float maxWidth,
 			PaintScreen dw, boolean underline) {
-		this(txtInit, fontSizeInit, maxWidth, Color.rgb(255, 255, 255), Color
+		this(txtInit, fontSizeInit, maxWidth, Color.argb(0,255, 255, 255), Color
 				.argb(50, 0, 0, 0), Color.rgb(255, 255, 255), Color.argb(50, 0, 0, 0),
-				dw.getTextAsc() / 2, dw, false);
+				dw.getTextAsc(), dw, false);
 	}
 
 	public TextObj(String txtInit, float fontSizeInit, float maxWidth,
@@ -89,7 +89,7 @@ public class TextObj implements ScreenObj, Parcelable{
 
 		txt = txtInit;
 		fontSize = fontSizeInit;
-		areaWidth = maxWidth - pad * 2;
+		areaWidth = maxWidth;
 		lineHeight = dw.getTextAsc() + dw.getTextDesc()
 				+ dw.getTextLead();
 
