@@ -42,8 +42,8 @@ public class DataHandler {
 	private List<Marker> markerList = new ArrayList<Marker>();
 
 	public void addMarkers(List<Marker> markers) {
-		DataBase data = new DataBase();
-
+	//	DataBase data = new DataBase();
+		Sample data = new Sample();
 		data.Initialize();
 
 		for(int i=0; i<data.data.getSize(); i++){
@@ -53,7 +53,7 @@ public class DataHandler {
 		 * 독립된 데이터 프로세서 대신 이 부분에 marker 배열에 필요한 마커 데이터를 직접 등록한다.
 		 */
 
-		Log.d(MixView.TAG, "Marker count: "+markerList.size());
+		//Log.d(MixView.TAG, "Marker count: "+markerList.size());
 	}
 
 	// 마커 리스트 정렬

@@ -48,7 +48,7 @@ public class Sample {
         // 샘플 데이터
         data.addItem("0","샘플",
                 Engnieering,
-                35.262957,128.639452,
+                35.263266, 128.639750,
                 "engine",
                 "engnieering",
                 nothing,
