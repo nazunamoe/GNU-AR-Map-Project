@@ -15,6 +15,7 @@ import android.util.Log;
 import android.view.*;
 import android.widget.Toast;
 
+import com.gnuarmap.SocialMarker;
 import com.gnuarmap.data.DataBase;
 import com.gnuarmap.Filtering;
 import com.gnuarmap.FilteringState;
@@ -30,13 +31,16 @@ import com.nhn.android.maps.NMapView;
 import com.nhn.android.maps.maplib.NGeoPoint;
 import com.nhn.android.maps.nmapmodel.NMapError;
 import com.nhn.android.maps.nmapmodel.NMapPlacemark;
+import com.nhn.android.maps.overlay.NMapPOIdata;
 import com.nhn.android.mapviewer.overlay.NMapMyLocationOverlay;
 import com.nhn.android.mapviewer.overlay.NMapOverlayManager;
+import com.nhn.android.mapviewer.overlay.NMapPOIdataOverlay;
 
 import java.util.Date;
 
 import static android.location.LocationManager.GPS_PROVIDER;
 import static android.location.LocationManager.NETWORK_PROVIDER;
+import static com.gnuarmap.Filtering.poiData;
 
 public class NaverMapActivity extends NMapActivity {
     public final static String CLIENT_ID = "mUusvsrwEZf9uxFtJ5Se";
@@ -59,6 +63,8 @@ public class NaverMapActivity extends NMapActivity {
     public static boolean atm = false;
     public static boolean Restaurant = false;
 
+    public static NMapPOIdataOverlay poiDataOverlay;
+    public static NMapPOIdataOverlay poiDataOverlay1;
 
     public static DataBase db = new DataBase();
     public GLocation_Setting gLocation_setting = new GLocation_Setting();
@@ -126,9 +132,9 @@ public class NaverMapActivity extends NMapActivity {
         }else{
             int a = Integer.parseInt(name);
             filtering.Searching(a);
+            mMapController.setMapCenter(state.marker.getLongitude(),state.marker.getLatitude());
         }
     }
-
 
     private void invalidateMenu() {
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.HONEYCOMB) {

@@ -32,6 +32,8 @@ import org.mixare.lib.render.MixVector;
  */
 public class FilteringState implements MixStateInterface{
 
+	public SocialMarker marker;
+
 	private static FilteringState instance;
 
 	// Global variable

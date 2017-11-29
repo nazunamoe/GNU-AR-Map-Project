@@ -7,6 +7,7 @@ import android.view.View;
 
 import com.gnuarmap.NaverMap.NMapCalloutCustomOverlayView;
 import com.gnuarmap.NaverMap.NMapPOIflagType;
+import com.nhn.android.maps.NMapController;
 import com.nhn.android.maps.NMapOverlay;
 import com.nhn.android.maps.NMapOverlayItem;
 import com.nhn.android.maps.maplib.NGeoPoint;
@@ -21,6 +22,8 @@ import static com.gnuarmap.NaverMap.NaverMapActivity.LOG_TAG;
 import static com.gnuarmap.NaverMap.NaverMapActivity.db;
 import static com.gnuarmap.NaverMap.NaverMapActivity.mMapViewerResourceProvider;
 import static com.gnuarmap.NaverMap.NaverMapActivity.mOverlayManager;
+
+import com.gnuarmap.FilteringState;
 
 
 /**
@@ -98,9 +101,9 @@ public class Filtering {
         poiData.beginPOIdata(d);
         String number = Integer.toString(num);
         SocialMarker marker = database.data.getMarker(number);
-        Log.d("UJungMother",""+num);
         poiData.addPOIitem(new NGeoPoint(marker.getLongitude(), marker.getLatitude()), marker.getTitle() ,markerId, 0);
-
+        FilteringState state = FilteringState.getInstance();
+        state.marker = marker;
         poiData.endPOIdata();
         poiDataOverlay = mOverlayManager.createPOIdataOverlay(poiData, null);
         poiDataOverlay.setOnStateChangeListener(onPOIdataStateChangeListener);
