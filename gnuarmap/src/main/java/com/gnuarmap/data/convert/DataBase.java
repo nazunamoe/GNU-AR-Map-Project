@@ -723,7 +723,7 @@ public class DataBase {
                 "science",
                 "science",
                 vending,
-                102
+                354
         );
         data.addItem("57","컴퓨터과학관",
                 Science,

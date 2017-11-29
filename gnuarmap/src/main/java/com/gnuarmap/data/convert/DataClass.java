@@ -1,6 +1,7 @@
 package com.gnuarmap.data.convert;
 
 import android.graphics.Bitmap;
+import android.util.Log;
 
 import com.gnuarmap.FilteringState;
 import com.gnuarmap.SocialMarker;
@@ -49,84 +50,85 @@ public class DataClass {
                 value,
                 type,
                 Filtering1,
-                Filtering2)
+                Filtering2,
+                no)
         );
         if(state.AllBuilding){
-            secondFiltering(num,Latitude,Longitude,url,value,type,name,Filtering2);
+            secondFiltering(num,Latitude,Longitude,url,value,type,name,Filtering2,no);
         }else{
             if(state.Agriculture){
                 if(Filtering1=="agriculture"){
-                    secondFiltering(num,Latitude,Longitude,url,value,type,name,Filtering2);
+                    secondFiltering(num,Latitude,Longitude,url,value,type,name,Filtering2,no);
                 }
             }
             if(state.Business){
                 if(Filtering1=="business"){
-                    secondFiltering(num,Latitude,Longitude,url,value,type,name,Filtering2);
+                    secondFiltering(num,Latitude,Longitude,url,value,type,name,Filtering2,no);
                 }
             }
             if(state.Engnieering){
                 if(Filtering1=="engnieering"){
-                    secondFiltering(num,Latitude,Longitude,url,value,type,name,Filtering2);
+                    secondFiltering(num,Latitude,Longitude,url,value,type,name,Filtering2,no);
                 }
             }
             if(state.Dormitory){
                 if(Filtering1=="dormitory"){
-                    secondFiltering(num,Latitude,Longitude,url,value,type,name,Filtering2);
+                    secondFiltering(num,Latitude,Longitude,url,value,type,name,Filtering2,no);
                 }
             }
             if(state.ETC){
                 if(Filtering1=="etc"){
-                    secondFiltering(num,Latitude,Longitude,url,value,type,name,Filtering2);
+                    secondFiltering(num,Latitude,Longitude,url,value,type,name,Filtering2,no);
                 }
             }
             if(state.University){
                 if(Filtering1=="university"){
-                    secondFiltering(num,Latitude,Longitude,url,value,type,name,Filtering2);
+                    secondFiltering(num,Latitude,Longitude,url,value,type,name,Filtering2,no);
                 }
             }
             if(state.Club){
                 if(Filtering1=="club"){
-                    secondFiltering(num,Latitude,Longitude,url,value,type,name,Filtering2);
+                    secondFiltering(num,Latitude,Longitude,url,value,type,name,Filtering2,no);
                 }
             }
             if(state.Door){
                 if(Filtering1=="door"){
-                    secondFiltering(num,Latitude,Longitude,url,value,type,name,Filtering2);
+                    secondFiltering(num,Latitude,Longitude,url,value,type,name,Filtering2,no);
                 }
             }
             if(state.Law){
                 if(Filtering1=="law"){
-                    secondFiltering(num,Latitude,Longitude,url,value,type,name,Filtering2);
+                    secondFiltering(num,Latitude,Longitude,url,value,type,name,Filtering2,no);
                 }
             }
             if(state.Education){
                 if(Filtering1=="education"){
-                    secondFiltering(num,Latitude,Longitude,url,value,type,name,Filtering2);
+                    secondFiltering(num,Latitude,Longitude,url,value,type,name,Filtering2,no);
                 }
             }
             if(state.Social){
                 if(Filtering1=="social"){
-                    secondFiltering(num,Latitude,Longitude,url,value,type,name,Filtering2);
+                    secondFiltering(num,Latitude,Longitude,url,value,type,name,Filtering2,no);
                 }
             }
             if(state.Veterinary){
                 if(Filtering1=="veterinary"){
-                    secondFiltering(num,Latitude,Longitude,url,value,type,name,Filtering2);
+                    secondFiltering(num,Latitude,Longitude,url,value,type,name,Filtering2,no);
                 }
             }
             if(state.Leisure){
                 if(Filtering1=="leisure"){
-                    secondFiltering(num,Latitude,Longitude,url,value,type,name,Filtering2);
+                    secondFiltering(num,Latitude,Longitude,url,value,type,name,Filtering2,no);
                 }
             }
             if(state.Humanities){
                 if(Filtering1=="humanities"){
-                    secondFiltering(num,Latitude,Longitude,url,value,type,name,Filtering2);
+                    secondFiltering(num,Latitude,Longitude,url,value,type,name,Filtering2,no);
                 }
             }
             if(state.Science){
                 if(Filtering1=="science"){
-                    secondFiltering(num,Latitude,Longitude,url,value,type,name,Filtering2);
+                    secondFiltering(num,Latitude,Longitude,url,value,type,name,Filtering2,no);
                 }
             }
         }
@@ -149,69 +151,69 @@ public class DataClass {
 
     public String[] nothing = {};
 
-    private void secondFiltering(String num, Double Latitude, Double Longitude, String url, int value, String type, String name, String[] Filtering2){
+    private void secondFiltering(String num, Double Latitude, Double Longitude, String url, int value, String type, String name, String[] Filtering2, int ID){
 
         if(state.All){
-            addMarker(num,Latitude,Longitude,url,value,type,name);}
+            addMarker(num,Latitude,Longitude,url,value,type,name,ID);}
         else if(state.Vending){
             if(state.ATM){
                 if(Arrays.asList(Filtering2).contains("vending") && Arrays.asList(Filtering2).contains("atm")){
-                    addMarker(num,Latitude,Longitude,url,value,type,name);
+                    addMarker(num,Latitude,Longitude,url,value,type,name,ID);
                 }
             }else if(state.Printer){
                 if(Arrays.asList(Filtering2).contains("vending") && Arrays.asList(Filtering2).contains("printer")){
-                    addMarker(num,Latitude,Longitude,url,value,type,name);
+                    addMarker(num,Latitude,Longitude,url,value,type,name,ID);
                 }
             }else if(state.CVS) {
                 if(Arrays.asList(Filtering2).contains("vending") && Arrays.asList(Filtering2).contains("cvs")){
-                    addMarker(num,Latitude,Longitude,url,value,type,name);
+                    addMarker(num,Latitude,Longitude,url,value,type,name,ID);
                 }
             }else{
                 if(Arrays.asList(Filtering2).contains("vending")){
-                    addMarker(num,Latitude,Longitude,url,value,type,name);
+                    addMarker(num,Latitude,Longitude,url,value,type,name,ID);
                 }
             }
         }else if(state.Printer){
             if(state.CVS){
                 if(state.ATM){
                     if(Arrays.asList(Filtering2).contains("printer") && Arrays.asList(Filtering2).contains("cvs") && Arrays.asList(Filtering2).contains("atm")) {
-                        addMarker(num,Latitude,Longitude,url,value,type,name);
+                        addMarker(num,Latitude,Longitude,url,value,type,name,ID);
                     }
                 }else{
                     if(Arrays.asList(Filtering2).contains("printer") && Arrays.asList(Filtering2).contains("cvs")){
-                        addMarker(num,Latitude,Longitude,url,value,type,name);
+                        addMarker(num,Latitude,Longitude,url,value,type,name,ID);
                     }else{
                     }
                 }
             }else if(state.ATM){
                 if(Arrays.asList(Filtering2).contains("printer") && Arrays.asList(Filtering2).contains("atm")){
-                    addMarker(num,Latitude,Longitude,url,value,type,name);
+                    addMarker(num,Latitude,Longitude,url,value,type,name,ID);
                 }
             }else{
                 if(Arrays.asList(Filtering2).contains("printer")){
-                    addMarker(num,Latitude,Longitude,url,value,type,name);
+                    addMarker(num,Latitude,Longitude,url,value,type,name,ID);
                 }
             }
         }else if(state.CVS){
             if(state.ATM){
                 if(Arrays.asList(Filtering2).contains("cvs") && Arrays.asList(Filtering2).contains("atm")){
-                    addMarker(num,Latitude,Longitude,url,value,type,name);
+                    addMarker(num,Latitude,Longitude,url,value,type,name,ID);
                 }
             }else{
                 if(Arrays.asList(Filtering2).contains("cvs")){
-                    addMarker(num,Latitude,Longitude,url,value,type,name);
+                    addMarker(num,Latitude,Longitude,url,value,type,name,ID);
                 }
             }
         }else if(state.ATM){
             if(Arrays.asList(Filtering2).contains("atm")){
-                addMarker(num,Latitude,Longitude,url,value,type,name);
+                addMarker(num,Latitude,Longitude,url,value,type,name,ID);
             }
         }else{
         }
     }
 
 
-    private void addMarker(String num, Double Latitude, Double Longitude, String url, int value, String type, String name){
+    private void addMarker(String num, Double Latitude, Double Longitude, String url, int value, String type, String name, int ID){
         SocialMarker item = new SocialMarker(
                 num,
                 HtmlUnescape.unescapeHTML((name), 0),
@@ -223,7 +225,8 @@ public class DataClass {
                 value,
                 type,
                 Filtering1,
-                Filtering2);
+                Filtering2,
+                ID);
         List.add(item);
     }
 
@@ -248,6 +251,10 @@ public class DataClass {
 
     public SocialMarker getData(int index){
         return List.get(index);
+    }
+
+    public SocialMarker getWholeData(int index){
+        return WholeList.get(index);
     }
 
     public String getFilter1(int index){
