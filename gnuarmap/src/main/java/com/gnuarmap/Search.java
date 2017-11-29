@@ -26,8 +26,8 @@ public class Search extends AppCompatActivity {
             "컴퓨터과학관","남명학관","학군단","고문헌도서관박물관","예절교육원","InformationCenter",
             "야외공연장","대운동장","파워플랜트","교직원테니스장","산-송신탑",
             "게스트하우스","LG개척관",
-            "기숙사8동","기숙사9동","기숙사10동","기숙사11동","아람관","부설중학교","부설고등학교",
-            "101동","102동","151동","201동","251동","252동","301동",
+            "기숙사 8동","기숙사 9동","기숙사 10동","기숙사 11동","아람관","부설중학교","부설고등학교",
+            "101동","102동","151동","201동","251동","252동","301동","310동",
             "302동","303동","예술관","351동","352동",
             "353동","354동","401동","402동","403동","404동","405동",
             "406동","407동","416동","451동","452동",
@@ -56,7 +56,7 @@ public class Search extends AppCompatActivity {
             "정문-InformationCenter","정도회","K.T.C","일레븐","화랑회","농업대학 실습동",
             "청학","맥","FC BB","대금소리","팀레이지","V.E.C","점보","바로바로서비스센터","목공실",
             "교직원테니스장","송신탑","기숙사행정실","총동아리방","음악교육과","미술교육과","자연과학대학 학장실"
-            ,"자연과학대학 행정실","기숙사영어캠퍼스","기숙사 4동","기숙사 5동","기숙사구관","산학협력단","공학연구원","교육연구원(다문화교육센터","기초과학연구소","농업생명과학연구원"
+            ,"자연과학대학 행정실","기숙사영어캠퍼스","기숙사 4동","기숙사 5동","기숙사 2동","산학협력단","공학연구원","교육연구원(다문화교육센터","기초과학연구소","농업생명과학연구원"
             ,"사회과학연구원","약학연구소","여성연구소","인권사회발전연구소","EU연구소","국책사업단",
             "약학대학","혁신연구실","장비실","식물배양실","제약실습공장","나노신소재공학부(고분자,생명화학)","고분자공학과","생명화학공학과","항공기부품기술연구소",
             "기계공학부","공학교육혁신센터",
@@ -68,7 +68,7 @@ public class Search extends AppCompatActivity {
             "나노신소재공학부(금속재료,세라믹)","그린에너지융합연구소",
             "공과대학 본부","융합과학기술대학원","토지주택대학원","어울마루","산업시스템공학부","산업공학과","산업정보공학과",
             "건축공학과","기계항공정보융합공학부","항공우주 및 소프트웨어공학과",
-            "교육문화센터","인문대식당","평생교육원"
+            "교육문화센터","인문대식당","평생교육원","남명학관","기숙사 3동","기숙사 관리동","영어 전용 강의동"
     };
     DataBase data = new DataBase();
     DataClass data2 = new DataClass();
@@ -133,7 +133,7 @@ public class Search extends AppCompatActivity {
                         "406동")||s.equals("407동")||s.equals("416동")||s.equals("451동")||s.equals("452동")||s.equals(
                         "453동")||s.equals("454동")||s.equals("455동")||s.equals("456동")||s.equals("457동")||s.equals(
                         "458동")||s.equals("459동")||s.equals("501동")||s.equals("502동")||s.equals("503동")||s.equals("504동")||s.equals(
-                        "505동")){
+                        "505동")||s.equals("310동")){
                     int a = s.indexOf('동');
                     String s2 = s.substring(0,a);
                     numbersearch(s2,i);
@@ -221,7 +221,7 @@ public class Search extends AppCompatActivity {
                     j = "40"; //151동
                 } else if (s.equals("총장실") || s.equals("교무처") || s.equals("학생처") || s.equals("기획처") || s.equals("사무국") || s.equals("대외협력본부") || s.equals("입학본부") || s.equals("대학원")) {
                     j = "41"; //1동
-                } else if (s.equals("도서관") || s.equals("박물관") || s.equals("매점")) {
+                } else if (s.equals("도서관") || s.equals("박물관") || s.equals("매점")||s.equals("도서관매점")) {
                     j = "42"; //2
                 } else if (s.equals("학생회관") || s.equals("인재개발원")) {
                     j = "43"; //3
@@ -283,13 +283,13 @@ public class Search extends AppCompatActivity {
                     j = "71"; //69
                 } else if (s.equals("LG개척관")) {
                     j = "72"; //70
-                } else if (s.equals("기숙사8동")) {
+                } else if (s.equals("기숙사 8동")) {
                     j = "73"; //71
-                } else if (s.equals("기숙사9동")) {
+                } else if (s.equals("기숙사 9동")) {
                     j = "74"; //72
-                } else if (s.equals("기숙사10동")) {
+                } else if (s.equals("기숙사 10동")) {
                     j = "75"; //73
-                } else if (s.equals("기숙사11동")) {
+                } else if (s.equals("기숙사 11동")) {
                     j = "76"; //74
                 } else if (s.equals("부설중학교")) {
                     j = "77"; //81
@@ -301,8 +301,6 @@ public class Search extends AppCompatActivity {
                     j = "80"; //304동
                 } else if (s.equals("통학버스승강장")) {
                     j = "81";
-                } else if (s.equals("도서관매점")) {
-                    j = "82";
                 } else if (s.equals("NH농협")) {
                     j = "83";
                 } else if (s.equals("남문주차장")) {
@@ -317,7 +315,16 @@ public class Search extends AppCompatActivity {
                     j = "88";
                 } else if (s.equals("대운동장")) {
                     j = "89";
+                } else if (s.equals("남명학관")) {
+                    j = "90";
+                } else if (s.equals("기숙사 3동")) {
+                    j = "91";
+                } else if (s.equals("기숙사 관리동")) {
+                    j = "92";
+                } else if (s.equals("영어 전용 강의동")) {
+                    j = "93";
                 }
+
             }
         }return j;
     }
