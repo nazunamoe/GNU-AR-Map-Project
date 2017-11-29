@@ -1,9 +1,15 @@
 package com.gnuarmap.NaverMap;
 
+import android.Manifest;
+import android.app.AlertDialog;
 import android.content.Context;
+import android.content.DialogInterface;
 import android.content.Intent;
+import android.location.Location;
+import android.location.LocationManager;
 import android.os.Build;
 import android.os.Bundle;
+import android.support.v4.content.ContextCompat;
 import android.support.v7.widget.Toolbar;
 import android.util.Log;
 import android.view.*;
@@ -26,6 +32,11 @@ import com.nhn.android.maps.nmapmodel.NMapError;
 import com.nhn.android.maps.nmapmodel.NMapPlacemark;
 import com.nhn.android.mapviewer.overlay.NMapMyLocationOverlay;
 import com.nhn.android.mapviewer.overlay.NMapOverlayManager;
+
+import java.util.Date;
+
+import static android.location.LocationManager.GPS_PROVIDER;
+import static android.location.LocationManager.NETWORK_PROVIDER;
 
 public class NaverMapActivity extends NMapActivity {
     public final static String CLIENT_ID = "mUusvsrwEZf9uxFtJ5Se";
@@ -82,7 +93,16 @@ public class NaverMapActivity extends NMapActivity {
                                                    switch (item.getItemId()) {
                                                        case R.id.action_location:
                                                            mMapController.setZoomLevel(11);
-                                                           gLocation_setting.startMyLocation();
+                                                           LocationManager current = (LocationManager) getSystemService(Context.LOCATION_SERVICE);
+                                                           try{
+                                                               Location currentGPSInfo = current.getLastKnownLocation(NETWORK_PROVIDER);
+                                                               if(current.isProviderEnabled(GPS_PROVIDER)){
+                                                                   currentGPSInfo = current.getLastKnownLocation(GPS_PROVIDER);
+                                                               }
+                                                               mMapController.setMapCenter(currentGPSInfo.getLongitude(),currentGPSInfo.getLatitude());
+                                                           }catch(SecurityException e){
+                                                               Toast.makeText(getApplicationContext(), R.string.permission_rejected, Toast.LENGTH_SHORT).show();
+                                                           }
                                                            Toast.makeText(getApplicationContext(),"현재 위치로 이동",Toast.LENGTH_SHORT).show();
                                                            return true;
                                                    }

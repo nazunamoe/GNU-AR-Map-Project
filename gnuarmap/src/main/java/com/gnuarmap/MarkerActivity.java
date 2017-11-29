@@ -5,6 +5,7 @@ import android.content.Intent;
 import android.net.Uri;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
@@ -21,6 +22,7 @@ public class MarkerActivity extends AppCompatActivity {
         Intent intent = this.getIntent();
         url = intent.getExtras().getString("URL");
         String title = intent.getExtras().getString("Title");
+        final String num = intent.getExtras().getString("num");
         String Menu1 = getResources().getString(R.string.NaverMarker);
         String Menu2 = getResources().getString(R.string.WebSite);
         final String[] LIST_MENU = {Menu1, Menu2} ;
@@ -38,6 +40,7 @@ public class MarkerActivity extends AppCompatActivity {
                         intent = new Intent(MarkerActivity.this, NaverMapActivity.class);
                         intent.putExtra("Return","True");
                         intent.putExtra("set","True");
+                        intent.putExtra("num",num);
                         startActivity(intent);
                         break;
                     }

@@ -45,7 +45,7 @@ public class SocialMarker extends LocalMarker {
 	public String getFlag;
 	public SocialMarker(String id, String title, double latitude, double longitude,
 			double altitude, String URL, int type, int color ,String flag, String filtering1, String filtering2[], int IDW) {
-		super(id, title, latitude, longitude, altitude, URL, type, color);
+		super(id, title, latitude, longitude, altitude, URL, type, color, id);
 		this.NUM = id;
 		this.id = IDW;
 		this.getFlag = flag;

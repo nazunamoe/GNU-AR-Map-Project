@@ -57,7 +57,7 @@ public abstract class LocalMarker implements Marker {
 	protected double distance;
 	// The marker color
 	private int colour;
-	
+	private String num;
 	private boolean active;
 
 	// Draw properties
@@ -77,11 +77,17 @@ public abstract class LocalMarker implements Marker {
 	public Label txtLab = new Label();
 	protected TextObj textBlock;
 
-	public LocalMarker(String id, String title, double latitude, double longitude, double altitude, String link, int type, int colour) {
+	public LocalMarker(String id, String title, double latitude, double longitude, double altitude, String link, int type, int colour, String no) {
 		super();
 
 		this.active = false;
 		this.title = title;
+		try{
+			this.num = no;
+		}
+		catch(NumberFormatException e){
+			this.num = "0";
+		}
 		this.mGeoLoc = new PhysicalPlace(latitude,longitude,altitude);
 		if (link != null && link.length() > 0) {
 			URL = "webpage:" + URLDecoder.decode(link);
@@ -93,6 +99,7 @@ public abstract class LocalMarker implements Marker {
 
 	}
 
+	public String getNum() { return num; }
 
 	public String getTitle(){
 		return title;
