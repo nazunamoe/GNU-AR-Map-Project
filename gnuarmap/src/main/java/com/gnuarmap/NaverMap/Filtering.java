@@ -1,4 +1,4 @@
-package com.gnuarmap;
+package com.gnuarmap.NaverMap;
 
 import android.content.Context;
 import android.graphics.Rect;
@@ -7,6 +7,8 @@ import android.view.View;
 
 import com.gnuarmap.NaverMap.NMapCalloutCustomOverlayView;
 import com.gnuarmap.NaverMap.NMapPOIflagType;
+import com.gnuarmap.R;
+import com.gnuarmap.SocialMarker;
 import com.nhn.android.maps.NMapController;
 import com.nhn.android.maps.NMapOverlay;
 import com.nhn.android.maps.NMapOverlayItem;
@@ -94,6 +96,14 @@ public class Filtering {
         }
 
     };
+
+    public void CurrentLocation(Double longitude, Double latitude, Context ctx){
+        NMapPOIdata poiData = new NMapPOIdata(1, mMapViewerResourceProvider, true);
+        poiData.addPOIitem(new NGeoPoint(longitude,latitude),ctx.getString(R.string.My_location),markerId,0);
+        poiData.endPOIdata();
+        poiDataOverlay = mOverlayManager.createPOIdataOverlay(poiData, null);
+        poiDataOverlay.setOnStateChangeListener(onPOIdataStateChangeListener);
+    }
 
     public void Searching(int num){
         int d = database.data.getSize();

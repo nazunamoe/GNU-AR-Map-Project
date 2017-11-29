@@ -1,23 +1,17 @@
 package com.gnuarmap.NaverMap;
 
-import android.Manifest;
-import android.app.AlertDialog;
 import android.content.Context;
-import android.content.DialogInterface;
 import android.content.Intent;
 import android.location.Location;
 import android.location.LocationManager;
 import android.os.Build;
 import android.os.Bundle;
-import android.support.v4.content.ContextCompat;
 import android.support.v7.widget.Toolbar;
 import android.util.Log;
 import android.view.*;
 import android.widget.Toast;
 
-import com.gnuarmap.SocialMarker;
 import com.gnuarmap.data.DataBase;
-import com.gnuarmap.Filtering;
 import com.gnuarmap.FilteringState;
 import com.gnuarmap.MenuActivity;
 import com.gnuarmap.MixView;
@@ -31,16 +25,12 @@ import com.nhn.android.maps.NMapView;
 import com.nhn.android.maps.maplib.NGeoPoint;
 import com.nhn.android.maps.nmapmodel.NMapError;
 import com.nhn.android.maps.nmapmodel.NMapPlacemark;
-import com.nhn.android.maps.overlay.NMapPOIdata;
 import com.nhn.android.mapviewer.overlay.NMapMyLocationOverlay;
 import com.nhn.android.mapviewer.overlay.NMapOverlayManager;
 import com.nhn.android.mapviewer.overlay.NMapPOIdataOverlay;
 
-import java.util.Date;
-
 import static android.location.LocationManager.GPS_PROVIDER;
 import static android.location.LocationManager.NETWORK_PROVIDER;
-import static com.gnuarmap.Filtering.poiData;
 
 public class NaverMapActivity extends NMapActivity {
     public final static String CLIENT_ID = "mUusvsrwEZf9uxFtJ5Se";
@@ -106,6 +96,7 @@ public class NaverMapActivity extends NMapActivity {
                                                                    currentGPSInfo = current.getLastKnownLocation(GPS_PROVIDER);
                                                                }
                                                                mMapController.setMapCenter(currentGPSInfo.getLongitude(),currentGPSInfo.getLatitude());
+                                                               filtering.CurrentLocation(currentGPSInfo.getLongitude(),currentGPSInfo.getLatitude(),getApplicationContext());
                                                            }catch(SecurityException e){
                                                                Toast.makeText(getApplicationContext(), R.string.permission_rejected, Toast.LENGTH_SHORT).show();
                                                            }
