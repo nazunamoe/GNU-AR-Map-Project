@@ -28,11 +28,9 @@ package com.gnuarmap;
 
 import static android.hardware.SensorManager.SENSOR_DELAY_GAME;
 
-import java.util.Date;
 import java.util.List;
 
 import com.gnuarmap.data.DataSource;
-import com.gnuarmap.NaverMap.NaverMapActivity;
 
 import org.mixare.lib.gui.PaintScreen;
 import org.mixare.lib.render.Matrix;
@@ -52,28 +50,23 @@ import android.hardware.Sensor;
 import android.hardware.SensorEvent;
 import android.hardware.SensorEventListener;
 import android.hardware.SensorManager;
-import android.location.Location;
 import android.os.Bundle;
 import android.os.PowerManager;
 import android.os.PowerManager.WakeLock;
 import android.provider.Settings;
 import android.util.Log;
-import android.view.Gravity;
 import android.view.KeyEvent;
-import android.view.Menu;
-import android.view.MenuItem;
 import android.view.MotionEvent;
 import android.view.View;
 import android.view.View.OnTouchListener;
 import android.view.ViewGroup.LayoutParams;
 import android.view.Window;
 import android.view.WindowManager;
-import android.widget.FrameLayout;
 import android.widget.SeekBar;
 import android.widget.TextView;
 import android.widget.Toast;
 
-public class MixView extends Activity implements SensorEventListener, OnTouchListener {
+public class ARView extends Activity implements SensorEventListener, OnTouchListener {
 
 	private CameraSurface camScreen;
 	private AugmentedView augScreen;
@@ -189,13 +182,13 @@ public class MixView extends Activity implements SensorEventListener, OnTouchLis
 	 */
 	protected void onActivityResult(final int requestCode,
 			final int resultCode, Intent data) {
-		Log.d(TAG + " WorkFlow", "MixView - onActivityResult Called");
+		Log.d(TAG + " WorkFlow", "ARView - onActivityResult Called");
 		// check if the returned is request to refresh screen (setting might be
 		// changed)
 		try {
 			if (data.getBooleanExtra("RefreshScreen", false)) {
 				Log.d(TAG + " WorkFlow",
-						"MixView - Received Refresh Screen Request .. about to refresh");
+						"ARView - Received Refresh Screen Request .. about to refresh");
 				repaint();
 			}
 
@@ -654,7 +647,7 @@ public class MixView extends Activity implements SensorEventListener, OnTouchLis
 	 *            the dWindow to set
 	 */
 	static void setdWindow(PaintScreen dWindow) {
-		MixView.dWindow = dWindow;
+		ARView.dWindow = dWindow;
 	}
 
 
@@ -670,7 +663,7 @@ public class MixView extends Activity implements SensorEventListener, OnTouchLis
 	 *            the dataView to set
 	 */
 	static void setDataView(DataView dataView) {
-		MixView.dataView = dataView;
+		ARView.dataView = dataView;
 	}
 
 	private void setZoomLevel() {
@@ -692,7 +685,7 @@ public class MixView extends Activity implements SensorEventListener, OnTouchLis
 
 class AugmentedView extends View {
 	public boolean moreview;
-	MixView app;
+	ARView app;
 	int xSearch = 200;
 	int ySearch = 10;
 	int searchObjWidth = 0;
@@ -704,7 +697,7 @@ class AugmentedView extends View {
 		super(context);
 		this.moreview = imoreview;
 		try {
-			app = (MixView) context;
+			app = (ARView) context;
 
 			app.killOnError();
 		} catch (Exception ex) {
@@ -717,14 +710,14 @@ class AugmentedView extends View {
 		try {
 			app.killOnError();
 
-			MixView.getdWindow().setWidth(canvas.getWidth());
-			MixView.getdWindow().setHeight(canvas.getHeight());
+			ARView.getdWindow().setWidth(canvas.getWidth());
+			ARView.getdWindow().setHeight(canvas.getHeight());
 
-			MixView.getdWindow().setCanvas(canvas);
+			ARView.getdWindow().setCanvas(canvas);
 
-			if (!MixView.getDataView().isInited()) {
-				MixView.getDataView().init(MixView.getdWindow().getWidth(),
-						MixView.getdWindow().getHeight());
+			if (!ARView.getDataView().isInited()) {
+				ARView.getDataView().init(ARView.getdWindow().getWidth(),
+						ARView.getdWindow().getHeight());
 			}
 			if (app.isZoombarVisible()) {
 				zoomPaint.setColor(Color.WHITE);
@@ -747,7 +740,7 @@ class AugmentedView extends View {
 				int height = canvas.getHeight() / 100 * 85;
 			}
 
-			MixView.getDataView().draw(MixView.getdWindow());
+			ARView.getDataView().draw(ARView.getdWindow());
 		} catch (Exception ex) {
 			app.doError(ex);
 		}

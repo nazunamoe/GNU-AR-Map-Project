@@ -25,12 +25,10 @@ import java.util.Hashtable;
 import java.util.List;
 
 import com.gnuarmap.MixContext;
-import com.gnuarmap.MixView;
 
 import org.mixare.lib.marker.Marker;
 
 import android.location.Location;
-import android.util.Log;
 
 /**
  * DataHandler is the model which provides the Marker Objects with its data.
@@ -53,7 +51,7 @@ public class DataHandler {
 		 * 독립된 데이터 프로세서 대신 이 부분에 marker 배열에 필요한 마커 데이터를 직접 등록한다.
 		 */
 
-		//Log.d(MixView.TAG, "Marker count: "+markerList.size());
+		//Log.d(ARView.TAG, "Marker count: "+markerList.size());
 	}
 
 	// 마커 리스트 정렬

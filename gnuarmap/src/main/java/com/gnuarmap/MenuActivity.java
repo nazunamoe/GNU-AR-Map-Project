@@ -88,7 +88,7 @@ public class MenuActivity extends AppCompatActivity
                     Toast.makeText(getApplicationContext(), R.string.permission_rejected, Toast.LENGTH_SHORT).show();
                 }
                 else if(gpsCheck == PackageManager.PERMISSION_GRANTED){
-                    startActivity(new Intent(ctx, MixView.class));
+                    startActivity(new Intent(ctx, ARView.class));
                     finish();
                 }
                 break;

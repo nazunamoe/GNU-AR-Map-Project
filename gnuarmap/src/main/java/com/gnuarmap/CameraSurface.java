@@ -14,7 +14,7 @@ import java.util.List;
  */
 
 class CameraSurface extends SurfaceView implements SurfaceHolder.Callback {
-    MixView app;
+    ARView app;
     SurfaceHolder holder;
     Camera camera;
 
@@ -22,7 +22,7 @@ class CameraSurface extends SurfaceView implements SurfaceHolder.Callback {
         super(context);
 
         try {
-            app = (MixView) context;
+            app = (ARView) context;
 
             holder = getHolder();
             holder.addCallback(this);

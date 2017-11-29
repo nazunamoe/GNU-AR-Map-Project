@@ -7,14 +7,13 @@ import android.location.LocationManager;
 import android.os.Build;
 import android.os.Bundle;
 import android.support.v7.widget.Toolbar;
-import android.util.Log;
 import android.view.*;
 import android.widget.Toast;
 
 import com.gnuarmap.data.DataBase;
 import com.gnuarmap.FilteringState;
 import com.gnuarmap.MenuActivity;
-import com.gnuarmap.MixView;
+import com.gnuarmap.ARView;
 import com.gnuarmap.R;
 import com.gnuarmap.Search;
 import com.nhn.android.maps.NMapActivity;
@@ -149,7 +148,7 @@ public class NaverMapActivity extends NMapActivity {
             else if(ret == 1){
                 Context ctx;
                 ctx = this;
-                startActivity(new Intent(ctx, MixView.class));
+                startActivity(new Intent(ctx, ARView.class));
                 finish();
             }
             else if (ret == 0){

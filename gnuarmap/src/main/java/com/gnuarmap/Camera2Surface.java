@@ -30,7 +30,7 @@ class Camera2Surface extends CameraSurface {
 
     Size[] sizes = null;
 
-    MixView mixViewActivity;
+    ARView ARViewActivity;
     SurfaceHolder holder;
     CameraDevice camera;
     CameraManager cameraManager;
@@ -41,12 +41,12 @@ class Camera2Surface extends CameraSurface {
     Camera2Surface(Context context) {
         super(context);
         try {
-            mixViewActivity = (MixView) context;
+            ARViewActivity = (ARView) context;
 
             holder = getHolder();
             holder.addCallback(this);
 
-            cameraManager = (CameraManager) mixViewActivity.getSystemService(Context.CAMERA_SERVICE);
+            cameraManager = (CameraManager) ARViewActivity.getSystemService(Context.CAMERA_SERVICE);
         } catch (Exception ex) {
 
         }
@@ -137,7 +137,7 @@ class Camera2Surface extends CameraSurface {
 
     private void openCamera() {
         try{
-            if (ActivityCompat.checkSelfPermission(this.mixViewActivity, Manifest.permission.CAMERA) != PackageManager.PERMISSION_GRANTED) {
+            if (ActivityCompat.checkSelfPermission(this.ARViewActivity, Manifest.permission.CAMERA) != PackageManager.PERMISSION_GRANTED) {
 
                 // here to request the missing permissions, and then overriding
                 //   public void onRequestPermissionsResult(int requestCode, String[] permissions, int[] grantResults)
