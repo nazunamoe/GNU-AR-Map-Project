@@ -37,7 +37,7 @@ import com.gnuarmap.data.DataSource;
 public class SocialMarker extends LocalMarker {
 
 	public static final int MAX_OBJECTS=15;
-
+	public String NUM;
 	public String filter1;
 	public String filter2[];
 
@@ -45,6 +45,7 @@ public class SocialMarker extends LocalMarker {
 	public SocialMarker(String id, String title, double latitude, double longitude,
 			double altitude, String URL, int type, int color ,String flag, String filtering1, String filtering2[]) {
 		super(id, title, latitude, longitude, altitude, URL, type, color);
+		this.NUM = id;
 		this.getFlag = flag;
 		this.filter1 = filtering1;
 		this.filter2 = filtering2;
@@ -99,6 +100,7 @@ public class SocialMarker extends LocalMarker {
 	public int getMaxObjects() {
 		return MAX_OBJECTS;
 	}
+
 
 
 }

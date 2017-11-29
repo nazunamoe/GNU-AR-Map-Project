@@ -33,12 +33,11 @@ public class DataClass {
         return 0xFF000000 | R | G | B;
     }
 
-    public void addItem(String name, String url, double Latitude, double Longitude, String type, String Filtering1, String[] Filtering2, int no){
+    public void addItem(String num, String name, String url, double Latitude, double Longitude, String type, String Filtering1, String[] Filtering2, int no){
         int value = 0;
         this.Filtering1 = Filtering1;
         this.Filtering2 = Filtering2;
         int number = List.size();
-        String num = String.valueOf(number); // ID값은 사이즈에 따라서 결정됨
         WholeList.add(new SocialMarker(
                 num,
                 HtmlUnescape.unescapeHTML((name), 0),
@@ -53,81 +52,81 @@ public class DataClass {
                 Filtering2)
         );
         if(state.AllBuilding){
-            secondFiltering(Integer.toString(no),Latitude,Longitude,url,value,type,name,Filtering2);
+            secondFiltering(num,Latitude,Longitude,url,value,type,name,Filtering2);
         }else{
             if(state.Agriculture){
                 if(Filtering1=="agriculture"){
-                    secondFiltering(Integer.toString(no),Latitude,Longitude,url,value,type,name,Filtering2);
+                    secondFiltering(num,Latitude,Longitude,url,value,type,name,Filtering2);
                 }
             }
             if(state.Business){
                 if(Filtering1=="business"){
-                    secondFiltering(Integer.toString(no),Latitude,Longitude,url,value,type,name,Filtering2);
+                    secondFiltering(num,Latitude,Longitude,url,value,type,name,Filtering2);
                 }
             }
             if(state.Engnieering){
                 if(Filtering1=="engnieering"){
-                    secondFiltering(Integer.toString(no),Latitude,Longitude,url,value,type,name,Filtering2);
+                    secondFiltering(num,Latitude,Longitude,url,value,type,name,Filtering2);
                 }
             }
             if(state.Dormitory){
                 if(Filtering1=="dormitory"){
-                    secondFiltering(Integer.toString(no),Latitude,Longitude,url,value,type,name,Filtering2);
+                    secondFiltering(num,Latitude,Longitude,url,value,type,name,Filtering2);
                 }
             }
             if(state.ETC){
                 if(Filtering1=="etc"){
-                    secondFiltering(Integer.toString(no),Latitude,Longitude,url,value,type,name,Filtering2);
+                    secondFiltering(num,Latitude,Longitude,url,value,type,name,Filtering2);
                 }
             }
             if(state.University){
                 if(Filtering1=="university"){
-                    secondFiltering(Integer.toString(no),Latitude,Longitude,url,value,type,name,Filtering2);
+                    secondFiltering(num,Latitude,Longitude,url,value,type,name,Filtering2);
                 }
             }
             if(state.Club){
                 if(Filtering1=="club"){
-                    secondFiltering(Integer.toString(no),Latitude,Longitude,url,value,type,name,Filtering2);
+                    secondFiltering(num,Latitude,Longitude,url,value,type,name,Filtering2);
                 }
             }
             if(state.Door){
                 if(Filtering1=="door"){
-                    secondFiltering(Integer.toString(no),Latitude,Longitude,url,value,type,name,Filtering2);
+                    secondFiltering(num,Latitude,Longitude,url,value,type,name,Filtering2);
                 }
             }
             if(state.Law){
                 if(Filtering1=="law"){
-                    secondFiltering(Integer.toString(no),Latitude,Longitude,url,value,type,name,Filtering2);
+                    secondFiltering(num,Latitude,Longitude,url,value,type,name,Filtering2);
                 }
             }
             if(state.Education){
                 if(Filtering1=="education"){
-                    secondFiltering(Integer.toString(no),Latitude,Longitude,url,value,type,name,Filtering2);
+                    secondFiltering(num,Latitude,Longitude,url,value,type,name,Filtering2);
                 }
             }
             if(state.Social){
                 if(Filtering1=="social"){
-                    secondFiltering(Integer.toString(no),Latitude,Longitude,url,value,type,name,Filtering2);
+                    secondFiltering(num,Latitude,Longitude,url,value,type,name,Filtering2);
                 }
             }
             if(state.Veterinary){
                 if(Filtering1=="veterinary"){
-                    secondFiltering(Integer.toString(no),Latitude,Longitude,url,value,type,name,Filtering2);
+                    secondFiltering(num,Latitude,Longitude,url,value,type,name,Filtering2);
                 }
             }
             if(state.Leisure){
                 if(Filtering1=="leisure"){
-                    secondFiltering(Integer.toString(no),Latitude,Longitude,url,value,type,name,Filtering2);
+                    secondFiltering(num,Latitude,Longitude,url,value,type,name,Filtering2);
                 }
             }
             if(state.Humanities){
                 if(Filtering1=="humanities"){
-                    secondFiltering(Integer.toString(no),Latitude,Longitude,url,value,type,name,Filtering2);
+                    secondFiltering(num,Latitude,Longitude,url,value,type,name,Filtering2);
                 }
             }
             if(state.Science){
                 if(Filtering1=="science"){
-                    secondFiltering(Integer.toString(no),Latitude,Longitude,url,value,type,name,Filtering2);
+                    secondFiltering(num,Latitude,Longitude,url,value,type,name,Filtering2);
                 }
             }
         }
@@ -226,6 +225,19 @@ public class DataClass {
                 Filtering1,
                 Filtering2);
         List.add(item);
+    }
+
+    public SocialMarker getMarker(String no){
+        int b=0;
+
+        for(int a = 0; a<WholeList.size(); a++){
+            Log.d("FAL",""+WholeList.get(a).NUM+","+no);
+            if(no.equals(WholeList.get(a).NUM)){
+                Log.d("FNC",""+WholeList.get(a).NUM+","+a);
+                b = a;
+            }
+        }
+        return List.get(b);
     }
 
     public int getSize(){

@@ -46,7 +46,7 @@ public class Sample {
     public void Initialize(){
 
         // 샘플 데이터
-        data.addItem("샘플",
+        data.addItem("0","샘플",
                 Engnieering,
                 35.262957,128.639452,
                 "engine",

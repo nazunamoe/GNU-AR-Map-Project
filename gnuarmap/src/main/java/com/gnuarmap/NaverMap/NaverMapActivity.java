@@ -5,6 +5,7 @@ import android.content.Intent;
 import android.os.Build;
 import android.os.Bundle;
 import android.support.v7.widget.Toolbar;
+import android.util.Log;
 import android.view.*;
 import android.widget.Toast;
 
@@ -102,6 +103,9 @@ public class NaverMapActivity extends NMapActivity {
         mMyLocationOverlay = mOverlayManager.createMyLocationOverlay(mMapLocationManager, mMapCompassManager);
         if(name == null){
             filtering.GMarker();
+        }else{
+            int a = Integer.parseInt(name);
+            filtering.Searching(a);
         }
     }
 
@@ -117,7 +121,14 @@ public class NaverMapActivity extends NMapActivity {
         Intent intent = getIntent();
         int ret = intent.getIntExtra("return",1);
         if (keyCode == android.view.KeyEvent.KEYCODE_BACK){
-            if(ret == 1){
+            Log.d("FAL",""+ret);
+            if(ret == 2){
+                Context ctx;
+                ctx = this;
+                startActivity(new Intent(ctx, Search.class));
+                finish();
+            }
+            else if(ret == 1){
                 Context ctx;
                 ctx = this;
                 startActivity(new Intent(ctx, MixView.class));

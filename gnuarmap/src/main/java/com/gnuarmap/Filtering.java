@@ -4,6 +4,7 @@ import android.content.Context;
 import android.graphics.Rect;
 import android.util.Log;
 import android.view.View;
+import android.widget.Toast;
 
 import com.gnuarmap.NaverMap.NMapCalloutCustomOverlayView;
 import com.gnuarmap.NaverMap.NMapPOIflagType;
@@ -34,7 +35,6 @@ public class Filtering {
     public static NMapPOIdataOverlay poiDataOverlay;
     public static NMapPOIdataOverlay poiDataOverlay1;
     DataBase database = new DataBase();
-
 
     public Filtering(Context context){
         this.context = context;
@@ -92,4 +92,20 @@ public class Filtering {
         }
 
     };
+
+    public void Searching(int num){
+        int d = database.data.getSize();
+        NMapPOIdata poiData = new NMapPOIdata(d, mMapViewerResourceProvider, true);
+        poiData.beginPOIdata(d);
+        String number = Integer.toString(num);
+        SocialMarker marker = database.data.getMarker(number);
+        Log.d("UJungMother",""+num);
+        poiData.addPOIitem(new NGeoPoint(marker.getLongitude(), marker.getLatitude()), marker.getTitle() ,markerId, 0);
+
+        poiData.endPOIdata();
+        poiDataOverlay = mOverlayManager.createPOIdataOverlay(poiData, null);
+        poiDataOverlay.setOnStateChangeListener(onPOIdataStateChangeListener);
+    }
+
+
 }
