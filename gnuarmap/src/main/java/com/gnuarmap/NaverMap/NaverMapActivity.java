@@ -15,7 +15,7 @@ import com.gnuarmap.FilteringState;
 import com.gnuarmap.MenuActivity;
 import com.gnuarmap.ARView;
 import com.gnuarmap.R;
-import com.gnuarmap.Search;
+import com.gnuarmap.SearchActivity;
 import com.nhn.android.maps.NMapActivity;
 import com.nhn.android.maps.NMapCompassManager;
 import com.nhn.android.maps.NMapController;
@@ -139,7 +139,7 @@ public class NaverMapActivity extends NMapActivity {
             if(ret == 2){
                 Context ctx;
                 ctx = this;
-                startActivity(new Intent(ctx, Search.class));
+                startActivity(new Intent(ctx, SearchActivity.class));
                 finish();
             }
             else if(ret == 1){

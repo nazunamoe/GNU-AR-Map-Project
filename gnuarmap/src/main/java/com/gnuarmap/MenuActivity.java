@@ -108,7 +108,7 @@ public class MenuActivity extends AppCompatActivity
             }
             case R.id.design_search:{
                 ctx = this;
-                startActivity(new Intent(ctx, Search.class));
+                startActivity(new Intent(ctx, SearchActivity.class));
                 finish();
                 break;
             }

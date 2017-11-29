@@ -109,7 +109,7 @@
             android:name=".NaverMap.NaverMapActivity"
             android:theme="@style/AppCompat2" />
         <activity
-            android:name=".Search"
+            android:name=".SearchActivity"
             android:theme="@style/AppTheme" />
         <activity
             android:name=".MenuActivity"
