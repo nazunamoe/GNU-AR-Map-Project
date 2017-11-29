@@ -67,6 +67,7 @@ import android.view.View;
 import android.view.View.OnTouchListener;
 import android.view.ViewGroup.LayoutParams;
 import android.view.Window;
+import android.view.WindowManager;
 import android.widget.FrameLayout;
 import android.widget.SeekBar;
 import android.widget.TextView;
@@ -94,6 +95,8 @@ public class MixView extends Activity implements SensorEventListener, OnTouchLis
 	@Override
 	public void onCreate(Bundle savedInstanceState) {
 		DataSource.createIcons(getResources());
+		getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN,
+				WindowManager.LayoutParams.FLAG_FULLSCREEN);
 		super.onCreate(savedInstanceState);
 		Log.d("ShitFuck",""+state.Camera2);
 		moreview = state.MoreView;
