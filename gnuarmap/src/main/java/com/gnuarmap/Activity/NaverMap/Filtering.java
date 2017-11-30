@@ -30,13 +30,13 @@ import com.gnuarmap.mixare.State;
  */
 
 public class Filtering {
-    int markerId = NMapPOIflagType.PIN;
-    int currentMarker = NMapPOIflagType.SPOT;
-    Context context;
-    public static NMapPOIdata poiData;
-    public static NMapPOIdataOverlay poiDataOverlay;
-    public static NMapPOIdataOverlay poiDataOverlay1;
-    DataBase database = new DataBase();
+    private int markerId = NMapPOIflagType.PIN;
+    private int currentMarker = NMapPOIflagType.SPOT;
+    private Context context;
+    private static NMapPOIdata poiData;
+    private static NMapPOIdataOverlay poiDataOverlay;
+    private static NMapPOIdataOverlay poiDataOverlay1;
+    private DataBase database = new DataBase();
 
     public Filtering(Context context){
         this.context = context;
@@ -56,7 +56,7 @@ public class Filtering {
         poiDataOverlay1.setOnStateChangeListener(onPOIdataStateChangeListener);
     }
 
-    public final NMapPOIdataOverlay.OnStateChangeListener onPOIdataStateChangeListener = new NMapPOIdataOverlay.OnStateChangeListener() {
+    private final NMapPOIdataOverlay.OnStateChangeListener onPOIdataStateChangeListener = new NMapPOIdataOverlay.OnStateChangeListener() {
         public void onCalloutClick(NMapPOIdataOverlay poiDataOverlay, NMapPOIitem item) {
             NGeoPoint point = item.getPoint();
             if (DEBUG) {

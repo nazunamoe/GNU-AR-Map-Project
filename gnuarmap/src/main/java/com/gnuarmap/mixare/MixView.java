@@ -597,7 +597,7 @@ public class MixView extends Activity implements SensorEventListener, OnTouchLis
 			SharedPreferences.Editor editor = settings.edit();
 			/* store the zoom range of the zoom bar selected by the user */
 			editor.putInt("zoomLevel", getMixViewData().getMyZoomBar().getProgress());
-			editor.commit();
+			editor.apply();
 			getMixViewData().getMyZoomBar().setVisibility(View.INVISIBLE);
 			// zoomChanging= false;
 

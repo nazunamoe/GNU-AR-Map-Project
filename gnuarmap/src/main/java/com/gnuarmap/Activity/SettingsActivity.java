@@ -57,7 +57,6 @@ public class SettingsActivity extends AppCompatActivity implements SharedPrefere
             for (int i = 0; i < cat.getPreferenceCount(); i++) {
                 pickPreferenceObject(cat.getPreference(i));
             }
-        } else {
         }
     }
 
@@ -213,16 +212,7 @@ public class SettingsActivity extends AppCompatActivity implements SharedPrefere
                 state.Science = true;
             }
         }
-        editor.commit();
-    }
-
-    public void changeStatus(boolean in){
-        Log.d("mixare","status changed");
-        if(in){
-            in = false;
-        }else if(!in){
-            in = true;
-        }
+        editor.apply();
     }
 
     @Override

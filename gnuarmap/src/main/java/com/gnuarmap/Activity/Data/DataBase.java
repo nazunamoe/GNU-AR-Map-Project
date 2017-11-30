@@ -9,32 +9,32 @@ import com.gnuarmap.mixare.data.DataClass;
 public class DataBase {
     public DataClass data = new DataClass();
 
-    public String Engnieering = "http://ce.gnu.ac.kr";
-    public String Dormitory = "http://dorm.gnu.ac.kr";
-    public String Base = "http://gnu.ac.kr";
-    public String Business = "http://business.gnu.ac.kr";
-    public String Agriculture = "http://cals.gnu.ac.kr/";
-    public String Library = "https://lib.gnu.ac.kr";
-    public String Law = "http://law.gnu.ac.kr";
-    public String Education = "http://sadae.gnu.ac.kr/main/";
-    public String Science = "http://cns.gnu.ac.kr";
-    public String Humanities = "http://inmun.gnu.ac.kr";
-    public String Veterinary = "http://vet.gnu.ac.kr";
-    public String Social = "http://css.gnu.ac.kr/main/";
+    private String Engnieering = "http://ce.gnu.ac.kr";
+    private String Dormitory = "http://dorm.gnu.ac.kr";
+    private String Base = "http://gnu.ac.kr";
+    private String Business = "http://business.gnu.ac.kr";
+    private String Agriculture = "http://cals.gnu.ac.kr/";
+    private String Library = "https://lib.gnu.ac.kr";
+    private String Law = "http://law.gnu.ac.kr";
+    private String Education = "http://sadae.gnu.ac.kr/main/";
+    private String Science = "http://cns.gnu.ac.kr";
+    private String Humanities = "http://inmun.gnu.ac.kr";
+    private String Veterinary = "http://vet.gnu.ac.kr";
+    private String Social = "http://css.gnu.ac.kr/main/";
 
 
-    public String[] vending_printer = {"vending","printer"};
-    public String[] cvs_atm = {"cvs","atm"};
-    public String[] printer_cvs_atm = {"printer","cvs","atm"};
-    public String[] vending = {"vending"};
-    public String[] printer = {"printer"};
-    public String[] cvs = {"cvs"};
-    public String[] atm = {"atm"};
-    public String[] printer_cvs = {"printer","cvs"};
-    public String[] vending_cvs_atm = {"vending","cvs","atm"};
-    public String[] printer_atm = {"printer","atm"};
-    public String[] vending_atm = {"vending","atm"};
-    public String[] nothing = {};
+    private String[] vending_printer = {"vending","printer"};
+    private String[] cvs_atm = {"cvs","atm"};
+    private String[] printer_cvs_atm = {"printer","cvs","atm"};
+    private String[] vending = {"vending"};
+    private String[] printer = {"printer"};
+    private String[] cvs = {"cvs"};
+    private String[] atm = {"atm"};
+    private String[] printer_cvs = {"printer","cvs"};
+    private String[] vending_cvs_atm = {"vending","cvs","atm"};
+    private String[] printer_atm = {"printer","atm"};
+    private String[] vending_atm = {"vending","atm"};
+    private String[] nothing = {};
 
 
     public DataBase(){
