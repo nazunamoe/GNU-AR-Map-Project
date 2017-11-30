@@ -56,7 +56,7 @@
 
     <string name = "navigation_drawer_open">탐색 창 열기</string>
     <string name = "navigation_drawer_close">탐색 창 닫기</string>
-    <string name = "navigation_drawer_arview">AR보기</string>
+    <string name = "navigation_drawer_arview">AR 보기</string>
     <string name = "navigation_drawer_navermap">네이버지도</string>
     <string name = "navigation_drawer_search">검색</string>
     <string name = "navigation_drawer_settings">설정</string>
@@ -73,7 +73,7 @@
     <string name = "navigation_drawer_maker">팀 옵저버 제작</string>
     <string name = "title_activity_settings">설정</string>
 
-    <string name = "settings_drawer_arview">AR보기</string>
+    <string name = "settings_drawer_arview">AR 설정</string>
     <string name = "settings_drawer_filtering">필터링</string>
     <string name = "settings_drawer_navermap">네이버 지도</string>
 
