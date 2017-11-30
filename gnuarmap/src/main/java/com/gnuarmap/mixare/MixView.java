@@ -100,7 +100,6 @@ public class MixView extends Activity implements SensorEventListener, OnTouchLis
 		getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN,
 				WindowManager.LayoutParams.FLAG_FULLSCREEN);
 		super.onCreate(savedInstanceState);
-		Log.d("ShitFuck",""+state.Camera2);
 		if(state.count == 0){
 			AlertDialog.Builder builder1 = new AlertDialog.Builder(this);
 			builder1.setMessage(getString(R.string.GPSWarning));

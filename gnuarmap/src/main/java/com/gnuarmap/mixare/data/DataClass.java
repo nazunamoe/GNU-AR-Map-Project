@@ -234,9 +234,7 @@ public class DataClass {
         int b=0;
 
         for(int a = 0; a<WholeList.size(); a++){
-            Log.d("FAL",""+WholeList.get(a).NUM+","+no);
             if(no.equals(WholeList.get(a).NUM)){
-                Log.d("FNC",""+WholeList.get(a).NUM+","+a);
                 b = a;
             }
         }
