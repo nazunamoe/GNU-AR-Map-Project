@@ -12,6 +12,7 @@
   <SwitchPreference
       android:defaultValue="false"
       android:key="MoreView"
+      android:summary="@string/MoreView_Summary"
       android:title="@string/MoreView" />
  </PreferenceCategory>
 

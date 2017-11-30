@@ -77,7 +77,7 @@ public class MixView extends Activity implements SensorEventListener, OnTouchLis
 
 	private CameraSurface camScreen;
 	private AugmentedView augScreen;
-	public boolean moreview;
+
 	private boolean isInited;
 	private static PaintScreen dWindow;
 	private static DataView dataView;
@@ -99,7 +99,6 @@ public class MixView extends Activity implements SensorEventListener, OnTouchLis
 				WindowManager.LayoutParams.FLAG_FULLSCREEN);
 		super.onCreate(savedInstanceState);
 		Log.d("ShitFuck",""+state.Camera2);
-		moreview = state.MoreView;
 		if(state.count == 0){
 			AlertDialog.Builder builder1 = new AlertDialog.Builder(this);
 			builder1.setMessage(getString(R.string.GPSWarning));
@@ -361,7 +360,7 @@ public class MixView extends Activity implements SensorEventListener, OnTouchLis
 	 */
 	private void maintainAugmentR() {
 		if (augScreen == null ){
-		augScreen = new AugmentedView(this, moreview);
+		augScreen = new AugmentedView(this);
 		}
 		addContentView(augScreen, new LayoutParams(
 				LayoutParams.WRAP_CONTENT, LayoutParams.WRAP_CONTENT));
@@ -857,7 +856,6 @@ public class MixView extends Activity implements SensorEventListener, OnTouchLis
  */
 
 class AugmentedView extends View {
-	public boolean moreview;
 	MixView app;
 	int xSearch = 200;
 	int ySearch = 10;
@@ -866,9 +864,8 @@ class AugmentedView extends View {
 
 	Paint zoomPaint = new Paint();
 
-	public AugmentedView(Context context, boolean imoreview) {
+	public AugmentedView(Context context) {
 		super(context);
-		this.moreview = imoreview;
 		try {
 			app = (MixView) context;
 
@@ -898,13 +895,7 @@ class AugmentedView extends View {
 				String startKM, endKM ;
 				startKM = "200m";
 				endKM = "800m";
-				if(moreview){
-					endKM = "1400m";
-					startKM = "200m";
-				}else{
-					endKM = "800m";
-					startKM = "200m";
-				}
+
 				canvas.drawText(startKM, canvas.getWidth() / 100 * 4,
 						canvas.getHeight() / 100 * 85, zoomPaint);
 				canvas.drawText(endKM, canvas.getWidth() / 100 * 99 + 25,

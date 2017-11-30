@@ -36,7 +36,6 @@ import com.gnuarmap.data.DataSource;
  */
 public class SocialMarker extends LocalMarker {
 
-	public static final int MAX_OBJECTS=15;
 	public String NUM;
 	public String filter1;
 	public String filter2[];
@@ -100,9 +99,14 @@ public class SocialMarker extends LocalMarker {
 
 	@Override
 	public int getMaxObjects() {
-		return MAX_OBJECTS;
+		FilteringState state = FilteringState.getInstance();
+		int max = 0;
+		if(state.MoreView){
+			max = 30;
+		}else{
+			max = 15;
+		}
+		return max;
 	}
-
-
 
 }

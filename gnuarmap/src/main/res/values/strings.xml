@@ -93,7 +93,8 @@ Please turn on permissions at [Setting] > [Permission]"</string>
     <string name="NaverMarker">Show on Naver map</string>
     <string name="WebSite">Go to website of this building</string>
     <string name="Navi">Turn on navigation</string>
-    <string name="MoreView">Get more view on AR</string>
+    <string name="MoreView">Increse marker in AR</string>
+    <string name="MoreView_Summary">You can see more markers, but performance may be degraded.</string>
     <string name="Camera2">Use Camera2 API</string>
     <string name="Camera2_Summary">Please turn off the function when there is a problem</string>
 

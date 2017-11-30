@@ -88,7 +88,8 @@
     <string name="NaverMarker">네이버 지도에서 보기</string>
     <string name="WebSite">이 건물의 홈페이지로 이동</string>
     <string name="Navi">길안내 켜기</string>
-    <string name="MoreView">AR 범위 확장</string>
+    <string name="MoreView">AR 마커 개수 증가</string>
+    <string name="MoreView_Summary">더 많은 마커를 볼 수 있지만 성능이 저하될 수 있습니다.</string>
     <string name="Camera2">카메라 2 API 사용</string>
     <string name="Camera2_Summary">문제가 발생할 시 기능을 꺼 주시기 바랍니다</string>
 
