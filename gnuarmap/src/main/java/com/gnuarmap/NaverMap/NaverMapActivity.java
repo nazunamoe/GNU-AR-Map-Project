@@ -56,6 +56,7 @@ public class NaverMapActivity extends NMapActivity {
     public static NMapPOIdataOverlay poiDataOverlay1;
 
     public static DataBase db = new DataBase();
+    public GLocation_Setting gLocation_setting = new GLocation_Setting();
     public Filtering filtering = new Filtering(this);
     public String name="";
 
@@ -106,6 +107,8 @@ public class NaverMapActivity extends NMapActivity {
                                                    return false;
                                                }
                                            });
+
+        gLocation_setting.initialize();
         mMapController.setZoomLevel(11);
         mMapController.setMapCenter(128.103959,35.152751);
 
