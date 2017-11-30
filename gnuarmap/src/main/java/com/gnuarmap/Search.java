@@ -15,7 +15,7 @@ import com.gnuarmap.data.DataBase;
 import com.gnuarmap.NaverMap.NaverMapActivity;
 import com.gnuarmap.data.DataClass;
 
-public class SearchActivity extends AppCompatActivity {
+public class Search extends AppCompatActivity {
 
     String[] items = {
             "대학본부","중앙도서관","학생회관/인재개발원","학술정보관/교육정보전산원",

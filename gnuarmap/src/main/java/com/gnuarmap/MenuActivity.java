@@ -65,7 +65,7 @@ public class MenuActivity extends AppCompatActivity implements AdapterView.OnIte
             }
             case 2:{ // 검색
                 ctx = this;
-                startActivity(new Intent(ctx, SearchActivity.class));
+                startActivity(new Intent(ctx, Search.class));
                 finish();
                 break;
             }
