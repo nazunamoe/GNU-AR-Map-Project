@@ -24,6 +24,7 @@ import org.mixare.lib.render.Matrix;
 
 import com.gnuarmap.Location.LocationFinder;
 import com.gnuarmap.Location.LocationFinderFactory;
+import com.gnuarmap.NaverMap.NaverMapActivity;
 import com.gnuarmap.WebContent.WebContentManager;
 import com.gnuarmap.WebContent.WebContentManagerFactory;
 
@@ -78,7 +79,14 @@ public class MixContext extends ContextWrapper implements MixContextInterface {
 	public void MarkerMenu(Marker marker){
 		Context ctx;
 		ctx=this;
-		Intent menu = new Intent(ctx, MarkerActivity.class);
+		Intent intent;
+		intent = new Intent(ctx, NaverMapActivity.class);
+		intent.putExtra("Return", "True");
+		intent.putExtra("set", "True");
+		intent.putExtra("num", marker.getNum());
+
+		startActivity(intent);
+		/*Intent menu = new Intent(ctx, MarkerActivity.class);
 		menu.putExtra("Title",marker.getTitle());
 		menu.putExtra("Latitude",marker.getLatitude());
 		menu.putExtra("Longitude",marker.getLongitude());
@@ -88,7 +96,7 @@ public class MixContext extends ContextWrapper implements MixContextInterface {
 		//menu.putExtra("Filtering - 1",marker.getTitle());
 		//menu.putExtra("Filtering - 1",marker.getTitle());
 		//필터링 기준을 정해서 마커 액티비티로 넘겨준다.
-		startActivity(menu);
+		startActivity(menu);*/
 	}
 
 	/**
