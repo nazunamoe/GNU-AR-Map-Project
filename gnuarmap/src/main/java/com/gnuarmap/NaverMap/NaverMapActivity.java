@@ -84,7 +84,6 @@ public class NaverMapActivity extends NMapActivity {
                                                public boolean onMenuItemClick(MenuItem item) {
                                                    switch (item.getItemId()) {
                                                        case R.id.action_location:
-                                                           mMapController.setZoomLevel(11);
                                                            LocationManager current = (LocationManager) getSystemService(Context.LOCATION_SERVICE);
                                                            try{
                                                                Location currentGPSInfo = current.getLastKnownLocation(NETWORK_PROVIDER);
@@ -99,7 +98,6 @@ public class NaverMapActivity extends NMapActivity {
                                                            Toast.makeText(getApplicationContext(),R.string.GoTo_Current,Toast.LENGTH_SHORT).show();
                                                            return true;
                                                        case R.id.action_gnu:{
-                                                           mMapController.setZoomLevel(11);
                                                            mMapController.setMapCenter(128.098211,35.153960) ;
                                                            Toast.makeText(getApplicationContext(),R.string.GoTo_GNU,Toast.LENGTH_SHORT).show();
                                                            return true;
@@ -110,7 +108,7 @@ public class NaverMapActivity extends NMapActivity {
                                            });
 
         gLocation_setting.initialize();
-        mMapController.setZoomLevel(11);
+        mMapController.setZoomLevel(13);
         mMapController.setMapCenter(128.103959,35.152751);
 
         mMapViewerResourceProvider = new NMapViewerResourceProvider(this);
