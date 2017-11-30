@@ -5,7 +5,7 @@
      android:title="@string/settings_drawer_arview"
      android:key="ar_view_setting">
   <SwitchPreference
-      android:defaultValue="true"
+      android:defaultValue="false"
       android:key="Camera2"
       android:summary="@string/Camera2_Summary"
       android:title="@string/Camera2" />
@@ -19,7 +19,7 @@
      android:title="@string/settings_drawer_navermap"
      android:key="NaverMap">
   <SwitchPreference
-      android:defaultValue="true"
+      android:defaultValue="false"
       android:key="MMapViewSet"
       android:title="@string/NMapSetView" />
  </PreferenceCategory>
@@ -28,7 +28,7 @@
      android:title="@string/settings_drawer_1st_filtering"
     android:key="filtering_setting">
   <SwitchPreference
-      android:defaultValue="true"
+      android:defaultValue="false"
       android:key="AllBuilding"
       android:title="@string/Filtering_All"
       android:disableDependentsState="true"/>
@@ -109,7 +109,7 @@
      android:title="@string/settings_drawer_2nd_filtering"
      android:key="filtering_setting">
   <SwitchPreference
-      android:defaultValue="true"
+      android:defaultValue="false"
       android:key="All"
       android:title="@string/Filtering_All"
       android:disableDependentsState="true"/>
