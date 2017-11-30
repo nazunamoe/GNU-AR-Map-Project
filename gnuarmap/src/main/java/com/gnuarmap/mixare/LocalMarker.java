@@ -266,7 +266,7 @@ public abstract class LocalMarker implements Marker {
 		boolean evtHandled = false;
 
 		if (isClickValid(x, y)) {
-			evtHandled = state.handleEvent(ctx, URL, this);
+			evtHandled = state.handleEvent(ctx, URL);
 		}
 		return evtHandled;
 	}

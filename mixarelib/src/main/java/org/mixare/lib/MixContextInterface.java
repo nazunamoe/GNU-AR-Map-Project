@@ -28,6 +28,5 @@ import org.mixare.lib.marker.Marker;
 public interface MixContextInterface {
 
 	void loadMixViewWebPage(String url)  throws Exception ;
-	void MarkerMenu(Marker marker);
 
 }
