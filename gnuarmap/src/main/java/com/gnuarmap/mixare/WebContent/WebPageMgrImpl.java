@@ -16,11 +16,11 @@
  * You should have received a copy of the GNU General Public License along with 
  * this program. If not, see <http://www.gnu.org/licenses/>
  */
-package com.gnuarmap.WebContent;
+package com.gnuarmap.mixare.WebContent;
 
 import java.util.List;
 
-import com.gnuarmap.MixContext;
+import com.gnuarmap.mixare.MixContext;
 
 import android.app.Dialog;
 import android.content.Context;

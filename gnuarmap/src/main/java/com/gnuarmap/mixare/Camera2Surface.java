@@ -1,4 +1,4 @@
-package com.gnuarmap;
+package com.gnuarmap.mixare;
 
 import android.Manifest;
 import android.annotation.TargetApi;

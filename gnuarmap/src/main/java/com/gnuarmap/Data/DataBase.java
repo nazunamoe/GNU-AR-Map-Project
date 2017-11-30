@@ -1,4 +1,6 @@
-package com.gnuarmap.data;
+package com.gnuarmap.Data;
+
+import com.gnuarmap.mixare.data.DataClass;
 
 /**
  * Created by nazunamoe on 2017-11-11.
@@ -221,7 +223,7 @@ public class DataBase {
                 nothing,
                 67
         );
-               data.addItem("93","영어 전용 강의동",
+        data.addItem("93","영어 전용 강의동",
                 Dormitory,
                 35.157827,128.100946,
                 "dominatory",

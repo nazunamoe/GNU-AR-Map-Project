@@ -17,7 +17,7 @@
  * this program. If not, see <http://www.gnu.org/licenses/>
  */
 
-package com.gnuarmap.data;
+package com.gnuarmap.mixare.data;
 
 import com.gnuarmap.R;
 

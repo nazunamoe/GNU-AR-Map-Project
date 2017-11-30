@@ -18,7 +18,7 @@
  */
 package com.gnuarmap.Location;
 
-import com.gnuarmap.MixContext;
+import com.gnuarmap.mixare.MixContext;
 
 import android.location.Location;
 import android.location.LocationListener;

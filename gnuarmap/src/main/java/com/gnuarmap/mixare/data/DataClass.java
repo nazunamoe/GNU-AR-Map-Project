@@ -1,10 +1,10 @@
-package com.gnuarmap.data;
+package com.gnuarmap.mixare.data;
 
 import android.graphics.Bitmap;
 import android.util.Log;
 
-import com.gnuarmap.FilteringState;
-import com.gnuarmap.SocialMarker;
+import com.gnuarmap.mixare.FilteringState;
+import com.gnuarmap.mixare.SocialMarker;
 
 import org.mixare.lib.HtmlUnescape;
 import java.util.ArrayList;

@@ -1,4 +1,4 @@
-package com.gnuarmap;
+package com.gnuarmap.Activity;
 
 import android.app.FragmentTransaction;
 import android.content.Context;
@@ -13,6 +13,9 @@ import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
 import android.view.KeyEvent;
 import android.support.v7.app.ActionBar;
+
+import com.gnuarmap.mixare.FilteringState;
+import com.gnuarmap.R;
 
 public class SettingsActivity extends AppCompatActivity implements SharedPreferences.OnSharedPreferenceChangeListener{
 

@@ -4,86 +4,6 @@
  <PreferenceCategory
      android:title="@string/settings_drawer_arview_header"
      android:key="ar_view_setting">
-  <PreferenceCategory
-      android:key="filtering_setting"
-      android:title="@string/settings_drawer_1st_filtering">
-   <SwitchPreference
-       android:defaultValue="true"
-       android:disableDependentsState="true"
-       android:key="AllBuilding"
-       android:title="@string/Filtering_All" />
-   <SwitchPreference
-       android:defaultValue="false"
-       android:dependency="AllBuilding"
-       android:key="Business"
-       android:title="@string/Filtering_Business" />
-   <SwitchPreference
-       android:defaultValue="false"
-       android:dependency="AllBuilding"
-       android:key="Engnieering"
-       android:title="@string/Filtering_Engnieering" />
-   <SwitchPreference
-       android:defaultValue="false"
-       android:dependency="AllBuilding"
-       android:key="Dormitory"
-       android:title="@string/Filtering_Dormitory" />
-   <SwitchPreference
-       android:defaultValue="false"
-       android:dependency="AllBuilding"
-       android:key="ETC"
-       android:title="@string/Filtering_ETC" />
-   <SwitchPreference
-       android:defaultValue="false"
-       android:dependency="AllBuilding"
-       android:key="Agriculture"
-       android:title="@string/Filtering_Agriculture" />
-   <SwitchPreference
-       android:defaultValue="false"
-       android:dependency="AllBuilding"
-       android:key="University"
-       android:title="@string/Filtering_University" />
-   <SwitchPreference
-       android:defaultValue="false"
-       android:dependency="AllBuilding"
-       android:key="Club"
-       android:title="@string/Filtering_Club" />
-   <SwitchPreference
-       android:defaultValue="false"
-       android:dependency="AllBuilding"
-       android:key="Door"
-       android:title="@string/Filtering_Door" />
-   <SwitchPreference
-       android:defaultValue="false"
-       android:dependency="AllBuilding"
-       android:key="Law"
-       android:title="@string/Filtering_Law" />
-   <SwitchPreference
-       android:defaultValue="false"
-       android:dependency="AllBuilding"
-       android:key="Education"
-       android:title="@string/Filtering_Education" />
-   <SwitchPreference
-       android:defaultValue="false"
-       android:dependency="AllBuilding"
-       android:key="Social"
-       android:title="@string/Filtering_Social" />
-   <SwitchPreference
-       android:defaultValue="false"
-       android:dependency="AllBuilding"
-       android:key="Veterinary"
-       android:title="@string/Filtering_Veterinary" />
-   <SwitchPreference
-       android:defaultValue="false"
-       android:dependency="AllBuilding"
-       android:key="Leisure"
-       android:title="@string/Filtering_Leisure" />
-   <SwitchPreference
-       android:defaultValue="false"
-       android:dependency="AllBuilding"
-       android:key="Science"
-       android:title="@string/Filtering_Science" />
-
-  </PreferenceCategory>
   <SwitchPreference
       android:defaultValue="true"
       android:key="Camera2"
@@ -105,6 +25,86 @@
       android:title="@string/NMapSetView" />
  </PreferenceCategory>
 <!-- 각 건물에 대한 필터링 추가 -->
+ <PreferenceCategory
+     android:key="filtering_setting"
+     android:title="@string/settings_drawer_1st_filtering">
+  <SwitchPreference
+      android:defaultValue="true"
+      android:disableDependentsState="true"
+      android:key="AllBuilding"
+      android:title="@string/Filtering_All" />
+  <SwitchPreference
+      android:defaultValue="false"
+      android:dependency="AllBuilding"
+      android:key="Business"
+      android:title="@string/Filtering_Business" />
+  <SwitchPreference
+      android:defaultValue="false"
+      android:dependency="AllBuilding"
+      android:key="Engnieering"
+      android:title="@string/Filtering_Engnieering" />
+  <SwitchPreference
+      android:defaultValue="false"
+      android:dependency="AllBuilding"
+      android:key="Dormitory"
+      android:title="@string/Filtering_Dormitory" />
+  <SwitchPreference
+      android:defaultValue="false"
+      android:dependency="AllBuilding"
+      android:key="ETC"
+      android:title="@string/Filtering_ETC" />
+  <SwitchPreference
+      android:defaultValue="false"
+      android:dependency="AllBuilding"
+      android:key="Agriculture"
+      android:title="@string/Filtering_Agriculture" />
+  <SwitchPreference
+      android:defaultValue="false"
+      android:dependency="AllBuilding"
+      android:key="University"
+      android:title="@string/Filtering_University" />
+  <SwitchPreference
+      android:defaultValue="false"
+      android:dependency="AllBuilding"
+      android:key="Club"
+      android:title="@string/Filtering_Club" />
+  <SwitchPreference
+      android:defaultValue="false"
+      android:dependency="AllBuilding"
+      android:key="Door"
+      android:title="@string/Filtering_Door" />
+  <SwitchPreference
+      android:defaultValue="false"
+      android:dependency="AllBuilding"
+      android:key="Law"
+      android:title="@string/Filtering_Law" />
+  <SwitchPreference
+      android:defaultValue="false"
+      android:dependency="AllBuilding"
+      android:key="Education"
+      android:title="@string/Filtering_Education" />
+  <SwitchPreference
+      android:defaultValue="false"
+      android:dependency="AllBuilding"
+      android:key="Social"
+      android:title="@string/Filtering_Social" />
+  <SwitchPreference
+      android:defaultValue="false"
+      android:dependency="AllBuilding"
+      android:key="Veterinary"
+      android:title="@string/Filtering_Veterinary" />
+  <SwitchPreference
+      android:defaultValue="false"
+      android:dependency="AllBuilding"
+      android:key="Leisure"
+      android:title="@string/Filtering_Leisure" />
+  <SwitchPreference
+      android:defaultValue="false"
+      android:dependency="AllBuilding"
+      android:key="Science"
+      android:title="@string/Filtering_Science" />
+
+ </PreferenceCategory>
  <!-- 1차 필터링 및 2차 필터링에 대한 체크박스들 -->
  <PreferenceCategory
      android:title="@string/settings_drawer_2nd_filtering"

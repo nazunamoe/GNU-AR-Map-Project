@@ -1,4 +1,4 @@
-package com.gnuarmap;
+package com.gnuarmap.mixare;
 
 import android.content.Context;
 import android.hardware.Camera;

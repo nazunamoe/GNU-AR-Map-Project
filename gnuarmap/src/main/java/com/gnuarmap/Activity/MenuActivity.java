@@ -1,4 +1,4 @@
-package com.gnuarmap;
+package com.gnuarmap.Activity;
 
 import android.Manifest;
 import android.app.AlertDialog;
@@ -17,9 +17,10 @@ import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
 import android.widget.Toast;
-import android.widget.Toolbar;
 
+import com.gnuarmap.mixare.MixView;
 import com.gnuarmap.NaverMap.NaverMapActivity;
+import com.gnuarmap.R;
 
 import java.util.Date;
 
@@ -64,7 +65,7 @@ public class MenuActivity extends AppCompatActivity implements AdapterView.OnIte
             }
             case 2:{ // 검색
                 ctx = this;
-                startActivity(new Intent(ctx, Search.class));
+                startActivity(new Intent(ctx, SearchActivity.class));
                 finish();
                 break;
             }

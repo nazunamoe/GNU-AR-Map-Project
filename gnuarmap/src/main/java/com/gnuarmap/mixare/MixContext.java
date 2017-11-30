@@ -16,7 +16,7 @@
  * You should have received a copy of the GNU General Public License along with 
  * this program. If not, see <http://www.gnu.org/licenses/>
  */
-package com.gnuarmap;
+package com.gnuarmap.mixare;
 
 import org.mixare.lib.MixContextInterface;
 import org.mixare.lib.marker.Marker;
@@ -25,8 +25,8 @@ import org.mixare.lib.render.Matrix;
 import com.gnuarmap.Location.LocationFinder;
 import com.gnuarmap.Location.LocationFinderFactory;
 import com.gnuarmap.NaverMap.NaverMapActivity;
-import com.gnuarmap.WebContent.WebContentManager;
-import com.gnuarmap.WebContent.WebContentManagerFactory;
+import com.gnuarmap.mixare.WebContent.WebContentManager;
+import com.gnuarmap.mixare.WebContent.WebContentManagerFactory;
 
 import android.app.Activity;
 import android.content.ContentResolver;

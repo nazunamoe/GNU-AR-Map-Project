@@ -1,5 +1,5 @@
 /*
- * Copyright (C) 2012- Peer internet solutions 
+ * Copyleft 2012 - Alessandro Staniscia
  * 
  * This file is part of mixare.
  * 
@@ -16,30 +16,21 @@
  * You should have received a copy of the GNU General Public License along with 
  * this program. If not, see <http://www.gnu.org/licenses/>
  */
-package com.gnuarmap.WebContent;
+package com.gnuarmap.mixare.WebContent;
 
-import android.content.Context;
+import com.gnuarmap.mixare.MixContext;
 
 /**
- * This class is repsonsible for Web Content
+ * Factory Of  WebContentManager
  */
-public interface WebContentManager {
-
+public class WebContentManagerFactory {
 	/**
-	 * Shows a webpage with the given url if a markerobject is selected
-	 * (mixlistview, mixoverlay).
+	 * Hide implementation Of WebContentManager
+	 * @param mixContext
+	 * @return WebContentManager
 	 */
-	void loadWebPage(String url, Context context) throws Exception;
-
-	/**
-	 * Checks if the url can be opened by another intent activity, instead of
-	 * the webview This method searches for possible intents that can be used
-	 * instead. I.E. a mp3 file can be forwarded to a mediaplayer.
-	 * 
-	 * @param url
-	 *            the url to process
-	 * @return
-	 */
-	boolean processUrl(String url, Context ctx);
+	public static WebContentManager makeWebContentManager(MixContext mixContext){
+		return new WebPageMgrImpl(mixContext);
+	}
 
 }

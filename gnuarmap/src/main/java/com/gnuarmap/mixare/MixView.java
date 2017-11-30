@@ -16,7 +16,7 @@
  * You should have received a copy of the GNU General Public License along with 
  * this program. If not, see <http://www.gnu.org/licenses/>
  */
-package com.gnuarmap;
+package com.gnuarmap.mixare;
 
 /**
  * This class is the main application which uses the other classes for different
@@ -31,7 +31,9 @@ import static android.hardware.SensorManager.SENSOR_DELAY_GAME;
 import java.util.Date;
 import java.util.List;
 
-import com.gnuarmap.data.DataSource;
+import com.gnuarmap.Activity.MenuActivity;
+import com.gnuarmap.R;
+import com.gnuarmap.mixare.data.DataSource;
 import com.gnuarmap.NaverMap.NaverMapActivity;
 
 import org.mixare.lib.gui.PaintScreen;

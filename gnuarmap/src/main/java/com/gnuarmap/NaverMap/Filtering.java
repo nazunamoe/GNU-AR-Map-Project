@@ -6,7 +6,7 @@ import android.util.Log;
 import android.view.View;
 
 import com.gnuarmap.R;
-import com.gnuarmap.SocialMarker;
+import com.gnuarmap.mixare.SocialMarker;
 import com.nhn.android.maps.NMapOverlay;
 import com.nhn.android.maps.NMapOverlayItem;
 import com.nhn.android.maps.maplib.NGeoPoint;
@@ -14,7 +14,7 @@ import com.nhn.android.maps.overlay.NMapPOIdata;
 import com.nhn.android.maps.overlay.NMapPOIitem;
 import com.nhn.android.mapviewer.overlay.NMapOverlayManager;
 import com.nhn.android.mapviewer.overlay.NMapPOIdataOverlay;
-import com.gnuarmap.data.DataBase;
+import com.gnuarmap.Data.DataBase;
 
 import static com.gnuarmap.NaverMap.NaverMapActivity.DEBUG;
 import static com.gnuarmap.NaverMap.NaverMapActivity.LOG_TAG;
@@ -22,7 +22,7 @@ import static com.gnuarmap.NaverMap.NaverMapActivity.db;
 import static com.gnuarmap.NaverMap.NaverMapActivity.mMapViewerResourceProvider;
 import static com.gnuarmap.NaverMap.NaverMapActivity.mOverlayManager;
 
-import com.gnuarmap.FilteringState;
+import com.gnuarmap.mixare.FilteringState;
 
 
 /**

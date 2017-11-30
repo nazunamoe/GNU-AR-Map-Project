@@ -1,4 +1,4 @@
-package com.gnuarmap;
+package com.gnuarmap.Activity;
 
 import android.content.Context;
 import android.content.Intent;
@@ -11,11 +11,12 @@ import android.widget.AutoCompleteTextView;
 import android.widget.Button;
 import android.widget.Toast;
 
-import com.gnuarmap.data.DataBase;
+import com.gnuarmap.R;
+import com.gnuarmap.Data.DataBase;
 import com.gnuarmap.NaverMap.NaverMapActivity;
-import com.gnuarmap.data.DataClass;
+import com.gnuarmap.mixare.data.DataClass;
 
-public class Search extends AppCompatActivity {
+public class SearchActivity extends AppCompatActivity {
 
     String[] items = {
             "대학본부","중앙도서관","학생회관/인재개발원","학술정보관/교육정보전산원",
@@ -23,7 +24,7 @@ public class Search extends AppCompatActivity {
             "창업보육센터","남문운동장","공동실험실습관","BNIT산학협력관/약학대학","국제어학원",
             "컴퓨터과학관","남명학관","학군단","고문헌도서관박물관","예절교육원","InformationCenter",
             "야외공연장","대운동장","파워플랜트","교직원테니스장","산-송신탑",
-            "게스트하우스","LG개척관",
+            "게스트하우스","LG개척관","기숙사 1동","기숙사 6동","기숙사 7동",
             "기숙사 8동","기숙사 9동","기숙사 10동","기숙사 11동","아람관","부설중학교","부설고등학교",
             "101동","102동","151동","201동","251동","252동","301동","310동",
             "302동","303동","예술관","351동","352동",
@@ -53,7 +54,7 @@ public class Search extends AppCompatActivity {
             "국제지역연구원","통일평화연구센터","ROTC","박물관(중앙도서관)","고문헌도서관","예절교육원 본관",
             "정문-InformationCenter","정도회","K.T.C","일레븐","화랑회","농업대학 실습동",
             "청학","맥","FC BB","대금소리","팀레이지","V.E.C","점보","바로바로서비스센터","목공실",
-            "교직원테니스장","송신탑","기숙사행정실","총동아리방","음악교육과","미술교육과","자연과학대학 학장실"
+            "교직원테니스장","기숙사행정실","총동아리방","음악교육과","미술교육과","자연과학대학 학장실"
             ,"자연과학대학 행정실","기숙사영어캠퍼스","기숙사 4동","기숙사 5동","기숙사 2동","산학협력단","공학연구원","교육연구원(다문화교육센터","기초과학연구소","농업생명과학연구원"
             ,"사회과학연구원","약학연구소","여성연구소","인권사회발전연구소","EU연구소","국책사업단",
             "약학대학","혁신연구실","장비실","식물배양실","제약실습공장","나노신소재공학부(고분자,생명화학)","고분자공학과","생명화학공학과","항공기부품기술연구소",
@@ -269,17 +270,17 @@ public class Search extends AppCompatActivity {
                     j = "65"; //44
                 } else if (s.equals("교직원테니스장")) {
                     j = "66"; //49
-                } else if (s.equals("송신탑")) {
-                    j = "67"; //50
                 } else if (s.equals("기숙사행정실")) {
-                    j = "68"; //61
-                } else if (s.equals("기숙사구관")) {
+                    j = "67"; //61
+                } else if (s.equals("기숙사 1동")) {
+                    j = "68"; //62
+                } else if (s.equals("기숙사구관") || s.equals("기숙사 2동")) {
                     j = "69"; //62
                 } else if (s.equals("게스트하우스")) {
                     j = "70"; //68
-                } else if (s.equals("기숙사영어캠퍼스")) {
+                } else if (s.equals("기숙사영어캠퍼스") || s.equals("기숙사 6동")) {
                     j = "71"; //69
-                } else if (s.equals("LG개척관")) {
+                } else if (s.equals("LG개척관") || s.equals("기숙사 7동")) {
                     j = "72"; //70
                 } else if (s.equals("기숙사 8동")) {
                     j = "73"; //71
@@ -289,10 +290,6 @@ public class Search extends AppCompatActivity {
                     j = "75"; //73
                 } else if (s.equals("기숙사 11동")) {
                     j = "76"; //74
-                } else if (s.equals("부설중학교")) {
-                    j = "77"; //81
-                } else if (s.equals("부설고등학교")) {
-                    j = "78"; //82
                 } else if (s.equals("총동아리방")) {
                     j = "79"; //남문동아리방
                 } else if (s.equals("음악교육과") || s.equals("미술교육과")) {

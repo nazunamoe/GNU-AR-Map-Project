@@ -17,14 +17,14 @@
  * this program. If not, see <http://www.gnu.org/licenses/>
  */
 
-package com.gnuarmap;
+package com.gnuarmap.mixare;
 
 import org.mixare.lib.gui.PaintScreen;
 
 import android.graphics.Bitmap;
 import android.location.Location;
 
-import com.gnuarmap.data.DataSource;
+import com.gnuarmap.mixare.data.DataSource;
 
 /**
  * The SocialMarker class represents a marker, which contains data from

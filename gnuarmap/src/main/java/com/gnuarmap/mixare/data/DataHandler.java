@@ -17,15 +17,16 @@
  * this program. If not, see <http://www.gnu.org/licenses/>
  */
 
-package com.gnuarmap.data;
+package com.gnuarmap.mixare.data;
 
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Hashtable;
 import java.util.List;
 
-import com.gnuarmap.MixContext;
-import com.gnuarmap.MixView;
+import com.gnuarmap.Data.DataBase;
+import com.gnuarmap.mixare.MixContext;
+import com.gnuarmap.mixare.MixView;
 
 import org.mixare.lib.marker.Marker;
 

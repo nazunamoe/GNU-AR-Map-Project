@@ -11,12 +11,12 @@ import android.util.Log;
 import android.view.*;
 import android.widget.Toast;
 
-import com.gnuarmap.data.DataBase;
-import com.gnuarmap.FilteringState;
-import com.gnuarmap.MenuActivity;
-import com.gnuarmap.MixView;
+import com.gnuarmap.Data.DataBase;
+import com.gnuarmap.mixare.FilteringState;
+import com.gnuarmap.Activity.MenuActivity;
+import com.gnuarmap.mixare.MixView;
 import com.gnuarmap.R;
-import com.gnuarmap.Search;
+import com.gnuarmap.Activity.SearchActivity;
 import com.nhn.android.maps.NMapActivity;
 import com.nhn.android.maps.NMapCompassManager;
 import com.nhn.android.maps.NMapController;
@@ -142,7 +142,7 @@ public class NaverMapActivity extends NMapActivity {
             if(ret == 2){
                 Context ctx;
                 ctx = this;
-                startActivity(new Intent(ctx, Search.class));
+                startActivity(new Intent(ctx, SearchActivity.class));
                 finish();
             }
             else if(ret == 1){

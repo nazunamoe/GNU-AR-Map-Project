@@ -1,4 +1,6 @@
-package com.gnuarmap.data;
+package com.gnuarmap.Data;
+
+import com.gnuarmap.mixare.data.DataClass;
 
 /**
  * Created by nazunamoe on 2017-11-11.
