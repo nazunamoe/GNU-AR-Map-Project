@@ -89,7 +89,7 @@
                 android:value=".ARView" />
         </activity>
         <activity
-            android:name=".ARListView"
+            android:name=".MixListView"
             android:launchMode="singleTop"
             android:screenOrientation="user">
             <intent-filter>

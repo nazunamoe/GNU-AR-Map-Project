@@ -49,7 +49,7 @@ import android.widget.Toast;
  * This class holds vectors with informaction about sources, their description
  * and whether they have been selected.
  */
-public class ARListView extends ListActivity {
+public class MixListView extends ListActivity {
 
 	private Vector<SpannableString> listViewMenu;
 	private Vector<String> selectedItemURL;
@@ -160,7 +160,7 @@ public class ARListView extends ListActivity {
 		jLayer.setMarkerList(searchResultMarkers);
 		dataView.setFrozen(true);
 		finish();
-		Intent intent1 = new Intent(this, ARListView.class);
+		Intent intent1 = new Intent(this, MixListView.class);
 		startActivityForResult(intent1, 42);
 	}
 
@@ -180,7 +180,7 @@ public class ARListView extends ListActivity {
 			dataView.setFrozen(false);
 			dataView.getDataHandler().setMarkerList(originalMarkerList);
 			finish();
-			Intent intent1 = new Intent(this, ARListView.class);
+			Intent intent1 = new Intent(this, MixListView.class); 
 			startActivityForResult(intent1, 42);
 		}
 		else {
@@ -212,7 +212,7 @@ public class ARListView extends ListActivity {
 	}
 
 	public void createMixMap(){
-		//Intent intent2 = new Intent(ARListView.this, MixMap.class);
+		//Intent intent2 = new Intent(MixListView.this, MixMap.class);
 		//startActivityForResult(intent2, 20);
 	}
 
@@ -231,7 +231,7 @@ public class ARListView extends ListActivity {
  */
 class ListItemAdapter extends BaseAdapter {
 
-	private ARListView ARListView;
+	private MixListView mixListView;
 
 	private LayoutInflater myInflater;
 	static ViewHolder holder;
@@ -241,9 +241,9 @@ class ListItemAdapter extends BaseAdapter {
 
 	public static int itemPosition =0;
 
-	public ListItemAdapter(ARListView ARListView) {
-		this.ARListView = ARListView;
-		myInflater = LayoutInflater.from(ARListView);
+	public ListItemAdapter(MixListView mixListView) {
+		this.mixListView = mixListView;
+		myInflater = LayoutInflater.from(mixListView);
 	}
 
 	@Override
@@ -266,8 +266,8 @@ class ListItemAdapter extends BaseAdapter {
 		holder.text.setPadding(20, 8, 0, 0);
 		holder.description.setPadding(20, 40, 0, 0);
 
-		holder.text.setText(ARListView.getDataSourceMenu().get(position));
-		holder.description.setText(ARListView.getDataSourceDescription().get(position));
+		holder.text.setText(mixListView.getDataSourceMenu().get(position));
+		holder.description.setText(mixListView.getDataSourceDescription().get(position));
 
 		int colorPos = position % bgcolors.length;
 		convertView.setBackgroundColor(bgcolors[colorPos]);
@@ -308,7 +308,7 @@ class ListItemAdapter extends BaseAdapter {
 
 	@Override
 	public int getCount() {
-		return ARListView.getDataSourceMenu().size();
+		return mixListView.getDataSourceMenu().size();
 	}
 
 	@Override
