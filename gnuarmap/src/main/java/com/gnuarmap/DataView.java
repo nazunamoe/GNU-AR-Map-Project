@@ -161,7 +161,7 @@ public class DataView {
 	public void draw(PaintScreen dw) {
 		mixContext.getRM(cam.transform);
 		curFix = mixContext.getLocationFinder().getCurrentLocation();
-
+		DataClass dataclass = new DataClass();
 		state.calcPitchBearing(cam.transform);
 
 		// Load Layer
@@ -346,6 +346,11 @@ public class DataView {
 			
 			@Override
 			public void run() {
+				Toast.makeText(
+						mixContext,
+						mixContext.getResources()
+								.getString(R.string.refreshing),
+						Toast.LENGTH_SHORT).show();
 			}
 		});
 	}

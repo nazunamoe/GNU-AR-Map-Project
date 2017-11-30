@@ -127,6 +127,7 @@ public class MixView extends Activity implements SensorEventListener, OnTouchLis
 
 			maintainCamera();
 			maintainAugmentR();
+			maintainZoomBar();
 			
 			if (!isInited) {
 				setdWindow(new PaintScreen());
@@ -198,6 +199,7 @@ public class MixView extends Activity implements SensorEventListener, OnTouchLis
 				Log.d(TAG + " WorkFlow",
 						"MixView - Received Refresh Screen Request .. about to refresh");
 				repaint();
+				refreshDownload();
 			}
 
 		} catch (Exception ex) {
@@ -323,6 +325,8 @@ public class MixView extends Activity implements SensorEventListener, OnTouchLis
 		super.onRestart();
 		maintainCamera();
 		maintainAugmentR();
+		maintainZoomBar();
+		
 	}
 	
 	/* ********* Operators ***********/ 
@@ -362,7 +366,36 @@ public class MixView extends Activity implements SensorEventListener, OnTouchLis
 		addContentView(augScreen, new LayoutParams(
 				LayoutParams.WRAP_CONTENT, LayoutParams.WRAP_CONTENT));
 	}
+	
+	/**
+	 * Creates a zoom bar and adds it to view.
+	 */
+	private void maintainZoomBar() {
+		SharedPreferences settings = getSharedPreferences(PREFS_NAME, 0);
+		FrameLayout frameLayout = createZoomBar(settings);
+		addContentView(frameLayout, new FrameLayout.LayoutParams(
+				LayoutParams.FILL_PARENT, LayoutParams.WRAP_CONTENT,
+				Gravity.BOTTOM));
+	}
+	
 
+	private void refreshDownload(){
+//		try {
+//			if (getMixViewData().getDownloadThread() != null){
+//				if (!getMixViewData().getDownloadThread().isInterrupted()){
+//					getMixViewData().getDownloadThread().interrupt();
+//					getMixViewData().getMixContext().getDownloadManager().restart();
+//				}
+//			}else { //if no download thread found
+//				getMixViewData().setDownloadThread(new Thread(getMixViewData()
+//						.getMixContext().getDownloadManager()));
+//				//@TODO Syncronize DownloadManager, call Start instead of run.
+//				mixViewData.getMixContext().getDownloadManager().run();
+//			}
+//		}catch (Exception ex){
+//		}
+	}
+	
 	public void refresh(){
 		dataView.refresh();
 	}
@@ -408,16 +441,49 @@ public class MixView extends Activity implements SensorEventListener, OnTouchLis
 
 	
 	public float calcZoomLevel(){
+
+		int myZoomLevel = getMixViewData().getMyZoomBar().getProgress();
 		float myout = 5;
 
-		if(state.MoreView){
-			myout = 0.16f;
-		}else{
-			myout = 0.08f;
+		if (myZoomLevel <= 26) {
+			myout = myZoomLevel / 25f;
+		} else if (25 < myZoomLevel && myZoomLevel < 50) {
+			myout = (1 + (myZoomLevel - 25)) * 0.38f;
+		} else if (25 == myZoomLevel) {
+			myout = 1;
+		} else if (50 == myZoomLevel) {
+			myout = 10;
+		} else if (50 < myZoomLevel && myZoomLevel < 75) {
+			myout = (10 + (myZoomLevel - 50)) * 0.83f;
+		} else {
+			myout = (30 + (myZoomLevel - 75) * 2f);
 		}
-		Log.d("FAL",""+myout);
+
 
 		return myout;
+	}
+
+	/**
+	 * Create zoom bar and returns FrameLayout. FrameLayout is created to be
+	 * hidden and not added to view, Caller needs to add the frameLayout to
+	 * view, and enable visibility when needed.
+	 *
+	 * @return FrameLayout Hidden Zoom Bar
+	 */
+	private FrameLayout createZoomBar(SharedPreferences settings) {
+		getMixViewData().setMyZoomBar(new SeekBar(this));
+		getMixViewData().getMyZoomBar().setMax(100);
+		getMixViewData().getMyZoomBar()
+				.setProgress(settings.getInt("zoomLevel", 65));
+		getMixViewData().getMyZoomBar().setOnSeekBarChangeListener(myZoomBarOnSeekBarChangeListener);
+		getMixViewData().getMyZoomBar().setVisibility(View.INVISIBLE);
+
+		FrameLayout frameLayout = new FrameLayout(this);
+
+		frameLayout.setMinimumWidth(3000);
+		frameLayout.addView(getMixViewData().getMyZoomBar());
+		frameLayout.setPadding(10, 0, 10, 10);
+		return frameLayout;
 	}
 	
 	/* ********* Operator - Menu ******/
@@ -453,6 +519,11 @@ public class MixView extends Activity implements SensorEventListener, OnTouchLis
 			Intent intent2 = new Intent(MixView.this, NaverMapActivity.class);
 			intent2.putExtra("return",1);
 			startActivityForResult(intent2, 20);
+			break;
+		case 2:
+			getMixViewData().getMyZoomBar().setVisibility(View.VISIBLE);
+			getMixViewData().setZoomProgress(getMixViewData().getMyZoomBar()
+					.getProgress());
 			break;
 		case 3:
 			Location currentGPSInfo = getMixViewData().getMixContext().getLocationFinder().getCurrentLocation();
@@ -506,6 +577,10 @@ public class MixView extends Activity implements SensorEventListener, OnTouchLis
 		public void onProgressChanged(SeekBar seekBar, int progress,
 				boolean fromUser) {
 			float myout = calcZoomLevel();
+
+			getMixViewData().setZoomLevel(String.valueOf(myout));
+			getMixViewData().setZoomProgress(getMixViewData().getMyZoomBar()
+					.getProgress());
 
 			t.setText("Radius: " + String.valueOf(myout));
 			t.show();
@@ -722,6 +797,10 @@ public class MixView extends Activity implements SensorEventListener, OnTouchLis
 				&& getMixViewData().getMyZoomBar().getVisibility() == View.VISIBLE;
 	}
 	
+	public String getZoomLevel() {
+		return getMixViewData().getZoomLevel();
+	}
+	
 	/**
 	 * @return the dWindow
 	 */
@@ -754,12 +833,18 @@ public class MixView extends Activity implements SensorEventListener, OnTouchLis
 		MixView.dataView = dataView;
 	}
 
+
+	public int getZoomProgress() {
+		return getMixViewData().getZoomProgress();
+	}
+
 	private void setZoomLevel() {
 		float myout = calcZoomLevel();
 
 		getDataView().setRadius(myout);
 		//caller has the to control of zoombar visibility, not setzoom
 		//mixViewData.getMyZoomBar().setVisibility(View.INVISIBLE);
+		mixViewData.setZoomLevel(String.valueOf(myout));
 		//setZoomLevel, caller has to call refreash download if needed.
 	};
 
@@ -826,6 +911,12 @@ class AugmentedView extends View {
 						canvas.getHeight() / 100 * 85, zoomPaint);
 
 				int height = canvas.getHeight() / 100 * 85;
+				int zoomProgress = app.getZoomProgress();
+				if (zoomProgress > 92 || zoomProgress < 6) {
+					height = canvas.getHeight() / 100 * 80;
+				}
+				canvas.drawText(app.getZoomLevel(), (canvas.getWidth()) / 100
+						* zoomProgress + 20, height, zoomPaint);
 			}
 
 			MixView.getDataView().draw(MixView.getdWindow());
@@ -1057,6 +1148,22 @@ class MixViewDataHolder {
 
 	public void setCompassErrorDisplayed(int compassErrorDisplayed) {
 		this.compassErrorDisplayed = compassErrorDisplayed;
+	}
+
+	public String getZoomLevel() {
+		return zoomLevel;
+	}
+
+	public void setZoomLevel(String zoomLevel) {
+		this.zoomLevel = zoomLevel;
+	}
+
+	public int getZoomProgress() {
+		return zoomProgress;
+	}
+
+	public void setZoomProgress(int zoomProgress) {
+		this.zoomProgress = zoomProgress;
 	}
 
 	public TextView getSearchNotificationTxt() {
