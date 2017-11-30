@@ -1,4 +1,4 @@
-package com.gnuarmap.Data;
+package com.gnuarmap.Activity.Data;
 
 import com.gnuarmap.mixare.data.DataClass;
 

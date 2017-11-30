@@ -14,14 +14,14 @@ import android.util.Log;
 import android.view.KeyEvent;
 import android.support.v7.app.ActionBar;
 
-import com.gnuarmap.mixare.FilteringState;
+import com.gnuarmap.mixare.State;
 import com.gnuarmap.R;
 
 public class SettingsActivity extends AppCompatActivity implements SharedPreferences.OnSharedPreferenceChangeListener{
 
     SharedPreferences sharedPref;
     SettingsFragment settings;
-    FilteringState state = FilteringState.getInstance();
+    State state = State.getInstance();
     @Override
     public boolean onKeyDown(int keyCode, android.view.KeyEvent event) {
         if (keyCode == KeyEvent.KEYCODE_BACK){

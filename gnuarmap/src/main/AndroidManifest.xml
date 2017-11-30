@@ -107,7 +107,7 @@
             android:name=".Activity.MarkerActivity"
             android:theme="@style/AppCompat2" />
         <activity
-            android:name=".NaverMap.NaverMapActivity"
+            android:name=".Activity.NaverMapActivity"
             android:theme="@style/AppCompat2" />
         <activity
             android:name=".Activity.SearchActivity"

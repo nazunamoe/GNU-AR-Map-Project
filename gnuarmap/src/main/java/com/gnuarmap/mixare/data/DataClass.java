@@ -3,7 +3,7 @@ package com.gnuarmap.mixare.data;
 import android.graphics.Bitmap;
 import android.util.Log;
 
-import com.gnuarmap.mixare.FilteringState;
+import com.gnuarmap.mixare.State;
 import com.gnuarmap.mixare.SocialMarker;
 
 import org.mixare.lib.HtmlUnescape;
@@ -20,7 +20,7 @@ public class DataClass {
     public static Bitmap basic;
     private String Filtering1;
     private String[] Filtering2;
-    FilteringState state = FilteringState.getInstance();
+    State state = State.getInstance();
 
     public int getIntFromColor(float Red, float Green, float Blue){
         int R = Math.round(255 * Red);

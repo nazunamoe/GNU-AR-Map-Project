@@ -12,8 +12,7 @@ import android.widget.Button;
 import android.widget.Toast;
 
 import com.gnuarmap.R;
-import com.gnuarmap.Data.DataBase;
-import com.gnuarmap.NaverMap.NaverMapActivity;
+import com.gnuarmap.Activity.Data.DataBase;
 import com.gnuarmap.mixare.data.DataClass;
 
 public class SearchActivity extends AppCompatActivity {

@@ -30,11 +30,11 @@ import org.mixare.lib.render.MixVector;
 /**
  * This class calculates the bearing and pitch out of the angles
  */
-public class FilteringState implements MixStateInterface{
+public class State implements MixStateInterface{
 
 	public SocialMarker marker;
 
-	private static FilteringState instance;
+	private static State instance;
 
 	// Global variable
 	public boolean Business;
@@ -66,11 +66,11 @@ public class FilteringState implements MixStateInterface{
 
 	public int count;
 
-	private FilteringState(){}
+	private State(){}
 
-	public static synchronized FilteringState getInstance(){
+	public static synchronized State getInstance(){
 		if(instance==null){
-			instance=new FilteringState();
+			instance=new State();
 		}
 		return instance;
 	}
@@ -80,7 +80,7 @@ public class FilteringState implements MixStateInterface{
 	public static int READY = 2; 
 	public static int DONE = 3; 
 
-	int nextLStatus = FilteringState.NOT_STARTED;
+	int nextLStatus = State.NOT_STARTED;
 	String downloadId;
 
 	private float curBearing;

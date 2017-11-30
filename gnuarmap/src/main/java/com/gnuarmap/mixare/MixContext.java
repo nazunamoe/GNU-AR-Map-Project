@@ -22,9 +22,9 @@ import org.mixare.lib.MixContextInterface;
 import org.mixare.lib.marker.Marker;
 import org.mixare.lib.render.Matrix;
 
-import com.gnuarmap.Location.LocationFinder;
-import com.gnuarmap.Location.LocationFinderFactory;
-import com.gnuarmap.NaverMap.NaverMapActivity;
+import com.gnuarmap.mixare.Location.LocationFinder;
+import com.gnuarmap.mixare.Location.LocationFinderFactory;
+import com.gnuarmap.Activity.NaverMapActivity;
 import com.gnuarmap.mixare.WebContent.WebContentManager;
 import com.gnuarmap.mixare.WebContent.WebContentManagerFactory;
 

@@ -19,7 +19,6 @@ import android.widget.ListView;
 import android.widget.Toast;
 
 import com.gnuarmap.mixare.MixView;
-import com.gnuarmap.NaverMap.NaverMapActivity;
 import com.gnuarmap.R;
 
 import java.util.Date;

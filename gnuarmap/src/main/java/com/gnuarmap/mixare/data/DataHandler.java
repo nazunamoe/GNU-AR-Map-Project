@@ -24,7 +24,7 @@ import java.util.Collections;
 import java.util.Hashtable;
 import java.util.List;
 
-import com.gnuarmap.Data.DataBase;
+import com.gnuarmap.Activity.Data.DataBase;
 import com.gnuarmap.mixare.MixContext;
 import com.gnuarmap.mixare.MixView;
 

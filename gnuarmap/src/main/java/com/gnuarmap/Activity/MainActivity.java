@@ -8,12 +8,12 @@ import android.preference.PreferenceManager;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
 
-import com.gnuarmap.mixare.FilteringState;
+import com.gnuarmap.mixare.State;
 
 public class MainActivity extends AppCompatActivity{
 
     SharedPreferences sharedPref;
-    FilteringState state = FilteringState.getInstance();
+    State state = State.getInstance();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

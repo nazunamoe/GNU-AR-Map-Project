@@ -34,7 +34,7 @@ import java.util.List;
 import com.gnuarmap.Activity.MenuActivity;
 import com.gnuarmap.R;
 import com.gnuarmap.mixare.data.DataSource;
-import com.gnuarmap.NaverMap.NaverMapActivity;
+import com.gnuarmap.Activity.NaverMapActivity;
 
 import org.mixare.lib.gui.PaintScreen;
 import org.mixare.lib.render.Matrix;
@@ -84,7 +84,7 @@ public class MixView extends Activity implements SensorEventListener, OnTouchLis
 	private static PaintScreen dWindow;
 	private static DataView dataView;
 	private boolean fError;
-	public FilteringState state = FilteringState.getInstance();
+	public State state = State.getInstance();
 	//----------
     private MixViewDataHolder mixViewData  ;
 	

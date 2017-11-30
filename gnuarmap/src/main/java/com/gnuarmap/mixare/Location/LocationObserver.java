@@ -16,7 +16,7 @@
  * You should have received a copy of the GNU General Public License along with 
  * this program. If not, see <http://www.gnu.org/licenses/>
  */
-package com.gnuarmap.Location;
+package com.gnuarmap.mixare.Location;
 
 import com.gnuarmap.mixare.MixContext;
 

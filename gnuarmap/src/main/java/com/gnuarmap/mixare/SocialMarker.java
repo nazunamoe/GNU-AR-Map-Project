@@ -99,7 +99,7 @@ public class SocialMarker extends LocalMarker {
 
 	@Override
 	public int getMaxObjects() {
-		FilteringState state = FilteringState.getInstance();
+		State state = State.getInstance();
 		int max = 0;
 		if(state.MoreView){
 			max = 30;

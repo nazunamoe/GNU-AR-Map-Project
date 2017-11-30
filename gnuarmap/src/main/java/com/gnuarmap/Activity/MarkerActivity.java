@@ -10,7 +10,6 @@ import android.widget.ArrayAdapter;
 import android.widget.ListView;
 
 import com.gnuarmap.mixare.MixView;
-import com.gnuarmap.NaverMap.NaverMapActivity;
 import com.gnuarmap.R;
 
 public class MarkerActivity extends AppCompatActivity {
