@@ -22,9 +22,16 @@ package com.gnuarmap.data;
 import com.gnuarmap.R;
 
 import android.content.res.Resources;
+import android.app.Activity;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
+import android.graphics.Color;
+import android.os.Bundle;
 import android.util.Log;
+import android.view.KeyEvent;
+import android.widget.EditText;
+import android.widget.Spinner;
+import android.widget.TextView;
 
 /**
  * The DataSource class is able to create the URL where the information about a
