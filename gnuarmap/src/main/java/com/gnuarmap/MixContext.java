@@ -42,7 +42,7 @@ public class MixContext extends ContextWrapper implements MixContextInterface {
 	// TAG for logging
 	public static final String TAG = "Mixare";
 
-	private ARView ARView;
+	private MixView mixView;
 
 	private Matrix rotationM = new Matrix();
 
@@ -52,9 +52,9 @@ public class MixContext extends ContextWrapper implements MixContextInterface {
 	/** Responsible for Web Content */
 	private WebContentManager webContentManager;
 
-	public MixContext(ARView appCtx) {
+	public MixContext(MixView appCtx) {
 		super(appCtx);
-		ARView = appCtx;
+		mixView = appCtx;
 		getLocationFinder().switchOn();
 		getLocationFinder().findLocation();
 	}
@@ -99,8 +99,8 @@ public class MixContext extends ContextWrapper implements MixContextInterface {
 		getWebContentManager().loadWebPage(url, getActualMixView());
 	}
 
-	public void doResume(ARView ARView) {
-		setActualMixView(ARView);
+	public void doResume(MixView mixView) {
+		setActualMixView(mixView);
 	}
 
 	public void updateSmoothRotation(Matrix smoothR) {
@@ -125,15 +125,15 @@ public class MixContext extends ContextWrapper implements MixContextInterface {
 		return webContentManager;
 	}
 
-	public ARView getActualMixView() {
-		synchronized (ARView) {
-			return this.ARView;
+	public MixView getActualMixView() {
+		synchronized (mixView) {
+			return this.mixView;
 		}
 	}
 
-	private void setActualMixView(ARView mv) {
-		synchronized (ARView) {
-			this.ARView = mv;
+	private void setActualMixView(MixView mv) {
+		synchronized (mixView) {
+			this.mixView = mv;
 		}
 	}
 

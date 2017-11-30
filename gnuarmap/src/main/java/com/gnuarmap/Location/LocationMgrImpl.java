@@ -24,7 +24,7 @@ import java.util.Timer;
 import java.util.TimerTask;
 
 import com.gnuarmap.MixContext;
-import com.gnuarmap.ARView;
+import com.gnuarmap.MixView;
 import com.gnuarmap.R;
 
 import android.content.Context;
@@ -32,6 +32,7 @@ import android.hardware.GeomagneticField;
 import android.location.Criteria;
 import android.location.Location;
 import android.location.LocationManager;
+import android.widget.Toast;
 
 /**
  * This class is repsonsible for finding the location, and sending it back to
@@ -138,7 +139,7 @@ class LocationMgrImpl implements LocationFinder {
 	 */
 	public Location getCurrentLocation() {
 		if (curLoc == null) {
-			ARView ARView = mixContext.getActualMixView();
+			MixView mixView = mixContext.getActualMixView();
 			throw new RuntimeException("No GPS Found");
 		}
 		synchronized (curLoc) {

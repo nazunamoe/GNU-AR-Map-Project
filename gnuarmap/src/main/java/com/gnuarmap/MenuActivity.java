@@ -45,7 +45,7 @@ public class MenuActivity extends AppCompatActivity implements AdapterView.OnIte
                     Toast.makeText(getApplicationContext(), R.string.permission_rejected, Toast.LENGTH_SHORT).show();
                 }
                 else if(gpsCheck == PackageManager.PERMISSION_GRANTED){
-                    startActivity(new Intent(ctx, ARView.class));
+                    startActivity(new Intent(ctx, MixView.class));
                     finish();
                 }
                 break;

@@ -5,6 +5,7 @@ import android.content.Intent;
 import android.net.Uri;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
@@ -64,7 +65,7 @@ public class MarkerActivity extends AppCompatActivity {
         if (keyCode == android.view.KeyEvent.KEYCODE_BACK){
             Context ctx;
             ctx = this;
-            startActivity(new Intent(ctx, ARView.class));
+            startActivity(new Intent(ctx, MixView.class));
             finish();
         }
         return false;

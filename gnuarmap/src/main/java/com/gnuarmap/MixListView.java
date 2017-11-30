@@ -36,6 +36,7 @@ import android.text.SpannableString;
 import android.text.style.UnderlineSpan;
 import android.util.Log;
 import android.view.LayoutInflater;
+import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
@@ -80,7 +81,7 @@ public class MixListView extends ListActivity {
 	@Override
 	public void onCreate(Bundle savedInstanceState){
 		super.onCreate(savedInstanceState);
-		dataView = ARView.getDataView();
+		dataView = MixView.getDataView();	
 
 		selectedItemURL = new Vector<String>();
 		listViewMenu = new Vector<SpannableString>();
