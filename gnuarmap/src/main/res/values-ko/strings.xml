@@ -98,7 +98,7 @@
 
     <string name="Filtering_All">모두 보이기</string>
     <string name="Filtering_ATM">ATM</string>
-    <string name="Filtering_CVS">편의점</string>
+    <string name="Filtering_CVS">매점</string>
     <string name="Filtering_Vending">자판기</string>
     <string name="Filtering_Printer">프린터</string>
 

@@ -146,7 +146,7 @@ public class DataBase {
                 193955,128.099816,
                 "business",
                 "business",
-                nothing,
+                vending_printer,
                 201
         );
 
@@ -172,7 +172,7 @@ public class DataBase {
                 35.157430,128.100245,
                 "dominatory",
                 "dominatory",
-                printer_cvs_atm,
+                nothing,
                 61
         );
         data.addItem("69","기숙사 2동",
@@ -220,7 +220,7 @@ public class DataBase {
                 35.158368,128.099583,
                 "dominatory",
                 "dominatory",
-                nothing,
+                printer_cvs_atm,
                 67
         );
         data.addItem("93","영어 전용 강의동",
@@ -501,7 +501,7 @@ public class DataBase {
                 35.151151,128.0995362,
                 "club",
                 "club",
-                nothing,
+                vending,
                 303
         );
 
@@ -691,7 +691,7 @@ public class DataBase {
                 35.155091,128.099820,
                 "humanities",
                 "humanities",
-                printer,
+                vending,
                 102
         );
 
@@ -701,7 +701,7 @@ public class DataBase {
                 35.155177,128.095471,
                 "science",
                 "science",
-                vending,
+                vending_printer,
                 351
         );
         data.addItem("23","자연 2호관",

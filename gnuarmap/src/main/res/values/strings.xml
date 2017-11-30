@@ -100,7 +100,7 @@ Please turn on permissions at [Setting] > [Permission]"</string>
 
     <string name="Filtering_All">Show all</string>
     <string name="Filtering_ATM">ATM</string>
-    <string name="Filtering_CVS">Convience Store</string>
+    <string name="Filtering_CVS">Market</string>
     <string name="Filtering_Vending">Vending Machine</string>
     <string name="Filtering_Printer">Printer</string>
 
