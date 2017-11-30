@@ -1,4 +1,4 @@
-package com.gnuarmap.NaverMap;
+package com.gnuarmap.Activity;
 
 import android.content.Context;
 import android.content.Intent;
@@ -11,12 +11,13 @@ import android.util.Log;
 import android.view.*;
 import android.widget.Toast;
 
-import com.gnuarmap.Data.DataBase;
-import com.gnuarmap.mixare.FilteringState;
-import com.gnuarmap.Activity.MenuActivity;
+import com.gnuarmap.Activity.Data.DataBase;
+import com.gnuarmap.Activity.NaverMap.Filtering;
+import com.gnuarmap.Activity.NaverMap.GLocation_Setting;
+import com.gnuarmap.Activity.NaverMap.NMapViewerResourceProvider;
+import com.gnuarmap.mixare.State;
 import com.gnuarmap.mixare.MixView;
 import com.gnuarmap.R;
-import com.gnuarmap.Activity.SearchActivity;
 import com.nhn.android.maps.NMapActivity;
 import com.nhn.android.maps.NMapCompassManager;
 import com.nhn.android.maps.NMapController;
@@ -52,6 +53,7 @@ public class NaverMapActivity extends NMapActivity {
     public static boolean Vending = false;
     public static boolean atm = false;
     public static boolean Restaurant = false;
+    public static int firstcurrentpoint = 0;
 
     public static NMapPOIdataOverlay poiDataOverlay;
     public static NMapPOIdataOverlay poiDataOverlay1;
@@ -64,7 +66,7 @@ public class NaverMapActivity extends NMapActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_map);
-        FilteringState state = FilteringState.getInstance();
+        State state = State.getInstance();
         mMapView = findViewById(R.id.mapView);
         mMapView.setClientId(CLIENT_ID); // 클라이언트 아이디 값 설정
         mMapController = mMapView.getMapController();
@@ -91,7 +93,12 @@ public class NaverMapActivity extends NMapActivity {
                                                                    currentGPSInfo = current.getLastKnownLocation(GPS_PROVIDER);
                                                                }
                                                                mMapController.setMapCenter(currentGPSInfo.getLongitude(),currentGPSInfo.getLatitude());
-                                                               filtering.CurrentLocation(currentGPSInfo.getLongitude(),currentGPSInfo.getLatitude(),getApplicationContext());
+                                                               if(firstcurrentpoint == 0){
+                                                                   filtering.CurrentLocation(currentGPSInfo.getLongitude(),currentGPSInfo.getLatitude(),getApplicationContext(),0);
+                                                                   firstcurrentpoint = 1;
+                                                               }else{
+                                                                   filtering.CurrentLocation(currentGPSInfo.getLongitude(),currentGPSInfo.getLatitude(),getApplicationContext(),1);
+                                                               }
                                                            }catch(SecurityException e){
                                                                Toast.makeText(getApplicationContext(), R.string.permission_rejected, Toast.LENGTH_SHORT).show();
                                                            }

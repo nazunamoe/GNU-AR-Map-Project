@@ -1,4 +1,4 @@
-package com.gnuarmap.NaverMap;
+package com.gnuarmap.Activity.NaverMap;
 
 import android.content.Context;
 import android.graphics.Rect;
@@ -14,15 +14,15 @@ import com.nhn.android.maps.overlay.NMapPOIdata;
 import com.nhn.android.maps.overlay.NMapPOIitem;
 import com.nhn.android.mapviewer.overlay.NMapOverlayManager;
 import com.nhn.android.mapviewer.overlay.NMapPOIdataOverlay;
-import com.gnuarmap.Data.DataBase;
+import com.gnuarmap.Activity.Data.DataBase;
 
-import static com.gnuarmap.NaverMap.NaverMapActivity.DEBUG;
-import static com.gnuarmap.NaverMap.NaverMapActivity.LOG_TAG;
-import static com.gnuarmap.NaverMap.NaverMapActivity.db;
-import static com.gnuarmap.NaverMap.NaverMapActivity.mMapViewerResourceProvider;
-import static com.gnuarmap.NaverMap.NaverMapActivity.mOverlayManager;
+import static com.gnuarmap.Activity.NaverMapActivity.DEBUG;
+import static com.gnuarmap.Activity.NaverMapActivity.LOG_TAG;
+import static com.gnuarmap.Activity.NaverMapActivity.db;
+import static com.gnuarmap.Activity.NaverMapActivity.mMapViewerResourceProvider;
+import static com.gnuarmap.Activity.NaverMapActivity.mOverlayManager;
 
-import com.gnuarmap.mixare.FilteringState;
+import com.gnuarmap.mixare.State;
 
 
 /**
@@ -95,12 +95,17 @@ public class Filtering {
 
     };
 
-    public void CurrentLocation(Double longitude, Double latitude, Context ctx){
+    public void CurrentLocation(Double longitude, Double latitude, Context ctx, int first){
         NMapPOIdata poiData = new NMapPOIdata(1, mMapViewerResourceProvider, true);
-        poiData.addPOIitem(new NGeoPoint(longitude,latitude),ctx.getString(R.string.My_location),currentMarker,0);
-        poiData.endPOIdata();
-        poiDataOverlay = mOverlayManager.createPOIdataOverlay(poiData, null);
-        poiDataOverlay.setOnStateChangeListener(onPOIdataStateChangeListener);
+        if(first == 0){
+            poiData.addPOIitem(new NGeoPoint(longitude,latitude),ctx.getString(R.string.My_location),currentMarker,0);
+            poiData.endPOIdata();
+            poiDataOverlay = mOverlayManager.createPOIdataOverlay(poiData, null);
+            poiDataOverlay.setOnStateChangeListener(onPOIdataStateChangeListener);
+        }else{
+            poiDataOverlay.removeAllPOIdata();
+            this.CurrentLocation(longitude,latitude,ctx,0);
+        }
     }
 
     public void Searching(int num){
@@ -110,7 +115,7 @@ public class Filtering {
         String number = Integer.toString(num);
         SocialMarker marker = database.data.getMarker(number);
         poiData.addPOIitem(new NGeoPoint(marker.getLongitude(), marker.getLatitude()), marker.getTitle() ,markerId, 0);
-        FilteringState state = FilteringState.getInstance();
+        State state = State.getInstance();
         state.marker = marker;
         poiData.endPOIdata();
         poiDataOverlay = mOverlayManager.createPOIdataOverlay(poiData, null);
