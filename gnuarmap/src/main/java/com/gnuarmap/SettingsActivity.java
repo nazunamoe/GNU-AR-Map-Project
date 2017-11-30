@@ -68,7 +68,7 @@ public class SettingsActivity extends AppCompatActivity implements SharedPrefere
                 state.Camera2 = false;
             } else if (sharedPreferences.getBoolean("Camera2", false)) {
                 state.Camera2 = true;
-            }
+            }Log.d("ShitFuck",""+state.Camera2);
         }else if("MMapViewSet".equals(key)){
             if(!sharedPreferences.getBoolean("MMapViewSet",false)){
                 state.NMapState = false;

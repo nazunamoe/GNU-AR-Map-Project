@@ -98,6 +98,7 @@ public class MixView extends Activity implements SensorEventListener, OnTouchLis
 		getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN,
 				WindowManager.LayoutParams.FLAG_FULLSCREEN);
 		super.onCreate(savedInstanceState);
+		Log.d("ShitFuck",""+state.Camera2);
 		moreview = state.MoreView;
 		if(state.count == 0){
 			AlertDialog.Builder builder1 = new AlertDialog.Builder(this);
@@ -414,6 +415,8 @@ public class MixView extends Activity implements SensorEventListener, OnTouchLis
 		}else{
 			myout = 0.08f;
 		}
+		Log.d("FAL",""+myout);
+
 		return myout;
 	}
 

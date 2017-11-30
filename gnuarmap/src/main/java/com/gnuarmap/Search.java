@@ -111,7 +111,9 @@ public class Search extends AppCompatActivity {
     private void numbersearch(String input, int i){
         int s2 = Integer.parseInt(input);
         if(data.data.WholeList.get(i).id != 0) {
+            //Log.d("FNC", "" + String.valueOf(data.data.WholeList.get(i).id) + "," + s);
             if (input.equals(String.valueOf(data.data.WholeList.get(i).id))) {
+                Log.d("FAL", "" + data.data.WholeList.get(i).id + "," + s);
                 j = data.data.WholeList.get(i).NUM;
             }
         }
