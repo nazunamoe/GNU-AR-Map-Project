@@ -34,7 +34,6 @@ import com.gnuarmap.FilteringState;
 
 public class Filtering {
     int markerId = NMapPOIflagType.PIN;
-    int currentMarker = NMapPOIflagType.SPOT;
     Context context;
     public static NMapPOIdata poiData;
     public static NMapPOIdataOverlay poiDataOverlay;
@@ -100,7 +99,7 @@ public class Filtering {
 
     public void CurrentLocation(Double longitude, Double latitude, Context ctx){
         NMapPOIdata poiData = new NMapPOIdata(1, mMapViewerResourceProvider, true);
-        poiData.addPOIitem(new NGeoPoint(longitude,latitude),ctx.getString(R.string.My_location),currentMarker,0);
+        poiData.addPOIitem(new NGeoPoint(longitude,latitude),ctx.getString(R.string.My_location),markerId,0);
         poiData.endPOIdata();
         poiDataOverlay = mOverlayManager.createPOIdataOverlay(poiData, null);
         poiDataOverlay.setOnStateChangeListener(onPOIdataStateChangeListener);

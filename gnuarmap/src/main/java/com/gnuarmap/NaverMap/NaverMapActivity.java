@@ -59,7 +59,11 @@ public class NaverMapActivity extends NMapActivity {
     public static DataBase db = new DataBase();
     public GLocation_Setting gLocation_setting = new GLocation_Setting();
     public Filtering filtering = new Filtering(this);
+    public static Search search = new Search();
+    private Context context;
     public String name="";
+
+
 
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
