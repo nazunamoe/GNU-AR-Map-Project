@@ -419,6 +419,84 @@ public class MixView extends Activity implements SensorEventListener, OnTouchLis
 
 		return myout;
 	}
+	
+	/* ********* Operator - Menu ******/
+	
+
+	@Override
+	public boolean onCreateOptionsMenu(Menu menu) {
+		int base = Menu.FIRST;
+		/* define the first */
+		MenuItem item1 = menu.add(base, base + 0, base + 0,
+				getString(R.string.menu_item_1));
+		MenuItem item2 = menu.add(base, base + 1, base + 1,
+				getString(R.string.menu_item_2));
+		MenuItem item3 = menu.add(base, base + 2, base + 2,
+				getString(R.string.menu_item_3));
+		MenuItem item4 = menu.add(base, base + 3, base + 3,
+				getString(R.string.menu_item_4));
+
+		/* assign icons to the menu items */
+		item1.setIcon(android.R.drawable.ic_menu_mapmode);
+		item2.setIcon(android.R.drawable.ic_menu_zoom);
+		item3.setIcon(android.R.drawable.ic_menu_info_details);
+		item4.setIcon(android.R.drawable.ic_menu_share);
+
+		return true;
+	}
+
+	
+	@Override
+	public boolean onOptionsItemSelected(MenuItem item) {
+		switch (item.getItemId()) {
+		case 1:
+			Intent intent2 = new Intent(MixView.this, NaverMapActivity.class);
+			intent2.putExtra("return",1);
+			startActivityForResult(intent2, 20);
+			break;
+		case 3:
+			Location currentGPSInfo = getMixViewData().getMixContext().getLocationFinder().getCurrentLocation();
+			AlertDialog.Builder builder = new AlertDialog.Builder(this);
+			builder.setMessage(getString(R.string.general_info_text) + "\n\n"
+					+ getString(R.string.longitude)
+					+ currentGPSInfo.getLongitude() + "\n"
+					+ getString(R.string.latitude)
+					+ currentGPSInfo.getLatitude() + "\n"
+					+ getString(R.string.altitude)
+					+ currentGPSInfo.getAltitude() + "m\n"
+					+ getString(R.string.speed) + currentGPSInfo.getSpeed()
+					+ "km/h\n" + getString(R.string.accuracy)
+					+ currentGPSInfo.getAccuracy() + "m\n"
+					+ getString(R.string.gps_last_fix)
+					+ new Date(currentGPSInfo.getTime()).toString() + "\n");
+			builder.setNegativeButton(getString(R.string.close_button),
+					new DialogInterface.OnClickListener() {
+						public void onClick(DialogInterface dialog, int id) {
+							dialog.dismiss();
+						}
+					});
+			AlertDialog alert = builder.create();
+			alert.setTitle(getString(R.string.general_info_title));
+			alert.show();
+			break;
+		case 4:
+			AlertDialog.Builder builder1 = new AlertDialog.Builder(this);
+			builder1.setMessage(getString(R.string.license));
+			/* Retry */
+			builder1.setNegativeButton(getString(R.string.close_button),
+					new DialogInterface.OnClickListener() {
+						public void onClick(DialogInterface dialog, int id) {
+							dialog.dismiss();
+						}
+					});
+			AlertDialog alert1 = builder1.create();
+			alert1.setTitle(getString(R.string.license_title));
+			alert1.show();
+			break;
+
+		}
+		return true;
+	}
 
 	/* ******** Operators - Sensors ****** */
 
