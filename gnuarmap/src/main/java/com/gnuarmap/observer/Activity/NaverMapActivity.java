@@ -56,7 +56,6 @@ public class NaverMapActivity extends NMapActivity {
     public static NMapPOIdataOverlay poiDataOverlay1;
 
     public static Filtering.DataBase db = new Filtering.DataBase();
-    public GLocation_Setting gLocation_setting = new GLocation_Setting();
     public Filtering filtering = new Filtering(this);
     public String name="";
 
@@ -111,7 +110,12 @@ public class NaverMapActivity extends NMapActivity {
                                                }
                                            });
 
-        gLocation_setting.initialize();
+        mMapView.setClickable(true);
+        mMapView.setEnabled(true);
+        mMapView.setFocusable(true);
+        mMapController.setZoomLevel(2);
+        mMapView.setFocusableInTouchMode(true);
+        mMapView.requestFocus();
         mMapController.setZoomLevel(13);
         mMapController.setMapCenter(128.103959,35.152751);
 

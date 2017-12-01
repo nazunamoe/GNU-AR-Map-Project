@@ -31,7 +31,7 @@ import org.mixare.lib.render.MixVector;
  */
 public class State implements MixStateInterface{
 
-	public Marker.SocialMarker marker;
+	public SocialMarker marker;
 
 	private static State instance;
 

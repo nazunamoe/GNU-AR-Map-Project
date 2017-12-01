@@ -7,6 +7,7 @@ import android.view.View;
 
 import com.gnuarmap.mixare.app.DataView;
 import com.gnuarmap.mixare.app.Marker;
+import com.gnuarmap.mixare.app.SocialMarker;
 import com.gnuarmap.observer.NaverMap.NMapCalloutCustomOverlayView;
 import com.gnuarmap.observer.NaverMap.NMapPOIflagType;
 import com.gnuarmap.R;
@@ -109,7 +110,7 @@ public class Filtering {
         NMapPOIdata poiData = new NMapPOIdata(d, NaverMapActivity.mMapViewerResourceProvider, true);
         poiData.beginPOIdata(d);
         String number = Integer.toString(num);
-        Marker.SocialMarker marker = database.data.getMarker(number);
+        SocialMarker marker = database.data.getMarker(number);
         poiData.addPOIitem(new NGeoPoint(marker.getLongitude(), marker.getLatitude()), marker.getTitle() ,markerId, 0);
         State state = State.getInstance();
         state.marker = marker;

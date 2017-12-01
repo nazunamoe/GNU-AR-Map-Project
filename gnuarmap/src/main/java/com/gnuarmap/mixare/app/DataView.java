@@ -398,9 +398,6 @@ public class DataView {
         }
     }
 
-    /**
-     * Created by nazunamoe on 2017-12-01.
-     */
     static class UIEvent {
         public static final int CLICK = 0;
         public static final int KEY = 1;
@@ -413,8 +410,8 @@ public class DataView {
      */
 
     public static class Data {
-        public ArrayList<com.gnuarmap.mixare.app.Marker.SocialMarker> WholeList = new ArrayList<com.gnuarmap.mixare.app.Marker.SocialMarker>();
-        public ArrayList<com.gnuarmap.mixare.app.Marker.SocialMarker> List = new ArrayList<com.gnuarmap.mixare.app.Marker.SocialMarker>();
+        public ArrayList<SocialMarker> WholeList = new ArrayList<SocialMarker>();
+        public ArrayList<SocialMarker> List = new ArrayList<SocialMarker>();
         public static Bitmap basic;
         private String Filtering1;
         private String[] Filtering2;
@@ -437,7 +434,7 @@ public class DataView {
             this.Filtering1 = Filtering1;
             this.Filtering2 = Filtering2;
             int number = List.size();
-            WholeList.add(new com.gnuarmap.mixare.app.Marker.SocialMarker(
+            WholeList.add(new SocialMarker(
                     num,
                     HtmlUnescape.unescapeHTML((name), 0),
                     Latitude,
@@ -612,7 +609,7 @@ public class DataView {
 
 
         private void addMarker(String num, Double Latitude, Double Longitude, String url, int value, String type, String name, int ID){
-            com.gnuarmap.mixare.app.Marker.SocialMarker item = new com.gnuarmap.mixare.app.Marker.SocialMarker(
+            SocialMarker item = new SocialMarker(
                     num,
                     HtmlUnescape.unescapeHTML((name), 0),
                     Latitude,
@@ -628,7 +625,7 @@ public class DataView {
             List.add(item);
         }
 
-        public com.gnuarmap.mixare.app.Marker.SocialMarker getMarker(String no){
+        public SocialMarker getMarker(String no){
             int b=0;
 
             for(int a = 0; a<WholeList.size(); a++){
@@ -645,11 +642,11 @@ public class DataView {
 
         public int getWholeSize() { return WholeList.size();}
 
-        public com.gnuarmap.mixare.app.Marker.SocialMarker getData(int index){
+        public SocialMarker getData(int index){
             return List.get(index);
         }
 
-        public com.gnuarmap.mixare.app.Marker.SocialMarker getWholeData(int index){
+        public SocialMarker getWholeData(int index){
             return WholeList.get(index);
         }
 
