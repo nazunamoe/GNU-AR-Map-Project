@@ -16,17 +16,13 @@
  * You should have received a copy of the GNU General Public License along with 
  * this program. If not, see <http://www.gnu.org/licenses/>
  */
-package com.gnuarmap.mixare;
+package com.gnuarmap.mixare.app;
 
 import org.mixare.lib.MixContextInterface;
 import org.mixare.lib.marker.Marker;
 import org.mixare.lib.render.Matrix;
 
-import com.gnuarmap.mixare.Location.LocationFinder;
-import com.gnuarmap.mixare.Location.LocationFinderFactory;
-import com.gnuarmap.Activity.NaverMapActivity;
-import com.gnuarmap.mixare.WebContent.WebContentManager;
-import com.gnuarmap.mixare.WebContent.WebContentManagerFactory;
+import com.gnuarmap.observer.Activity.NaverMapActivity;
 
 import android.app.Activity;
 import android.content.ContentResolver;
@@ -48,10 +44,10 @@ public class MixContext extends ContextWrapper implements MixContextInterface {
 	private Matrix rotationM = new Matrix();
 
 	/** Responsible for all location tasks */
-	private LocationFinder locationFinder;
+	private Location.LocationFinder locationFinder;
 
 	/** Responsible for Web Content */
-	private WebContentManager webContentManager;
+	private WebContent.WebContentManager webContentManager;
 
 	public MixContext(MixView appCtx) {
 		super(appCtx);
@@ -118,16 +114,16 @@ public class MixContext extends ContextWrapper implements MixContextInterface {
 	}
 
 
-	public LocationFinder getLocationFinder() {
+	public Location.LocationFinder getLocationFinder() {
 		if (this.locationFinder == null) {
-			locationFinder = LocationFinderFactory.makeLocationFinder(this);
+			locationFinder = Location.LocationFinderFactory.makeLocationFinder(this);
 		}
 		return locationFinder;
 	}
 
-	public WebContentManager getWebContentManager() {
+	public WebContent.WebContentManager getWebContentManager() {
 		if (this.webContentManager == null) {
-			webContentManager = WebContentManagerFactory
+			webContentManager = WebContent.WebContentManagerFactory
 					.makeWebContentManager(this);
 		}
 		return webContentManager;

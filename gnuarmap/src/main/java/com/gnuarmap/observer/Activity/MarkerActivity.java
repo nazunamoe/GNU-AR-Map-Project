@@ -1,4 +1,4 @@
-package com.gnuarmap.Activity;
+package com.gnuarmap.observer.Activity;
 
 import android.content.Context;
 import android.content.Intent;
@@ -9,7 +9,7 @@ import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
 
-import com.gnuarmap.mixare.MixView;
+import com.gnuarmap.mixare.app.MixView;
 import com.gnuarmap.R;
 
 public class MarkerActivity extends AppCompatActivity {

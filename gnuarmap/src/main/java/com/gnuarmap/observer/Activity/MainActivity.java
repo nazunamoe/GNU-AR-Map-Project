@@ -1,4 +1,4 @@
-package com.gnuarmap.Activity;
+package com.gnuarmap.observer.Activity;
 
 import android.content.Context;
 import android.content.Intent;
@@ -8,7 +8,7 @@ import android.preference.PreferenceManager;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
 
-import com.gnuarmap.mixare.State;
+import com.gnuarmap.mixare.app.State;
 
 public class MainActivity extends AppCompatActivity{
 

@@ -1,4 +1,4 @@
-package com.gnuarmap.Activity;
+package com.gnuarmap.observer.Activity;
 
 import android.app.FragmentTransaction;
 import android.content.Context;
@@ -10,11 +10,10 @@ import android.preference.PreferenceCategory;
 import android.preference.PreferenceFragment;
 import android.preference.PreferenceManager;
 import android.support.v7.app.AppCompatActivity;
-import android.util.Log;
 import android.view.KeyEvent;
 import android.support.v7.app.ActionBar;
 
-import com.gnuarmap.mixare.State;
+import com.gnuarmap.mixare.app.State;
 import com.gnuarmap.R;
 
 public class SettingsActivity extends AppCompatActivity implements SharedPreferences.OnSharedPreferenceChangeListener{

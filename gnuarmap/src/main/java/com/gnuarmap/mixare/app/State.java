@@ -16,14 +16,13 @@
  * You should have received a copy of the GNU General Public License along with 
  * this program. If not, see <http://www.gnu.org/licenses/>
  */
-package com.gnuarmap.mixare;
+package com.gnuarmap.mixare.app;
 
 import android.util.Log;
 
 import org.mixare.lib.MixContextInterface;
 import org.mixare.lib.MixStateInterface;
 import org.mixare.lib.MixUtils;
-import org.mixare.lib.marker.Marker;
 import org.mixare.lib.render.Matrix;
 import org.mixare.lib.render.MixVector;
 
@@ -32,7 +31,7 @@ import org.mixare.lib.render.MixVector;
  */
 public class State implements MixStateInterface{
 
-	public SocialMarker marker;
+	public Marker.SocialMarker marker;
 
 	private static State instance;
 
@@ -88,7 +87,7 @@ public class State implements MixStateInterface{
 
 	private boolean detailsView;
 
-	public boolean handleEvent(MixContextInterface ctx, String onPress, Marker marker) {
+	public boolean handleEvent(MixContextInterface ctx, String onPress, org.mixare.lib.marker.Marker marker) {
 		if (onPress != null && onPress.startsWith("webpage")) {
 			try {
 				String webpage = MixUtils.parseAction(onPress);

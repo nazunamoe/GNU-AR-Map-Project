@@ -1,4 +1,4 @@
-package com.gnuarmap.Activity;
+package com.gnuarmap.observer.Activity;
 
 import android.content.Context;
 import android.content.Intent;
@@ -11,12 +11,9 @@ import android.util.Log;
 import android.view.*;
 import android.widget.Toast;
 
-import com.gnuarmap.Activity.Data.DataBase;
-import com.gnuarmap.Activity.NaverMap.Filtering;
-import com.gnuarmap.Activity.NaverMap.GLocation_Setting;
-import com.gnuarmap.Activity.NaverMap.NMapViewerResourceProvider;
-import com.gnuarmap.mixare.State;
-import com.gnuarmap.mixare.MixView;
+import com.gnuarmap.observer.NaverMap.NMapViewerResourceProvider;
+import com.gnuarmap.mixare.app.State;
+import com.gnuarmap.mixare.app.MixView;
 import com.gnuarmap.R;
 import com.nhn.android.maps.NMapActivity;
 import com.nhn.android.maps.NMapCompassManager;
@@ -58,7 +55,7 @@ public class NaverMapActivity extends NMapActivity {
     public static NMapPOIdataOverlay poiDataOverlay;
     public static NMapPOIdataOverlay poiDataOverlay1;
 
-    public static DataBase db = new DataBase();
+    public static Filtering.DataBase db = new Filtering.DataBase();
     public GLocation_Setting gLocation_setting = new GLocation_Setting();
     public Filtering filtering = new Filtering(this);
     public String name="";

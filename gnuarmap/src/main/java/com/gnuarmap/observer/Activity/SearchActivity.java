@@ -1,4 +1,4 @@
-package com.gnuarmap.Activity;
+package com.gnuarmap.observer.Activity;
 
 import android.content.Context;
 import android.content.Intent;
@@ -12,8 +12,7 @@ import android.widget.Button;
 import android.widget.Toast;
 
 import com.gnuarmap.R;
-import com.gnuarmap.Activity.Data.DataBase;
-import com.gnuarmap.mixare.data.DataClass;
+import com.gnuarmap.mixare.app.DataView;
 
 public class SearchActivity extends AppCompatActivity {
 
@@ -68,8 +67,8 @@ public class SearchActivity extends AppCompatActivity {
             "건축공학과","기계항공정보융합공학부","항공우주 및 소프트웨어공학과",
             "교육문화센터","인문대식당","평생교육원","남명학관","기숙사 3동","기숙사 관리동","영어 전용 강의동"
     };
-    DataBase data = new DataBase();
-    DataClass data2 = new DataClass();
+    Filtering.DataBase data = new Filtering.DataBase();
+    DataView.Data data2 = new DataView.Data();
     public static String s = "";
     public int num=0;
     public String j="-1";
