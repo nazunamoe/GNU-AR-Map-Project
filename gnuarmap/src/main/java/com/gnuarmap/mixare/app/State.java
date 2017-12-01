@@ -93,7 +93,7 @@ public class State implements MixStateInterface{
 				String webpage = MixUtils.parseAction(onPress);
 				this.detailsView = true;
 				Log.d("mixare","Clicked Marker");
-				//ctx.MarkerMenu(marker);
+				ctx.MarkerMenu(marker);
 			} catch (Exception ex) {
 				ex.printStackTrace();
 			}

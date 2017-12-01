@@ -264,7 +264,7 @@ public abstract class Marker implements org.mixare.lib.marker.Marker {
 		boolean evtHandled = false;
 
 		if (isClickValid(x, y)) {
-			evtHandled = state.handleEvent(ctx, URL);
+			evtHandled = state.handleEvent(ctx, URL, this);
 		}
 		return evtHandled;
 	}
