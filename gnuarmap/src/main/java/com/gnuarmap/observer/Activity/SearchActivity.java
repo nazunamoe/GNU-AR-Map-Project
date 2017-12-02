@@ -68,7 +68,6 @@ public class SearchActivity extends AppCompatActivity {
             "건축공학과","기계항공정보융합공학부","항공우주 및 소프트웨어공학과",
             "교육문화센터","인문대식당","평생교육원","남명학관","기숙사 3동","기숙사 관리동","영어 전용 강의동"
     };
-    Database data = new Database();
     Dataclass data2 = new Dataclass();
     public static String s = "";
     public int num=0;
@@ -78,7 +77,7 @@ public class SearchActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
 
         setContentView(R.layout.activity_search);
-        num = data.data.getWholeSize();
+        num = data2.getWholeSize();
         Log.d("mixare",""+num);
         final AutoCompleteTextView edit = (AutoCompleteTextView) findViewById(R.id.edit);
         edit.setAdapter(new ArrayAdapter<String>(this,
@@ -110,15 +109,14 @@ public class SearchActivity extends AppCompatActivity {
 
     private void numbersearch(String input, int i){
         int s2 = Integer.parseInt(input);
-        if(data.data.WholeList.get(i).id != 0) {
-            if (input.equals(String.valueOf(data.data.WholeList.get(i).id))) {
-                j = data.data.WholeList.get(i).NUM;
+        if(data2.WholeList.get(i).id != 0) {
+            if (input.equals(String.valueOf(data2.WholeList.get(i).id))) {
+                j = data2.WholeList.get(i).NUM;
             }
         }
     }
 
     private String value() {
-        data.Initialize();
         for (int i = 0; i < num; i++) {
             try{
                 numbersearch(s,i);

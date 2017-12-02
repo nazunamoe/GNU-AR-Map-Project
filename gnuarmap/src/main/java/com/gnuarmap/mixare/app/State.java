@@ -90,7 +90,6 @@ public class State implements MixStateInterface{
 	public boolean handleEvent(MixContextInterface ctx, String onPress, org.mixare.lib.marker.Marker marker) {
 		if (onPress != null && onPress.startsWith("webpage")) {
 			try {
-				String webpage = MixUtils.parseAction(onPress);
 				this.detailsView = true;
 				Log.d("mixare","Clicked Marker");
 				ctx.MarkerMenu(marker);

@@ -173,7 +173,6 @@ public class DataView {
 	public void draw(PaintScreen dw) {
 		mixContext.getRM(cam.transform);
 		curFix = mixContext.getLocationFinder().getCurrentLocation();
-		Dataclass dataclass = new Dataclass();
 		state.calcPitchBearing(cam.transform);
 
 		// Load Layer
@@ -185,7 +184,7 @@ public class DataView {
 			state.nextLStatus = State.DONE;
 
 			dataHandler = new DataHandler();
-			dataHandler.addMarkers(markers);
+			dataHandler.addMarkers(markers); //마커 정보를 불러와서 추가
 			dataHandler.onLocationChanged(curFix);
 
 			if (refresh == null) { // start the refresh timer if it is null

@@ -8,8 +8,9 @@ package com.gnuarmap.data;
  * Created by nazunamoe on 2017-11-11.
  */
 
+import com.gnuarmap.data.Dataclass;
+
 public class Database {
-    public Dataclass data = new Dataclass();
 
     private String Engnieering = "http://ce.gnu.ac.kr";
     private String Dormitory = "http://dorm.gnu.ac.kr";
@@ -39,15 +40,11 @@ public class Database {
     private String[] nothing = {};
 
 
-    public Database(){
-        this.Initialize();
-    }
-
     public void getFiltering1(Dataclass in, int index){
         in.getData(index);
     }
 
-    public void Initialize(){
+    public void Initialize(Dataclass data){
             /* 필터링 알고리즘
 
             String Filtering 1으로 건물별 필터링, String Filering 2로 Switch문 돌려서 시설 필터링
@@ -145,10 +142,22 @@ public class Database {
         // 경영대학
         data.addItem("33","경영대학",
                 Business,
-                193955,128.099816,
+                35.153946, 128.099808,
                 "business",
                 "business",
                 vending_printer,
+                201
+        );
+
+        //35.153786, 128.095466
+
+        // 약학대학, BNIT 건물, 둘이 같은 건물을 공유하기 때문에 아이콘은 약대, 필터링은 대학 건물로 등록한다.
+        data.addItem("39","BNIT/약학대학",
+                Business,
+                35.153786, 128.095466,
+                "drug",
+                "university",
+                atm,
                 201
         );
 

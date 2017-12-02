@@ -6,6 +6,7 @@ import android.util.Log;
 import android.view.View;
 
 import com.gnuarmap.data.Database;
+import com.gnuarmap.data.Dataclass;
 import com.gnuarmap.mixare.app.DataView;
 import com.gnuarmap.mixare.app.Marker;
 import com.gnuarmap.mixare.app.SocialMarker;
@@ -34,7 +35,7 @@ public class Filtering {
     private static NMapPOIdata poiData;
     private static NMapPOIdataOverlay poiDataOverlay;
     private static NMapPOIdataOverlay poiDataOverlay1;
-    private Database database = new Database();
+    private Dataclass database = new Dataclass();
 
     public Filtering(Context context){
         this.context = context;
@@ -42,12 +43,12 @@ public class Filtering {
     public Filtering(){}
 
     public void GMarker() {
-        database.Initialize();
-        int d = database.data.getSize();
+        int d = database.getSize();
         poiData = new NMapPOIdata(d, NaverMapActivity.mMapViewerResourceProvider, true);
         poiData.beginPOIdata(d);
-        for(int i=0;i<database.data.getSize();i++) {
-            poiData.addPOIitem(new NGeoPoint(database.data.getData(i).getLongitude(), database.data.getData(i).getLatitude()),database.data.getData(i).getTitle(),markerId,0);
+        for(int i=0;i<database.getSize();i++) {
+            Log.d("mixare","dddd");
+            poiData.addPOIitem(new NGeoPoint(database.getData(i).getLongitude(), database.getData(i).getLatitude()),database.getData(i).getTitle(),markerId,0);
         }
         poiData.endPOIdata();
         poiDataOverlay1 = NaverMapActivity.mOverlayManager.createPOIdataOverlay(poiData, null);
@@ -107,11 +108,11 @@ public class Filtering {
     }
 
     public void Searching(int num){
-        int d = database.data.getSize();
+        int d = database.getSize();
         NMapPOIdata poiData = new NMapPOIdata(d, NaverMapActivity.mMapViewerResourceProvider, true);
         poiData.beginPOIdata(d);
         String number = Integer.toString(num);
-        SocialMarker marker = database.data.getMarker(number);
+        SocialMarker marker = database.getMarker(number);
         poiData.addPOIitem(new NGeoPoint(marker.getLongitude(), marker.getLatitude()), marker.getTitle() ,markerId, 0);
         State state = State.getInstance();
         state.marker = marker;
@@ -119,7 +120,4 @@ public class Filtering {
         poiDataOverlay = NaverMapActivity.mOverlayManager.createPOIdataOverlay(poiData, null);
         poiDataOverlay.setOnStateChangeListener(onPOIdataStateChangeListener);
     }
-
-
-
 }

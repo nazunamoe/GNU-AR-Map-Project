@@ -36,6 +36,7 @@ import java.util.Iterator;
 import java.util.List;
 
 import com.gnuarmap.data.Dataclass;
+import com.gnuarmap.data.Database;
 import com.gnuarmap.observer.Activity.MenuActivity;
 import com.gnuarmap.R;
 import com.gnuarmap.observer.Activity.NaverMapActivity;

@@ -7,6 +7,7 @@ package com.gnuarmap.mixare.app;
 import android.util.Log;
 
 import com.gnuarmap.data.Database;
+import com.gnuarmap.data.Dataclass;
 
 import org.mixare.lib.marker.*;
 import org.mixare.lib.marker.Marker;
@@ -26,12 +27,12 @@ public class DataHandler {
     private java.util.List<org.mixare.lib.marker.Marker> markerList = new ArrayList<org.mixare.lib.marker.Marker>();
 
     public void addMarkers(java.util.List<org.mixare.lib.marker.Marker> markers) {
-        Database data = new Database();
+        Dataclass data = new Dataclass();
 
-        data.Initialize();
 
-        for (int i = 0; i < data.data.getSize(); i++) {
-            markerList.add(data.data.List.get(i));
+
+        for (int i = 0; i < data.getSize(); i++) {
+            markerList.add(data.List.get(i));
         }
         /**
          * 독립된 데이터 프로세서 대신 이 부분에 marker 배열에 필요한 마커 데이터를 직접 등록한다.

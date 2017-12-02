@@ -22,44 +22,30 @@ import java.util.Arrays;
  */
 
 public class Dataclass {
-    public static Bitmap schoolicon; // 학교 아이콘
-    public static Bitmap dormicon;
-    public static Bitmap dorm2icon;
-    public static Bitmap elecicon;
-    public static Bitmap forlangicon; // 국제어학원
-    public static Bitmap gateicon; // 정문이나 후문
-    public static Bitmap libraryicon; // 도서관
-    public static Bitmap lifesci; // 농생대
-    public static Bitmap manageinticon; // 인문대
-    public static Bitmap multi; // 학생회관
-    public static Bitmap student; // 따로 만들어야함, 경상대 아이콘
-    public static Bitmap viliage; // 기숙사
-    public static Bitmap panpacific; // ??
-    public static Bitmap basic; // 기본 아이콘
-    public static Bitmap engine; // 공대
-    public static Bitmap physical; // 체육관, 운동시설
+    private static Bitmap agriculture;
+    private static Bitmap business;
+    private static Bitmap drug;
+    private static Bitmap education;
+    private static Bitmap engineering;
+    private static Bitmap law;
+    private static Bitmap library;
+    private static Bitmap science;
+    private static Bitmap vet;
 
     private String name;
     private String url;
 
-    public static String Building_Type;
     public ArrayList<SocialMarker> WholeList = new ArrayList<SocialMarker>();
     public ArrayList<SocialMarker> List = new ArrayList<SocialMarker>();
     private String Filtering1;
     private String[] Filtering2;
     State state = State.getInstance();
+    Database database = new Database();
 
-    public int getIntFromColor(float Red, float Green, float Blue) {
-        int R = Math.round(255 * Red);
-        int G = Math.round(255 * Green);
-        int B = Math.round(255 * Blue);
-
-        R = (R << 16) & 0x00FF0000;
-        G = (G << 8) & 0x0000FF00;
-        B = B & 0x000000FF;
-
-        return 0xFF000000 | R | G | B;
+    public Dataclass(){
+        database.Initialize(this);
     }
+
 
     public void addItem(String num, String name, String url, double Latitude, double Longitude, String type, String Filtering1, String[] Filtering2, int no) {
         int value = 0;
@@ -71,7 +57,7 @@ public class Dataclass {
                 HtmlUnescape.unescapeHTML((name), 0),
                 Latitude,
                 Longitude,
-                0, // 소셜 마커이므로 고도에 구애받지 않는다.
+                0, // 소셜 마커이므로 고도에 구애받지d 않는다.
                 url,
                 1,
                 value,
@@ -99,7 +85,7 @@ public class Dataclass {
                 }
             }
             if (state.Dormitory) {
-                if (Filtering1 == "dormitory") {
+                if (Filtering1 == "dominatory") {
                     secondFiltering(num, Latitude, Longitude, url, value, type, name, Filtering2, no);
                 }
             }
@@ -259,66 +245,51 @@ public class Dataclass {
 
 
     public static void createIcons(Resources res) {
-        dormicon = BitmapFactory.decodeResource(res, R.drawable.school_dorm);
-        dorm2icon = BitmapFactory.decodeResource(res, R.drawable.school_dorm2);
-        elecicon = BitmapFactory.decodeResource(res, R.drawable.school_elecinfo);
-        forlangicon = BitmapFactory.decodeResource(res, R.drawable.school_forlang);
-        gateicon = BitmapFactory.decodeResource(res, R.drawable.school_gate);
-        libraryicon = BitmapFactory.decodeResource(res, R.drawable.school_library);
-        lifesci = BitmapFactory.decodeResource(res, R.drawable.school_lifesci);
-        manageinticon = BitmapFactory.decodeResource(res, R.drawable.school_manageint);
-        multi = BitmapFactory.decodeResource(res, R.drawable.school_multi);
-        panpacific = BitmapFactory.decodeResource(res, R.drawable.school_panpacific);
-        engine = BitmapFactory.decodeResource(res, R.drawable.school_engine);
-        physical = BitmapFactory.decodeResource(res, R.drawable.school_physical);
-        viliage = BitmapFactory.decodeResource(res, R.drawable.school_village);
-        basic = BitmapFactory.decodeResource(res, R.drawable.school_default);
+        agriculture = BitmapFactory.decodeResource(res, R.drawable.icon_agriculture);
+        business = BitmapFactory.decodeResource(res, R.drawable.icon_business);
+        drug = BitmapFactory.decodeResource(res, R.drawable.icon_drug);
+        education = BitmapFactory.decodeResource(res, R.drawable.icon_education);
+        engineering = BitmapFactory.decodeResource(res, R.drawable.icon_engineering);
+        law = BitmapFactory.decodeResource(res, R.drawable.icon_law);
+        library = BitmapFactory.decodeResource(res, R.drawable.icon_library);
+        science = BitmapFactory.decodeResource(res, R.drawable.icon_science);
+        vet = BitmapFactory.decodeResource(res, R.drawable.icon_vet);
         // routeIcon;
     }
 
     public static Bitmap getBitmap(String ds) {
         Bitmap bitmap = null;
         switch (ds) {
-
-            case "dorm":
-                bitmap = dormicon;
-                break;
-            case "dorm2":
-                bitmap = dorm2icon;
-                break;
-            case "elecinfo":
-                bitmap = elecicon;
-                break;
-            case "forlang":
-                bitmap = forlangicon;
-                break;
-            case "gate":
-                bitmap = gateicon;
-                break;
-            case "library":
-                bitmap = libraryicon;
-                break;
-            case "lifesci":
-                bitmap = lifesci;
-                break;
-            case "manageint":
-                bitmap = manageinticon;
-                break;
-            case "student":
-                bitmap = multi;
-                break;
-            case "panpacific":
-                bitmap = panpacific;
-                break;
-            case "engine":
-                bitmap = engine;
-                break;
-            case "physical":
-                bitmap = physical;
-                break;
-            case "default":
-                bitmap = basic;
-                break;
+            case "agriculture":{
+                bitmap = agriculture;
+            }
+            case "business":{
+                bitmap = business;
+            }
+            case "drug":{
+                bitmap = drug;
+            }
+            case "education":{
+                bitmap = education;
+            }
+            case "engineering":{
+                bitmap = engineering;
+            }
+            case "law":{
+                bitmap = law;
+            }
+            case "library":{
+                bitmap = library;
+            }
+            case "science":{
+                bitmap = science;
+            }
+            case "vet":{
+                bitmap = vet;
+            }
+            default:{
+                bitmap = vet;
+            }
         }
         return bitmap;
     }
