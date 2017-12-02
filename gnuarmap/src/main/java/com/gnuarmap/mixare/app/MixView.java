@@ -35,6 +35,7 @@ import java.util.Date;
 import java.util.Iterator;
 import java.util.List;
 
+import com.gnuarmap.data.Dataclass;
 import com.gnuarmap.observer.Activity.MenuActivity;
 import com.gnuarmap.R;
 import com.gnuarmap.observer.Activity.NaverMapActivity;
@@ -117,7 +118,7 @@ public class MixView extends Activity implements SensorEventListener, OnTouchLis
 
 	@Override
 	public void onCreate(Bundle savedInstanceState) {
-		DataView.Data.DataSource.createIcons(getResources());
+		Dataclass.createIcons(getResources());
 		getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN,
 				WindowManager.LayoutParams.FLAG_FULLSCREEN);
 		super.onCreate(savedInstanceState);
@@ -1331,7 +1332,7 @@ public class MixView extends Activity implements SensorEventListener, OnTouchLis
     }
 
 	/**
-     * Internal class that holds Mixview field Data.
+     * Internal class that holds Mixview field Dataclass.
      *
      * @author A B
      */

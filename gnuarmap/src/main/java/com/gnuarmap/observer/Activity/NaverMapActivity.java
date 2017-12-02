@@ -11,6 +11,7 @@ import android.util.Log;
 import android.view.*;
 import android.widget.Toast;
 
+import com.gnuarmap.data.Database;
 import com.gnuarmap.observer.NaverMap.NMapViewerResourceProvider;
 import com.gnuarmap.mixare.app.State;
 import com.gnuarmap.mixare.app.MixView;
@@ -55,7 +56,7 @@ public class NaverMapActivity extends NMapActivity {
     public static NMapPOIdataOverlay poiDataOverlay;
     public static NMapPOIdataOverlay poiDataOverlay1;
 
-    public static Filtering.DataBase db = new Filtering.DataBase();
+    public static Database db = new Database();
     public Filtering filtering = new Filtering(this);
     public String name="";
 

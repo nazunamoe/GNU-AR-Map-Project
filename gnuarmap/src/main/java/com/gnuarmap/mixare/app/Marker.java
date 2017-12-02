@@ -213,7 +213,6 @@ public abstract class Marker implements org.mixare.lib.marker.Marker {
 			float maxHeight = dw.getHeight();
 			dw.setStrokeWidth(maxHeight / 100f);
 			dw.setFill(false);
-			//dw.setColor(DataSource.getColor(type));
 
 			//draw circle with radius depending on distance
 			//0.44 is approx. vertical fov in radians 
@@ -245,9 +244,6 @@ public abstract class Marker implements org.mixare.lib.marker.Marker {
 		textBlock = new TextObj(textStr, Math.round(maxHeight / 2f) + 1, 800, dw, underline);
 
 		if (isVisible) {
-
-			//dw.setColor(DataSource.getColor(type));
-
 			float currentAngle = MixUtils.getAngle(cMarker.x, cMarker.y, signMarker.x, signMarker.y);
 
 			txtLab.prepare(textBlock);

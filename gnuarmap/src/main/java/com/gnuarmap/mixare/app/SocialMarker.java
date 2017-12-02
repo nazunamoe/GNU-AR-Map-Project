@@ -1,7 +1,8 @@
 package com.gnuarmap.mixare.app;
 
 import android.graphics.Bitmap;
-import android.location.*;
+
+import com.gnuarmap.data.Dataclass;
 
 import org.mixare.lib.gui.PaintScreen;
 
@@ -59,7 +60,7 @@ public class SocialMarker extends Marker {
             float maxHeight = Math.round(dw.getHeight() / 10f) + 1;	// 최대 높이 계산
             // 데이터 소스의 비트맵 파일을 읽어온다
 
-            Bitmap bitmap = DataView.Data.DataSource.getBitmap("default");
+            Bitmap bitmap = Dataclass.getBitmap("default");
 
             // 비트맵 파일이 읽혔다면 적절한 위치에 출력
             if(bitmap!=null) {
@@ -69,7 +70,6 @@ public class SocialMarker extends Marker {
 
                 dw.setStrokeWidth(maxHeight / 10f);
                 dw.setFill(false);
-                //dw.setColor(DataSource.getColor(datasource));
                 dw.paintCircle(cMarker.x, cMarker.y, maxHeight / 1.5f);
             }
         }
