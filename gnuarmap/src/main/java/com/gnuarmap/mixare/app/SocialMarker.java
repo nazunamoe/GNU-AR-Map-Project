@@ -4,7 +4,11 @@ import android.graphics.Bitmap;
 
 import com.gnuarmap.data.Dataclass;
 
+import org.mixare.lib.MixUtils;
 import org.mixare.lib.gui.PaintScreen;
+import org.mixare.lib.gui.TextObj;
+
+import java.text.DecimalFormat;
 
 /**
  * The SocialMarker class represents a marker, which contains data from
@@ -74,6 +78,37 @@ public class SocialMarker extends Marker {
         }
     }
 
+    public void drawTextBlock(PaintScreen dw) {
+        //TODO: grandezza cerchi e trasparenza
+        float maxHeight = Math.round(dw.getHeight() / 10f) + 1;
+
+        //TODO: change textblock only when distance changes
+        String textStr="";
+
+        double d = distance;
+        DecimalFormat df = new DecimalFormat("@#");
+        if(d<1000.0) {
+            textStr = title + " ("+ df.format(d) + "m)";
+        }
+        else {
+            d=d/1000.0;
+            textStr = title + " (" + df.format(d) + "km)";
+        }
+
+        textBlock = new TextObj(textStr, Math.round(maxHeight / 2f) + 1, 800, dw, underline);
+
+        if (isVisible) {
+            float currentAngle = MixUtils.getAngle(cMarker.x, cMarker.y, signMarker.x, signMarker.y);
+
+            txtLab.prepare(textBlock);
+
+            dw.setStrokeWidth(1f);
+            dw.setFill(true);
+            dw.paintObj(txtLab, signMarker.x - txtLab.getWidth()
+                    / 2, signMarker.y + maxHeight, currentAngle + 90, 1);
+        }
+
+    }
 
     @Override
     public int getMaxObjects() {

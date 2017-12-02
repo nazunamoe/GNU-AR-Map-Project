@@ -47,7 +47,6 @@ public class Filtering {
         poiData = new NMapPOIdata(d, NaverMapActivity.mMapViewerResourceProvider, true);
         poiData.beginPOIdata(d);
         for(int i=0;i<database.getSize();i++) {
-            Log.d("mixare","dddd");
             poiData.addPOIitem(new NGeoPoint(database.getData(i).getLongitude(), database.getData(i).getLatitude()),database.getData(i).getTitle(),markerId,0);
         }
         poiData.endPOIdata();

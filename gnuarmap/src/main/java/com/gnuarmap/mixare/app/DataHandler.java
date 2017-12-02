@@ -29,8 +29,6 @@ public class DataHandler {
     public void addMarkers(java.util.List<org.mixare.lib.marker.Marker> markers) {
         Dataclass data = new Dataclass();
 
-
-
         for (int i = 0; i < data.getSize(); i++) {
             markerList.add(data.List.get(i));
         }
