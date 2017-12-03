@@ -172,7 +172,6 @@ public class DataView {
 	public void draw(PaintScreen dw) {
 		mixContext.getRM(cam.transform);
 		curFix = mixContext.getLocationFinder().getCurrentLocation();
-		state.calcPitchBearing(cam.transform);
 
 		// Load Layer
 		if (state.nextLStatus == State.NOT_STARTED && !frozen) {
