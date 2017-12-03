@@ -28,5 +28,6 @@ import org.mixare.lib.marker.Marker;
 public interface MixStateInterface {
 
 	boolean handleEvent(MixContextInterface ctx, String onPress);
+	boolean handleEvent(MixContextInterface ctx, String onPress, Marker marker);
 
 }

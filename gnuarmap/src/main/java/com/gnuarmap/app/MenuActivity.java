@@ -19,7 +19,10 @@ import android.widget.ListView;
 import android.widget.Toast;
 
 import com.gnuarmap.R;
+import com.gun0912.tedpermission.PermissionListener;
+import com.gun0912.tedpermission.TedPermission;
 
+import java.util.ArrayList;
 import java.util.Date;
 
 import static android.location.LocationManager.GPS_PROVIDER;
@@ -30,6 +33,20 @@ public class MenuActivity extends AppCompatActivity implements AdapterView.OnIte
     public Context getContext() {
         return getApplicationContext();
     }
+
+
+    PermissionListener permissionlistener = new PermissionListener() {
+        @Override
+        public void onPermissionGranted() {
+            //Toast.makeText(MenuActivity.this, "Permission Granted", Toast.LENGTH_SHORT).show();
+        }
+
+        @Override
+        public void onPermissionDenied(ArrayList<String> deniedPermissions) {
+            //Toast.makeText(MenuActivity.this, "Permission Denied\n" + deniedPermissions.toString(), Toast.LENGTH_SHORT).show();
+        }
+
+    };
 
     @Override
     public void onItemClick(AdapterView<?> parent, View v, int position, long id) {
@@ -148,6 +165,11 @@ public class MenuActivity extends AppCompatActivity implements AdapterView.OnIte
         setContentView(R.layout.activity_menu);
         android.support.v7.widget.Toolbar toolbar = findViewById(R.id.toolbar);
         toolbar.setTitle(R.string.app_name);
+        TedPermission.with(this)
+                .setPermissionListener(permissionlistener)
+                .setDeniedMessage(R.string.permission_rejected)
+                .setPermissions(Manifest.permission.CAMERA, Manifest.permission.ACCESS_FINE_LOCATION)
+                .check();
         ArrayAdapter adapter = ArrayAdapter.createFromResource(this, R.array.MenuList, android.R.layout.simple_list_item_1);
         ListView listview = (ListView) findViewById(R.id.listview1);
         listview.setOnItemClickListener(this);

@@ -36,6 +36,7 @@ import org.mixare.lib.render.MixVector;
 
 import android.graphics.Bitmap;
 import android.location.Location;
+import android.util.Log;
 
 /**
  * The class represents a marker and contains its information.
@@ -256,17 +257,14 @@ public abstract class Marker implements org.mixare.lib.marker.Marker {
 
 	}
 
-	public boolean fClick(float x, float y, MixContext ctx, State state) {
+	public boolean fClick(float x, float y, MixContextInterface ctx, MixStateInterface state) {
 		boolean evtHandled = false;
+		Log.d("mixare","Clicked Marker");
 
 		if (isClickValid(x, y)) {
 			evtHandled = state.handleEvent(ctx, URL, this);
 		}
 		return evtHandled;
-	}
-
-	public boolean fClick(float x, float y, MixContextInterface ctx, MixStateInterface state) {
-		return false;
 	}
 
 

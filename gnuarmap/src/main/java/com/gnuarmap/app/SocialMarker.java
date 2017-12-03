@@ -1,11 +1,13 @@
 package com.gnuarmap.app;
 
 import android.graphics.Bitmap;
+import android.util.Log;
 
 import org.mixare.lib.MixContextInterface;
 import org.mixare.lib.MixStateInterface;
 import org.mixare.lib.MixUtils;
 import org.mixare.lib.gui.PaintScreen;
+import org.mixare.lib.gui.ScreenLine;
 import org.mixare.lib.gui.TextObj;
 import org.mixare.lib.render.Camera;
 import org.mixare.lib.render.MixVector;
@@ -21,12 +23,12 @@ import java.text.DecimalFormat;
  *
  */
 public class SocialMarker extends Marker {
-
+    private String URL;
     public String NUM;
     public String filter1;
     public String filter2[];
     public int id;
-    public MixVector cMarker = new MixVector();
+    private ScreenLine pPt = new ScreenLine();
     private MixVector upV = new MixVector(0, 1, 0);
     private MixVector origin = new MixVector(0, 0, 0);
     public String getFlag;
@@ -38,6 +40,7 @@ public class SocialMarker extends Marker {
         this.getFlag = flag;
         this.filter1 = filtering1;
         this.filter2 = filtering2;
+
     }
 
     @Override
@@ -81,9 +84,14 @@ public class SocialMarker extends Marker {
         }
     }
 
-    public boolean fClick(float x, float y, MixContextInterface ctx, MixStateInterface state) {
-        return false;
+    public boolean fClick(float x, float y, MixContext ctx, State state) {
+        boolean evtHandled = false;
+        Log.d("mixare","Clicked Marker");
 
+        if (isClickValid(x, y)) {
+            evtHandled = state.handleEvent(ctx, URL, this);
+        }
+        return evtHandled;
     }
 
     public void drawTextBlock(PaintScreen dw) {
@@ -165,5 +173,31 @@ public class SocialMarker extends Marker {
         calcV(viewCam);
     }
 
+    private boolean isClickValid(float x, float y) {
 
+        //if the marker is not active (i.e. not shown in AR view) we don't have to check it for clicks
+        if (!isActive() && !this.isVisible)
+            return false;
+
+        float currentAngle = MixUtils.getAngle(cMarker.x, cMarker.y,
+                signMarker.x, signMarker.y);
+        //TODO adapt the following to the variable radius!
+        pPt.x = x - signMarker.x;
+        pPt.y = y - signMarker.y;
+        pPt.rotate((float) Math.toRadians(-(currentAngle + 90)));
+        pPt.x += txtLab.getX();
+        pPt.y += txtLab.getY();
+
+        float objX = txtLab.getX() - txtLab.getWidth() / 2;
+        float objY = txtLab.getY() - txtLab.getHeight() / 2;
+        float objW = txtLab.getWidth();
+        float objH = txtLab.getHeight();
+
+        if (pPt.x > objX && pPt.x < objX + objW && pPt.y > objY
+                && pPt.y < objY + objH) {
+            return true;
+        } else {
+            return false;
+        }
+    }
 }

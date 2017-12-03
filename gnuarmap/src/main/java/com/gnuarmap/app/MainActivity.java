@@ -1,5 +1,6 @@
 package com.gnuarmap.app;
 
+import android.Manifest;
 import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
@@ -8,15 +9,25 @@ import android.preference.PreferenceManager;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
 
+import com.gnuarmap.R;
+import com.gun0912.tedpermission.PermissionListener;
+import com.gun0912.tedpermission.TedPermission;
+
+import java.util.ArrayList;
+
 public class MainActivity extends AppCompatActivity{
 
     SharedPreferences sharedPref;
     State state = State.getInstance();
 
+
+
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         Context ctx = this.getApplicationContext();
+
         sharedPref = PreferenceManager.getDefaultSharedPreferences(this);
         Initialize();
         Log.d("mixare","Initialize start");
