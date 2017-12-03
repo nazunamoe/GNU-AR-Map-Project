@@ -1,4 +1,4 @@
-package com.gnuarmap;
+package com.gnuarmap.app;
 
 /**
  * Created by nazunamoe on 2017-12-03.

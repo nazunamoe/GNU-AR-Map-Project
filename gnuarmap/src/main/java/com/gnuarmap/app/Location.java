@@ -1,4 +1,4 @@
-package com.gnuarmap;
+package com.gnuarmap.app;
 
 import android.content.Context;
 import android.hardware.GeomagneticField;
@@ -7,6 +7,8 @@ import android.location.LocationListener;
 import android.location.LocationManager;
 import android.os.Bundle;
 import android.util.Log;
+
+import com.gnuarmap.R;
 
 import java.util.ArrayList;
 import java.util.List;

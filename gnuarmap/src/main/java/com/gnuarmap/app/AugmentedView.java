@@ -1,4 +1,4 @@
-package com.gnuarmap;
+package com.gnuarmap.app;
 
 /**
  * Created by nazunamoe on 2017-12-03.
@@ -17,11 +17,6 @@ import android.view.View;
 
 public class AugmentedView extends View {
     MixView app;
-    int xSearch = 200;
-    int ySearch = 10;
-    int searchObjWidth = 0;
-    int searchObjHeight = 0;
-
     Paint zoomPaint = new Paint();
 
     public AugmentedView(Context context) {

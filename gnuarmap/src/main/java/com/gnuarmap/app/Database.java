@@ -1,4 +1,4 @@
-package com.gnuarmap;
+package com.gnuarmap.app;
 
 /**
  * Created by nazunamoe on 2017-12-02.
@@ -45,7 +45,7 @@ public class Database {
     public void Initialize(Dataclass data){
             /* 필터링 알고리즘
 
-            String Filtering 1으로 건물별 필터링, String Filering 2로 Switch문 돌려서 시설 필터링
+            String NaverMapMarker 1으로 건물별 필터링, String Filering 2로 Switch문 돌려서 시설 필터링
 
             건물 번호 0은 모르거나 건물 번호가 없거나 건물이 아님을 나타냄.
 
@@ -73,11 +73,11 @@ public class Database {
             */
         // 공대 데이터
         data.addItem("0","공대 1호관",
-                Engnieering,
-                35.154782,128.093720,
-                "dorm",
-                "engnieering",
-                nothing,
+                        Engnieering,
+                        35.154782,128.093720,
+                        "dorm",
+                        "engnieering",
+                        nothing,
                 401
         );
         data.addItem("1","공대 2호관",

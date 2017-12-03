@@ -1,4 +1,4 @@
-package com.gnuarmap;
+package com.gnuarmap.app;
 
 import android.Manifest;
 import android.annotation.TargetApi;

@@ -1,10 +1,13 @@
-package com.gnuarmap;
+package com.gnuarmap.app;
 
 import android.content.Context;
 import android.graphics.Rect;
 import android.util.Log;
 import android.view.View;
 
+import com.gnuarmap.R;
+import com.gnuarmap.naver.NMapCalloutCustomOverlayView;
+import com.gnuarmap.naver.NMapPOIflagType;
 import com.nhn.android.maps.NMapOverlay;
 import com.nhn.android.maps.NMapOverlayItem;
 import com.nhn.android.maps.maplib.NGeoPoint;
@@ -18,26 +21,26 @@ import com.nhn.android.mapviewer.overlay.NMapPOIdataOverlay;
  * 필터링기능을 제공하는 클래스
  */
 
-public class Filtering {
+public class NaverMapMarker {
     private int markerId = NMapPOIflagType.PIN;
     private int currentMarker = NMapPOIflagType.SPOT;
     private Context context;
     private static NMapPOIdata poiData;
     private static NMapPOIdataOverlay poiDataOverlay;
     private static NMapPOIdataOverlay poiDataOverlay1;
-    private Dataclass database = new Dataclass();
+    private Dataclass dataclass = new Dataclass();
 
-    public Filtering(Context context){
+    public NaverMapMarker(Context context){
         this.context = context;
     }
-    public Filtering(){}
+    public NaverMapMarker(){}
 
     public void GMarker() {
-        int d = database.getSize();
+        int d = dataclass.getSize();
         poiData = new NMapPOIdata(d, NaverMapActivity.mMapViewerResourceProvider, true);
         poiData.beginPOIdata(d);
-        for(int i=0;i<database.getSize();i++) {
-            poiData.addPOIitem(new NGeoPoint(database.getData(i).getLongitude(), database.getData(i).getLatitude()),database.getData(i).getTitle(),markerId,0);
+        for(int i = 0; i< dataclass.getWholeSize(); i++) {
+            poiData.addPOIitem(new NGeoPoint(dataclass.getWholeData(i).getLongitude(), dataclass.getWholeData(i).getLatitude()), dataclass.getWholeData(i).getTitle(),markerId,0);
         }
         poiData.endPOIdata();
         poiDataOverlay1 = NaverMapActivity.mOverlayManager.createPOIdataOverlay(poiData, null);
@@ -97,11 +100,11 @@ public class Filtering {
     }
 
     public void Searching(int num){
-        int d = database.getSize();
+        int d = dataclass.getWholeSize();
         NMapPOIdata poiData = new NMapPOIdata(d, NaverMapActivity.mMapViewerResourceProvider, true);
         poiData.beginPOIdata(d);
         String number = Integer.toString(num);
-        SocialMarker marker = database.getMarker(number);
+        SocialMarker marker = dataclass.getMarker(number);
         poiData.addPOIitem(new NGeoPoint(marker.getLongitude(), marker.getLatitude()), marker.getTitle() ,markerId, 0);
         State state = State.getInstance();
         state.marker = marker;

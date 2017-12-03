@@ -16,7 +16,7 @@
  * You should have received a copy of the GNU General Public License along with 
  * this program. If not, see <http://www.gnu.org/licenses/>
  */
-package com.gnuarmap;
+package com.gnuarmap.app;
 
 import android.util.Log;
 
@@ -87,7 +87,7 @@ public class State implements MixStateInterface{
 
 	private boolean detailsView;
 
-	public boolean handleEvent(MixContextInterface ctx, String onPress, org.mixare.lib.marker.Marker marker) {
+	public boolean handleEvent(MixContext ctx, String onPress, Marker marker) {
 		if (onPress != null && onPress.startsWith("webpage")) {
 			try {
 				this.detailsView = true;

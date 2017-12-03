@@ -16,7 +16,7 @@
  * You should have received a copy of the GNU General Public License along with 
  * this program. If not, see <http://www.gnu.org/licenses/>
  */
-package com.gnuarmap;
+package com.gnuarmap.app;
 
 import static android.view.KeyEvent.KEYCODE_CAMERA;
 import static android.view.KeyEvent.KEYCODE_DPAD_CENTER;
@@ -39,6 +39,8 @@ import org.mixare.lib.render.Camera;
 import android.graphics.Color;
 import android.location.Location;
 import android.widget.Toast;
+
+import com.gnuarmap.R;
 
 /**
  * This class is able to update the markers and the radar. It also handles some
@@ -215,6 +217,8 @@ public class DataView {
 			}
 		}
 
+
+
 		// Get next event
 		UIEvent evt = null;
 		synchronized (uiEvents) {
@@ -244,8 +248,8 @@ public class DataView {
 			state.nextLStatus = State.PROCESSING;
 			isLauncherStarted = true;
 		} else {
-			double lat = curFix.getLatitude(), lon = curFix.getLongitude(), alt = curFix
-					.getAltitude();
+		//double lat = curFix.getLatitude(), lon = curFix.getLongitude(), alt = curFix
+		//			.getAltitude();
 			state.nextLStatus = State.PROCESSING;
 		}
 

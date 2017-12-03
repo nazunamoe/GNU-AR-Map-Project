@@ -1,4 +1,4 @@
-package com.gnuarmap;
+package com.gnuarmap.app;
 
 import android.content.Context;
 import android.content.Intent;
@@ -11,6 +11,8 @@ import android.util.Log;
 import android.view.*;
 import android.widget.Toast;
 
+import com.gnuarmap.R;
+import com.gnuarmap.naver.NMapViewerResourceProvider;
 import com.nhn.android.maps.NMapActivity;
 import com.nhn.android.maps.NMapCompassManager;
 import com.nhn.android.maps.NMapController;
@@ -52,7 +54,7 @@ public class NaverMapActivity extends NMapActivity {
     public static NMapPOIdataOverlay poiDataOverlay1;
 
     public static Database db = new Database();
-    public Filtering filtering = new Filtering(this);
+    public NaverMapMarker naverMapMarker = new NaverMapMarker(this);
     public String name="";
 
     protected void onCreate(Bundle savedInstanceState) {
@@ -86,10 +88,10 @@ public class NaverMapActivity extends NMapActivity {
                                                                }
                                                                mMapController.setMapCenter(currentGPSInfo.getLongitude(),currentGPSInfo.getLatitude());
                                                                if(firstcurrentpoint == 0){
-                                                                   filtering.CurrentLocation(currentGPSInfo.getLongitude(),currentGPSInfo.getLatitude(),getApplicationContext(),0);
+                                                                   naverMapMarker.CurrentLocation(currentGPSInfo.getLongitude(),currentGPSInfo.getLatitude(),getApplicationContext(),0);
                                                                    firstcurrentpoint = 1;
                                                                }else{
-                                                                   filtering.CurrentLocation(currentGPSInfo.getLongitude(),currentGPSInfo.getLatitude(),getApplicationContext(),1);
+                                                                   naverMapMarker.CurrentLocation(currentGPSInfo.getLongitude(),currentGPSInfo.getLatitude(),getApplicationContext(),1);
                                                                }
                                                            }catch(SecurityException e){
                                                                Toast.makeText(getApplicationContext(), R.string.permission_rejected, Toast.LENGTH_SHORT).show();
@@ -123,10 +125,10 @@ public class NaverMapActivity extends NMapActivity {
         mMapLocationManager.setOnLocationChangeListener(onMyLocationChangeListener);
         mMyLocationOverlay = mOverlayManager.createMyLocationOverlay(mMapLocationManager, mMapCompassManager);
         if(name == null){
-            filtering.GMarker();
+            naverMapMarker.GMarker();
         }else{
             int a = Integer.parseInt(name);
-            filtering.Searching(a);
+            naverMapMarker.Searching(a);
             mMapController.setMapCenter(state.marker.getLongitude(),state.marker.getLatitude());
         }
     }

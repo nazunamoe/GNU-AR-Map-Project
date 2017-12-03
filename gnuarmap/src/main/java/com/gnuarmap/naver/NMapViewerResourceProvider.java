@@ -13,7 +13,7 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package com.gnuarmap;
+package com.gnuarmap.naver;
 
 import android.content.Context;
 import android.graphics.Bitmap;
@@ -27,6 +27,7 @@ import android.graphics.drawable.Drawable;
 import android.widget.ImageView;
 import android.widget.ListView;
 
+import com.gnuarmap.R;
 import com.nhn.android.maps.NMapOverlayItem;
 import com.nhn.android.maps.overlay.NMapPOIitem;
 import com.nhn.android.mapviewer.overlay.NMapResourceProvider;

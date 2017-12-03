@@ -1,4 +1,4 @@
-package com.gnuarmap;
+package com.gnuarmap.app;
 
 /**
  * Created by nazunamoe on 2017-12-02.
@@ -20,7 +20,7 @@ import java.util.List;
 public class DataHandler {
 
     // 완성된 마커 리스트
-    private java.util.List<org.mixare.lib.marker.Marker> markerList = new ArrayList<org.mixare.lib.marker.Marker>();
+    private java.util.List<Marker> markerList = new ArrayList<org.mixare.lib.marker.Marker>();
 
     public void addMarkers(java.util.List<org.mixare.lib.marker.Marker> markers) {
         Dataclass data = new Dataclass();
@@ -33,6 +33,8 @@ public class DataHandler {
          */
 
         Log.d(MixView.TAG, "Marker count: " + markerList.size());
+
+
     }
 
     // 마커 리스트 정렬
@@ -42,7 +44,7 @@ public class DataHandler {
 
     // 위치를 이용해서 현재 위치와의 거리 측정
     public void updateDistances(android.location.Location location) {
-        for (org.mixare.lib.marker.Marker ma : markerList) {
+        for (Marker ma : markerList) {
             float[] dist = new float[3];
             android.location.Location.distanceBetween(ma.getLatitude(), ma.getLongitude(), location.getLatitude(), location.getLongitude(), dist);
             ma.setDistance(dist[0]);
@@ -54,9 +56,9 @@ public class DataHandler {
 
         Hashtable<Class, Integer> map = new Hashtable<Class, Integer>();
 
-        for (org.mixare.lib.marker.Marker ma : markerList) {
+        for (Marker ma : markerList) {
 
-            Class<? extends org.mixare.lib.marker.Marker> mClass = ma.getClass();
+            Class<? extends Marker> mClass = ma.getClass();
             map.put(mClass, (map.get(mClass) != null) ? map.get(mClass) + 1 : 1);
 
             boolean belowMax = (map.get(mClass) <= ma.getMaxObjects());

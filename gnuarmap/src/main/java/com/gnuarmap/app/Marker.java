@@ -16,7 +16,7 @@
  * You should have received a copy of the GNU General Public License along with 
  * this program. If not, see <http://www.gnu.org/licenses/>
  */
-package com.gnuarmap;
+package com.gnuarmap.app;
 
 import java.net.URLDecoder;
 import java.text.DecimalFormat;
@@ -256,13 +256,17 @@ public abstract class Marker implements org.mixare.lib.marker.Marker {
 
 	}
 
-	public boolean fClick(float x, float y, MixContextInterface ctx, MixStateInterface state) {
+	public boolean fClick(float x, float y, MixContext ctx, State state) {
 		boolean evtHandled = false;
 
 		if (isClickValid(x, y)) {
 			evtHandled = state.handleEvent(ctx, URL, this);
 		}
 		return evtHandled;
+	}
+
+	public boolean fClick(float x, float y, MixContextInterface ctx, MixStateInterface state) {
+		return false;
 	}
 
 

@@ -44,7 +44,7 @@
         android:label="@string/app_name"
         tools:replace="label">
         <activity
-            android:name=".MainActivity"
+            android:name=".app.MainActivity"
             android:icon="@drawable/ic_launcher"
             android:label="@string/app_name"
             android:theme="@style/AppTheme.NoActionBar">
@@ -56,7 +56,7 @@
             </intent-filter>
         </activity>
         <activity
-            android:name=".MixView"
+            android:name=".app.MixView"
             android:label="@string/app_name"
             android:launchMode="singleTop"
             android:resizeableActivity="true"
@@ -101,19 +101,19 @@
                 android:resource="@xml/searchable" />
         </activity>
         <activity
-            android:name=".SettingsActivity"
+            android:name=".app.SettingsActivity"
             android:theme="@style/PreferenceScreen" />
         <activity
             android:name=".observer.Activity.MarkerActivity"
             android:theme="@style/AppCompat2" />
         <activity
-            android:name=".NaverMapActivity"
+            android:name=".app.NaverMapActivity"
             android:theme="@style/AppCompat2" />
         <activity
-            android:name=".SearchActivity"
+            android:name=".app.SearchActivity"
             android:theme="@style/AppTheme" />
         <activity
-            android:name=".MenuActivity"
+            android:name=".app.MenuActivity"
             android:icon="@drawable/ic_launcher"
             android:label="@string/app_name"
             android:theme="@style/AppCompat2.noActionBar">

@@ -1,4 +1,4 @@
-package com.gnuarmap;
+package com.gnuarmap.app;
 
 /**
  * Created by nazunamoe on 2017-12-02.
@@ -7,6 +7,8 @@ package com.gnuarmap;
 import android.content.res.Resources;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
+
+import com.gnuarmap.R;
 
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -35,9 +37,9 @@ public class Dataclass {
     private String Filtering1;
     private String[] Filtering2;
     State state = State.getInstance();
-    Database database = new Database();
 
     public Dataclass(){
+        Database database = new Database();
         database.Initialize(this);
     }
 
