@@ -1,8 +1,6 @@
-package com.gnuarmap.mixare.app;
+package com.gnuarmap;
 
 import android.graphics.Bitmap;
-
-import com.gnuarmap.data.Dataclass;
 
 import org.mixare.lib.MixUtils;
 import org.mixare.lib.gui.PaintScreen;

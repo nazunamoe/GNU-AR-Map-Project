@@ -1,18 +1,10 @@
-package com.gnuarmap.observer.Activity;
+package com.gnuarmap;
 
 import android.content.Context;
 import android.graphics.Rect;
 import android.util.Log;
 import android.view.View;
 
-import com.gnuarmap.data.Database;
-import com.gnuarmap.data.Dataclass;
-import com.gnuarmap.mixare.app.DataView;
-import com.gnuarmap.mixare.app.Marker;
-import com.gnuarmap.mixare.app.SocialMarker;
-import com.gnuarmap.observer.NaverMap.NMapCalloutCustomOverlayView;
-import com.gnuarmap.observer.NaverMap.NMapPOIflagType;
-import com.gnuarmap.R;
 import com.nhn.android.maps.NMapOverlay;
 import com.nhn.android.maps.NMapOverlayItem;
 import com.nhn.android.maps.maplib.NGeoPoint;
@@ -20,8 +12,6 @@ import com.nhn.android.maps.overlay.NMapPOIdata;
 import com.nhn.android.maps.overlay.NMapPOIitem;
 import com.nhn.android.mapviewer.overlay.NMapOverlayManager;
 import com.nhn.android.mapviewer.overlay.NMapPOIdataOverlay;
-
-import com.gnuarmap.mixare.app.State;
 
 
 /**

@@ -1,4 +1,4 @@
-package com.gnuarmap.data;
+package com.gnuarmap;
 
 /**
  * Created by nazunamoe on 2017-12-02.
@@ -7,10 +7,6 @@ package com.gnuarmap.data;
 import android.content.res.Resources;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
-
-import com.gnuarmap.R;
-import com.gnuarmap.mixare.app.SocialMarker;
-import com.gnuarmap.mixare.app.State;
 
 import org.mixare.lib.HtmlUnescape;
 

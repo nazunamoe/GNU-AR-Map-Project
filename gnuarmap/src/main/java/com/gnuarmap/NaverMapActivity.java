@@ -1,4 +1,4 @@
-package com.gnuarmap.observer.Activity;
+package com.gnuarmap;
 
 import android.content.Context;
 import android.content.Intent;
@@ -11,11 +11,6 @@ import android.util.Log;
 import android.view.*;
 import android.widget.Toast;
 
-import com.gnuarmap.data.Database;
-import com.gnuarmap.observer.NaverMap.NMapViewerResourceProvider;
-import com.gnuarmap.mixare.app.State;
-import com.gnuarmap.mixare.app.MixView;
-import com.gnuarmap.R;
 import com.nhn.android.maps.NMapActivity;
 import com.nhn.android.maps.NMapCompassManager;
 import com.nhn.android.maps.NMapController;

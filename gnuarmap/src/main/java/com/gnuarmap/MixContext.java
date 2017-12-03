@@ -16,13 +16,11 @@
  * You should have received a copy of the GNU General Public License along with 
  * this program. If not, see <http://www.gnu.org/licenses/>
  */
-package com.gnuarmap.mixare.app;
+package com.gnuarmap;
 
 import org.mixare.lib.MixContextInterface;
 import org.mixare.lib.marker.Marker;
 import org.mixare.lib.render.Matrix;
-
-import com.gnuarmap.observer.Activity.NaverMapActivity;
 
 import android.app.Activity;
 import android.content.ContentResolver;
@@ -45,9 +43,6 @@ public class MixContext extends ContextWrapper implements MixContextInterface {
 
 	/** Responsible for all location tasks */
 	private Location.LocationFinder locationFinder;
-
-	/** Responsible for Web Content */
-	private WebContent.WebContentManager webContentManager;
 
 	public MixContext(MixView appCtx) {
 		super(appCtx);
@@ -88,8 +83,6 @@ public class MixContext extends ContextWrapper implements MixContextInterface {
 	 * Shows a webpage with the given url when clicked on a marker.
 	 */
 	public void loadMixViewWebPage(String url) throws Exception {
-		// TODO: CHECK INTERFACE METHOD
-		getWebContentManager().loadWebPage(url, getActualMixView());
 	}
 
 	public void doResume(MixView mixView) {
@@ -108,14 +101,6 @@ public class MixContext extends ContextWrapper implements MixContextInterface {
 			locationFinder = Location.LocationFinderFactory.makeLocationFinder(this);
 		}
 		return locationFinder;
-	}
-
-	public WebContent.WebContentManager getWebContentManager() {
-		if (this.webContentManager == null) {
-			webContentManager = WebContent.WebContentManagerFactory
-					.makeWebContentManager(this);
-		}
-		return webContentManager;
 	}
 
 	public MixView getActualMixView() {

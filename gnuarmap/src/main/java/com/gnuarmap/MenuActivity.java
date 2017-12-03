@@ -1,4 +1,4 @@
-package com.gnuarmap.observer.Activity;
+package com.gnuarmap;
 
 import android.Manifest;
 import android.app.AlertDialog;
@@ -17,9 +17,6 @@ import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
 import android.widget.Toast;
-
-import com.gnuarmap.mixare.app.MixView;
-import com.gnuarmap.R;
 
 import java.util.Date;
 

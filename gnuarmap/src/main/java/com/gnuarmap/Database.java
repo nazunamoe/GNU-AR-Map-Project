@@ -1,4 +1,4 @@
-package com.gnuarmap.data;
+package com.gnuarmap;
 
 /**
  * Created by nazunamoe on 2017-12-02.
@@ -7,8 +7,6 @@ package com.gnuarmap.data;
 /**
  * Created by nazunamoe on 2017-11-11.
  */
-
-import com.gnuarmap.data.Dataclass;
 
 public class Database {
 

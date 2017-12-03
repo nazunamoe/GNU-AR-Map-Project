@@ -1,4 +1,4 @@
-package com.gnuarmap.observer.Activity;
+package com.gnuarmap;
 
 import android.content.Context;
 import android.content.Intent;
@@ -10,10 +10,6 @@ import android.widget.ArrayAdapter;
 import android.widget.AutoCompleteTextView;
 import android.widget.Button;
 import android.widget.Toast;
-
-import com.gnuarmap.R;
-import com.gnuarmap.data.Database;
-import com.gnuarmap.data.Dataclass;
 
 public class SearchActivity extends AppCompatActivity {
 

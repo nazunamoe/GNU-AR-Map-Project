@@ -16,7 +16,7 @@
  * You should have received a copy of the GNU General Public License along with 
  * this program. If not, see <http://www.gnu.org/licenses/>
  */
-package com.gnuarmap.mixare.app;
+package com.gnuarmap;
 
 import static android.view.KeyEvent.KEYCODE_CAMERA;
 import static android.view.KeyEvent.KEYCODE_DPAD_CENTER;
@@ -30,9 +30,6 @@ import java.util.Date;
 import java.util.List;
 import java.util.Timer;
 import java.util.TimerTask;
-
-import com.gnuarmap.R;
-import com.gnuarmap.data.Dataclass;
 
 import org.mixare.lib.gui.PaintScreen;
 import org.mixare.lib.gui.ScreenLine;

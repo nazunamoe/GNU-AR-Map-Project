@@ -1,4 +1,4 @@
-package com.gnuarmap.mixare.app;
+package com.gnuarmap;
 
 /**
  * Created by nazunamoe on 2017-12-02.
@@ -6,10 +6,6 @@ package com.gnuarmap.mixare.app;
 
 import android.util.Log;
 
-import com.gnuarmap.data.Database;
-import com.gnuarmap.data.Dataclass;
-
-import org.mixare.lib.marker.*;
 import org.mixare.lib.marker.Marker;
 
 import java.util.ArrayList;
