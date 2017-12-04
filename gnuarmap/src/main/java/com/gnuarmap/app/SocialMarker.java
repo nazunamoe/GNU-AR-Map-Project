@@ -62,7 +62,7 @@ public class SocialMarker extends Marker {
 
     @Override
     public void draw(PaintScreen dw) {
-        if(this.distance<30){
+        if(this.distance>30){
             // 텍스트 블록을 그린다
             drawTextBlock(dw);
 
