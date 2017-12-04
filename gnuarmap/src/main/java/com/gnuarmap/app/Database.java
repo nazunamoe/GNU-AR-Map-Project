@@ -604,7 +604,7 @@ public class Database {
         // 수의대
         data.addItem("34","수의대 1호관",
                 Veterinary,
-                35.150438,128.097276,
+                35.150447, 128.097246,
                 "veterinary",
                 "veterinary",
                 vending_atm,
@@ -612,7 +612,7 @@ public class Database {
         );
         data.addItem("35","수의대 2호관",
                 Veterinary,
-                35.150898,128.09787,
+                35.150769, 128.097292,
                 "veterinary",
                 "veterinary",
                 nothing,
@@ -620,23 +620,25 @@ public class Database {
         );
         data.addItem("36","수의대 3호관",
                 Veterinary,
-                35.1501,128.096923,
+                35.150083, 128.096876,
                 "veterinary",
                 "veterinary",
                 nothing,
                 503
         );
-        data.addItem("37","수의대 4호관",
+        /*data.addItem("37","수의대 4호관",
                 Veterinary,
                 35.150391,128.096721,
                 "veterinary",
                 "veterinary",
                 nothing,
                 504
-        );
+        );*/
+        //없는 건물?
         data.addItem("38","수의대 5호관",
                 Veterinary,
-                35.150982,128.097137,
+                35.150723, 128.096753
+                ,
                 "veterinary",
                 "veterinary",
                 nothing,
