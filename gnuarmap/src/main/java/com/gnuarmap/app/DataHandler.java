@@ -4,8 +4,6 @@ package com.gnuarmap.app;
  * Created by nazunamoe on 2017-12-02.
  */
 
-import android.util.Log;
-
 import org.mixare.lib.marker.Marker;
 
 import java.util.ArrayList;
@@ -21,7 +19,7 @@ public class DataHandler {
 
     // 완성된 마커 리스트
     private java.util.List<Marker> markerList = new ArrayList<org.mixare.lib.marker.Marker>();
-
+    public android.location.Location cur;
     public void addMarkers(java.util.List<org.mixare.lib.marker.Marker> markers) {
         Dataclass data = new Dataclass();
 
@@ -44,9 +42,10 @@ public class DataHandler {
 
     // 위치를 이용해서 현재 위치와의 거리 측정
     public void updateDistances(android.location.Location location) {
+        cur = location;
         for (Marker ma : markerList) {
             float[] dist = new float[3];
-            android.location.Location.distanceBetween(ma.getLatitude(), ma.getLongitude(), location.getLatitude(), location.getLongitude(), dist);
+            android.location.Location.distanceBetween(ma.getLatitude(), ma.getLongitude(), cur.getLatitude(), cur.getLongitude(), dist);
             ma.setDistance(dist[0]);
         }
     }
