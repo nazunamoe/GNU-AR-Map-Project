@@ -158,23 +158,9 @@ public class MixView extends Activity implements SensorEventListener, OnTouchLis
 		getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN,
 				WindowManager.LayoutParams.FLAG_FULLSCREEN);
 		super.onCreate(savedInstanceState);
-		if(state.count == 0){
-			AlertDialog.Builder builder1 = new AlertDialog.Builder(this);
-			builder1.setMessage(getString(R.string.GPSWarning));
-			builder1.setNegativeButton(getString(R.string.close_button),
-					new DialogInterface.OnClickListener() {
-						public void onClick(DialogInterface dialog, int id) {
-							dialog.dismiss();
-						}
-					});
-			AlertDialog alert1 = builder1.create();
-			alert1.setTitle(getString(R.string.GPSWarningTitle));
-			alert1.show();
-			state.count ++;
-		}
 		// 경고문은 한번만
 		try {
-						
+
 			handleIntent(getIntent());
 
 			final PowerManager pm = (PowerManager) getSystemService(Context.POWER_SERVICE);
@@ -188,6 +174,18 @@ public class MixView extends Activity implements SensorEventListener, OnTouchLis
 			maintainZoomBar();
 			
 			if (!isInited) {
+				Log.d("debug","setdWindow");
+				AlertDialog.Builder builder1 = new AlertDialog.Builder(this);
+				builder1.setMessage(getString(R.string.GPSWarning));
+				builder1.setNegativeButton(getString(R.string.close_button),
+						new DialogInterface.OnClickListener() {
+							public void onClick(DialogInterface dialog, int id) {
+								dialog.dismiss();
+							}
+						});
+				AlertDialog alert1 = builder1.create();
+				alert1.setTitle(getString(R.string.GPSWarningTitle));
+				alert1.show();
 				setdWindow(new PaintScreen());
 				setDataView(new DataView(getMixViewData().getMixContext()));
 

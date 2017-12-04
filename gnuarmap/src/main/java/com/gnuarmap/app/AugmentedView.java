@@ -8,6 +8,7 @@ import android.content.Context;
 import android.graphics.Canvas;
 import android.graphics.Color;
 import android.graphics.Paint;
+import android.util.Log;
 import android.view.View;
 
 /**
@@ -64,7 +65,7 @@ public class AugmentedView extends View {
                 canvas.drawText(app.getZoomLevel(), (canvas.getWidth()) / 100
                         * zoomProgress + 20, height, zoomPaint);
             }
-
+            Log.d("debug","draw");
             MixView.getDataView().draw(MixView.getdWindow());
         } catch (Exception ex) {
             app.doError(ex);

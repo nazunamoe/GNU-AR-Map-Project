@@ -64,8 +64,6 @@ public class State implements MixStateInterface{
 	public boolean MoreView;
 	public boolean Camera2;
 
-	public int count;
-
 	private State(){}
 
 	public static synchronized State getInstance(){

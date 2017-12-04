@@ -28,6 +28,7 @@ import static android.view.KeyEvent.KEYCODE_DPAD_UP;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
+import java.util.Random;
 import java.util.Timer;
 import java.util.TimerTask;
 
@@ -159,7 +160,7 @@ public class DataView {
 		try {
 			width = widthInit;
 			height = heightInit;
-
+			Log.d("debug","init");
 			cam = new Camera(width, height, true);
 			cam.setViewAngle(Camera.DEFAULT_VIEW_ANGLE);
 
@@ -171,6 +172,8 @@ public class DataView {
 	}
 
 	public void draw(PaintScreen dw) {
+		Log.d("debug","getRM");
+
 		mixContext.getRM(cam.transform);
 		curFix = mixContext.getLocationFinder().getCurrentLocation();
 
@@ -211,6 +214,7 @@ public class DataView {
 				// after onLocationChanged and after downloading new marker
 				// if (!frozen)
 				// ma.update(curFix);
+				Random random = new Random();
 				if (!frozen)
 					ma.calcPaint(cam, addX, addY);
 				ma.draw(dw);

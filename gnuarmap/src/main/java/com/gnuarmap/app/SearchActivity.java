@@ -77,7 +77,6 @@ public class SearchActivity extends AppCompatActivity {
 
         setContentView(R.layout.activity_search);
         num = data2.getWholeSize();
-        Log.d("mixare",""+num);
         final AutoCompleteTextView edit = (AutoCompleteTextView) findViewById(R.id.edit);
         edit.setAdapter(new ArrayAdapter<String>(this,
                 android.R.layout.simple_dropdown_item_1line, items));

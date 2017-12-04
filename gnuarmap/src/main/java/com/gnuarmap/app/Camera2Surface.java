@@ -14,6 +14,7 @@ import android.hardware.camera2.params.StreamConfigurationMap;
 import android.os.Build;
 import android.support.annotation.NonNull;
 import android.support.v4.app.ActivityCompat;
+import android.util.Log;
 import android.util.Size;
 import android.view.Surface;
 import android.view.SurfaceHolder;
@@ -139,6 +140,7 @@ class Camera2Surface extends CameraSurface {
         try{
             if (ActivityCompat.checkSelfPermission(this.mixViewActivity, Manifest.permission.CAMERA) != PackageManager.PERMISSION_GRANTED) {
 
+
                 // here to request the missing permissions, and then overriding
                 //   public void onRequestPermissionsResult(int requestCode, String[] permissions, int[] grantResults)
                 // to handle the case where the user grants the permission. See the documentation
@@ -149,6 +151,7 @@ class Camera2Surface extends CameraSurface {
                 @Override
                 public void onOpened(@NonNull CameraDevice cameraDevice) {
                     Camera2Surface.this.camera = cameraDevice;
+                    Log.d("debug","camera2");
                     createPreviewSession();
                 }
 
