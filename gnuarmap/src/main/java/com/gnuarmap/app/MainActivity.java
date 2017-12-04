@@ -46,7 +46,7 @@ public class MainActivity extends AppCompatActivity{
         }
     }
 
-    public String[] List = {"Camera","MMapViewSet","MoreView","All","ATM","CVS","Vending","Printer","AllBuilding","Business","Engnieering",
+    public String[] List = {"Camera","MMapViewSet","MoreView","All","ATM","CVS","Vending","Printer","AllBuilding","Business","Engineering",
             "Dormitory","ETC","Agriculture","University","Club","Door","Law","Education","Social","Veterinary","Leisure","Science"};
     public int ListSize = 23;
     // 초기화 해야할 세팅값 목록
@@ -64,7 +64,7 @@ public class MainActivity extends AppCompatActivity{
             case "Printer":{state.Printer = value; break;}
             case "AllBuilding":{state.AllBuilding = value; break;}
             case "Business":{state.Business = value; break;}
-            case "Engnieering":{state.Engnieering = value; break;}
+            case "Engineering":{state.Engineering = value; break;}
             case "Dormitory":{state.Dormitory = value; break;}
             case "ETC":{state.ETC = value; break;}
             case "Agricultire":{state.Agriculture = value; break;}

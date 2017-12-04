@@ -120,6 +120,7 @@ public abstract class Marker implements org.mixare.lib.marker.Marker {
 		return mGeoLoc.getAltitude();
 	}
 
+
 	public MixVector getLocationVector() {
 		return locationVector;
 	}

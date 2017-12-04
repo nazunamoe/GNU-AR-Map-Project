@@ -38,6 +38,7 @@ import org.mixare.lib.render.Camera;
 
 import android.graphics.Color;
 import android.location.Location;
+import android.util.Log;
 import android.widget.Toast;
 
 import com.gnuarmap.R;
@@ -215,7 +216,6 @@ public class DataView {
 				ma.draw(dw);
 			}
 		}
-
 
 
 		// Get next event

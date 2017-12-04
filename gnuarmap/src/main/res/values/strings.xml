@@ -105,7 +105,7 @@ Please turn on permissions at [Setting] > [Permission]"</string>
     <string name="Filtering_Printer">Printer</string>
 
     <string name="Filtering_Business">College of Business Administration</string>
-    <string name="Filtering_Engnieering">College of Engineering</string>
+    <string name="Filtering_Engineering">College of Engineering</string>
     <string name="Filtering_Dormitory">Dormitory</string>
     <string name="Filtering_ETC">ETC</string>
     <string name="Filtering_Door">Door</string>

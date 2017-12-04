@@ -10,7 +10,7 @@ package com.gnuarmap.app;
 
 public class Database {
 
-    private String Engnieering = "http://ce.gnu.ac.kr";
+    private String Engineering = "http://ce.gnu.ac.kr";
     private String Dormitory = "http://dorm.gnu.ac.kr";
     private String Base = "http://gnu.ac.kr";
     private String Business = "http://business.gnu.ac.kr";
@@ -73,66 +73,66 @@ public class Database {
             */
         // 공대 데이터
         data.addItem("0","공대 1호관",
-                        Engnieering,
+                Engineering,
                         35.154782,128.093720,
-                        "dorm",
-                        "engnieering",
+                        "engineering",
+                        "engineering",
                         nothing,
                 401
         );
         data.addItem("1","공대 2호관",
-                Engnieering,
+                Engineering,
                 35.155352,128.093763,
-                "dorm",
-                "engnieering",
+                "engineering",
+                "engineering",
                 nothing,
                 402
         );
         data.addItem("2","공대 3호관",
-                Engnieering,
+                Engineering,
                 35.155887,128.093849,
-                "dorm",
-                "engnieering",
+                "engineering",
+                "engineering",
                 nothing,
                 403
         );
         data.addItem("3","공대 4호관",
-                Engnieering,
+                Engineering,
                 35.155747,128.094825,
-                "engine",
-                "engnieering",
+                "engineering",
+                "engineering",
                 cvs_atm,
                 404
         );
         data.addItem("4","공대 5호관",
-                Engnieering,
+                Engineering,
                 35.155229,128.094718,
-                "engine",
-                "engnieering",
+                "engineering",
+                "engineering",
                 nothing,
                 405
         );
         data.addItem("5","공대 6호관",
-                Engnieering,
+                Engineering,
                 35.154141,128.094053,
-                "engine",
-                "engnieering",
+                "engineering",
+                "engineering",
                 nothing,
                 406
         );
         data.addItem("6","공대 7호관",
-                Engnieering,
+                Engineering,
                 35.154177,128.092926,
-                "engine",
-                "engnieering",
+                "engineering",
+                "engineering",
                 nothing,
                 407
         );
         data.addItem("7","공대부속공장",
-                Engnieering,
+                Engineering,
                 35.156326,128.094882,
-                "engine",
-                "engnieering",
+                "engineering",
+                "engineering",
                 nothing,
                 416
         );

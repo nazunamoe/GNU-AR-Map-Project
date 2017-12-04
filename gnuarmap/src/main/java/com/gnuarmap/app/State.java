@@ -38,7 +38,7 @@ public class State implements MixStateInterface{
 
 	// Global variable
 	public boolean Business;
-	public boolean Engnieering;
+	public boolean Engineering;
 	public boolean Dormitory;
 	public boolean ETC;
 	public boolean Agriculture;

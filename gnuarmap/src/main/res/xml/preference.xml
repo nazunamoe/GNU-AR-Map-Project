@@ -41,8 +41,8 @@
   <SwitchPreference
       android:defaultValue="false"
       android:dependency="AllBuilding"
-      android:key="Engnieering"
-      android:title="@string/Filtering_Engnieering" />
+      android:key="Engineering"
+      android:title="@string/Filtering_Engineering" />
   <SwitchPreference
       android:defaultValue="false"
       android:dependency="AllBuilding"

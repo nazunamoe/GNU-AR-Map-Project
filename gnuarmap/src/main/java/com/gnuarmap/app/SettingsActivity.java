@@ -125,11 +125,11 @@ public class SettingsActivity extends AppCompatActivity implements SharedPrefere
             }else if(sharedPreferences.getBoolean("Business",false)){
                 state.Business = true;
             }
-        }else if("Engnieering".equals(key)){
-            if(!sharedPreferences.getBoolean("Engnieering",false)){
-                state.Engnieering = false;
-            }else if(sharedPreferences.getBoolean("Engnieering",false)){
-                state.Engnieering = true;
+        }else if("Engineering".equals(key)){
+            if(!sharedPreferences.getBoolean("Engineering",false)){
+                state.Engineering = false;
+            }else if(sharedPreferences.getBoolean("Engineering",false)){
+                state.Engineering = true;
             }
         }else if("Dormitory".equals(key)){
             if(!sharedPreferences.getBoolean("Dormitory",false)){

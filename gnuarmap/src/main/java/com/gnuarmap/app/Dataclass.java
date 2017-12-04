@@ -7,6 +7,7 @@ package com.gnuarmap.app;
 import android.content.res.Resources;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
+import android.util.Log;
 
 import com.gnuarmap.R;
 
@@ -38,12 +39,13 @@ public class Dataclass {
     private String[] Filtering2;
     State state = State.getInstance();
 
-    public Dataclass(){
+    public Dataclass() {
         Database database = new Database();
         database.Initialize(this);
     }
 
     private static HashMap<String, String> htmlEntities;
+
     static {
         htmlEntities = new HashMap<String, String>();
         htmlEntities.put("&lt;", "<");
@@ -143,8 +145,8 @@ public class Dataclass {
                     secondFiltering(num, Latitude, Longitude, url, value, type, name, Filtering2, no);
                 }
             }
-            if (state.Engnieering) {
-                if (Filtering1 == "engnieering") {
+            if (state.Engineering) {
+                if (Filtering1 == "engineering") {
                     secondFiltering(num, Latitude, Longitude, url, value, type, name, Filtering2, no);
                 }
             }
@@ -322,40 +324,41 @@ public class Dataclass {
     }
 
     public static Bitmap getBitmap(String ds) {
-        Bitmap bitmap = null;
         switch (ds) {
-            case "agriculture":{
-                bitmap = agriculture;
+            case "agriculture": {
+                return agriculture;
             }
-            case "business":{
-                bitmap = business;
+            case "business": {
+                return business;
             }
-            case "drug":{
-                bitmap = drug;
+            case "drug": {
+                return drug;
             }
-            case "education":{
-                bitmap = education;
+            case "education": {
+                return education;
             }
-            case "engineering":{
-                bitmap = engineering;
+            case "engineering": {
+                return engineering;
             }
-            case "law":{
-                bitmap = law;
+            case "law": {
+                return law;
             }
-            case "library":{
-                bitmap = library;
+            case "library": {
+                return library;
             }
-            case "science":{
-                bitmap = science;
+            case "science": {
+                return science;
             }
-            case "vet":{
-                bitmap = vet;
+            case "veterinary": {
+                return vet;
             }
-            default:{
-                bitmap = vet;
+            case "university": {
+                return vet;
+            }
+            default: {
+                return vet;
             }
         }
-        return bitmap;
     }
 
 
