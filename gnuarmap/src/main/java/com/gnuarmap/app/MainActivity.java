@@ -44,12 +44,12 @@ public class MainActivity extends AppCompatActivity{
                 setState(List[i],false);
             }
         }
-        if(sharedPref.getString(List[23],null).equals(getString(R.string.NaverWebAPI))){
+        if(getString(R.string.NaverWebAPI).equals(sharedPref.getString(List[23],null))){
             state.api = 0;
-        }else if(sharedPref.getString(List[23],null).equals(getString(R.string.KakaoAppAPI))){
-            state.api = 1;
-        }else if(sharedPref.getString(List[23],null).equals(getString(R.string.KakaoWebAPI))){
+        }else if(getString(R.string.KakaoWebAPI).equals(sharedPref.getString(List[23],null))){
             state.api = 2;
+        }else if(getString(R.string.KakaoAppAPI).equals(sharedPref.getString(List[23],null))){
+            state.api = 1;
         }
     }
 

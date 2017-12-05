@@ -1,5 +1,6 @@
 package com.gnuarmap.app;
 
+import android.content.ActivityNotFoundException;
 import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
@@ -72,7 +73,13 @@ public class NaverMapMarker extends AppCompatActivity{
                 public void onClick(DialogInterface dialog, int which) {
                     if(which == 0){
                         Intent in = new Intent(Intent.ACTION_VIEW, Uri.parse(makeURL(current,"current",point,title)));
-                        context.startActivity(in);
+                        try{
+                           context.startActivity(in);
+                        }catch (ActivityNotFoundException e){
+                            Toast.makeText(context, R.string.kakaomaperror, Toast.LENGTH_SHORT).show();
+                            in = new Intent(Intent.ACTION_VIEW, Uri.parse("market://details?id=net.daum.android.map"));
+                            context.startActivity(in);
+                        }
                     }
                     else if(which == 1){
                         String url = dataclass.getMarkerviaTitle(title).getURL();

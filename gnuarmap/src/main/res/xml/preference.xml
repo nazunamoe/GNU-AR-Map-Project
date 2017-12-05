@@ -29,7 +29,7 @@
       android:entryValues="@array/MapAPI"
       android:key="mapAPI"
       android:title="@string/APISelect"
-      android:summary="@string/APISelect_summary"/>
+      android:summary="@string/APISelect_summary" />
  </PreferenceCategory>
 <!-- 각 건물에 대한 필터링 추가 -->
  <PreferenceCategory
