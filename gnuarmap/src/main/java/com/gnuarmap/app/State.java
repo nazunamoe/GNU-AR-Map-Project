@@ -32,6 +32,8 @@ public class State implements MixStateInterface {
 
     private static State instance;
 
+    public int api;
+
     // Global variable
     public boolean Business;
     public boolean Engineering;
