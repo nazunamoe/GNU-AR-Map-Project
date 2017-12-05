@@ -100,7 +100,7 @@ public class SearchActivity extends AppCompatActivity {
                     Toast.makeText(getApplicationContext(), s, Toast.LENGTH_SHORT).show();
                     Intent intent = new Intent(getApplicationContext(), NaverMapActivity.class);
                     intent.putExtra("num", j);
-                    intent.putExtra("return", 2);
+                    intent.putExtra("Return", 2);
                     s = "";
                     finish();
                     startActivity(intent);

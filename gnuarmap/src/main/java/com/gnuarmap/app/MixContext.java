@@ -77,7 +77,6 @@ public class MixContext extends ContextWrapper implements MixContextInterface {
         intent.putExtra("Return", "True");
         intent.putExtra("set", "True");
         intent.putExtra("num", marker.getNum());
-
         startActivity(intent);
     }
 

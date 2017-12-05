@@ -75,8 +75,6 @@ public class MenuActivity extends AppCompatActivity implements AdapterView.OnIte
                     } catch (NullPointerException e) {
                         Toast.makeText(getApplicationContext(), R.string.GPSerror, Toast.LENGTH_SHORT).show();
                     }
-                    startActivity(new Intent(ctx, MixView.class));
-                    finish();
                 }
                 break;
             }
@@ -93,7 +91,7 @@ public class MenuActivity extends AppCompatActivity implements AdapterView.OnIte
                     try {
                         double d = currentGPSInfo.getAltitude();
                         Intent intent = new Intent(ctx, NaverMapActivity.class);
-                        intent.putExtra("return", 0);
+                        intent.putExtra("Return", 0);
                         startActivity(intent);
                         finish();
                     } catch (NullPointerException e) {

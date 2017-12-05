@@ -557,7 +557,7 @@ public class MixView extends Activity implements SensorEventListener, OnTouchLis
         switch (item.getItemId()) {
             case 1:
                 Intent intent2 = new Intent(MixView.this, NaverMapActivity.class);
-                intent2.putExtra("return", 1);
+                intent2.putExtra("Return", 1);
                 startActivityForResult(intent2, 20);
                 break;
             case 2:
