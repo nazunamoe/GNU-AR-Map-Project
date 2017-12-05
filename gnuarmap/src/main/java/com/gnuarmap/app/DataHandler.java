@@ -2,6 +2,7 @@ package com.gnuarmap.app;
 
 /**
  * Created by nazunamoe on 2017-12-02.
+ * 마커를 관리하고 생성하는 부분, AR 뷰에서만 사용
  */
 
 import org.mixare.lib.marker.Marker;
@@ -29,9 +30,6 @@ public class DataHandler {
         /**
          * 독립된 데이터 프로세서 대신 이 부분에 marker 배열에 필요한 마커 데이터를 직접 등록한다.
          */
-
-      //  Log.d(MixView.TAG, "Marker count: " + markerList.size());
-
 
     }
 

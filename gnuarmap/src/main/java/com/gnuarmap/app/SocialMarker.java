@@ -87,16 +87,6 @@ public class SocialMarker extends Marker {
 
     }
 
-    public boolean fClick(float x, float y, MixContext ctx, State state) {
-        boolean evtHandled = false;
-        Log.d("mixare","Clicked Marker");
-
-        if (isClickValid(x, y)) {
-            evtHandled = state.handleEvent(ctx, URL, this);
-        }
-        return evtHandled;
-    }
-
     public void drawTextBlock(PaintScreen dw) {
 
         //TODO: grandezza cerchi e trasparenza
@@ -135,9 +125,9 @@ public class SocialMarker extends Marker {
         State state = State.getInstance();
         int max = 0;
         if(state.MoreView){
-            max = 30;
+            max = 20;
         }else{
-            max = 15;
+            max = 10;
         }
         return max;
     }

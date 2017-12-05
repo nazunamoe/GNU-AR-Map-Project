@@ -1,5 +1,9 @@
 package com.gnuarmap.app;
 
+/**
+안드로이드 카메라 2 API를 사용하는 클래스
+ */
+
 import android.Manifest;
 import android.annotation.TargetApi;
 import android.content.Context;
@@ -151,7 +155,6 @@ class Camera2Surface extends CameraSurface {
                 @Override
                 public void onOpened(@NonNull CameraDevice cameraDevice) {
                     Camera2Surface.this.camera = cameraDevice;
-                    Log.d("debug","camera2");
                     createPreviewSession();
                 }
 

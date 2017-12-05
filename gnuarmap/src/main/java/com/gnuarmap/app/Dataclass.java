@@ -1,9 +1,5 @@
 package com.gnuarmap.app;
 
-/**
- * Created by nazunamoe on 2017-12-02.
- */
-
 import android.content.res.Resources;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
@@ -17,6 +13,7 @@ import java.util.HashMap;
 
 /**
  * Created by nazunamoe on 2017-11-11.
+ * 네이버 지도와 AR 뷰에서 사용되는 마커의 추가, 관리 및 아이콘 설정
  */
 
 public class Dataclass {
@@ -29,6 +26,9 @@ public class Dataclass {
     private static Bitmap library;
     private static Bitmap science;
     private static Bitmap vet;
+    private static Bitmap door;
+    private static Bitmap university;
+    private static Bitmap humanities;
 
     private String name;
     private String url;
@@ -320,6 +320,9 @@ public class Dataclass {
         library = BitmapFactory.decodeResource(res, R.drawable.icon_library);
         science = BitmapFactory.decodeResource(res, R.drawable.icon_science);
         vet = BitmapFactory.decodeResource(res, R.drawable.icon_vet);
+        door = BitmapFactory.decodeResource(res, R.drawable.icon_gnu);
+        humanities = BitmapFactory.decodeResource(res, R.drawable.icon_human);
+        university = BitmapFactory.decodeResource(res, R.drawable.icon_logo);
         // routeIcon;
     }
 
@@ -353,8 +356,15 @@ public class Dataclass {
                 return vet;
             }
             case "university": {
-                return vet;
+                return university;
             }
+            case "door": {
+                return door;
+            }
+            case "humanities": {
+                return humanities;
+            }
+
             default: {
                 return vet;
             }

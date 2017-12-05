@@ -1,6 +1,5 @@
 package com.gnuarmap.app;
 
-import android.Manifest;
 import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
@@ -10,18 +9,15 @@ import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
 
 import com.gnuarmap.R;
-import com.gun0912.tedpermission.PermissionListener;
-import com.gun0912.tedpermission.TedPermission;
 
-import java.util.ArrayList;
+/**
+ * 앱 초기에 실행되서 각종 설정값의 초기화를 수행
+ */
 
 public class MainActivity extends AppCompatActivity{
 
     SharedPreferences sharedPref;
     State state = State.getInstance();
-
-
-
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

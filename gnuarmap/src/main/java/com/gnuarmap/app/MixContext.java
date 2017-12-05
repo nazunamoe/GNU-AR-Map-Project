@@ -31,6 +31,7 @@ import android.widget.Toast;
 
 /**
  * Cares about location management and about the data (source, inputstream)
+ *
  */
 public class MixContext extends ContextWrapper implements MixContextInterface {
 

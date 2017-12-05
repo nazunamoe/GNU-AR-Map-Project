@@ -1,7 +1,7 @@
 package com.gnuarmap.app;
 
 /**
- * Created by nazunamoe on 2017-12-03.
+ * MixView에서 사용되는 각종 데이터의 명세
  */
 
 import android.hardware.Sensor;

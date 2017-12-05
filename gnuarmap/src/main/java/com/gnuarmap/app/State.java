@@ -18,19 +18,13 @@
  */
 package com.gnuarmap.app;
 
-import android.content.Context;
-import android.support.v4.content.ContextCompat;
 import android.util.Log;
 
 import org.mixare.lib.MixContextInterface;
 import org.mixare.lib.MixStateInterface;
-import org.mixare.lib.MixUtils;
-import org.mixare.lib.marker.*;
-import org.mixare.lib.render.Matrix;
-import org.mixare.lib.render.MixVector;
 
 /**
- * This class calculates the bearing and pitch out of the angles
+ * 앱의 각종 상태를 관리하는 클래스
  */
 public class State implements MixStateInterface{
 

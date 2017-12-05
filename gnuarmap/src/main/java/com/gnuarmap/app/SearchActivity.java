@@ -15,6 +15,10 @@ import com.gnuarmap.R;
 
 public class SearchActivity extends AppCompatActivity {
 
+    /**
+     * 검색 클래스,
+     */
+
     String[] items = {
             "대학본부","중앙도서관","학생회관/인재개발원","학술정보관/교육정보전산원",
             "체육관","GNU어린이집","국제문화회관","스포츠컴플렉스","정문","남문","북문","교양학관",

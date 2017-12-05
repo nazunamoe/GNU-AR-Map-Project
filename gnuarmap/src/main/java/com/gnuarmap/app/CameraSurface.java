@@ -16,6 +16,7 @@ import java.util.List;
 
 /**
  * Created by nazunamoe on 2017-11-09
+ * 안드로이드 카메라 API를 사용하는 클래스
  */
 
 class CameraSurface extends SurfaceView implements SurfaceHolder.Callback {

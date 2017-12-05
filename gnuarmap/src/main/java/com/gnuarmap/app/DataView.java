@@ -51,6 +51,10 @@ import com.gnuarmap.R;
  * @author daniele
  * 
  */
+
+/**
+* MixView위에 띄워져서 AR 마커를 띄워주는 주체
+ */
 public class DataView {
 
 	/**

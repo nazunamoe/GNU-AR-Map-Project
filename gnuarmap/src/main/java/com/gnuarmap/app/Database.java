@@ -1,11 +1,8 @@
 package com.gnuarmap.app;
 
 /**
- * Created by nazunamoe on 2017-12-02.
- */
-
-/**
  * Created by nazunamoe on 2017-11-11.
+ * 앱에 사용되는 각 건물의 raw 데이터및 데이터의 초기화를 정의
  */
 
 public class Database {

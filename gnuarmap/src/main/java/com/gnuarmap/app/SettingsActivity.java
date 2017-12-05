@@ -21,6 +21,10 @@ import java.util.List;
 
 public class SettingsActivity extends AppCompatActivity implements SharedPreferences.OnSharedPreferenceChangeListener, Preference.OnPreferenceChangeListener{
 
+    /**
+     * 앱의 각종 설정을 바꿀수 있는 설정 액티비티
+     */
+
     SharedPreferences sharedPref;
     SettingsFragment settings;
     State state = State.getInstance();

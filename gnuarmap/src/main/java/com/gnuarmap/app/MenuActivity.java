@@ -34,6 +34,9 @@ public class MenuActivity extends AppCompatActivity implements AdapterView.OnIte
         return getApplicationContext();
     }
 
+    /**
+     * 메뉴 액티비티. 각 기능으로 이동하기 위한 메뉴가 있고 초기 구동시에는 사용자에게 카메라와 권한을 묻는다
+     */
 
     PermissionListener permissionlistener = new PermissionListener() {
         @Override
@@ -53,6 +56,7 @@ public class MenuActivity extends AppCompatActivity implements AdapterView.OnIte
         Context ctx;
         int gpsCheck = ContextCompat.checkSelfPermission(this, Manifest.permission.ACCESS_FINE_LOCATION);
         int select = (int) parent.getItemIdAtPosition(position);
+
         switch (select) {
             case 0: { // AR 뷰
                 ctx = this;

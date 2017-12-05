@@ -43,6 +43,7 @@ import android.util.Log;
  * It draws the marker itself and the corresponding label.
  * All markers are specific markers like SocialMarkers or
  * NavigationMarkers, since this class is abstract
+ * 마커 각각의 정보 관리
  */
 
 public abstract class Marker implements org.mixare.lib.marker.Marker {

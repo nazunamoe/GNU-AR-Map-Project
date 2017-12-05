@@ -28,7 +28,7 @@ import java.util.Set;
 
 
 /**
- * 필터링기능을 제공하는 클래스
+ * 네이버 지도에 찍어줄 마커를 관리하는 클래스
  */
 
 public class NaverMapMarker extends AppCompatActivity{
@@ -107,7 +107,7 @@ public class NaverMapMarker extends AppCompatActivity{
                 case 2:{ //카카오웹
                     result = "http://map.daum.net/link/to/"+endtitle+","+end.getLatitude()+","+end.getLongitude();  // 다음 길찾기 웹 api
                     break;
-                }
+                } 
                 default :{
                     result = "https://m.map.naver.com/directions/?menu=route&sname="+starttitle+"&sx="+start.getLongitude()+"&sy="+start.getLatitude()+"&ename"+endtitle+"&ex="+end.getLongitude()+"&ey="+end.getLatitude()+"&pathType=0&showMap=true";
                 }

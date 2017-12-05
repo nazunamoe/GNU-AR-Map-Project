@@ -29,6 +29,9 @@ import com.nhn.android.mapviewer.overlay.NMapPOIdataOverlay;
 import static android.location.LocationManager.GPS_PROVIDER;
 import static android.location.LocationManager.NETWORK_PROVIDER;
 
+/**
+ * 네이버 지도 액티비티. 네이버 지도 API를 이용하여 지도를 띄워준다
+ */
 public class NaverMapActivity extends NMapActivity {
     public final static String CLIENT_ID = "mUusvsrwEZf9uxFtJ5Se";
     public static final String LOG_TAG = "NMapViewer";
@@ -43,12 +46,6 @@ public class NaverMapActivity extends NMapActivity {
 
     public static final boolean DEBUG = false;
 
-    public static boolean Print = false;
-    public static boolean Market = false;
-    public static boolean Controller = false;
-    public static boolean Vending = false;
-    public static boolean atm = false;
-    public static boolean Restaurant = false;
     public static int firstcurrentpoint = 0;
 
     public static NMapPOIdataOverlay poiDataOverlay;
@@ -154,7 +151,6 @@ public class NaverMapActivity extends NMapActivity {
         Intent intent = getIntent();
         int ret = intent.getIntExtra("return",1);
         if (keyCode == android.view.KeyEvent.KEYCODE_BACK){
-            Log.d("FAL",""+ret);
             if(ret == 2){
                 Context ctx;
                 ctx = this;

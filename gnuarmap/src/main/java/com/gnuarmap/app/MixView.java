@@ -26,6 +26,10 @@ package com.gnuarmap.app;
  * It also handles the main sensor events, touch events and location events.
  */
 
+/**
+ * AR뷰의 초가화 및 위에 띄워질 각종 요소 제어의 주체, 센서 이벤트, 터치 이벤트, 위치 이벤트 등을 수신하여 AR뷰를 업데이트한다.
+ */
+
 import static android.hardware.SensorManager.SENSOR_DELAY_GAME;
 
 import java.lang.reflect.InvocationTargetException;
@@ -904,5 +908,3 @@ public class MixView extends Activity implements SensorEventListener, OnTouchLis
 		//setZoomLevel, caller has to call refreash download if needed.
 	};
 }
-
-

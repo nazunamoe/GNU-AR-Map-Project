@@ -17,6 +17,7 @@ import java.util.TimerTask;
 
 /**
  * Created by nazunamoe on 2017-12-01.
+ * 앱에서 사용되는 위치를 관리하는 클래스
  */
 
 public class Location {
@@ -24,7 +25,7 @@ public class Location {
      * This class is repsonsible for finding the location, and sending it back to
      * the mixcontext.
      */
-    public static interface LocationFinder {
+    public interface LocationFinder {
 
         /**
          * Possible status of LocationFinder
