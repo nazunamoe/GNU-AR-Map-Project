@@ -79,7 +79,7 @@ public class MixView extends Activity implements SensorEventListener, OnTouchLis
 
 	private CameraSurface camScreen;
 	private AugmentedView augScreen;
-	public int tss;
+
 	private boolean isInited;
 	private static PaintScreen dWindow;
 	private static DataView dataView;
@@ -158,7 +158,6 @@ public class MixView extends Activity implements SensorEventListener, OnTouchLis
 
 	@Override
 	public void onCreate(Bundle savedInstanceState) {
-		tss = 0;
 		Dataclass.createIcons(getResources());
 		getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN,
 				WindowManager.LayoutParams.FLAG_FULLSCREEN);
@@ -201,9 +200,8 @@ public class MixView extends Activity implements SensorEventListener, OnTouchLis
 
 			/*Get the preference file PREFS_NAME stored in the internal memory of the phone*/
 			SharedPreferences settings = getSharedPreferences(PREFS_NAME, 0);
-			tss = 1;
+
 		} catch (Exception ex) {
-			tss = 2;
 			doError(ex);
 		}
 	}
@@ -883,7 +881,7 @@ public class MixView extends Activity implements SensorEventListener, OnTouchLis
 	/**
 	 * @return the dataView
 	 */
-	public static DataView getDataView() {
+	static DataView getDataView() {
 		return dataView;
 	}
 
