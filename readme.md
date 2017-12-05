@@ -22,7 +22,7 @@
 
 ### 사용된 증강현실 오픈소스, mixare에 대하여
 peer internet solution에서 만든 오픈소스 증강현실 기반의 지도 API
-[id]: URL "https://github.com/mixare/mixare"
+ <https://github.com/mixare/mixare>
 
 
 
