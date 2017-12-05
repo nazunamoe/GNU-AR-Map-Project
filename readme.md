@@ -15,13 +15,13 @@
 
 
 ### API 정보
-최소 API 21 (안드로이드 5.1)
+최소 API 21 (안드로이드 5.1)<br/>
 타켓 API 27 (안드로이드 8.1)
 
 
 
 ### 사용된 증강현실 오픈소스, mixare에 대하여
-peer internet solution에서 만든 오픈소스 증강현실 기반의 지도 API
+peer internet solution에서 만든 오픈소스 증강현실 기반의 지도 API<br/>
  <https://github.com/mixare/mixare>
 
 
@@ -31,4 +31,15 @@ peer internet solution에서 만든 오픈소스 증강현실 기반의 지도 A
 2. 네이버 지도 API와 제공된 3가지의 길찾기 API를 통한 길찾기 지원 (외부 앱, 웹 연동)
 3. 건물 이름, 학과 이름 등을 통한 검색 기능 
 4. 건물, 편의 시설 2중 필터링
+
+
+
+### 사용된 오픈소스
+1. 네이버 지도 API
+2. mixare
+
+
+### 문의
+<jpg3927@gmail.com>
+
 
