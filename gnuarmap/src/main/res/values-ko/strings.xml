@@ -138,6 +138,7 @@
     <string name="KakaoAppAPI">카카오 앱 API</string>
 
     <string name="APISelect">길찾기 API</string>
+    <string name="APISelect_summary">카카오 앱 API를 사용하기 위해선 카카오 맵 어플리케이션이 필요합니다.</string>
 
     <string name="App_Version">1.1-r5</string>
 

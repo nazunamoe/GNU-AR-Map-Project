@@ -31,7 +31,7 @@
     </style>
 
     <style name="AlertDialogTheme">
-        <item name="android:windowBackground">@android:color/transparent</item>
+        <item name="android:windowBackground">@color/translucent_black</item>
         <item name="android:windowContentOverlay">@null</item>
         <item name="android:windowIsFloating">true</item>
         <item name="android:textColor">@android:color/white</item>
