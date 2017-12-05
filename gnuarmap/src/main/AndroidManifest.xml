@@ -89,23 +89,8 @@
                 android:value=".MixView" />
         </activity>
         <activity
-            android:name=".MixListView"
-            android:launchMode="singleTop"
-            android:screenOrientation="user">
-            <intent-filter>
-                <action android:name="android.intent.action.SEARCH" />
-            </intent-filter>
-
-            <meta-data
-                android:name="android.app.searchable"
-                android:resource="@xml/searchable" />
-        </activity>
-        <activity
             android:name=".app.SettingsActivity"
             android:theme="@style/PreferenceScreen" />
-        <activity
-            android:name=".observer.Activity.MarkerActivity"
-            android:theme="@style/AppCompat2" />
         <activity
             android:name=".app.NaverMapActivity"
             android:theme="@style/AppCompat2" />

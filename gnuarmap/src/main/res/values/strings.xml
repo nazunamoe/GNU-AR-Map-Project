@@ -131,7 +131,10 @@ Please turn on permissions at [Setting] > [Permission]"</string>
     <string name="GoTo_Current">Go to current location</string>
     <string name="GoTo_GNU">Go to GNU location</string>
 
+    <string name="navigation">Navigate to here</string>
+    <string name="information">Go to homepage of this building</string>
+    <string name="negetive">Cancel</string>
+
     <string name="App_Version">1.2-r3</string>
-    <string name="title_activity_menu2">MenuActivity2</string>
 
 </resources>

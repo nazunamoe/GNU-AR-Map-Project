@@ -1,9 +1,16 @@
 package com.gnuarmap.app;
 
 import android.content.Context;
+import android.content.DialogInterface;
+import android.content.Intent;
 import android.graphics.Rect;
+import android.net.Uri;
+import android.support.v7.app.AlertDialog;
+import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
+import android.view.ContextThemeWrapper;
 import android.view.View;
+import android.widget.Toast;
 
 import com.gnuarmap.R;
 import com.gnuarmap.naver.NMapCalloutCustomOverlayView;
@@ -16,12 +23,14 @@ import com.nhn.android.maps.overlay.NMapPOIitem;
 import com.nhn.android.mapviewer.overlay.NMapOverlayManager;
 import com.nhn.android.mapviewer.overlay.NMapPOIdataOverlay;
 
+import java.util.Set;
+
 
 /**
  * 필터링기능을 제공하는 클래스
  */
 
-public class NaverMapMarker {
+public class NaverMapMarker extends AppCompatActivity{
     private int markerId = NMapPOIflagType.PIN;
     private int currentMarker = NMapPOIflagType.SPOT;
     private Context context;
@@ -29,11 +38,12 @@ public class NaverMapMarker {
     private static NMapPOIdataOverlay poiDataOverlay;
     private static NMapPOIdataOverlay poiDataOverlay1;
     private Dataclass dataclass = new Dataclass();
-
-    public NaverMapMarker(Context context){
+    public State state = State.getInstance();
+    private NGeoPoint current;
+    public NaverMapMarker(Context context, NGeoPoint current){
         this.context = context;
+        this.current = current;
     }
-    public NaverMapMarker(){}
 
     public void GMarker() {
         int d = dataclass.getSize();
@@ -49,10 +59,39 @@ public class NaverMapMarker {
 
     private final NMapPOIdataOverlay.OnStateChangeListener onPOIdataStateChangeListener = new NMapPOIdataOverlay.OnStateChangeListener() {
         public void onCalloutClick(NMapPOIdataOverlay poiDataOverlay, NMapPOIitem item) {
-            NGeoPoint point = item.getPoint();
+            final String title = item.getTitle();
+            final NGeoPoint point = item.getPoint();
             if (NaverMapActivity.DEBUG) {
                 Log.i(NaverMapActivity.LOG_TAG, "onCalloutClick: title=" + item.getTitle() + item.getTitle());
             }
+            final AlertDialog.Builder ad = new AlertDialog.Builder(context,R.style.AlertDialogTheme);
+            ad.setTitle(item.getTitle());
+            ad.setTitle(item.getTitle());
+            ad.setItems(menus, new DialogInterface.OnClickListener() {
+                @Override
+                public void onClick(DialogInterface dialog, int which) {
+                    if(which == 0){
+                        Intent in = new Intent(Intent.ACTION_VIEW, Uri.parse(makeURL(current,"current",point,title)));
+                        context.startActivity(in);
+                    }
+                    else if(which == 1){
+                        String url = dataclass.getMarkerviaTitle(title).getURL();
+                        url = url.substring(8);
+                        Intent in = new Intent(Intent.ACTION_VIEW, Uri.parse(url));
+                        context.startActivity(in);
+                    }
+                }
+            });
+            ad.setNegativeButton(R.string.negetive,null);
+            ad.show();
+        }
+
+        private String makeURL(NGeoPoint start, String starttitle, NGeoPoint end, String endtitle){
+            String result = "daummaps://route?sp="+start.getLatitude()+","+start.getLongitude()+"&ep="+end.getLatitude()+","+end.getLongitude()+"&by=FOOT"; // 다음 길찾기 앱 api
+            //String result = "http://map.daum.net/link/to/"+endtitle+","+end.getLatitude()+","+end.getLongitude();  // 다음 길찾기 웹 api
+            //String result = "https://m.map.naver.com/directions/?menu=route&sname="+starttitle+"&sx="+start.getLongitude()+"&sy="+start.getLatitude()+"&ename"+endtitle+"&ex="+end.getLongitude()+"&ey="+end.getLatitude()+"&pathType=0&showMap=true";
+            // 네이버 지도 웹 api
+            return result;
         }
 
         @Override
@@ -67,11 +106,11 @@ public class NaverMapMarker {
             }
         }
     };
+    final String[] menus = new String[]{"길찾기","건물 정보"};
     private final NMapOverlayManager.OnCalloutOverlayViewListener onCalloutOverlayViewListener = new NMapOverlayManager.OnCalloutOverlayViewListener() {
 
         @Override
         public View onCreateCalloutOverlayView(NMapOverlay itemOverlay, NMapOverlayItem overlayItem, Rect itemBounds) {
-
             if (overlayItem != null) {
                 // [TEST] 말풍선 오버레이를 뷰로 설정함
                 String title = overlayItem.getTitle();
@@ -106,7 +145,6 @@ public class NaverMapMarker {
         String number = Integer.toString(num);
         SocialMarker marker = dataclass.getMarker(number);
         poiData.addPOIitem(new NGeoPoint(marker.getLongitude(), marker.getLatitude()), marker.getTitle() ,markerId, 0);
-        State state = State.getInstance();
         state.marker = marker;
         poiData.endPOIdata();
         poiDataOverlay = NaverMapActivity.mOverlayManager.createPOIdataOverlay(poiData, null);

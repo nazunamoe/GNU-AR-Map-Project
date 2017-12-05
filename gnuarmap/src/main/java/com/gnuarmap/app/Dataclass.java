@@ -397,5 +397,12 @@ public class Dataclass {
         return List.get(index).filter2;
     }
 
-
+    public SocialMarker getMarkerviaTitle(String title){
+        SocialMarker marker = null;
+        for(int a=0; a<WholeList.size(); a++){
+            if(WholeList.get(a).title.equals(title)) {
+                marker = WholeList.get(a);
+            }
+        }return marker;
+    }
 }

@@ -128,7 +128,11 @@
 
     <string name="My_location">현재 위치</string>
     <string name="gnu_location">경상대학교 위치</string>
-    <string name="App_Version">1.1-r5</string>
 
+    <string name="navigation">길 찾기</string>
+    <string name="information">건물 홈페이지로 이동</string>
+    <string name="negetive">취소</string>
+
+    <string name="App_Version">1.1-r5</string>
 
 </resources>

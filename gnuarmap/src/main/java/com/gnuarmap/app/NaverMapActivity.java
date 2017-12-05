@@ -4,6 +4,7 @@ import android.content.Context;
 import android.content.Intent;
 import android.location.Location;
 import android.location.LocationManager;
+import android.net.Uri;
 import android.os.Build;
 import android.os.Bundle;
 import android.support.v7.widget.Toolbar;
@@ -54,10 +55,19 @@ public class NaverMapActivity extends NMapActivity {
     public static NMapPOIdataOverlay poiDataOverlay1;
 
     public static Database db = new Database();
-    public NaverMapMarker naverMapMarker = new NaverMapMarker(this);
+    public NaverMapMarker naverMapMarker ;
     public String name="";
-
     protected void onCreate(Bundle savedInstanceState) {
+        LocationManager current = (LocationManager) getSystemService(Context.LOCATION_SERVICE);
+        try{
+            Location currentGPSInfo = current.getLastKnownLocation(NETWORK_PROVIDER);
+            if(current.isProviderEnabled(GPS_PROVIDER)){
+                currentGPSInfo = current.getLastKnownLocation(GPS_PROVIDER);
+            }
+            naverMapMarker = new NaverMapMarker(this,new NGeoPoint(currentGPSInfo.getLongitude(),currentGPSInfo.getLatitude()));
+        }catch(SecurityException e){
+            Toast.makeText(getApplicationContext(), R.string.permission_rejected, Toast.LENGTH_SHORT).show();
+        }
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_map);
         State state = State.getInstance();
@@ -71,6 +81,7 @@ public class NaverMapActivity extends NMapActivity {
         }
         Intent intent = getIntent();
         name = intent.getStringExtra("num");
+        state.navermap = this;
         Toolbar toolbar = findViewById(R.id.toolbar);
         toolbar.setTitle(R.string.NaverMapTitle);
         toolbar.setTitleTextColor(0xFFFFFFFF);
@@ -165,6 +176,10 @@ public class NaverMapActivity extends NMapActivity {
             }
         }
         return false;
+    }
+
+    public void getInternet(){
+        startActivity(new Intent(getApplicationContext(), SearchActivity.class));
     }
 
     private class MapContainerView extends ViewGroup {
