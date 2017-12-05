@@ -49,8 +49,8 @@ public class NaverMapMarker extends AppCompatActivity{
         int d = dataclass.getSize();
         poiData = new NMapPOIdata(d, NaverMapActivity.mMapViewerResourceProvider, true);
         poiData.beginPOIdata(d);
-        for(int i = 0; i< dataclass.getWholeSize(); i++) {
-            poiData.addPOIitem(new NGeoPoint(dataclass.getWholeData(i).getLongitude(), dataclass.getWholeData(i).getLatitude()), dataclass.getWholeData(i).getTitle(),markerId,0);
+        for(int i = 0; i< dataclass.getSize(); i++) {
+            poiData.addPOIitem(new NGeoPoint(dataclass.getData(i).getLongitude(), dataclass.getData(i).getLatitude()), dataclass.getData(i).getTitle(),markerId,0);
         }
         poiData.endPOIdata();
         poiDataOverlay1 = NaverMapActivity.mOverlayManager.createPOIdataOverlay(poiData, null);
