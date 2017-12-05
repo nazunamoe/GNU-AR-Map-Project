@@ -2,15 +2,6 @@
 <resources>
     <string name="app_name">경상대학교 AR 지도</string>
 
-    <string name="N">N</string>
-    <string name="NE">NE</string>
-    <string name="E">E</string>
-    <string name="SE">SE</string>
-    <string name="S">S</string>
-    <string name="SW">SW</string>
-    <string name="W">W</string>
-    <string name="NW">NW</string>
-
     <string name="license">Copyright (C) 2010- Peer internet solutions
 		\n\nThis program is free software: 	you can redistribute it and/or modify it under the terms of the
 		GNU General Public License as published by the Free Software Foundation, either version 3 of the License,
@@ -35,10 +26,6 @@
     <string name = "connection_error_dialog_button3">앱 닫기</string>
     <string name = "connection_GPS_dialog_text">GPS 위치를 업데이트 할 수 없습니다 ... \ n 계속하면 정보
     \ n 올바른 위치에 표시되지 않습니다.</string>
-    <string name = "connection_GPS_dialog_button1">계속</string>
-    <string name = "connection_GPS_dialog_button2">닫기</string>
-
-    <string name = "no_website_available">죄송합니다. 사용 가능한 추가 정보가 없습니다.</string>
 
     <string name = "license_title">라이센스</string>
     <string name = "close_button">닫기</string>
@@ -54,8 +41,6 @@
 
     <string name = "refreshing">새로 고침</string>
 
-    <string name = "navigation_drawer_open">탐색 창 열기</string>
-    <string name = "navigation_drawer_close">탐색 창 닫기</string>
     <string name = "navigation_drawer_arview">AR 보기</string>
     <string name = "navigation_drawer_navermap">네이버지도</string>
     <string name = "navigation_drawer_search">검색</string>
@@ -66,28 +51,17 @@
     <string name="navigation_drawer_information">GPS 정보</string>
     <string name="navigation_drawer_exit">종료</string>
 
-    <string name = "navigation_drawer_header">GNU AR MAP</string>
-    <string name = "navigation_drawer_header1">기능</string>
-    <string name = "navigation_drawer_header2">설정</string>
-    <string name = "navigation_drawer_header3">기타</string>
     <string name = "navigation_drawer_maker">팀 옵저버 제작</string>
     <string name = "title_activity_settings">설정</string>
 
-    <string name = "settings_drawer_arview">AR 설정</string>
-    <string name = "settings_drawer_filtering">필터링</string>
     <string name = "settings_drawer_navermap">네이버 지도</string>
 
     <string name = "settings_drawer_arview_header">AR보기 설정</string>
-    <string name = "settings_drawer_filtering_header">필터링 설정</string>
-    <string name = "settings_drawer_navermap_header">네이버 지도 설정</string>
 
     <string name = "permission_rejected">"권한을 거부하면 이 서비스를 사용할 수 없습니다
 
 [설정]>[권한] "에서 권한을 켜십시오.</string>
     <string name = "NMapSetView">위성지도 사용</string>
-    <string name="NaverMarker">네이버 지도에서 보기</string>
-    <string name="WebSite">이 건물의 홈페이지로 이동</string>
-    <string name="Navi">길안내 켜기</string>
     <string name="MoreView">AR 마커 개수 증가</string>
     <string name="MoreView_Summary">더 많은 마커를 볼 수 있지만 성능이 저하될 수 있습니다.</string>
     <string name="Camera2">카메라 2 API 사용</string>
@@ -115,7 +89,6 @@
     <string name="Filtering_Education">사범대학</string>
     <string name="Filtering_Social">사회과학대학</string>
     <string name="Filtering_Leisure">여가시설</string>
-    <string name="Filtering_Humanities">인문대학</string>
     <string name="Filtering_Science">자연과학대학</string>
 
     <string name="Search_Error">검색할 건물번호나 건물이름을 입력하세요</string>
@@ -129,8 +102,6 @@
     <string name="My_location">현재 위치</string>
     <string name="gnu_location">경상대학교 위치</string>
 
-    <string name="navigation">길 찾기</string>
-    <string name="information">건물 홈페이지로 이동</string>
     <string name="negetive">취소</string>
 
     <string name="NaverWebAPI">네이버 웹 API</string>
@@ -141,7 +112,5 @@
     <string name="APISelect_summary">카카오 앱 API를 사용하기 위해선 카카오 맵 어플리케이션이 필요합니다.</string>
     <string name="GPSerror">GPS를 찾을 수 없습니다.</string>
     <string name="kakaomaperror">카카오맵 앱을 찾을 수 없습니다.</string>
-
-    <string name="App_Version">1.1-r5</string>
 
 </resources>

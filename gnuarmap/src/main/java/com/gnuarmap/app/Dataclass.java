@@ -100,7 +100,7 @@ public class Dataclass {
             j = source.indexOf(";", i);
             if (j > i) {
                 String entityToLookFor = source.substring(i, j + 1);
-                String value = (String) htmlEntities.get(entityToLookFor);
+                String value = htmlEntities.get(entityToLookFor);
                 if (value != null) {
                     source = new StringBuffer().append(source.substring(0, i))
                             .append(value).append(source.substring(j + 1))

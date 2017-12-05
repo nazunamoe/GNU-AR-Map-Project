@@ -198,7 +198,7 @@ public class MenuActivity extends AppCompatActivity implements AdapterView.OnIte
                 .setPermissions(Manifest.permission.CAMERA, Manifest.permission.ACCESS_FINE_LOCATION)
                 .check();
         ArrayAdapter adapter = ArrayAdapter.createFromResource(this, R.array.MenuList, android.R.layout.simple_list_item_1);
-        ListView listview = (ListView) findViewById(R.id.listview1);
+        ListView listview = findViewById(R.id.listview1);
         listview.setOnItemClickListener(this);
         listview.setAdapter(adapter);
     }

@@ -25,9 +25,9 @@ package org.mixare.lib.gui;
  */
 
 public interface ScreenObj {
-	public void paint(PaintScreen dw);
+	void paint(PaintScreen dw);
 
-	public float getWidth();
+	float getWidth();
 
-	public float getHeight();
+	float getHeight();
 }

@@ -103,14 +103,12 @@ public class MixView extends Activity implements SensorEventListener, OnTouchLis
         initCompatibility();
     }
 
-    ;
-
     /** this will fail on older phones (Android version < 2.0) */
     private static void initCompatibility() {
         try {
             mParameters_getSupportedPreviewSizes = Camera.Parameters.class.getMethod(
-                    "getSupportedPreviewSizes", new Class[]{});
-            mDefaultDisplay_getRotation = Display.class.getMethod("getRotation", new Class[]{});
+                    "getSupportedPreviewSizes");
+            mDefaultDisplay_getRotation = Display.class.getMethod("getRotation");
 
                 /* success, this is a newer device */
         } catch (NoSuchMethodException nsme) {
@@ -528,7 +526,7 @@ public class MixView extends Activity implements SensorEventListener, OnTouchLis
         frameLayout.setPadding(10, 0, 10, 10);
         return frameLayout;
     }
-	
+
 	/* ********* Operator - Menu ******/
 
 
@@ -891,5 +889,4 @@ public class MixView extends Activity implements SensorEventListener, OnTouchLis
         //setZoomLevel, caller has to call refreash download if needed.
     }
 
-    ;
 }

@@ -82,11 +82,11 @@ public class SearchActivity extends AppCompatActivity {
 
         setContentView(R.layout.activity_search);
         num = data2.getWholeSize();
-        final AutoCompleteTextView edit = (AutoCompleteTextView) findViewById(R.id.edit);
+        final AutoCompleteTextView edit = findViewById(R.id.edit);
         edit.setAdapter(new ArrayAdapter<String>(this,
                 android.R.layout.simple_dropdown_item_1line, items));
 
-        Button sbutton = (Button) findViewById(R.id.SearchButton);
+        Button sbutton = findViewById(R.id.SearchButton);
         sbutton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {

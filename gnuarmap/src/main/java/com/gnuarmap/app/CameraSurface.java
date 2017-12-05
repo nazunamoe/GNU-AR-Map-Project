@@ -30,16 +30,14 @@ class CameraSurface extends SurfaceView implements SurfaceHolder.Callback {
         initCompatibility();
     }
 
-    ;
-
     /**
      * this will fail on older phones (Android version < 2.0)
      */
     private static void initCompatibility() {
         try {
             mParameters_getSupportedPreviewSizes = Camera.Parameters.class.getMethod(
-                    "getSupportedPreviewSizes", new Class[]{});
-            mDefaultDisplay_getRotation = Display.class.getMethod("getRotation", new Class[]{});
+                    "getSupportedPreviewSizes");
+            mDefaultDisplay_getRotation = Display.class.getMethod("getRotation");
 
                 /* success, this is a newer device */
         } catch (NoSuchMethodException nsme) {

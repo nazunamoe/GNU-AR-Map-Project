@@ -54,7 +54,7 @@ public class MixContext extends ContextWrapper implements MixContextInterface {
     }
 
     public String getStartUrl() {
-        Intent intent = ((Activity) getActualMixView()).getIntent();
+        Intent intent = getActualMixView().getIntent();
         if (intent.getAction() != null
                 && intent.getAction().equals(Intent.ACTION_VIEW)) {
             return intent.getData().toString();

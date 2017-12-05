@@ -86,15 +86,15 @@ public class NMapCalloutCustomOldOverlay extends NMapCalloutOverlay {
     /**
      * Resource provider should implement this interface
      */
-    public static interface ResourceProvider {
+    public interface ResourceProvider {
 
-        public Drawable getCalloutBackground(NMapOverlayItem item);
+        Drawable getCalloutBackground(NMapOverlayItem item);
 
-        public String getCalloutRightButtonText(NMapOverlayItem item);
+        String getCalloutRightButtonText(NMapOverlayItem item);
 
-        public Drawable[] getCalloutRightButton(NMapOverlayItem item);
+        Drawable[] getCalloutRightButton(NMapOverlayItem item);
 
-        public Drawable[] getCalloutRightAccessory(NMapOverlayItem item);
+        Drawable[] getCalloutRightAccessory(NMapOverlayItem item);
     }
 
     public NMapCalloutCustomOldOverlay(NMapOverlay itemOverlay, NMapOverlayItem item, Rect itemBounds,

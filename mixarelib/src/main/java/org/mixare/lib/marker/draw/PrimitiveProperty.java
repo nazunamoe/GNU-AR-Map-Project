@@ -35,8 +35,8 @@ public class PrimitiveProperty implements Parcelable {
 	private Object object;
 
 	public enum primitive {
-		STRING, INT, DOUBLE, FLOAT, LONG, BYTE;
-	}
+		STRING, INT, DOUBLE, FLOAT, LONG, BYTE
+    }
 
 	public PrimitiveProperty(String primitivename, Object object) {
 		this.primitivename = primitivename;

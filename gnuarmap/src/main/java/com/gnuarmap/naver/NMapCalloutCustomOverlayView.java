@@ -40,7 +40,7 @@ public class NMapCalloutCustomOverlayView extends NMapCalloutOverlayView {
         li.inflate(R.layout.callout_overlay_view, this, true);
 
         mCalloutView = findViewById(R.id.callout_overlay);
-        mCalloutText = (TextView) mCalloutView.findViewById(R.id.callout_text);
+        mCalloutText = mCalloutView.findViewById(R.id.callout_text);
         mRightArrow = findViewById(R.id.callout_rightArrow);
 
         mCalloutView.setOnClickListener(callOutClickListener);

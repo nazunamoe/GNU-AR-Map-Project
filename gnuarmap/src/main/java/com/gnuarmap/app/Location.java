@@ -29,7 +29,7 @@ public class Location {
         /**
          * Possible status of LocationFinder
          */
-        public enum LocationFinderState {
+        enum LocationFinderState {
             Active, // Providing Location Information
             Inactive, // No-Active
             Confused // Same problem in internal state
