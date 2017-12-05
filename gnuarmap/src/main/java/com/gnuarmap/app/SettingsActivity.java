@@ -35,7 +35,10 @@ public class SettingsActivity extends AppCompatActivity implements SharedPrefere
         if (keyCode == KeyEvent.KEYCODE_BACK) {
             Context ctx;
             ctx = this;
-            startActivity(new Intent(ctx, MenuActivity.class));
+            int a = getIntent().getIntExtra("Return", 0);
+            if (a == 0) {
+                startActivity(new Intent(ctx, MenuActivity.class));
+            }
             finish();
         }
         return false;
@@ -74,9 +77,11 @@ public class SettingsActivity extends AppCompatActivity implements SharedPrefere
             case android.R.id.home:
                 Context ctx;
                 ctx = this;
-                startActivity(new Intent(ctx, MenuActivity.class));
+                int a = getIntent().getIntExtra("Return", 0);
+                if (a == 0) {
+                    startActivity(new Intent(ctx, MenuActivity.class));
+                }
                 finish();
-                return true;
         }
         return super.onOptionsItemSelected(item);
     }
