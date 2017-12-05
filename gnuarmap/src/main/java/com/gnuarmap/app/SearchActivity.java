@@ -79,7 +79,7 @@ public class SearchActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         setContentView(R.layout.activity_search);
         num = data2.getWholeSize();
         final AutoCompleteTextView edit = findViewById(R.id.edit);
@@ -116,6 +116,19 @@ public class SearchActivity extends AppCompatActivity {
                 j = data2.WholeList.get(i).NUM;
             }
         }
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        switch (item.getItemId()) {
+            case android.R.id.home:
+                Context ctx;
+                ctx = this;
+                startActivity(new Intent(ctx, MenuActivity.class));
+                finish();
+                return true;
+        }
+        return super.onOptionsItemSelected(item);
     }
 
     private String value() {

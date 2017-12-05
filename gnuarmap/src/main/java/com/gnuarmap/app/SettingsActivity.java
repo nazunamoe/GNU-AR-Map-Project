@@ -14,6 +14,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
 import android.view.KeyEvent;
 import android.support.v7.app.ActionBar;
+import android.view.MenuItem;
 
 import com.gnuarmap.R;
 
@@ -44,6 +45,7 @@ public class SettingsActivity extends AppCompatActivity implements SharedPrefere
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         ActionBar actionBar = getSupportActionBar();
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         /*actionBar.setBackgroundDrawable(new ColorDrawable(0xFF33B5E5));
         if(Build.VERSION.SDK_INT>=21){
             getWindow().setStatusBarColor(0xFF33B5E5);
@@ -65,6 +67,20 @@ public class SettingsActivity extends AppCompatActivity implements SharedPrefere
             }
         }
     }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        switch (item.getItemId()) {
+            case android.R.id.home:
+                Context ctx;
+                ctx = this;
+                startActivity(new Intent(ctx, MenuActivity.class));
+                finish();
+                return true;
+        }
+        return super.onOptionsItemSelected(item);
+    }
+
 
     @Override
     public boolean onPreferenceChange(Preference preference, Object newValue) {
