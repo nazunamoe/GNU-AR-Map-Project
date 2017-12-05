@@ -26,92 +26,93 @@ import org.mixare.lib.MixStateInterface;
 /**
  * 앱의 각종 상태를 관리하는 클래스
  */
-public class State implements MixStateInterface{
+public class State implements MixStateInterface {
 
-	public SocialMarker marker;
+    public SocialMarker marker;
 
-	private static State instance;
+    private static State instance;
 
-	public int api;
+    public int api;
 
-	// Global variable
-	public boolean Business;
-	public boolean Engineering;
-	public boolean Dormitory;
-	public boolean ETC;
-	public boolean Agriculture;
-	public boolean University;
-	public boolean Club;
-	public boolean Law;
-	public boolean Education;
-	public boolean Social;
-	public boolean Veterinary;
-	public boolean Leisure;
-	public boolean Humanities;
-	public boolean Science;
-	public boolean Door;
-	public boolean AllBuilding;
+    // Global variable
+    public boolean Business;
+    public boolean Engineering;
+    public boolean Dormitory;
+    public boolean ETC;
+    public boolean Agriculture;
+    public boolean University;
+    public boolean Club;
+    public boolean Law;
+    public boolean Education;
+    public boolean Social;
+    public boolean Veterinary;
+    public boolean Leisure;
+    public boolean Humanities;
+    public boolean Science;
+    public boolean Door;
+    public boolean AllBuilding;
 
-	public boolean Printer;
-	public boolean ATM;
-	public boolean CVS;
-	public boolean Vending;
-	public boolean All;
+    public boolean Printer;
+    public boolean ATM;
+    public boolean CVS;
+    public boolean Vending;
+    public boolean All;
 
-	public boolean NMapState;
-	public boolean MoreView;
-	public boolean Camera2;
+    public boolean NMapState;
+    public boolean MoreView;
+    public boolean Camera2;
 
-	private State(){}
+    private State() {
+    }
 
-	public static synchronized State getInstance(){
-		if(instance==null){
-			instance=new State();
-		}
-		return instance;
-	}
+    public static synchronized State getInstance() {
+        if (instance == null) {
+            instance = new State();
+        }
+        return instance;
+    }
 
-	public static int NOT_STARTED = 0; 
-	public static int PROCESSING = 1; 
-	public static int READY = 2; 
-	public static int DONE = 3; 
+    public static int NOT_STARTED = 0;
+    public static int PROCESSING = 1;
+    public static int READY = 2;
+    public static int DONE = 3;
 
-	int nextLStatus = State.NOT_STARTED;
+    int nextLStatus = State.NOT_STARTED;
 
-	private boolean detailsView;
+    private boolean detailsView;
 
-	public boolean handleEvent(MixContextInterface ctx, String onPress, org.mixare.lib.marker.Marker marker) {
-		if (onPress != null && onPress.startsWith("webpage")) {
-			try {
-				this.detailsView = true;
-				Log.d("mixare","Clicked Marker");
-				ctx.MarkerMenu(marker);
-			} catch (Exception ex) {
-				ex.printStackTrace();
-			}
-		}
-		return true;
-	}
+    public boolean handleEvent(MixContextInterface ctx, String onPress, org.mixare.lib.marker.Marker marker) {
+        if (onPress != null && onPress.startsWith("webpage")) {
+            try {
+                this.detailsView = true;
+                Log.d("mixare", "Clicked Marker");
+                ctx.MarkerMenu(marker);
+            } catch (Exception ex) {
+                ex.printStackTrace();
+            }
+        }
+        return true;
+    }
 
-	@Override
-	public boolean handleEvent(MixContextInterface ctx, String onPress) {
-		if (onPress != null && onPress.startsWith("webpage")) {
-			try {
-				this.detailsView = true;
-				Log.d("mixare","Clicked Marker");
-				//ctx.MarkerMenu();
-			} catch (Exception ex) {
-				ex.printStackTrace();
-			}
-		}
-		return true;
-	}
-	
-	public boolean isDetailsView() {
-		return detailsView;
-	}
-	
-	public void setDetailsView(boolean detailsView) {
-		this.detailsView = detailsView;
-	}
+    @Override
+    public boolean handleEvent(MixContextInterface ctx, String onPress) {
+        if (onPress != null && onPress.startsWith("webpage")) {
+            try {
+                this.detailsView = true;
+                Log.d("mixare", "Clicked Marker");
+                //ctx.MarkerMenu();
+            } catch (Exception ex) {
+                ex.printStackTrace();
+            }
+        }
+        return true;
+    }
+
+    public boolean isDetailsView() {
+        return detailsView;
+    }
+
+    public void setDetailsView(boolean detailsView) {
+        this.detailsView = detailsView;
+    }
 }

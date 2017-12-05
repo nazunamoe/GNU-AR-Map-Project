@@ -16,7 +16,6 @@ import java.util.Timer;
 import java.util.TimerTask;
 
 /**
- * Created by nazunamoe on 2017-12-01.
  * 앱에서 사용되는 위치를 관리하는 클래스
  */
 
@@ -30,7 +29,7 @@ public class Location {
         /**
          * Possible status of LocationFinder
          */
-        public enum LocationFinderState {
+        enum LocationFinderState {
             Active, // Providing Location Information
             Inactive, // No-Active
             Confused // Same problem in internal state

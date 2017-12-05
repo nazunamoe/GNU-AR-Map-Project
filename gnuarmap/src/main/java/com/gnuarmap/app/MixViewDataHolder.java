@@ -47,7 +47,7 @@ public class MixViewDataHolder {
     private TextView searchNotificationTxt;
 
     public MixViewDataHolder(MixContext mixContext) {
-        this.mixContext=mixContext;
+        this.mixContext = mixContext;
         this.RTmp = new float[9];
         this.Rot = new float[9];
         this.I = new float[9];

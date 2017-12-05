@@ -94,12 +94,8 @@ public class ClickHandler implements Parcelable{
 		float objW = txtLab.getWidth();
 		float objH = txtLab.getHeight();
 
-		if (pPt.x > objX && pPt.x < objX + objW && pPt.y > objY
-				&& pPt.y < objY + objH) {
-			return true;
-		} else {
-			return false;
-		}
+        return pPt.x > objX && pPt.x < objX + objW && pPt.y > objY
+                && pPt.y < objY + objH;
 	}
 	
 	public static final Parcelable.Creator<ClickHandler> CREATOR = new Parcelable.Creator<ClickHandler>() {

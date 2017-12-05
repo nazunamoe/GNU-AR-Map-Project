@@ -1,7 +1,7 @@
 package com.gnuarmap.app;
 
 /**
-안드로이드 카메라 2 API를 사용하는 클래스
+ * 안드로이드 카메라 2 API를 사용하는 클래스
  */
 
 import android.Manifest;
@@ -18,7 +18,6 @@ import android.hardware.camera2.params.StreamConfigurationMap;
 import android.os.Build;
 import android.support.annotation.NonNull;
 import android.support.v4.app.ActivityCompat;
-import android.util.Log;
 import android.util.Size;
 import android.view.Surface;
 import android.view.SurfaceHolder;
@@ -109,7 +108,7 @@ class Camera2Surface extends CameraSurface {
         // to initialize the camera
         // other devices could work with previews larger than the screen
         // though
-        if(sizes!=null) {
+        if (sizes != null) {
             for (Size curSize : sizes) {
                 // current form factor
                 float cff = (float) curSize.getWidth() / curSize.getHeight();
@@ -137,11 +136,11 @@ class Camera2Surface extends CameraSurface {
             besth = 1920;
         }
 
-        holder.setFixedSize(1920,1080);
+        holder.setFixedSize(1920, 1080);
     }
 
     private void openCamera() {
-        try{
+        try {
             if (ActivityCompat.checkSelfPermission(this.mixViewActivity, Manifest.permission.CAMERA) != PackageManager.PERMISSION_GRANTED) {
 
 
@@ -151,7 +150,7 @@ class Camera2Surface extends CameraSurface {
                 // for ActivityCompat#requestPermissions for more details.
                 return;
             }
-            cameraManager.openCamera(cameraId, new CameraDevice.StateCallback(){
+            cameraManager.openCamera(cameraId, new CameraDevice.StateCallback() {
                 @Override
                 public void onOpened(@NonNull CameraDevice cameraDevice) {
                     Camera2Surface.this.camera = cameraDevice;
@@ -182,9 +181,9 @@ class Camera2Surface extends CameraSurface {
                 @Override
                 public void onConfigured(@NonNull CameraCaptureSession cameraCaptureSession) {
                     try {
-                        cameraCaptureSession.setRepeatingRequest(builder.build(),null,null);
+                        cameraCaptureSession.setRepeatingRequest(builder.build(), null, null);
                         Camera2Surface.this.activeSession = cameraCaptureSession;
-                    } catch (CameraAccessException ex){
+                    } catch (CameraAccessException ex) {
                     }
                 }
 

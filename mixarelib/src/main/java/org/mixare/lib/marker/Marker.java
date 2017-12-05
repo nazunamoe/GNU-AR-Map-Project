@@ -69,11 +69,11 @@ public interface Marker extends Comparable<Marker>{
 
 	int getColour();
 	
-	public void setTxtLab(Label txtLab);
+	void setTxtLab(Label txtLab);
 
 	Label getTxtLab();
 
-	public boolean fClick(float x, float y, MixContextInterface ctx, MixStateInterface state);
+	boolean fClick(float x, float y, MixContextInterface ctx, MixStateInterface state);
 
 	int getMaxObjects();
 	

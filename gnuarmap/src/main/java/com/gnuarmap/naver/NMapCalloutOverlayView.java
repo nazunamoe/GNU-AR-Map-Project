@@ -31,147 +31,147 @@ import com.nhn.android.mapviewer.overlay.NMapOverlayManager;
 import com.nhn.android.mapviewer.overlay.NMapResourceProvider;
 
 public abstract class NMapCalloutOverlayView extends FrameLayout implements
-	NMapOverlayManager.CalloutOverlayViewInterface {
+        NMapOverlayManager.CalloutOverlayViewInterface {
 
-	protected NMapOverlayItem mOverlayItem;
-	protected Rect mItemBounds;
-	protected NMapCalloutOverlay.OnClickListener mOnClickListener;
-	protected NMapOverlay mItemOverlay;
+    protected NMapOverlayItem mOverlayItem;
+    protected Rect mItemBounds;
+    protected NMapCalloutOverlay.OnClickListener mOnClickListener;
+    protected NMapOverlay mItemOverlay;
 
-	private static final long SCALE_DURATION_MILLS = 200L;
-	private static final float CALLOUT_MARGIN_X = 13.33F;
-	private final float mMarginX;
+    private static final long SCALE_DURATION_MILLS = 200L;
+    private static final float CALLOUT_MARGIN_X = 13.33F;
+    private final float mMarginX;
 
-	protected final Point mTempPoint = new Point();
-	protected final Rect mTempRect = new Rect();
+    protected final Point mTempPoint = new Point();
+    protected final Rect mTempRect = new Rect();
 
-	public NMapCalloutOverlayView(Context context, NMapOverlay itemOverlay, NMapOverlayItem item, Rect itemBounds) {
-		super(context);
+    public NMapCalloutOverlayView(Context context, NMapOverlay itemOverlay, NMapOverlayItem item, Rect itemBounds) {
+        super(context);
 
-		mOverlayItem = item;
-		mItemBounds = itemBounds;
-		mOnClickListener = null;
-		mItemOverlay = itemOverlay;
+        mOverlayItem = item;
+        mItemBounds = itemBounds;
+        mOnClickListener = null;
+        mItemOverlay = itemOverlay;
 
-		int px = 0;
-		int py = (int)(mItemBounds.height() * mOverlayItem.getAnchorYRatio());
-		NMapView.LayoutParams lp = new NMapView.LayoutParams(NMapView.LayoutParams.WRAP_CONTENT,
-			NMapView.LayoutParams.WRAP_CONTENT, mOverlayItem.getPoint(), px, -py,
-			NMapView.LayoutParams.BOTTOM_CENTER);
-		this.setLayoutParams(lp);
+        int px = 0;
+        int py = (int) (mItemBounds.height() * mOverlayItem.getAnchorYRatio());
+        NMapView.LayoutParams lp = new NMapView.LayoutParams(NMapView.LayoutParams.WRAP_CONTENT,
+                NMapView.LayoutParams.WRAP_CONTENT, mOverlayItem.getPoint(), px, -py,
+                NMapView.LayoutParams.BOTTOM_CENTER);
+        this.setLayoutParams(lp);
 
-		mMarginX = NMapResourceProvider.toPixelFromDIP(CALLOUT_MARGIN_X);
+        mMarginX = NMapResourceProvider.toPixelFromDIP(CALLOUT_MARGIN_X);
 
-	}
+    }
 
-	/** 
-	 * @return bounds of this callout overlay in the map view.
-	 */
-	private Rect getBounds(NMapView mapView) {
+    /**
+     * @return bounds of this callout overlay in the map view.
+     */
+    private Rect getBounds(NMapView mapView) {
 
-		//  First determine the screen coordinates of the selected MapLocation
-		mapView.getMapProjection().toPixels(mOverlayItem.getPointInUtmk(), mTempPoint);
+        //  First determine the screen coordinates of the selected MapLocation
+        mapView.getMapProjection().toPixels(mOverlayItem.getPointInUtmk(), mTempPoint);
 
-		mTempRect.left = this.getLeft();
-		mTempRect.top = this.getTop();
-		mTempRect.right = this.getRight();
-		mTempRect.bottom = this.getBottom();
+        mTempRect.left = this.getLeft();
+        mTempRect.top = this.getTop();
+        mTempRect.right = this.getRight();
+        mTempRect.bottom = this.getBottom();
 
-		mTempRect.union(mTempPoint.x, mTempPoint.y);
+        mTempRect.union(mTempPoint.x, mTempPoint.y);
 
-		return mTempRect;
-	}
+        return mTempRect;
+    }
 
-	/** 
-	 * check if callout overlay is in the visible bounds of map view.
-	 */
-	@Override
-	public boolean isCalloutViewInVisibleBounds(NMapView mapView) {
+    /**
+     * check if callout overlay is in the visible bounds of map view.
+     */
+    @Override
+    public boolean isCalloutViewInVisibleBounds(NMapView mapView) {
 
-		if (this.getVisibility() == View.VISIBLE) {
-			Rect boundsVisible = mapView.getMapController().getBoundsVisible();
-			Rect bounds = getBounds(mapView);
+        if (this.getVisibility() == View.VISIBLE) {
+            Rect boundsVisible = mapView.getMapController().getBoundsVisible();
+            Rect bounds = getBounds(mapView);
 
-			return Rect.intersects(boundsVisible, bounds);
-		}
+            return Rect.intersects(boundsVisible, bounds);
+        }
 
-		return false;
-	}
+        return false;
+    }
 
-	private int getMarginX() {
-		return (int)(mMarginX);
-	}
+    private int getMarginX() {
+        return (int) (mMarginX);
+    }
 
-	/** 
-	 * Attempts to adjust location of this callout overlay within in the map view.
-	 */
-	@Override
-	public void adjustBounds(NMapView mapView, boolean animate, boolean adjustToCenter) {
+    /**
+     * Attempts to adjust location of this callout overlay within in the map view.
+     */
+    @Override
+    public void adjustBounds(NMapView mapView, boolean animate, boolean adjustToCenter) {
 
-		if (adjustToCenter) {
-			NGeoPoint pt = mOverlayItem.getPoint();
-			if (animate) {
-				mapView.getMapController().animateTo(pt, true);
-			} else {
-				mapView.getMapController().setMapCenter(pt);
-			}
+        if (adjustToCenter) {
+            NGeoPoint pt = mOverlayItem.getPoint();
+            if (animate) {
+                mapView.getMapController().animateTo(pt, true);
+            } else {
+                mapView.getMapController().setMapCenter(pt);
+            }
 
-		} else {
-			Rect boundsVisible = mapView.getMapController().getBoundsVisible();
-			Rect bounds = getBounds(mapView);
+        } else {
+            Rect boundsVisible = mapView.getMapController().getBoundsVisible();
+            Rect bounds = getBounds(mapView);
 
-			int marginX = getMarginX();
+            int marginX = getMarginX();
 
-			if (!boundsVisible.contains(bounds)) {
+            if (!boundsVisible.contains(bounds)) {
 
-				int centerX = 0;
-				if (bounds.width() >= boundsVisible.width()) {
-					centerX = bounds.centerX();
-				} else {
-					if (bounds.left < boundsVisible.left) {
-						centerX = boundsVisible.left - bounds.left + marginX;
-					} else if (bounds.right > boundsVisible.right) {
-						centerX = boundsVisible.right - bounds.right - marginX;
-					}
-					centerX = boundsVisible.centerX() - centerX;
-				}
+                int centerX = 0;
+                if (bounds.width() >= boundsVisible.width()) {
+                    centerX = bounds.centerX();
+                } else {
+                    if (bounds.left < boundsVisible.left) {
+                        centerX = boundsVisible.left - bounds.left + marginX;
+                    } else if (bounds.right > boundsVisible.right) {
+                        centerX = boundsVisible.right - bounds.right - marginX;
+                    }
+                    centerX = boundsVisible.centerX() - centerX;
+                }
 
-				int centerY = 0;
-				if (bounds.top < boundsVisible.top) {
-					centerY = boundsVisible.top - bounds.top + marginX;
-				} else if (bounds.bottom > boundsVisible.bottom) {
-					centerY = boundsVisible.bottom - bounds.bottom - marginX;
-				}
-				centerY = boundsVisible.centerY() - centerY;
+                int centerY = 0;
+                if (bounds.top < boundsVisible.top) {
+                    centerY = boundsVisible.top - bounds.top + marginX;
+                } else if (bounds.bottom > boundsVisible.bottom) {
+                    centerY = boundsVisible.bottom - bounds.bottom - marginX;
+                }
+                centerY = boundsVisible.centerY() - centerY;
 
-				NGeoPoint pt = mapView.getMapProjection().fromPixels(centerX, centerY);
-				if (animate) {
-					mapView.getMapController().animateTo(pt, true);
-				} else {
-					mapView.getMapController().setMapCenter(pt);
-				}
-			}
-		}
+                NGeoPoint pt = mapView.getMapProjection().fromPixels(centerX, centerY);
+                if (animate) {
+                    mapView.getMapController().animateTo(pt, true);
+                } else {
+                    mapView.getMapController().setMapCenter(pt);
+                }
+            }
+        }
 
-		if (animate) {
-			animateCallout();
-		}
-	}
+        if (animate) {
+            animateCallout();
+        }
+    }
 
-	private void animateCallout() {
+    private void animateCallout() {
 
-		// Create a scale animation
-		ScaleAnimation animation = new ScaleAnimation(0.5f, 1.0f, 0.5f, 1.0f, ScaleAnimation.RELATIVE_TO_SELF, 0.5f,
-			ScaleAnimation.RELATIVE_TO_SELF, 1.0f);
+        // Create a scale animation
+        ScaleAnimation animation = new ScaleAnimation(0.5f, 1.0f, 0.5f, 1.0f, ScaleAnimation.RELATIVE_TO_SELF, 0.5f,
+                ScaleAnimation.RELATIVE_TO_SELF, 1.0f);
 
-		animation.setDuration(SCALE_DURATION_MILLS);
+        animation.setDuration(SCALE_DURATION_MILLS);
 
-		this.startAnimation(animation);
-	}
+        this.startAnimation(animation);
+    }
 
-	@Override
-	public void setOnClickListener(NMapCalloutOverlay.OnClickListener listener) {
-		mOnClickListener = listener;
-	}
+    @Override
+    public void setOnClickListener(NMapCalloutOverlay.OnClickListener listener) {
+        mOnClickListener = listener;
+    }
 
 }
