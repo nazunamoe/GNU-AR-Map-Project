@@ -141,7 +141,7 @@ public class SearchActivity extends AppCompatActivity {
                         "353동") || s.equals("354동") || s.equals("401동") || s.equals("402동") || s.equals("403동") || s.equals("404동") || s.equals("405동") || s.equals(
                         "406동") || s.equals("407동") || s.equals("416동") || s.equals("451동") || s.equals("452동") || s.equals(
                         "453동") || s.equals("454동") || s.equals("455동") || s.equals("456동") || s.equals("457동") || s.equals(
-                        "458동") || s.equals("459동") || s.equals("501동") || s.equals("502동") || s.equals("503동") || s.equals("504동") || s.equals(
+                        "458동") || s.equals("459동") || s.equals("501동") || s.equals("502동") || s.equals("503동") || s.equals(
                         "505동") || s.equals("310동")) {
                     int a = s.indexOf('동');
                     String s2 = s.substring(0, a);

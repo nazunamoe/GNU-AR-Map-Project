@@ -163,7 +163,6 @@ public class DataView {
         try {
             width = widthInit;
             height = heightInit;
-            Log.d("debug", "init");
             cam = new Camera(width, height, true);
             cam.setViewAngle(Camera.DEFAULT_VIEW_ANGLE);
 
@@ -175,7 +174,6 @@ public class DataView {
     }
 
     public void draw(PaintScreen dw) {
-        Log.d("debug", "getRM");
 
         mixContext.getRM(cam.transform);
         curFix = mixContext.getLocationFinder().getCurrentLocation();

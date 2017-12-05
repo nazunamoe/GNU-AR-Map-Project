@@ -258,8 +258,6 @@ public abstract class Marker implements org.mixare.lib.marker.Marker {
 
     public boolean fClick(float x, float y, MixContextInterface ctx, MixStateInterface state) {
         boolean evtHandled = false;
-        Log.d("mixare", "Clicked Marker");
-
         if (isClickValid(x, y)) {
             evtHandled = state.handleEvent(ctx, URL, this);
         }

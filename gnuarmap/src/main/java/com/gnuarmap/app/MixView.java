@@ -179,7 +179,6 @@ public class MixView extends Activity implements SensorEventListener, OnTouchLis
             maintainZoomBar();
 
             if (!isInited) {
-                Log.d("debug", "setdWindow");
                 AlertDialog.Builder builder1 = new AlertDialog.Builder(this);
                 builder1.setMessage(getString(R.string.GPSWarning));
                 builder1.setNegativeButton(getString(R.string.close_button),

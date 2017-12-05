@@ -360,7 +360,7 @@ public class Dataclass {
                 b = a;
             }
         }
-        return List.get(b);
+        return WholeList.get(b);
     }
 
     public int getSize() {
