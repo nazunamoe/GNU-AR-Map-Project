@@ -262,7 +262,6 @@ public class MixView extends Activity implements SensorEventListener, OnTouchLis
                 Log.d(TAG + " WorkFlow",
                         "MixView - Received Refresh Screen Request .. about to refresh");
                 repaint();
-                refreshDownload();
             }
 
         } catch (Exception ex) {
@@ -439,24 +438,6 @@ public class MixView extends Activity implements SensorEventListener, OnTouchLis
         addContentView(frameLayout, new FrameLayout.LayoutParams(
                 LayoutParams.FILL_PARENT, LayoutParams.WRAP_CONTENT,
                 Gravity.BOTTOM));
-    }
-
-
-    private void refreshDownload() {
-//		try {
-//			if (getMixViewData().getDownloadThread() != null){
-//				if (!getMixViewData().getDownloadThread().isInterrupted()){
-//					getMixViewData().getDownloadThread().interrupt();
-//					getMixViewData().getMixContext().getDownloadManager().restart();
-//				}
-//			}else { //if no download thread found
-//				getMixViewData().setDownloadThread(new Thread(getMixViewData()
-//						.getMixContext().getDownloadManager()));
-//				//@TODO Syncronize DownloadManager, call Start instead of run.
-//				mixViewData.getMixContext().getDownloadManager().run();
-//			}
-//		}catch (Exception ex){
-//		}
     }
 
     public void refresh() {
