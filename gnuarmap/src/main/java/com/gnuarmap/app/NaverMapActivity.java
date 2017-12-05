@@ -4,11 +4,9 @@ import android.content.Context;
 import android.content.Intent;
 import android.location.Location;
 import android.location.LocationManager;
-import android.net.Uri;
 import android.os.Build;
 import android.os.Bundle;
 import android.support.v7.widget.Toolbar;
-import android.util.Log;
 import android.view.*;
 import android.widget.Toast;
 
@@ -52,17 +50,18 @@ public class NaverMapActivity extends NMapActivity {
     public static NMapPOIdataOverlay poiDataOverlay1;
 
     public static Database db = new Database();
-    public NaverMapMarker naverMapMarker ;
-    public String name="";
+    public NaverMapMarker naverMapMarker;
+    public String name = "";
+
     protected void onCreate(Bundle savedInstanceState) {
         LocationManager current = (LocationManager) getSystemService(Context.LOCATION_SERVICE);
-        try{
+        try {
             Location currentGPSInfo = current.getLastKnownLocation(NETWORK_PROVIDER);
-            if(current.isProviderEnabled(GPS_PROVIDER)){
+            if (current.isProviderEnabled(GPS_PROVIDER)) {
                 currentGPSInfo = current.getLastKnownLocation(GPS_PROVIDER);
             }
-            naverMapMarker = new NaverMapMarker(this,new NGeoPoint(currentGPSInfo.getLongitude(),currentGPSInfo.getLatitude()));
-        }catch(SecurityException e){
+            naverMapMarker = new NaverMapMarker(this, new NGeoPoint(currentGPSInfo.getLongitude(), currentGPSInfo.getLatitude()));
+        } catch (SecurityException e) {
             Toast.makeText(getApplicationContext(), R.string.permission_rejected, Toast.LENGTH_SHORT).show();
         }
         super.onCreate(savedInstanceState);
@@ -71,9 +70,9 @@ public class NaverMapActivity extends NMapActivity {
         mMapView = findViewById(R.id.mapView);
         mMapView.setClientId(CLIENT_ID); // 클라이언트 아이디 값 설정
         mMapController = mMapView.getMapController();
-        if(state.NMapState){
+        if (state.NMapState) {
             mMapController.setMapViewMode(mMapView.VIEW_MODE_SATELLITE);
-        }else{
+        } else {
             mMapController.setMapViewMode(mMapView.VIEW_MODE_VECTOR);
         }
         Intent intent = getIntent();
@@ -83,38 +82,37 @@ public class NaverMapActivity extends NMapActivity {
         toolbar.setTitleTextColor(0xFFFFFFFF);
         toolbar.inflateMenu(R.menu.menu);
         toolbar.setOnMenuItemClickListener(new Toolbar.OnMenuItemClickListener() {
-                                               @Override
-                                               public boolean onMenuItemClick(MenuItem item) {
-                                                   switch (item.getItemId()) {
-                                                       case R.id.action_location:
-                                                           LocationManager current = (LocationManager) getSystemService(Context.LOCATION_SERVICE);
-                                                           try{
-                                                               Location currentGPSInfo = current.getLastKnownLocation(NETWORK_PROVIDER);
-                                                               if(current.isProviderEnabled(GPS_PROVIDER)){
-                                                                   currentGPSInfo = current.getLastKnownLocation(GPS_PROVIDER);
-                                                               }
-                                                               mMapController.setMapCenter(currentGPSInfo.getLongitude(),currentGPSInfo.getLatitude());
-                                                               if(firstcurrentpoint == 0){
-                                                                   naverMapMarker.CurrentLocation(currentGPSInfo.getLongitude(),currentGPSInfo.getLatitude(),getApplicationContext(),0);
-                                                                   firstcurrentpoint = 1;
-                                                               }else{
-                                                                   naverMapMarker.CurrentLocation(currentGPSInfo.getLongitude(),currentGPSInfo.getLatitude(),getApplicationContext(),1);
-                                                               }
-                                                           }catch(SecurityException e){
-                                                               Toast.makeText(getApplicationContext(), R.string.permission_rejected, Toast.LENGTH_SHORT).show();
-                                                           }
-                                                           Toast.makeText(getApplicationContext(),R.string.GoTo_Current,Toast.LENGTH_SHORT).show();
-                                                           return true;
-                                                       case R.id.action_gnu:{
-                                                           mMapController.setMapCenter(128.098211,35.153960) ;
-                                                           Toast.makeText(getApplicationContext(),R.string.GoTo_GNU,Toast.LENGTH_SHORT).show();
-                                                           return true;
-                                                       }
-                                                   }
-                                                   return false;
-                                               }
-                                           });
-
+            @Override
+            public boolean onMenuItemClick(MenuItem item) {
+                switch (item.getItemId()) {
+                    case R.id.action_location:
+                        LocationManager current = (LocationManager) getSystemService(Context.LOCATION_SERVICE);
+                        try {
+                            Location currentGPSInfo = current.getLastKnownLocation(NETWORK_PROVIDER);
+                            if (current.isProviderEnabled(GPS_PROVIDER)) {
+                                currentGPSInfo = current.getLastKnownLocation(GPS_PROVIDER);
+                            }
+                            mMapController.setMapCenter(currentGPSInfo.getLongitude(), currentGPSInfo.getLatitude());
+                            if (firstcurrentpoint == 0) {
+                                naverMapMarker.CurrentLocation(currentGPSInfo.getLongitude(), currentGPSInfo.getLatitude(), getApplicationContext(), 0);
+                                firstcurrentpoint = 1;
+                            } else {
+                                naverMapMarker.CurrentLocation(currentGPSInfo.getLongitude(), currentGPSInfo.getLatitude(), getApplicationContext(), 1);
+                            }
+                        } catch (SecurityException e) {
+                            Toast.makeText(getApplicationContext(), R.string.permission_rejected, Toast.LENGTH_SHORT).show();
+                        }
+                        Toast.makeText(getApplicationContext(), R.string.GoTo_Current, Toast.LENGTH_SHORT).show();
+                        return true;
+                    case R.id.action_gnu: {
+                        mMapController.setMapCenter(128.098211, 35.153960);
+                        Toast.makeText(getApplicationContext(), R.string.GoTo_GNU, Toast.LENGTH_SHORT).show();
+                        return true;
+                    }
+                }
+                return false;
+            }
+        });
         mMapView.setClickable(true);
         mMapView.setEnabled(true);
         mMapView.setFocusable(true);
@@ -122,8 +120,7 @@ public class NaverMapActivity extends NMapActivity {
         mMapView.setFocusableInTouchMode(true);
         mMapView.requestFocus();
         mMapController.setZoomLevel(13);
-        mMapController.setMapCenter(128.103959,35.152751);
-
+        mMapController.setMapCenter(128.103959, 35.152751);
         mMapViewerResourceProvider = new NMapViewerResourceProvider(this);
         super.setMapDataProviderListener(onDataProviderListener);
         mOverlayManager = new NMapOverlayManager(this, mMapView, mMapViewerResourceProvider);
@@ -131,12 +128,12 @@ public class NaverMapActivity extends NMapActivity {
         mMapLocationManager = new NMapLocationManager(this);
         mMapLocationManager.setOnLocationChangeListener(onMyLocationChangeListener);
         mMyLocationOverlay = mOverlayManager.createMyLocationOverlay(mMapLocationManager, mMapCompassManager);
-        if(name == null){
+        if (name == null) {
             naverMapMarker.GMarker();
-        }else{
+        } else {
             int a = Integer.parseInt(name);
             naverMapMarker.Searching(a);
-            mMapController.setMapCenter(state.marker.getLongitude(),state.marker.getLatitude());
+            mMapController.setMapCenter(state.marker.getLongitude(), state.marker.getLatitude());
         }
     }
 
@@ -149,21 +146,19 @@ public class NaverMapActivity extends NMapActivity {
     @Override
     public boolean onKeyDown(int keyCode, android.view.KeyEvent event) {
         Intent intent = getIntent();
-        int ret = intent.getIntExtra("return",1);
-        if (keyCode == android.view.KeyEvent.KEYCODE_BACK){
-            if(ret == 2){
+        int ret = intent.getIntExtra("return", 1);
+        if (keyCode == android.view.KeyEvent.KEYCODE_BACK) {
+            if (ret == 2) {
                 Context ctx;
                 ctx = this;
                 startActivity(new Intent(ctx, SearchActivity.class));
                 finish();
-            }
-            else if(ret == 1){
+            } else if (ret == 1) {
                 Context ctx;
                 ctx = this;
                 startActivity(new Intent(ctx, MixView.class));
                 finish();
-            }
-            else if (ret == 0){
+            } else if (ret == 0) {
                 Context ctx;
                 ctx = this;
                 startActivity(new Intent(ctx, MenuActivity.class));
@@ -173,7 +168,7 @@ public class NaverMapActivity extends NMapActivity {
         return false;
     }
 
-    public void getInternet(){
+    public void getInternet() {
         startActivity(new Intent(getApplicationContext(), SearchActivity.class));
     }
 
@@ -181,6 +176,7 @@ public class NaverMapActivity extends NMapActivity {
         public MapContainerView(Context context) {
             super(context);
         }
+
         @Override
         protected void onLayout(boolean changed, int left, int top, int right, int bottom) {
             final int width = getWidth();
@@ -198,6 +194,7 @@ public class NaverMapActivity extends NMapActivity {
                 mOverlayManager.onSizeChanged(width, height);
             }
         }
+
         @Override
         protected void onMeasure(int widthMeasureSpec, int heightMeasureSpec) {
             int w = getDefaultSize(getSuggestedMinimumWidth(), widthMeasureSpec);
@@ -211,7 +208,7 @@ public class NaverMapActivity extends NMapActivity {
 
                 if (view instanceof NMapView) {
                     if (mMapView.isAutoRotateEnabled()) {
-                        int diag = (((int)(Math.sqrt(w * w + h * h)) + 1) / 2 * 2);
+                        int diag = (((int) (Math.sqrt(w * w + h * h)) + 1) / 2 * 2);
                         sizeSpecWidth = MeasureSpec.makeMeasureSpec(diag, MeasureSpec.EXACTLY);
                         sizeSpecHeight = sizeSpecWidth;
                     }
@@ -225,16 +222,17 @@ public class NaverMapActivity extends NMapActivity {
     public final NMapLocationManager.OnLocationChangeListener onMyLocationChangeListener = new NMapLocationManager.OnLocationChangeListener() {
         @Override
         public boolean onLocationChanged(NMapLocationManager nMapLocationManager, NGeoPoint myLocation) {
-            if(mMapController != null){
+            if (mMapController != null) {
                 mMapController.setMapCenter(myLocation);
-            }
-            else{
+            } else {
             }
             return true;
         }
+
         @Override
         public void onLocationUpdateTimeout(NMapLocationManager nMapLocationManager) {
         }
+
         @Override
         public void onLocationUnavailableArea(NMapLocationManager nMapLocationManager, NGeoPoint nGeoPoint) {
         }

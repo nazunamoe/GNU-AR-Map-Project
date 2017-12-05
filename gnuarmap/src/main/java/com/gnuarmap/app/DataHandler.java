@@ -21,6 +21,7 @@ public class DataHandler {
     // 완성된 마커 리스트
     private java.util.List<Marker> markerList = new ArrayList<org.mixare.lib.marker.Marker>();
     public android.location.Location cur;
+
     public void addMarkers(java.util.List<org.mixare.lib.marker.Marker> markers) {
         Dataclass data = new Dataclass();
 
@@ -30,7 +31,6 @@ public class DataHandler {
         /**
          * 독립된 데이터 프로세서 대신 이 부분에 marker 배열에 필요한 마커 데이터를 직접 등록한다.
          */
-
     }
 
     // 마커 리스트 정렬

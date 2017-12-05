@@ -20,61 +20,62 @@ public class SearchActivity extends AppCompatActivity {
      */
 
     String[] items = {
-            "대학본부","중앙도서관","학생회관/인재개발원","학술정보관/교육정보전산원",
-            "체육관","GNU어린이집","국제문화회관","스포츠컴플렉스","정문","남문","북문","교양학관",
-            "창업보육센터","남문운동장","공동실험실습관","BNIT산학협력관/약학대학","국제어학원",
-            "컴퓨터과학관","남명학관","학군단","고문헌도서관박물관","예절교육원","InformationCenter",
-            "야외공연장","대운동장","파워플랜트","교직원테니스장","산-송신탑",
-            "게스트하우스","LG개척관","기숙사 1동","기숙사 6동","기숙사 7동",
-            "기숙사 8동","기숙사 9동","기숙사 10동","기숙사 11동","아람관","부설중학교","부설고등학교",
-            "101동","102동","151동","201동","251동","252동","301동","310동",
-            "302동","303동","예술관","351동","352동",
-            "353동","354동","401동","402동","403동","404동","405동",
-            "406동","407동","416동","451동","452동",
-            "453동","454동","455동","456동","457동",
-            "458동","459동","501동","502동","503동","504동",
-            "505동","남문동아리방","농대카페테리아","통학버스승강장","도서관매점","NH농협","지진관측소",
-            "과학영재교육관","남문주차장","농대부속농장",
-            "식품영양학과","의류학과",  "국어국문학과","독어독문학과","러시아학과","불어불문학과","사학과","영어영문학과",
-            "중어중문학과","철학과","한문학과","민속무용학과","인문대도서관","인문학연구소",
-            "해외지역연구센터","법학과","법학연구소","법률상담실",
-            "법학도서관","대경학술관",  "교육학과","영어교육과","일어교육과","수학교육과",
-            "교육대학원","사범대학부설교육연수원","교육연구원","중등교육연구센터","국어문화원","사범대학 실습동",
-            "학생식당","교직원식당","윤리교육과","국어교육과","일반사회교육과","역사교육과",
-            "지리교육과","유아교육과","체육교육과","산림환경자원학과",
-            "식품자원경제학과","농학과","응용생물학과","식품공학과","환경생명화학과","동물생명과학과",
-            "축산학과","원예학과","농생6호관","공작동","두레홀","누리홀",
-            "농대부속농장",  "경영학과","경영정보학과","국제통상학과","회계학과",
-            "산업경영학과","경영대학원","수의1호관","동물병원1","수의3호관",//"수의4호관"
+            "대학본부", "중앙도서관", "학생회관/인재개발원", "학술정보관/교육정보전산원",
+            "체육관", "GNU어린이집", "국제문화회관", "스포츠컴플렉스", "정문", "남문", "북문", "교양학관",
+            "창업보육센터", "남문운동장", "공동실험실습관", "BNIT산학협력관/약학대학", "국제어학원",
+            "컴퓨터과학관", "남명학관", "학군단", "고문헌도서관박물관", "예절교육원", "InformationCenter",
+            "야외공연장", "대운동장", "파워플랜트", "교직원테니스장", "산-송신탑",
+            "게스트하우스", "LG개척관", "기숙사 1동", "기숙사 6동", "기숙사 7동",
+            "기숙사 8동", "기숙사 9동", "기숙사 10동", "기숙사 11동", "아람관", "부설중학교", "부설고등학교",
+            "101동", "102동", "151동", "201동", "251동", "252동", "301동", "310동",
+            "302동", "303동", "예술관", "351동", "352동",
+            "353동", "354동", "401동", "402동", "403동", "404동", "405동",
+            "406동", "407동", "416동", "451동", "452동",
+            "453동", "454동", "455동", "456동", "457동",
+            "458동", "459동", "501동", "502동", "503동", "504동",
+            "505동", "남문동아리방", "농대카페테리아", "통학버스승강장", "도서관매점", "NH농협", "지진관측소",
+            "과학영재교육관", "남문주차장", "농대부속농장",
+            "식품영양학과", "의류학과", "국어국문학과", "독어독문학과", "러시아학과", "불어불문학과", "사학과", "영어영문학과",
+            "중어중문학과", "철학과", "한문학과", "민속무용학과", "인문대도서관", "인문학연구소",
+            "해외지역연구센터", "법학과", "법학연구소", "법률상담실",
+            "법학도서관", "대경학술관", "교육학과", "영어교육과", "일어교육과", "수학교육과",
+            "교육대학원", "사범대학부설교육연수원", "교육연구원", "중등교육연구센터", "국어문화원", "사범대학 실습동",
+            "학생식당", "교직원식당", "윤리교육과", "국어교육과", "일반사회교육과", "역사교육과",
+            "지리교육과", "유아교육과", "체육교육과", "산림환경자원학과",
+            "식품자원경제학과", "농학과", "응용생물학과", "식품공학과", "환경생명화학과", "동물생명과학과",
+            "축산학과", "원예학과", "농생6호관", "공작동", "두레홀", "누리홀",
+            "농대부속농장", "경영학과", "경영정보학과", "국제통상학과", "회계학과",
+            "산업경영학과", "경영대학원", "수의1호관", "동물병원1", "수의3호관",//"수의4호관"
             "동물병원2",
-            "경제학과","사회복지학과","사회학과","심리학과","정치외교학과",
-            "행정학과","행정대학원","사회과학연구원","총장실","교무처","학생처","기획처","사무국",
-            "대외협력본부","입학본부","대학원","도서관","매점","박물관(신설)",
-            "출판부","전산원","체육교육과","생활체육연구센터","농업생명공동실험실습관",
-            "원장실","파이오니어오디토리엄","일본문화연구센터","컴퓨터과학과","도서관학습과","제1열람실",
-            "제2열람실","학생상담센터","기록관","남명홀","경남문화연구원","경남문화연구센터","남명학연구소",
-            "국제지역연구원","통일평화연구센터","ROTC","박물관(중앙도서관)","고문헌도서관","예절교육원 본관",
-            "정문-InformationCenter","정도회","K.T.C","일레븐","화랑회","농업대학 실습동",
-            "청학","맥","FC BB","대금소리","팀레이지","V.E.C","점보","바로바로서비스센터","목공실",
-            "교직원테니스장","기숙사행정실","총동아리방","음악교육과","미술교육과","자연과학대학 학장실"
-            ,"자연과학대학 행정실","기숙사영어캠퍼스","기숙사 4동","기숙사 5동","기숙사 2동","산학협력단","공학연구원","교육연구원(다문화교육센터","기초과학연구소","농업생명과학연구원"
-            ,"사회과학연구원","약학연구소","여성연구소","인권사회발전연구소","EU연구소","국책사업단",
-            "약학대학","혁신연구실","장비실","식물배양실","제약실습공장","나노신소재공학부(고분자,생명화학)","고분자공학과","생명화학공학과","항공기부품기술연구소",
-            "기계공학부","공학교육혁신센터",
-            "수학과","정보통계학과","지구환경과학과","지질전시실","자생식물보존실습장및온실",
-            "생화학과","화학과","화학교육과",
-            "물리학과","미생물학과","생물학과","물리교육과","생물교육과",
-            "건축학과","도시공학과","토목공학과",
-            "반도체공학과","전기공학과","전자공학과","제어계측공학과",
-            "나노신소재공학부(금속재료,세라믹)","그린에너지융합연구소",
-            "공과대학 본부","융합과학기술대학원","토지주택대학원","어울마루","산업시스템공학부","산업공학과","산업정보공학과",
-            "건축공학과","기계항공정보융합공학부","항공우주 및 소프트웨어공학과",
-            "교육문화센터","인문대식당","평생교육원","남명학관","기숙사 3동","기숙사 관리동","영어 전용 강의동"
+            "경제학과", "사회복지학과", "사회학과", "심리학과", "정치외교학과",
+            "행정학과", "행정대학원", "사회과학연구원", "총장실", "교무처", "학생처", "기획처", "사무국",
+            "대외협력본부", "입학본부", "대학원", "도서관", "매점", "박물관(신설)",
+            "출판부", "전산원", "체육교육과", "생활체육연구센터", "농업생명공동실험실습관",
+            "원장실", "파이오니어오디토리엄", "일본문화연구센터", "컴퓨터과학과", "도서관학습과", "제1열람실",
+            "제2열람실", "학생상담센터", "기록관", "남명홀", "경남문화연구원", "경남문화연구센터", "남명학연구소",
+            "국제지역연구원", "통일평화연구센터", "ROTC", "박물관(중앙도서관)", "고문헌도서관", "예절교육원 본관",
+            "정문-InformationCenter", "정도회", "K.T.C", "일레븐", "화랑회", "농업대학 실습동",
+            "청학", "맥", "FC BB", "대금소리", "팀레이지", "V.E.C", "점보", "바로바로서비스센터", "목공실",
+            "교직원테니스장", "기숙사행정실", "총동아리방", "음악교육과", "미술교육과", "자연과학대학 학장실"
+            , "자연과학대학 행정실", "기숙사영어캠퍼스", "기숙사 4동", "기숙사 5동", "기숙사 2동", "산학협력단", "공학연구원", "교육연구원(다문화교육센터", "기초과학연구소", "농업생명과학연구원"
+            , "사회과학연구원", "약학연구소", "여성연구소", "인권사회발전연구소", "EU연구소", "국책사업단",
+            "약학대학", "혁신연구실", "장비실", "식물배양실", "제약실습공장", "나노신소재공학부(고분자,생명화학)", "고분자공학과", "생명화학공학과", "항공기부품기술연구소",
+            "기계공학부", "공학교육혁신센터",
+            "수학과", "정보통계학과", "지구환경과학과", "지질전시실", "자생식물보존실습장및온실",
+            "생화학과", "화학과", "화학교육과",
+            "물리학과", "미생물학과", "생물학과", "물리교육과", "생물교육과",
+            "건축학과", "도시공학과", "토목공학과",
+            "반도체공학과", "전기공학과", "전자공학과", "제어계측공학과",
+            "나노신소재공학부(금속재료,세라믹)", "그린에너지융합연구소",
+            "공과대학 본부", "융합과학기술대학원", "토지주택대학원", "어울마루", "산업시스템공학부", "산업공학과", "산업정보공학과",
+            "건축공학과", "기계항공정보융합공학부", "항공우주 및 소프트웨어공학과",
+            "교육문화센터", "인문대식당", "평생교육원", "남명학관", "기숙사 3동", "기숙사 관리동", "영어 전용 강의동"
     };
     Dataclass data2 = new Dataclass();
     public static String s = "";
-    public int num=0;
-    public String j="-1";
+    public int num = 0;
+    public String j = "-1";
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -85,23 +86,22 @@ public class SearchActivity extends AppCompatActivity {
         edit.setAdapter(new ArrayAdapter<String>(this,
                 android.R.layout.simple_dropdown_item_1line, items));
 
-        Button sbutton = (Button)findViewById(R.id.SearchButton);
+        Button sbutton = (Button) findViewById(R.id.SearchButton);
         sbutton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 s = edit.getText().toString();
                 value();
-                if(s.equals("")){
-                    Toast.makeText(getApplicationContext(),R.string.Search_Error,Toast.LENGTH_SHORT).show();
-                }else if(j.equals("-1")){
-                    Toast.makeText(getApplicationContext(),R.string.Search_Error,Toast.LENGTH_SHORT).show();
-                }
-                else{
-                    Toast.makeText(getApplicationContext(),s,Toast.LENGTH_SHORT).show();
-                    Intent intent = new Intent(getApplicationContext(),NaverMapActivity.class);
-                    intent.putExtra("num",j);
-                    intent.putExtra("return",2);
-                    s="";
+                if (s.equals("")) {
+                    Toast.makeText(getApplicationContext(), R.string.Search_Error, Toast.LENGTH_SHORT).show();
+                } else if (j.equals("-1")) {
+                    Toast.makeText(getApplicationContext(), R.string.Search_Error, Toast.LENGTH_SHORT).show();
+                } else {
+                    Toast.makeText(getApplicationContext(), s, Toast.LENGTH_SHORT).show();
+                    Intent intent = new Intent(getApplicationContext(), NaverMapActivity.class);
+                    intent.putExtra("num", j);
+                    intent.putExtra("return", 2);
+                    s = "";
                     finish();
                     startActivity(intent);
                 }
@@ -109,9 +109,9 @@ public class SearchActivity extends AppCompatActivity {
         });
     }
 
-    private void numbersearch(String input, int i){
+    private void numbersearch(String input, int i) {
         int s2 = Integer.parseInt(input);
-        if(data2.WholeList.get(i).id != 0) {
+        if (data2.WholeList.get(i).id != 0) {
             if (input.equals(String.valueOf(data2.WholeList.get(i).id))) {
                 j = data2.WholeList.get(i).NUM;
             }
@@ -120,19 +120,19 @@ public class SearchActivity extends AppCompatActivity {
 
     private String value() {
         for (int i = 0; i < num; i++) {
-            try{
-                numbersearch(s,i);
-            }catch (NumberFormatException e){
-                if (s.equals("101동")||s.equals("102동")||s.equals("151동")||s.equals("201동")||s.equals("251동")||s.equals("252동")||s.equals("301동")||s.equals(
-                        "302동")||s.equals("303동")||s.equals("351동")||s.equals("352동")||s.equals(
-                        "353동")||s.equals("354동")||s.equals("401동")||s.equals("402동")||s.equals("403동")||s.equals("404동")||s.equals("405동")||s.equals(
-                        "406동")||s.equals("407동")||s.equals("416동")||s.equals("451동")||s.equals("452동")||s.equals(
-                        "453동")||s.equals("454동")||s.equals("455동")||s.equals("456동")||s.equals("457동")||s.equals(
-                        "458동")||s.equals("459동")||s.equals("501동")||s.equals("502동")||s.equals("503동")||s.equals("504동")||s.equals(
-                        "505동")||s.equals("310동")){
+            try {
+                numbersearch(s, i);
+            } catch (NumberFormatException e) {
+                if (s.equals("101동") || s.equals("102동") || s.equals("151동") || s.equals("201동") || s.equals("251동") || s.equals("252동") || s.equals("301동") || s.equals(
+                        "302동") || s.equals("303동") || s.equals("351동") || s.equals("352동") || s.equals(
+                        "353동") || s.equals("354동") || s.equals("401동") || s.equals("402동") || s.equals("403동") || s.equals("404동") || s.equals("405동") || s.equals(
+                        "406동") || s.equals("407동") || s.equals("416동") || s.equals("451동") || s.equals("452동") || s.equals(
+                        "453동") || s.equals("454동") || s.equals("455동") || s.equals("456동") || s.equals("457동") || s.equals(
+                        "458동") || s.equals("459동") || s.equals("501동") || s.equals("502동") || s.equals("503동") || s.equals("504동") || s.equals(
+                        "505동") || s.equals("310동")) {
                     int a = s.indexOf('동');
-                    String s2 = s.substring(0,a);
-                    numbersearch(s2,i);
+                    String s2 = s.substring(0, a);
+                    numbersearch(s2, i);
                 } else if (s.equals("공과대학 본부") || s.equals("융합과학기술대학원") || s.equals("토지주택대학원") || s.equals("어울마루") || s.equals("산업정보공학과") || s.equals("산업공학과") || s.equals("산업시스템공학부")) {
                     j = "0"; //401
                 } else if (s.equals("나노신소재공학부(금속재료,세라믹)") || s.equals("그린에너지융합연구소")) {
@@ -173,7 +173,7 @@ public class SearchActivity extends AppCompatActivity {
                     j = "18"; //301
                 } else if (s.equals("사범대학 실습동")) {
                     j = "19"; //302
-                } else if (s.equals("학생식당") || s.equals("교직원식당")|| s.equals("교육문화센터")|| s.equals("인문대식당")|| s.equals("평생교육원")) {
+                } else if (s.equals("학생식당") || s.equals("교직원식당") || s.equals("교육문화센터") || s.equals("인문대식당") || s.equals("평생교육원")) {
                     j = "20"; //303
                 } else if (s.equals("윤리교육과") || s.equals("국어교육과") || s.equals("일반사회교육과") || s.equals("역사교육과") || s.equals("지리교육과") || s.equals("유아교육과") || s.equals("체육교육과")) {
                     j = "21"; //303
@@ -217,7 +217,7 @@ public class SearchActivity extends AppCompatActivity {
                     j = "40"; //151동
                 } else if (s.equals("총장실") || s.equals("교무처") || s.equals("학생처") || s.equals("기획처") || s.equals("사무국") || s.equals("대외협력본부") || s.equals("입학본부") || s.equals("대학원")) {
                     j = "41"; //1동
-                } else if (s.equals("도서관") || s.equals("박물관") || s.equals("매점")||s.equals("도서관매점")) {
+                } else if (s.equals("도서관") || s.equals("박물관") || s.equals("매점") || s.equals("도서관매점")) {
                     j = "42"; //2
                 } else if (s.equals("학생회관") || s.equals("인재개발원")) {
                     j = "43"; //3
@@ -318,11 +318,13 @@ public class SearchActivity extends AppCompatActivity {
                 }
 
             }
-        }return j;
+        }
+        return j;
     }
+
     @Override
     public boolean onKeyDown(int keyCode, android.view.KeyEvent event) {
-        if (keyCode == android.view.KeyEvent.KEYCODE_BACK){
+        if (keyCode == android.view.KeyEvent.KEYCODE_BACK) {
             Context ctx;
             ctx = this;
             startActivity(new Intent(ctx, MenuActivity.class));
@@ -330,5 +332,4 @@ public class SearchActivity extends AppCompatActivity {
         }
         return false;
     }
-
 }

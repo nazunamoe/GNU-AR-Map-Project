@@ -9,7 +9,6 @@ import android.net.Uri;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
-import android.view.ContextThemeWrapper;
 import android.view.View;
 import android.widget.Toast;
 
@@ -24,14 +23,11 @@ import com.nhn.android.maps.overlay.NMapPOIitem;
 import com.nhn.android.mapviewer.overlay.NMapOverlayManager;
 import com.nhn.android.mapviewer.overlay.NMapPOIdataOverlay;
 
-import java.util.Set;
-
-
 /**
  * 네이버 지도에 찍어줄 마커를 관리하는 클래스
  */
 
-public class NaverMapMarker extends AppCompatActivity{
+public class NaverMapMarker extends AppCompatActivity {
     private int markerId = NMapPOIflagType.PIN;
     private int currentMarker = NMapPOIflagType.SPOT;
     private Context context;
@@ -41,7 +37,8 @@ public class NaverMapMarker extends AppCompatActivity{
     private Dataclass dataclass = new Dataclass();
     public State state = State.getInstance();
     private NGeoPoint current;
-    public NaverMapMarker(Context context, NGeoPoint current){
+
+    public NaverMapMarker(Context context, NGeoPoint current) {
         this.context = context;
         this.current = current;
     }
@@ -50,8 +47,8 @@ public class NaverMapMarker extends AppCompatActivity{
         int d = dataclass.getSize();
         poiData = new NMapPOIdata(d, NaverMapActivity.mMapViewerResourceProvider, true);
         poiData.beginPOIdata(d);
-        for(int i = 0; i< dataclass.getSize(); i++) {
-            poiData.addPOIitem(new NGeoPoint(dataclass.getData(i).getLongitude(), dataclass.getData(i).getLatitude()), dataclass.getData(i).getTitle(),markerId,0);
+        for (int i = 0; i < dataclass.getSize(); i++) {
+            poiData.addPOIitem(new NGeoPoint(dataclass.getData(i).getLongitude(), dataclass.getData(i).getLatitude()), dataclass.getData(i).getTitle(), markerId, 0);
         }
         poiData.endPOIdata();
         poiDataOverlay1 = NaverMapActivity.mOverlayManager.createPOIdataOverlay(poiData, null);
@@ -65,23 +62,22 @@ public class NaverMapMarker extends AppCompatActivity{
             if (NaverMapActivity.DEBUG) {
                 Log.i(NaverMapActivity.LOG_TAG, "onCalloutClick: title=" + item.getTitle() + item.getTitle());
             }
-            final AlertDialog.Builder ad = new AlertDialog.Builder(context,R.style.AlertDialogTheme);
+            final AlertDialog.Builder ad = new AlertDialog.Builder(context, R.style.AlertDialogTheme);
             ad.setTitle(item.getTitle());
             ad.setTitle(item.getTitle());
             ad.setItems(menus, new DialogInterface.OnClickListener() {
                 @Override
                 public void onClick(DialogInterface dialog, int which) {
-                    if(which == 0){
-                        Intent in = new Intent(Intent.ACTION_VIEW, Uri.parse(makeURL(current,"current",point,title)));
-                        try{
-                           context.startActivity(in);
-                        }catch (ActivityNotFoundException e){
+                    if (which == 0) {
+                        Intent in = new Intent(Intent.ACTION_VIEW, Uri.parse(makeURL(current, "current", point, title)));
+                        try {
+                            context.startActivity(in);
+                        } catch (ActivityNotFoundException e) {
                             Toast.makeText(context, R.string.kakaomaperror, Toast.LENGTH_SHORT).show();
                             in = new Intent(Intent.ACTION_VIEW, Uri.parse("market://details?id=net.daum.android.map"));
                             context.startActivity(in);
                         }
-                    }
-                    else if(which == 1){
+                    } else if (which == 1) {
                         String url = dataclass.getMarkerviaTitle(title).getURL();
                         url = url.substring(8);
                         Intent in = new Intent(Intent.ACTION_VIEW, Uri.parse(url));
@@ -89,27 +85,27 @@ public class NaverMapMarker extends AppCompatActivity{
                     }
                 }
             });
-            ad.setNegativeButton(R.string.negetive,null);
+            ad.setNegativeButton(R.string.negetive, null);
             ad.show();
         }
 
-        private String makeURL(NGeoPoint start, String starttitle, NGeoPoint end, String endtitle){
+        private String makeURL(NGeoPoint start, String starttitle, NGeoPoint end, String endtitle) {
             String result = "";
-            switch(state.api){
-                case 0:{ //네이버
-                   result = "https://m.map.naver.com/directions/?menu=route&sname="+starttitle+"&sx="+start.getLongitude()+"&sy="+start.getLatitude()+"&ename"+endtitle+"&ex="+end.getLongitude()+"&ey="+end.getLatitude()+"&pathType=0&showMap=true";
+            switch (state.api) {
+                case 0: { //네이버
+                    result = "https://m.map.naver.com/directions/?menu=route&sname=" + starttitle + "&sx=" + start.getLongitude() + "&sy=" + start.getLatitude() + "&ename" + endtitle + "&ex=" + end.getLongitude() + "&ey=" + end.getLatitude() + "&pathType=0&showMap=true";
                     break;
                 }
-                case 1:{ //카카오앱
-                    result = "daummaps://route?sp="+start.getLatitude()+","+start.getLongitude()+"&ep="+end.getLatitude()+","+end.getLongitude()+"&by=FOOT"; // 다음 길찾기 앱 api
+                case 1: { //카카오앱
+                    result = "daummaps://route?sp=" + start.getLatitude() + "," + start.getLongitude() + "&ep=" + end.getLatitude() + "," + end.getLongitude() + "&by=FOOT"; // 다음 길찾기 앱 api
                     break;
                 }
-                case 2:{ //카카오웹
-                    result = "http://map.daum.net/link/to/"+endtitle+","+end.getLatitude()+","+end.getLongitude();  // 다음 길찾기 웹 api
+                case 2: { //카카오웹
+                    result = "http://map.daum.net/link/to/" + endtitle + "," + end.getLatitude() + "," + end.getLongitude();  // 다음 길찾기 웹 api
                     break;
-                } 
-                default :{
-                    result = "https://m.map.naver.com/directions/?menu=route&sname="+starttitle+"&sx="+start.getLongitude()+"&sy="+start.getLatitude()+"&ename"+endtitle+"&ex="+end.getLongitude()+"&ey="+end.getLatitude()+"&pathType=0&showMap=true";
+                }
+                default: {
+                    result = "https://m.map.naver.com/directions/?menu=route&sname=" + starttitle + "&sx=" + start.getLongitude() + "&sy=" + start.getLatitude() + "&ename" + endtitle + "&ex=" + end.getLongitude() + "&ey=" + end.getLatitude() + "&pathType=0&showMap=true";
                 }
             }
             return result;
@@ -127,7 +123,7 @@ public class NaverMapMarker extends AppCompatActivity{
             }
         }
     };
-    final String[] menus = new String[]{"길찾기","건물 정보"};
+    final String[] menus = new String[]{"길찾기", "건물 정보"};
     private final NMapOverlayManager.OnCalloutOverlayViewListener onCalloutOverlayViewListener = new NMapOverlayManager.OnCalloutOverlayViewListener() {
 
         @Override
@@ -146,26 +142,26 @@ public class NaverMapMarker extends AppCompatActivity{
 
     };
 
-    public void CurrentLocation(Double longitude, Double latitude, Context ctx, int first){
+    public void CurrentLocation(Double longitude, Double latitude, Context ctx, int first) {
         NMapPOIdata poiData = new NMapPOIdata(1, NaverMapActivity.mMapViewerResourceProvider, true);
-        if(first == 0){
-            poiData.addPOIitem(new NGeoPoint(longitude,latitude),ctx.getString(R.string.My_location),currentMarker,0);
+        if (first == 0) {
+            poiData.addPOIitem(new NGeoPoint(longitude, latitude), ctx.getString(R.string.My_location), currentMarker, 0);
             poiData.endPOIdata();
             poiDataOverlay = NaverMapActivity.mOverlayManager.createPOIdataOverlay(poiData, null);
             poiDataOverlay.setOnStateChangeListener(onPOIdataStateChangeListener);
-        }else{
+        } else {
             poiDataOverlay.removeAllPOIdata();
-            this.CurrentLocation(longitude,latitude,ctx,0);
+            this.CurrentLocation(longitude, latitude, ctx, 0);
         }
     }
 
-    public void Searching(int num){
+    public void Searching(int num) {
         int d = dataclass.getWholeSize();
         NMapPOIdata poiData = new NMapPOIdata(d, NaverMapActivity.mMapViewerResourceProvider, true);
         poiData.beginPOIdata(d);
         String number = Integer.toString(num);
         SocialMarker marker = dataclass.getMarker(number);
-        poiData.addPOIitem(new NGeoPoint(marker.getLongitude(), marker.getLatitude()), marker.getTitle() ,markerId, 0);
+        poiData.addPOIitem(new NGeoPoint(marker.getLongitude(), marker.getLatitude()), marker.getTitle(), markerId, 0);
         state.marker = marker;
         poiData.endPOIdata();
         poiDataOverlay = NaverMapActivity.mOverlayManager.createPOIdataOverlay(poiData, null);

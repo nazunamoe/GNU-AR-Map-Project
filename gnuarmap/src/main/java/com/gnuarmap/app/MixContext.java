@@ -31,113 +31,113 @@ import android.widget.Toast;
 
 /**
  * Cares about location management and about the data (source, inputstream)
- *
  */
 public class MixContext extends ContextWrapper implements MixContextInterface {
 
-	// TAG for logging
-	public static final String TAG = "Mixare";
+    // TAG for logging
+    public static final String TAG = "Mixare";
 
-	private MixView mixView;
+    private MixView mixView;
 
-	private Matrix rotationM = new Matrix();
+    private Matrix rotationM = new Matrix();
 
-	/** Responsible for all location tasks */
-	private Location.LocationFinder locationFinder;
+    /**
+     * Responsible for all location tasks
+     */
+    private Location.LocationFinder locationFinder;
 
-	public MixContext(MixView appCtx) {
-		super(appCtx);
-		mixView = appCtx;
-		getLocationFinder().switchOn();
-		getLocationFinder().findLocation();
-	}
+    public MixContext(MixView appCtx) {
+        super(appCtx);
+        mixView = appCtx;
+        getLocationFinder().switchOn();
+        getLocationFinder().findLocation();
+    }
 
-	public String getStartUrl() {
-		Intent intent = ((Activity) getActualMixView()).getIntent();
-		if (intent.getAction() != null
-				&& intent.getAction().equals(Intent.ACTION_VIEW)) {
-			return intent.getData().toString();
-		} else {
-			return "";
-		}
-	}
+    public String getStartUrl() {
+        Intent intent = ((Activity) getActualMixView()).getIntent();
+        if (intent.getAction() != null
+                && intent.getAction().equals(Intent.ACTION_VIEW)) {
+            return intent.getData().toString();
+        } else {
+            return "";
+        }
+    }
 
-	public void getRM(Matrix dest) {
-		synchronized (rotationM) {
-			dest.set(rotationM);
-		}
-	}
+    public void getRM(Matrix dest) {
+        synchronized (rotationM) {
+            dest.set(rotationM);
+        }
+    }
 
-	public void MarkerMenu(Marker marker){
-		Context ctx;
-		ctx=this;
-		Intent intent;
-		intent = new Intent(ctx, NaverMapActivity.class);
-		intent.putExtra("Return", "True");
-		intent.putExtra("set", "True");
-		intent.putExtra("num", marker.getNum());
+    public void MarkerMenu(Marker marker) {
+        Context ctx;
+        ctx = this;
+        Intent intent;
+        intent = new Intent(ctx, NaverMapActivity.class);
+        intent.putExtra("Return", "True");
+        intent.putExtra("set", "True");
+        intent.putExtra("num", marker.getNum());
 
-		startActivity(intent);
-	}
+        startActivity(intent);
+    }
 
-	/**
-	 * Shows a webpage with the given url when clicked on a marker.
-	 */
-	public void loadMixViewWebPage(String url) throws Exception {
-	}
+    /**
+     * Shows a webpage with the given url when clicked on a marker.
+     */
+    public void loadMixViewWebPage(String url) throws Exception {
+    }
 
-	public void doResume(MixView mixView) {
-		setActualMixView(mixView);
-	}
+    public void doResume(MixView mixView) {
+        setActualMixView(mixView);
+    }
 
-	public void updateSmoothRotation(Matrix smoothR) {
-		synchronized (rotationM) {
-			rotationM.set(smoothR);
-		}
-	}
+    public void updateSmoothRotation(Matrix smoothR) {
+        synchronized (rotationM) {
+            rotationM.set(smoothR);
+        }
+    }
 
 
-	public Location.LocationFinder getLocationFinder() {
-		if (this.locationFinder == null) {
-			locationFinder = Location.LocationFinderFactory.makeLocationFinder(this);
-		}
-		return locationFinder;
-	}
+    public Location.LocationFinder getLocationFinder() {
+        if (this.locationFinder == null) {
+            locationFinder = Location.LocationFinderFactory.makeLocationFinder(this);
+        }
+        return locationFinder;
+    }
 
-	public MixView getActualMixView() {
-		synchronized (mixView) {
-			return this.mixView;
-		}
-	}
+    public MixView getActualMixView() {
+        synchronized (mixView) {
+            return this.mixView;
+        }
+    }
 
-	private void setActualMixView(MixView mv) {
-		synchronized (mixView) {
-			this.mixView = mv;
-		}
-	}
+    private void setActualMixView(MixView mv) {
+        synchronized (mixView) {
+            this.mixView = mv;
+        }
+    }
 
-	public ContentResolver getContentResolver() {
-		ContentResolver out = super.getContentResolver();
-		if (super.getContentResolver() == null) {
-			out = getActualMixView().getContentResolver();
-		}
-		return out;
-	}
-	
-	/**
-	 * Toast POPUP notification
-	 * 
-	 * @param string message
-	 */
-	public void doPopUp(final String string){
-       Toast.makeText(this,string,Toast.LENGTH_LONG).show();
-	}
+    public ContentResolver getContentResolver() {
+        ContentResolver out = super.getContentResolver();
+        if (super.getContentResolver() == null) {
+            out = getActualMixView().getContentResolver();
+        }
+        return out;
+    }
 
-	/**
-	 * Toast POPUP notification
-	 *
-	 */
-	public void doPopUp(int RidOfString) {
+    /**
+     * Toast POPUP notification
+     *
+     * @param string message
+     */
+    public void doPopUp(final String string) {
+        Toast.makeText(this, string, Toast.LENGTH_LONG).show();
+    }
+
+    /**
+     * Toast POPUP notification
+     */
+    public void doPopUp(int RidOfString) {
         doPopUp(this.getString(RidOfString));
-	}
+    }
 }

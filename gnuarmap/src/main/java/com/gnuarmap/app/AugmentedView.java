@@ -1,9 +1,5 @@
 package com.gnuarmap.app;
 
-/**
- * Created by nazunamoe on 2017-12-03.
- */
-
 import android.content.Context;
 import android.graphics.Canvas;
 import android.graphics.Color;
@@ -13,7 +9,7 @@ import android.view.View;
 
 /**
  * @author daniele
- * 증강현실을 관리하는 클래스
+ *         증강현실을 관리하는 클래스
  */
 
 public class AugmentedView extends View {
@@ -48,7 +44,7 @@ public class AugmentedView extends View {
             if (app.isZoombarVisible()) {
                 zoomPaint.setColor(Color.WHITE);
                 zoomPaint.setTextSize(14);
-                String startKM, endKM ;
+                String startKM, endKM;
                 startKM = "200m";
                 endKM = "800m";
 
@@ -65,7 +61,7 @@ public class AugmentedView extends View {
                 canvas.drawText(app.getZoomLevel(), (canvas.getWidth()) / 100
                         * zoomProgress + 20, height, zoomPaint);
             }
-            Log.d("debug","draw");
+            Log.d("debug", "draw");
             MixView.getDataView().draw(MixView.getdWindow());
         } catch (Exception ex) {
             app.doError(ex);

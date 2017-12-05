@@ -68,11 +68,11 @@ public class MenuActivity extends AppCompatActivity implements AdapterView.OnIte
                 if (gpsCheck == PackageManager.PERMISSION_DENIED) {
                     Toast.makeText(getApplicationContext(), R.string.permission_rejected, Toast.LENGTH_SHORT).show();
                 } else if (gpsCheck == PackageManager.PERMISSION_GRANTED) {
-                    try{
+                    try {
                         double d = currentGPSInfo.getAltitude();
                         startActivity(new Intent(ctx, MixView.class));
                         finish();
-                    }catch(NullPointerException e){
+                    } catch (NullPointerException e) {
                         Toast.makeText(getApplicationContext(), R.string.GPSerror, Toast.LENGTH_SHORT).show();
                     }
                     startActivity(new Intent(ctx, MixView.class));
@@ -90,13 +90,13 @@ public class MenuActivity extends AppCompatActivity implements AdapterView.OnIte
                     if (current.isProviderEnabled(GPS_PROVIDER)) {
                         currentGPSInfo = current.getLastKnownLocation(GPS_PROVIDER);
                     }
-                    try{
+                    try {
                         double d = currentGPSInfo.getAltitude();
                         Intent intent = new Intent(ctx, NaverMapActivity.class);
                         intent.putExtra("return", 0);
                         startActivity(intent);
                         finish();
-                    }catch(NullPointerException e){
+                    } catch (NullPointerException e) {
                         Toast.makeText(getApplicationContext(), R.string.GPSerror, Toast.LENGTH_SHORT).show();
                     }
                 }
@@ -144,7 +144,7 @@ public class MenuActivity extends AppCompatActivity implements AdapterView.OnIte
             case 7: { // 현재 위치
                 LocationManager current = (LocationManager) getSystemService(Context.LOCATION_SERVICE);
                 try {
-                    try{
+                    try {
                         Location currentGPSInfo = current.getLastKnownLocation(NETWORK_PROVIDER);
                         if (current.isProviderEnabled(GPS_PROVIDER)) {
                             currentGPSInfo = current.getLastKnownLocation(GPS_PROVIDER);
@@ -171,7 +171,7 @@ public class MenuActivity extends AppCompatActivity implements AdapterView.OnIte
                         AlertDialog alert = builder.create();
                         alert.setTitle(getString(R.string.general_info_title));
                         alert.show();
-                    }catch(NullPointerException e){
+                    } catch (NullPointerException e) {
                         Toast.makeText(getApplicationContext(), R.string.GPSerror, Toast.LENGTH_SHORT).show();
                     }
                 } catch (SecurityException e) {

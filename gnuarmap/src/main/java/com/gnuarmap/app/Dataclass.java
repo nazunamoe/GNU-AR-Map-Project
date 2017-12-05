@@ -3,7 +3,6 @@ package com.gnuarmap.app;
 import android.content.res.Resources;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
-import android.util.Log;
 
 import com.gnuarmap.R;
 
@@ -214,22 +213,6 @@ public class Dataclass {
         // 건물 필터링, 이 다음에 2차 필터링도 넣어야 함.
     }
 
-    public String[] vending = {"vending"};
-    public String[] printer = {"printer"};
-    public String[] cvs = {"cvs"};
-    public String[] atm = {"atm"};
-
-    public String[] printer_cvs = {"printer", "cvs"};
-    public String[] printer_atm = {"printer", "atm"};
-    public String[] vending_atm = {"vending", "atm"};
-    public String[] vending_printer = {"vending", "printer"};
-    public String[] cvs_atm = {"cvs", "atm"};
-
-    public String[] vending_cvs_atm = {"vending", "cvs", "atm"};
-    public String[] printer_cvs_atm = {"printer", "cvs", "atm"};
-
-    public String[] nothing = {};
-
     private void secondFiltering(String num, Double Latitude, Double Longitude, String url, int value, String type, String name, String[] Filtering2, int ID) {
 
         if (state.All) {
@@ -291,7 +274,6 @@ public class Dataclass {
         }
     }
 
-
     private void addMarker(String num, Double Latitude, Double Longitude, String url, int value, String type, String name, int ID) {
         SocialMarker item = new SocialMarker(
                 num,
@@ -308,7 +290,6 @@ public class Dataclass {
                 ID);
         List.add(item);
     }
-
 
     public static void createIcons(Resources res) {
         agriculture = BitmapFactory.decodeResource(res, R.drawable.icon_agriculture);
@@ -371,7 +352,6 @@ public class Dataclass {
         }
     }
 
-
     public SocialMarker getMarker(String no) {
         int b = 0;
 
@@ -407,12 +387,13 @@ public class Dataclass {
         return List.get(index).filter2;
     }
 
-    public SocialMarker getMarkerviaTitle(String title){
+    public SocialMarker getMarkerviaTitle(String title) {
         SocialMarker marker = null;
-        for(int a=0; a<WholeList.size(); a++){
-            if(WholeList.get(a).title.equals(title)) {
+        for (int a = 0; a < WholeList.size(); a++) {
+            if (WholeList.get(a).title.equals(title)) {
                 marker = WholeList.get(a);
             }
-        }return marker;
+        }
+        return marker;
     }
 }

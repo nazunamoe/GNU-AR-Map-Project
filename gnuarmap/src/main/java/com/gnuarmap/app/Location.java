@@ -16,7 +16,6 @@ import java.util.Timer;
 import java.util.TimerTask;
 
 /**
- * Created by nazunamoe on 2017-12-01.
  * 앱에서 사용되는 위치를 관리하는 클래스
  */
 
