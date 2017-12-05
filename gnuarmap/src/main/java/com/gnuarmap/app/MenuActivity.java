@@ -56,24 +56,23 @@ public class MenuActivity extends AppCompatActivity implements AdapterView.OnIte
         Context ctx;
         int gpsCheck = ContextCompat.checkSelfPermission(this, Manifest.permission.ACCESS_FINE_LOCATION);
         int select = (int) parent.getItemIdAtPosition(position);
-
         switch (select) {
             case 0: { // AR 뷰
                 ctx = this;
-                LocationManager current = (LocationManager) getSystemService(Context.LOCATION_SERVICE);
-                Location currentGPSInfo = current.getLastKnownLocation(NETWORK_PROVIDER);
-                if (current.isProviderEnabled(GPS_PROVIDER)) {
-                    currentGPSInfo = current.getLastKnownLocation(GPS_PROVIDER);
-                }
                 if (gpsCheck == PackageManager.PERMISSION_DENIED) {
                     Toast.makeText(getApplicationContext(), R.string.permission_rejected, Toast.LENGTH_SHORT).show();
                 } else if (gpsCheck == PackageManager.PERMISSION_GRANTED) {
-                    try{
+                    try {
+                        LocationManager current = (LocationManager) getSystemService(Context.LOCATION_SERVICE);
+                        Location currentGPSInfo = current.getLastKnownLocation(NETWORK_PROVIDER);
+                        while(currentGPSInfo == null){
+                            currentGPSInfo = current.getLastKnownLocation(NETWORK_PROVIDER);
+                        }
                         double d = currentGPSInfo.getAltitude();
                         startActivity(new Intent(ctx, MixView.class));
                         finish();
-                    }catch(NullPointerException e){
-                        Toast.makeText(getApplicationContext(), R.string.GPSerror, Toast.LENGTH_SHORT).show();
+                    } catch (NullPointerException e) {
+                        //Toast.makeText(getApplicationContext(), currentGPSInfo.getProvider(), Toast.LENGTH_SHORT).show();
                     }
                     startActivity(new Intent(ctx, MixView.class));
                     finish();
@@ -87,16 +86,16 @@ public class MenuActivity extends AppCompatActivity implements AdapterView.OnIte
                 } else if (gpsCheck == PackageManager.PERMISSION_GRANTED) {
                     LocationManager current = (LocationManager) getSystemService(Context.LOCATION_SERVICE);
                     Location currentGPSInfo = current.getLastKnownLocation(NETWORK_PROVIDER);
-                    if (current.isProviderEnabled(GPS_PROVIDER)) {
-                        currentGPSInfo = current.getLastKnownLocation(GPS_PROVIDER);
+                    while(currentGPSInfo == null){
+                        currentGPSInfo = current.getLastKnownLocation(NETWORK_PROVIDER);
                     }
-                    try{
+                    try {
                         double d = currentGPSInfo.getAltitude();
                         Intent intent = new Intent(ctx, NaverMapActivity.class);
                         intent.putExtra("return", 0);
                         startActivity(intent);
                         finish();
-                    }catch(NullPointerException e){
+                    } catch (NullPointerException e) {
                         Toast.makeText(getApplicationContext(), R.string.GPSerror, Toast.LENGTH_SHORT).show();
                     }
                 }
@@ -144,10 +143,10 @@ public class MenuActivity extends AppCompatActivity implements AdapterView.OnIte
             case 7: { // 현재 위치
                 LocationManager current = (LocationManager) getSystemService(Context.LOCATION_SERVICE);
                 try {
-                    try{
+                    try {
                         Location currentGPSInfo = current.getLastKnownLocation(NETWORK_PROVIDER);
-                        if (current.isProviderEnabled(GPS_PROVIDER)) {
-                            currentGPSInfo = current.getLastKnownLocation(GPS_PROVIDER);
+                        while(currentGPSInfo == null){
+                            currentGPSInfo = current.getLastKnownLocation(NETWORK_PROVIDER);
                         }
                         AlertDialog.Builder builder = new AlertDialog.Builder(this);
                         builder.setMessage(getString(R.string.general_info_text) + "\n\n"
@@ -171,7 +170,7 @@ public class MenuActivity extends AppCompatActivity implements AdapterView.OnIte
                         AlertDialog alert = builder.create();
                         alert.setTitle(getString(R.string.general_info_title));
                         alert.show();
-                    }catch(NullPointerException e){
+                    } catch (NullPointerException e) {
                         Toast.makeText(getApplicationContext(), R.string.GPSerror, Toast.LENGTH_SHORT).show();
                     }
                 } catch (SecurityException e) {
@@ -198,7 +197,7 @@ public class MenuActivity extends AppCompatActivity implements AdapterView.OnIte
                 .setPermissions(Manifest.permission.CAMERA, Manifest.permission.ACCESS_FINE_LOCATION)
                 .check();
         ArrayAdapter adapter = ArrayAdapter.createFromResource(this, R.array.MenuList, android.R.layout.simple_list_item_1);
-        ListView listview = (ListView) findViewById(R.id.listview1);
+        ListView listview = findViewById(R.id.listview1);
         listview.setOnItemClickListener(this);
         listview.setAdapter(adapter);
     }
