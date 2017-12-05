@@ -30,13 +30,12 @@ public class Dataclass {
     private static Bitmap university;
     private static Bitmap humanities;
 
-    private String name;
-    private String url;
-
+    // 각 건물별 아이콘 선언
     public ArrayList<SocialMarker> WholeList = new ArrayList<SocialMarker>();
     public ArrayList<SocialMarker> List = new ArrayList<SocialMarker>();
     private String Filtering1;
     private String[] Filtering2;
+    public int a;
     State state = State.getInstance();
 
     public Dataclass() {

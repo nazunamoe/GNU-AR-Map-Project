@@ -38,9 +38,9 @@ public class NaverMapMarker extends AppCompatActivity{
     private static NMapPOIdata poiData;
     private static NMapPOIdataOverlay poiDataOverlay;
     private static NMapPOIdataOverlay poiDataOverlay1;
-    private Dataclass dataclass = new Dataclass();
+    public Dataclass dataclass = new Dataclass();
     public State state = State.getInstance();
-    private NGeoPoint current;
+    public NGeoPoint current;
     public NaverMapMarker(Context context, NGeoPoint current){
         this.context = context;
         this.current = current;
