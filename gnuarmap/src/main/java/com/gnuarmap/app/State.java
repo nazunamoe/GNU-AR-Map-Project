@@ -34,11 +34,11 @@ import org.mixare.lib.render.MixVector;
  */
 public class State implements MixStateInterface{
 
-	public NaverMapActivity navermap;
-
 	public SocialMarker marker;
 
 	private static State instance;
+
+	public int api;
 
 	// Global variable
 	public boolean Business;

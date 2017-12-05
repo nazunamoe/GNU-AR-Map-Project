@@ -5,17 +5,21 @@ import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
+import android.preference.ListPreference;
 import android.preference.Preference;
 import android.preference.PreferenceCategory;
 import android.preference.PreferenceFragment;
 import android.preference.PreferenceManager;
 import android.support.v7.app.AppCompatActivity;
+import android.util.Log;
 import android.view.KeyEvent;
 import android.support.v7.app.ActionBar;
 
 import com.gnuarmap.R;
 
-public class SettingsActivity extends AppCompatActivity implements SharedPreferences.OnSharedPreferenceChangeListener{
+import java.util.List;
+
+public class SettingsActivity extends AppCompatActivity implements SharedPreferences.OnSharedPreferenceChangeListener, Preference.OnPreferenceChangeListener{
 
     SharedPreferences sharedPref;
     SettingsFragment settings;
@@ -41,7 +45,6 @@ public class SettingsActivity extends AppCompatActivity implements SharedPrefere
         }*/
         actionBar.setTitle(R.string.title_activity_settings);
         PreferenceManager.setDefaultValues(this, R.xml.preference, false);
-
         sharedPref = PreferenceManager.getDefaultSharedPreferences(this);
         settings = new SettingsFragment();
         FragmentTransaction trans = getFragmentManager().beginTransaction();
@@ -58,12 +61,25 @@ public class SettingsActivity extends AppCompatActivity implements SharedPrefere
         }
     }
 
+    @Override
+    public boolean onPreferenceChange(Preference preference, Object newValue) {
+
+        return true;
+    }
+
     // 설정 값을 변경할 때 이벤트 처리를 담당한다.
     @Override
     public void onSharedPreferenceChanged(SharedPreferences sharedPreferences, String key) {
-
         SharedPreferences.Editor editor = sharedPreferences.edit();
-        if("Camera2".equals(key)) {
+        if("mapAPI".equals(key)){
+            if(sharedPreferences.getString("mapAPI",null).equals(getString(R.string.NaverWebAPI))){
+                state.api=0;
+            }else if(sharedPreferences.getString("mapAPI",null).equals(getString(R.string.KakaoAppAPI))){
+                state.api=1;
+            }else if(sharedPreferences.getString("mapAPI",null).equals(getString(R.string.KakaoWebAPI))){
+                state.api=2;
+            }
+        }else if("Camera2".equals(key)) {
             if (!sharedPreferences.getBoolean("Camera2", false)) {
                 state.Camera2 = false;
             } else if (sharedPreferences.getBoolean("Camera2", false)) {

@@ -133,6 +133,12 @@
     <string name="information">건물 홈페이지로 이동</string>
     <string name="negetive">취소</string>
 
+    <string name="NaverWebAPI">네이버 웹 API</string>
+    <string name="KakaoWebAPI">카카오 웹 API</string>
+    <string name="KakaoAppAPI">카카오 앱 API</string>
+
+    <string name="APISelect">길찾기 API</string>
+
     <string name="App_Version">1.1-r5</string>
 
 </resources>

@@ -104,6 +104,7 @@
             android:theme="@style/AppCompat2.noActionBar">
             <intent-filter>
                 <action android:name="android.intent.action.BROWSEABLE" />
+
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>

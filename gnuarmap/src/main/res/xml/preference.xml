@@ -1,6 +1,14 @@
 <?xml version="1.0" encoding="utf-8"?>
 <PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android">
  <!-- 설정 액티비티에 들어갈 요소 결정, -->
+ <PreferenceCategory android:title="Preference category">
+  <ListPreference
+      android:defaultValue="1"
+      android:entries="@array/MapAPI"
+      android:entryValues="@array/MapAPI"
+      android:key="mapAPI"
+      android:title="@string/APISelect" />
+ </PreferenceCategory>
  <PreferenceCategory
      android:title="@string/settings_drawer_arview_header"
      android:key="ar_view_setting">

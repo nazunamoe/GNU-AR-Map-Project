@@ -81,7 +81,6 @@ public class NaverMapActivity extends NMapActivity {
         }
         Intent intent = getIntent();
         name = intent.getStringExtra("num");
-        state.navermap = this;
         Toolbar toolbar = findViewById(R.id.toolbar);
         toolbar.setTitle(R.string.NaverMapTitle);
         toolbar.setTitleTextColor(0xFFFFFFFF);

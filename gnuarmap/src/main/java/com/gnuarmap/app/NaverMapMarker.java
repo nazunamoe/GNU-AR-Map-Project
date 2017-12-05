@@ -87,10 +87,24 @@ public class NaverMapMarker extends AppCompatActivity{
         }
 
         private String makeURL(NGeoPoint start, String starttitle, NGeoPoint end, String endtitle){
-            String result = "daummaps://route?sp="+start.getLatitude()+","+start.getLongitude()+"&ep="+end.getLatitude()+","+end.getLongitude()+"&by=FOOT"; // 다음 길찾기 앱 api
-            //String result = "http://map.daum.net/link/to/"+endtitle+","+end.getLatitude()+","+end.getLongitude();  // 다음 길찾기 웹 api
-            //String result = "https://m.map.naver.com/directions/?menu=route&sname="+starttitle+"&sx="+start.getLongitude()+"&sy="+start.getLatitude()+"&ename"+endtitle+"&ex="+end.getLongitude()+"&ey="+end.getLatitude()+"&pathType=0&showMap=true";
-            // 네이버 지도 웹 api
+            String result = "";
+            switch(state.api){
+                case 0:{ //네이버
+                   result = "https://m.map.naver.com/directions/?menu=route&sname="+starttitle+"&sx="+start.getLongitude()+"&sy="+start.getLatitude()+"&ename"+endtitle+"&ex="+end.getLongitude()+"&ey="+end.getLatitude()+"&pathType=0&showMap=true";
+                    break;
+                }
+                case 1:{ //카카오앱
+                    result = "daummaps://route?sp="+start.getLatitude()+","+start.getLongitude()+"&ep="+end.getLatitude()+","+end.getLongitude()+"&by=FOOT"; // 다음 길찾기 앱 api
+                    break;
+                }
+                case 2:{ //카카오웹
+                    result = "http://map.daum.net/link/to/"+endtitle+","+end.getLatitude()+","+end.getLongitude();  // 다음 길찾기 웹 api
+                    break;
+                }
+                default :{
+                    result = "https://m.map.naver.com/directions/?menu=route&sname="+starttitle+"&sx="+start.getLongitude()+"&sy="+start.getLatitude()+"&ename"+endtitle+"&ex="+end.getLongitude()+"&ey="+end.getLatitude()+"&pathType=0&showMap=true";
+                }
+            }
             return result;
         }
 

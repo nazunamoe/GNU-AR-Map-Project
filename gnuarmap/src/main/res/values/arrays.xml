@@ -10,4 +10,9 @@
         <item>@string/navigation_drawer_information</item>
         <item>@string/navigation_drawer_exit</item>
     </string-array>
+    <string-array name="MapAPI">
+        <item>@string/KakaoAppAPI</item>
+        <item>@string/KakaoWebAPI</item>
+        <item>@string/NaverWebAPI</item>
+    </string-array>
 </resources>

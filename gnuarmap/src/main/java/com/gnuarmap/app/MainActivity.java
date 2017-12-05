@@ -44,10 +44,17 @@ public class MainActivity extends AppCompatActivity{
                 setState(List[i],false);
             }
         }
+        if(sharedPref.getString(List[23],null).equals(getString(R.string.NaverWebAPI))){
+            state.api = 0;
+        }else if(sharedPref.getString(List[23],null).equals(getString(R.string.KakaoAppAPI))){
+            state.api = 1;
+        }else if(sharedPref.getString(List[23],null).equals(getString(R.string.KakaoWebAPI))){
+            state.api = 2;
+        }
     }
 
     public String[] List = {"Camera","MMapViewSet","MoreView","All","ATM","CVS","Vending","Printer","AllBuilding","Business","Engineering",
-            "Dormitory","ETC","Agriculture","University","Club","Door","Law","Education","Social","Veterinary","Leisure","Science"};
+            "Dormitory","ETC","Agriculture","University","Club","Door","Law","Education","Social","Veterinary","Leisure","Science","mapAPI"};
     public int ListSize = 23;
     // 초기화 해야할 세팅값 목록
 
