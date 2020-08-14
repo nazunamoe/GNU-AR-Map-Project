@@ -11,7 +11,7 @@ The purpose of this project is to provide easy map experience through augmented 
 
 
 ### Android API Info
-Minimum API 21 (Android 5.1)
+Minimum API 21 (Android 5.1)   
 Target API 27 (Android 8.1)
 
 
@@ -20,13 +20,13 @@ Map API based on open source augmented reality created by peer internet solution
 From : <https://github.com/mixare/mixare>
 
 ### Function
-1. Finding Buildings Using Augmented Reality
-2. Support for directions through Naver Map API and the three directions provided (external apps, web links)
-3. Search function by building name, department name, etc. 
-4. Double filtering through buildings and amenities
+1. Finding Buildings Using Augmented Reality   
+2. Support for directions through Naver Map API and the three directions provided (external apps, web links)   
+3. Search function by building name, department name, etc.    
+4. Double filtering through buildings and amenities   
 
 ### Used OpenSource
-1. Naver Map API : <https://navermaps.github.io/maps.js/>
+1. Naver Map API : <https://navermaps.github.io/maps.js/>   
 2. mixare
 
 ### Contact
