@@ -1,43 +1,35 @@
-경상대학교 증강현실 지도 프로젝트
+Gyeongsang National University Augmented Reality Map Project
 =============
-## 팀 옵저버 제작
+## Made by Team Observer
 
 
-### 개요
-본 프로젝트는 경상대학교 2017년 2학기 소프트웨어 개발론에 사용된 옵저버 팀의 프로젝트임
+### What's this?
+A project of the Observer Team, which was used in the software development theory for the second semester of 2017 at Gyeongsang National University.
 
-<br/>
+### Purpose
+The purpose of this project is to provide easy map experience through augmented reality features and filtering functions that are differentiated from existing map apps.
 
-### 목적
-본 프로젝트의 목적은 기존의 지도앱과는 차별화된 증강현실 기능, 필터링 기능과 길찾기 기능을 통한 간편한
-지도 경험 제공에 있음
 
-<br/>
+### Android API Info
+Minimum API 21 (Android 5.1)
+Target API 27 (Android 8.1)
 
-### API 정보
-최소 API 21 (안드로이드 5.1)<br/>
-타켓 API 27 (안드로이드 8.1)
 
-<br/>
+### About Mixare
+Map API based on open source augmented reality created by peer internet solution   
+From : <https://github.com/mixare/mixare>
 
-### 사용된 증강현실 오픈소스, mixare에 대하여
-peer internet solution에서 만든 오픈소스 증강현실 기반의 지도 API<br/>
- <https://github.com/mixare/mixare>
-<br/>
+### Function
+1. Finding Buildings Using Augmented Reality
+2. Support for directions through Naver Map API and the three directions provided (external apps, web links)
+3. Search function by building name, department name, etc. 
+4. Double filtering through buildings and amenities
 
-### 기능
-1. 증강현실을 이용한 간편한 건물 찾기
-2. 네이버 지도 API와 제공된 3가지의 길찾기 API를 통한 길찾기 지원 (외부 앱, 웹 연동)
-3. 건물 이름, 학과 이름 등을 통한 검색 기능 
-4. 건물, 편의 시설 2중 필터링
-<br/>
-
-### 사용된 오픈소스
-1. 네이버 지도 API
+### Used OpenSource
+1. Naver Map API : <https://navermaps.github.io/maps.js/>
 2. mixare
-<br/>
 
-### 문의
+### Contact
 <jpg3927@gmail.com>
 
 
